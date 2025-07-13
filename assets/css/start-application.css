@@ -442,6 +442,7 @@ body {
     }
 
     .application-card {
+        margin-top: 24px;
         padding: 40px 20px;
         border-radius: 16px;
     }
