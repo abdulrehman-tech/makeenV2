@@ -1,0 +1,2810 @@
+/* Custom styles for Makeen Programs section */
+.makeen-programs-section {
+  background: #f6f4fd url("../images/shapes/course-bg-1.png") no-repeat center top;
+  padding: 60px 0 40px 0;
+  position: relative;
+}
+
+.makeen-programs-section .section-title__tagline {
+  color: #7c6fa6;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.makeen-programs-section .section-title__title {
+  color: #6d4c97;
+  font-size: 2.3rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.programs-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 16px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.program-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(44, 34, 94, 0.08);
+  overflow: hidden;
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.program-card:hover {
+  box-shadow: 0 8px 32px 0 rgba(44, 34, 94, 0.16);
+  transform: translateY(-5px);
+}
+
+.program-card__img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  position: relative;
+}
+
+.program-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.8);
+  /* lighter, more transparent */
+  color: var(--eduact-base);
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 4px 14px;
+  z-index: 2;
+  box-shadow: none;
+}
+
+.program-card__body {
+  padding: 20px 20px 16px 20px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.program-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #3a2c6b;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.program-desc {
+  color: #7c6fa6;
+  font-size: 0.98rem;
+  margin-bottom: 16px;
+  min-height: 44px;
+  /* Limit to 2 lines with ellipsis */
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  line-height: 1.4 !important;
+  max-height: calc(1.4em * 2) !important; /* Fallback for non-webkit browsers */
+}
+
+.program-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.95rem;
+  color: #8b7bb7;
+  margin-bottom: 18px;
+  width: 100%;
+}
+
+.program-meta .meta-group {
+  display: flex;
+  gap: 18px;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.program-meta .meta-group:first-child {
+  justify-content: space-between;
+}
+
+.program-meta .meta-group:last-child {
+  justify-content: space-between;
+}
+
+.program-meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  flex: 1 1 45%;
+}
+
+.program-meta i {
+  color: #a08be0;
+  font-size: 1.1em;
+}
+
+.program-card__footer {
+  margin-top: auto;
+  padding-top: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.program-details-btn {
+  width: calc(100% - 12px);
+  margin: 0 6px 0 6px;
+  background: #fff;
+  color: #6d4c97;
+  border: 2px solid #e6e2fa;
+  border-radius: 8px;
+  padding: 11px 0;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: none;
+  outline: none;
+  display: block;
+}
+
+.program-details-btn:hover {
+  background: #f1edfa;
+  color: #6d4c97;
+  border: 2px solid #6d4c97;
+}
+
+.view-all-programs-btn {
+  display: block;
+  margin: 0 auto;
+  background: #6d4c97;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 38px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px 0 rgba(44, 34, 94, 0.1);
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.view-all-programs-btn:hover {
+  background: #4e3570;
+  color: #fff;
+}
+
+@media (max-width: 991px) {
+  .programs-grid {
+    gap: 16px 0;
+  }
+
+  .program-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 767px) {
+  .makeen-programs-section {
+    padding: 40px 0 20px 0;
+  }
+
+  .programs-grid {
+    flex-direction: column;
+    gap: 14px 0;
+  }
+
+  .program-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .program-details-btn {
+    width: 100%;
+    margin: 0;
+  }
+
+  .program-meta {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .program-meta .meta-group {
+    justify-content: flex-start !important;
+  }
+}
+
+.hero-banner__gradient-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: linear-gradient(90deg, #482d64 100%, #6f6093 0%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-banner > .container,
+.hero-banner > .hero-banner__border {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+[dir="rtl"] .makeen-programs-section,
+[dir="rtl"] .programs-content-section {
+  text-align: right;
+}
+
+[dir="rtl"] .programs-grid {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .program-card__body {
+  text-align: right;
+}
+
+[dir="rtl"] .program-meta {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .program-details-btn {
+  direction: rtl;
+}
+
+[dir="rtl"] .main-menu__right,
+[dir="rtl"] .main-menu__nav {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .main-menu__list {
+  text-align: right;
+}
+
+[dir="rtl"] .nav-link,
+[dir="rtl"] .main-menu__login {
+  text-align: right;
+}
+
+/* Language-specific font styles */
+/* Default English font */
+body, html {
+  font-family: "Open Sans", "Nunito Sans", "Arial", sans-serif;
+}
+
+/* RTL Language Specific Styles */
+.rtl-lang {
+  font-family: "Tajawal", "Open Sans", "Arial", sans-serif;
+}
+
+[dir="rtl"] {
+  font-family: "Tajawal", "Open Sans", "Arial", sans-serif;
+}
+
+/* Ensure all text elements use language-appropriate fonts */
+.rtl-lang *,
+[dir="rtl"] * {
+  font-family: inherit;
+}
+
+/* Override for English when not in RTL */
+body:not(.rtl-lang):not([dir="rtl"]) {
+  font-family: "Open Sans", "Nunito Sans", "Arial", sans-serif;
+}
+
+body:not(.rtl-lang):not([dir="rtl"]) * {
+  font-family: inherit;
+}
+
+/* Specific font rules for key elements */
+h1, h2, h3, h4, h5, h6,
+.program-title,
+.program-desc,
+.program-details-btn,
+.banner-one__title,
+.banner-one__text,
+.main-menu__list,
+.pagination {
+  font-family: inherit;
+}
+
+/* English-specific styling for headings */
+body:not(.rtl-lang):not([dir="rtl"]) h1,
+body:not(.rtl-lang):not([dir="rtl"]) h2,
+body:not(.rtl-lang):not([dir="rtl"]) h3,
+body:not(.rtl-lang):not([dir="rtl"]) h4,
+body:not(.rtl-lang):not([dir="rtl"]) h5,
+body:not(.rtl-lang):not([dir="rtl"]) h6 {
+  font-family: "Open Sans", "Nunito Sans", "Arial", sans-serif;
+  font-weight: bold;
+}
+
+/* Arabic-specific styling for headings */
+.rtl-lang h1, .rtl-lang h2, .rtl-lang h3, .rtl-lang h4, .rtl-lang h5, .rtl-lang h6,
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+  font-family: "Tajawal", "Open Sans", "Arial", sans-serif;
+  font-weight: 700;
+}
+
+/* Make Programs Catalog title bold */
+.banner-one__title {
+  font-weight: 700 !important;
+}
+
+.rtl-lang .main-menu__list {
+  flex-direction: row-reverse;
+}
+
+.rtl-lang .main-menu__right {
+  flex-direction: row-reverse;
+}
+
+.rtl-lang .hero-banner__content {
+  text-align: right;
+}
+
+.rtl-lang .section-title {
+  text-align: right;
+}
+
+.rtl-lang .section-title.text-center {
+  text-align: center;
+}
+
+.rtl-lang .service-one__item {
+  text-align: right;
+}
+
+.rtl-lang .about-one__content {
+  text-align: right;
+}
+
+.rtl-lang .program-card__body {
+  text-align: right;
+}
+
+.rtl-lang .program-meta {
+  direction: rtl;
+}
+
+.rtl-lang .main-footer__about {
+  text-align: right;
+}
+
+.rtl-lang .main-footer__newsletter {
+  text-align: right;
+}
+
+.rtl-lang .main-footer__info-list {
+  text-align: right;
+}
+
+.rtl-lang .copyright__text {
+  text-align: center;
+  direction: rtl;
+}
+
+/* Improve Arabic text rendering */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .text-center {
+  text-align: center !important;
+}
+
+/* Removed conflicting rule - now handled more specifically below */
+
+[dir="rtl"] .programs-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .program-card {
+  direction: ltr;
+}
+
+[dir="rtl"] .program-card__body {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .program-meta .meta-group {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+[dir="rtl"] .counter-one__left {
+  text-align: right;
+}
+
+[dir="rtl"] .counter-one__title {
+  text-align: center;
+}
+
+/* Fix button alignment in RTL */
+[dir="rtl"] .eduact-btn {
+  direction: ltr;
+}
+
+[dir="rtl"] .program-details-btn {
+  direction: ltr;
+}
+
+/* Add more as needed for custom sections */
+
+/* ===================================
+   LANGUAGE SWITCHER FIXES
+   ===================================*/
+
+/* Prevent scroll issues during language switching */
+.language-switcher {
+  list-style: none;
+  display: inline-block;
+  margin-left: 10px;
+  color: white;
+}
+
+.language-switcher .nav-link {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  /* Prevent any accidental text selection */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.language-switcher .nav-link:hover {
+  color: #f1c40f;
+  text-decoration: none;
+}
+
+.language-switcher .nav-link:focus {
+  outline: none;
+  color: #f1c40f;
+}
+
+/* Ensure language switcher works properly in sticky header */
+.stricky-fixed .language-switcher .nav-link {
+  color: inherit;
+}
+
+.stricky-fixed .language-switcher .nav-link:hover {
+  color: #f1c40f;
+}
+
+/* Prevent any scroll-to-top behavior from hash links */
+a[href="#"] {
+  cursor: pointer;
+}
+
+/* Smooth transitions during language switching */
+html {
+  scroll-behavior: auto !important; /* Override smooth scrolling during language switch */
+}
+
+/* Prevent any unwanted scrolling during language transitions */
+html.lang-switching {
+  overflow-x: hidden;
+}
+
+/* RTL specific fixes for language switcher */
+[dir="rtl"] .language-switcher {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+/* Ensure sticky header language switcher positioning */
+.sticky-header__content .language-switcher {
+  display: inline-block;
+}
+
+/* Additional safety for any elements that might cause scroll */
+.main-menu a[href="javascript:void(0);"],
+.sticky-header__content a[href="javascript:void(0);"] {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Inline styles cleanup */
+.preloader__image {
+  background-image: url("../images/favicons/makeen_fav_ico.png");
+}
+
+.hero-banner {
+  background-image: url("../images/shapes/banner-bg-1.png");
+}
+
+.service-one__bg {
+  background-image: url("../images/shapes/service-bg-1.png");
+}
+
+.category-one {
+  background-image: url("../images/shapes/category-bg-1.jpg");
+}
+
+.category-one__wrapper {
+  background-image: url("../images/shapes/category-shape.png");
+}
+
+.category-one__title {
+  color: white;
+}
+
+.counter-one {
+  background-image: url("../images/shapes/counter-bg-1.jpg");
+}
+
+.cta-one__bg {
+  background-image: url("../images/shapes/cta-bg-1.jpg");
+}
+
+.cta-one__thumb__area__shape {
+  background-image: url("../images/shapes/cta-shape-1.png");
+}
+
+.main-footer__bg {
+  background-image: url("../images/shapes/footer-bg-1.png");
+}
+
+/* ===================================
+   TESTIMONIAL CUSTOM STYLING
+   ===================================*/
+
+/* Center testimonial content */
+.testimonial-one__area {
+  margin: 0 auto;
+}
+
+.testimonial-one__item {
+  text-align: center;
+}
+
+.testimonial-one__author {
+  margin: -36px auto 27px auto;
+}
+
+.testimonial-one__content {
+  text-align: center;
+}
+
+.testimonial-two__item {
+  text-align: center;
+}
+
+.testimonial-two__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0 0 0;
+  min-height: auto;
+}
+
+.testimonial-two__meta img {
+  position: static !important;
+  margin-bottom: 10px;
+}
+
+.testimonial-three__item {
+  text-align: center;
+}
+
+.testimonial-three__author {
+  margin: 0 auto 20px auto;
+}
+
+/* Center owl carousel dots */
+.owl-carousel .owl-dots {
+  text-align: center !important;
+  margin-top: 30px !important;
+}
+
+/* Navigation buttons positioning for English (LTR) */
+.testimonial-one__carousel.owl-carousel .owl-nav,
+.testimonial-two__carousel.owl-carousel .owl-nav,
+.testimonial-three__carousel.owl-carousel .owl-nav {
+  justify-content: flex-end !important;
+  right: 0 !important;
+}
+
+/* Navigation buttons positioning for Arabic (RTL) */
+html[dir="rtl"] .testimonial-one__carousel.owl-carousel .owl-nav,
+html[dir="rtl"] .testimonial-two__carousel.owl-carousel .owl-nav,
+html[dir="rtl"] .testimonial-three__carousel.owl-carousel .owl-nav {
+  justify-content: flex-start !important;
+  right: auto !important;
+  left: 0 !important;
+}
+
+/* For RTL layouts, we also need to consider the body class */
+body[dir="rtl"] .testimonial-one__carousel.owl-carousel .owl-nav,
+body[dir="rtl"] .testimonial-two__carousel.owl-carousel .owl-nav,
+body[dir="rtl"] .testimonial-three__carousel.owl-carousel .owl-nav {
+  justify-content: flex-start !important;
+  right: auto !important;
+  left: 0 !important;
+}
+
+/* Adjust testimonial-two nav which was centered by default */
+.testimonial-two__carousel.owl-carousel .owl-nav {
+  justify-content: flex-end !important;
+  position: absolute;
+  right: 0;
+  bottom: -80px;
+}
+
+html[dir="rtl"] .testimonial-two__carousel.owl-carousel .owl-nav,
+body[dir="rtl"] .testimonial-two__carousel.owl-carousel .owl-nav {
+  justify-content: flex-start !important;
+  right: auto !important;
+  left: 0 !important;
+}
+
+/* Ensure dots are always centered regardless of language */
+.owl-carousel .owl-dots {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Make sure testimonial content width is properly centered */
+@media (min-width: 768px) {
+  .testimonial-one__carousel {
+    margin: 0 auto;
+  }
+  
+  .testimonial-two__carousel .owl-stage-outer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .testimonial-three__carousel .owl-stage-outer {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+  .testimonial-one__carousel.owl-carousel .owl-nav,
+  .testimonial-two__carousel.owl-carousel .owl-nav,
+  .testimonial-three__carousel.owl-carousel .owl-nav {
+    position: static;
+    justify-content: center !important;
+    margin-top: 20px;
+  }
+  
+  html[dir="rtl"] .testimonial-one__carousel.owl-carousel .owl-nav,
+  html[dir="rtl"] .testimonial-two__carousel.owl-carousel .owl-nav,
+  html[dir="rtl"] .testimonial-three__carousel.owl-carousel .owl-nav,
+  body[dir="rtl"] .testimonial-one__carousel.owl-carousel .owl-nav,
+  body[dir="rtl"] .testimonial-two__carousel.owl-carousel .owl-nav,
+  body[dir="rtl"] .testimonial-three__carousel.owl-carousel .owl-nav {
+    justify-content: center !important;
+    left: auto !important;
+    right: auto !important;
+  }
+}
+
+/* ===================================
+   ARABIC FONT SUPPORT (TAJAWAL)
+   ===================================*/
+
+/* Tajawal Font Faces - Direct Include */
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/tajawal-regular.woff2') format('woff2'),
+       url('../fonts/tajawal-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/tajawal-medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/tajawal-bold.woff2') format('woff2');
+}
+
+/* Import local Tajawal font */
+@import url('../fonts/tajawal.css');
+
+/* ICON FONTS PRESERVATION - HIGHEST PRIORITY */
+[class^="icon-"],
+[class*=" icon-"],
+body.arabic-font [class^="icon-"],
+body.arabic-font [class*=" icon-"],
+[dir="rtl"] [class^="icon-"],
+[dir="rtl"] [class*=" icon-"],
+[lang="ar"] [class^="icon-"],
+[lang="ar"] [class*=" icon-"],
+.rtl-lang [class^="icon-"],
+.rtl-lang [class*=" icon-"] {
+  font-family: 'icomoon' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1 !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+.fa,
+.fas,
+.fab,
+.far,
+[class^="fa-"],
+[class*=" fa-"],
+body.arabic-font .fa,
+body.arabic-font .fas,
+body.arabic-font .fab,
+body.arabic-font .far,
+body.arabic-font [class^="fa-"],
+body.arabic-font [class*=" fa-"],
+[dir="rtl"] .fa,
+[dir="rtl"] .fas,
+[dir="rtl"] .fab,
+[dir="rtl"] .far,
+[dir="rtl"] [class^="fa-"],
+[dir="rtl"] [class*=" fa-"],
+[lang="ar"] .fa,
+[lang="ar"] .fas,
+[lang="ar"] .fab,
+[lang="ar"] .far,
+[lang="ar"] [class^="fa-"],
+[lang="ar"] [class*=" fa-"],
+.rtl-lang .fa,
+.rtl-lang .fas,
+.rtl-lang .fab,
+.rtl-lang .far,
+.rtl-lang [class^="fa-"],
+.rtl-lang [class*=" fa-"] {
+  font-family: "Font Awesome 5 Free", "Font Awesome 5 Pro", "Font Awesome 5 Brands" !important;
+  font-weight: 900 !important;
+  font-style: normal !important;
+}
+
+/* Force Tajawal font for Arabic - Targeted approach (excluding icons) */
+body.arabic-font,
+body.arabic-font h1:not([class*="icon"]):not([class*="fa"]),
+body.arabic-font h2:not([class*="icon"]):not([class*="fa"]),
+body.arabic-font h3:not([class*="icon"]):not([class*="fa"]),
+body.arabic-font h4:not([class*="icon"]):not([class*="fa"]),
+body.arabic-font h5:not([class*="icon"]):not([class*="fa"]),
+body.arabic-font h6:not([class*="icon"]):not([class*="fa"]),
+body.arabic-font p:not([class*="icon"]):not([class*="fa"]),
+body.arabic-font span:not([class*="icon"]):not([class*="fa"]):not([class^="icon-"]):not([class^="fa-"]):not(.fa):not(.fas):not(.fab):not(.far),
+body.arabic-font div:not([class*="icon"]):not([class*="fa"]),
+body.arabic-font a:not([class*="icon"]):not([class*="fa"]),
+body.arabic-font li:not([class*="icon"]):not([class*="fa"]),
+body.arabic-font button:not([class*="icon"]):not([class*="fa"]),
+body.arabic-font .nav-link,
+body.arabic-font .eduact-btn,
+body.arabic-font .hero-banner__title,
+body.arabic-font .hero-banner__text,
+body.arabic-font .service-one__title,
+body.arabic-font .service-one__text,
+body.arabic-font .program-title,
+body.arabic-font .program-desc {
+  font-family: "Tajawal", Arial, sans-serif !important;
+}
+
+/* Arabic language font settings */
+[dir="rtl"],
+[lang="ar"],
+.rtl-lang {
+  font-family: "Tajawal", "Arial", sans-serif;
+}
+
+/* Ensure Tajawal is applied to text elements in RTL/Arabic - but NOT icons */
+[dir="rtl"] h1:not([class*="icon"]):not([class*="fa"]),
+[dir="rtl"] h2:not([class*="icon"]):not([class*="fa"]),
+[dir="rtl"] h3:not([class*="icon"]):not([class*="fa"]),
+[dir="rtl"] h4:not([class*="icon"]):not([class*="fa"]),
+[dir="rtl"] h5:not([class*="icon"]):not([class*="fa"]),
+[dir="rtl"] h6:not([class*="icon"]):not([class*="fa"]),
+[dir="rtl"] p:not([class*="icon"]):not([class*="fa"]),
+[dir="rtl"] span:not([class*="icon"]):not([class*="fa"]):not([class^="icon-"]):not([class^="fa-"]):not(.fa):not(.fas):not(.fab):not(.far),
+[dir="rtl"] div:not([class*="icon"]):not([class*="fa"]),
+[dir="rtl"] a:not([class*="icon"]):not([class*="fa"]),
+[dir="rtl"] li:not([class*="icon"]):not([class*="fa"]),
+[dir="rtl"] button:not([class*="icon"]):not([class*="fa"]),
+[lang="ar"] h1:not([class*="icon"]):not([class*="fa"]),
+[lang="ar"] h2:not([class*="icon"]):not([class*="fa"]),
+[lang="ar"] h3:not([class*="icon"]):not([class*="fa"]),
+[lang="ar"] h4:not([class*="icon"]):not([class*="fa"]),
+[lang="ar"] h5:not([class*="icon"]):not([class*="fa"]),
+[lang="ar"] h6:not([class*="icon"]):not([class*="fa"]),
+[lang="ar"] p:not([class*="icon"]):not([class*="fa"]),
+[lang="ar"] span:not([class*="icon"]):not([class*="fa"]):not([class^="icon-"]):not([class^="fa-"]):not(.fa):not(.fas):not(.fab):not(.far),
+[lang="ar"] div:not([class*="icon"]):not([class*="fa"]),
+[lang="ar"] a:not([class*="icon"]):not([class*="fa"]),
+[lang="ar"] li:not([class*="icon"]):not([class*="fa"]),
+[lang="ar"] button:not([class*="icon"]):not([class*="fa"]),
+.rtl-lang h1:not([class*="icon"]):not([class*="fa"]),
+.rtl-lang h2:not([class*="icon"]):not([class*="fa"]),
+.rtl-lang h3:not([class*="icon"]):not([class*="fa"]),
+.rtl-lang h4:not([class*="icon"]):not([class*="fa"]),
+.rtl-lang h5:not([class*="icon"]):not([class*="fa"]),
+.rtl-lang h6:not([class*="icon"]):not([class*="fa"]),
+.rtl-lang p:not([class*="icon"]):not([class*="fa"]),
+.rtl-lang span:not([class*="icon"]):not([class*="fa"]):not([class^="icon-"]):not([class^="fa-"]):not(.fa):not(.fas):not(.fab):not(.far),
+.rtl-lang div:not([class*="icon"]):not([class*="fa"]),
+.rtl-lang a:not([class*="icon"]):not([class*="fa"]),
+.rtl-lang li:not([class*="icon"]):not([class*="fa"]),
+.rtl-lang button:not([class*="icon"]):not([class*="fa"]) {
+  font-family: "Tajawal", "Arial", sans-serif !important;
+}
+
+/* CSS Variables for Arabic */
+body.arabic-font {
+  --eduact-font: "Tajawal", Arial, sans-serif !important;
+  --heading-font: "Tajawal", Arial, sans-serif !important;
+}
+
+/* Specific Arabic typography improvements */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: "Tajawal", "Arial", sans-serif;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+[dir="rtl"] p,
+[dir="rtl"] span,
+[dir="rtl"] div {
+  font-family: "Tajawal", "Arial", sans-serif;
+  line-height: 1.6;
+}
+
+/* Navigation and buttons in Arabic */
+[dir="rtl"] .main-menu__list,
+[dir="rtl"] .nav-link,
+[dir="rtl"] .eduact-btn,
+[dir="rtl"] .program-details-btn {
+  font-family: "Tajawal", "Arial", sans-serif;
+}
+
+/* Hero section Arabic typography */
+[dir="rtl"] .hero-banner__title {
+  font-family: "Tajawal", "Arial", sans-serif;
+  font-weight: 800;
+}
+
+[dir="rtl"] .hero-banner__text {
+  font-family: "Tajawal", "Arial", sans-serif;
+  font-weight: 400;
+}
+
+/* Program cards Arabic typography */
+[dir="rtl"] .program-title,
+[dir="rtl"] .program-desc {
+  font-family: "Tajawal", "Arial", sans-serif;
+}
+
+/* Footer Arabic typography */
+[dir="rtl"] .main-footer *,
+[dir="rtl"] .footer__text {
+  font-family: "Tajawal", "Arial", sans-serif;
+}
+
+/* Testimonial Arabic typography */
+[dir="rtl"] .testimonial-one__content,
+[dir="rtl"] .testimonial-two__content,
+[dir="rtl"] .testimonial-three__content {
+  font-family: "Tajawal", "Arial", sans-serif;
+}
+
+/* ===================================
+   LANGUAGE SWITCHER FIXES
+   ===================================*/ 
+
+/* RTL Navigation Fixes */
+[dir="rtl"] .main-menu .container {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+[dir="rtl"] .main-menu__logo {
+  order: 1;
+  margin-left: 0;
+  margin-right: 0;
+  flex-shrink: 0;
+}
+
+[dir="rtl"] .main-menu__nav {
+  margin-left: 0;
+  margin-right: 30px;
+  order: 2;
+  flex: 0 0 auto;
+  display: flex;
+}
+
+[dir="rtl"] .main-menu__right {
+  order: 3;
+  flex-direction: row;
+  margin-left: 0;
+  margin-right: 0;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+[dir="rtl"] .main-menu__list {
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+[dir="rtl"] .main-menu__list > li {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+[dir="rtl"] .main-menu__list > li + li {
+  margin-left: 0;
+  margin-right: 55px;
+}
+
+@media (max-width: 1400px) {
+  [dir="rtl"] .main-menu__list > li + li {
+    margin-left: 0;
+    margin-right: 44px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1300px) {
+  [dir="rtl"] .main-menu__list > li + li {
+    margin-left: 0;
+    margin-right: 38px;
+  }
+}
+
+[dir="rtl"] .language-switcher {
+  order: 1;
+}
+
+[dir="rtl"] .main-menu__login {
+  order: 2;
+}
+
+[dir="rtl"] .eduact-btn {
+  order: 3;
+}
+
+[dir="rtl"] .mobile-nav__toggler {
+  order: 4;
+}
+
+/* Sticky header RTL fixes */
+[dir="rtl"] .stricky-header .main-menu .container {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+[dir="rtl"] .stricky-header .main-menu__logo {
+  order: 1;
+  margin-left: 0;
+  margin-right: 0;
+  flex-shrink: 0;
+}
+
+[dir="rtl"] .stricky-header .main-menu__nav {
+  order: 2;
+  margin-right: 30px;
+  flex: 0 0 auto;
+  display: flex;
+}
+
+[dir="rtl"] .stricky-header .main-menu__right {
+  order: 3;
+  margin-left: 0;
+  margin-right: 0;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+[dir="rtl"] .stricky-header .main-menu__list {
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .stricky-header .main-menu__list > li {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+[dir="rtl"] .stricky-header .main-menu__list > li + li {
+  margin-left: 0;
+  margin-right: 55px;
+}
+
+@media (max-width: 1400px) {
+  [dir="rtl"] .stricky-header .main-menu__list > li + li {
+    margin-left: 0;
+    margin-right: 44px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1300px) {
+  [dir="rtl"] .stricky-header .main-menu__list > li + li {
+    margin-left: 0;
+    margin-right: 38px;
+  }
+}
+
+/* Hero section gradient fix for Arabic mode to match English */
+[dir="rtl"] .hero-banner__gradient-bg {
+  background: linear-gradient(90deg, #482d64 100%, #6f6093 0%);
+}
+
+/* Ensure sticky header has consistent background color in both languages */
+.stricky-header,
+[dir="rtl"] .stricky-header {
+  background-color: #6F6093 !important;
+}
+
+/* More specific hero banner gradient fixes */
+.hero-banner .hero-banner__gradient-bg,
+[dir="rtl"] .hero-banner .hero-banner__gradient-bg {
+  background: linear-gradient(90deg, #482d64 100%, #6f6093 0%) !important;
+  opacity: 0.35;
+}
+
+/* Ensure hero banner background consistency */
+.hero-banner,
+[dir="rtl"] .hero-banner {
+  background-color: #6f6093;
+}
+
+/* Fix hero banner background image positioning for RTL */
+[dir="rtl"] .hero-banner {
+  background-position: right bottom !important;
+}
+
+/* Set footer background color to match brand color */
+.main-footer,
+.main-footer-two {
+  background-color: #6F6093 !important;
+}
+
+/* Fix button margins in RTL */
+[dir="rtl"] .main-menu__right .eduact-btn {
+  margin-left: 0;
+  margin-right: 19px;
+}
+
+[dir="rtl"] .main-menu__login {
+  margin-left: 0;
+  margin-right: 11px;
+}
+
+[dir="rtl"] .mobile-nav__toggler {
+  margin-right: 0;
+  margin-left: 18px;
+}
+
+/* Responsive RTL navigation fixes */
+@media (max-width: 1199px) {
+  [dir="rtl"] .main-menu__right {
+    order: 1;
+    margin-left: auto;
+    margin-right: 0;
+  }
+  
+  [dir="rtl"] .main-menu__logo {
+    order: 2;
+  }
+  
+  [dir="rtl"] .main-menu__nav {
+    order: 3;
+  }
+  
+  [dir="rtl"] .main-menu__right .language-switcher {
+    margin-left: 15px;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  [dir="rtl"] .main-menu .container {
+    justify-content: space-between;
+  }
+  
+  [dir="rtl"] .main-menu__logo {
+    order: 1;
+  }
+  
+  [dir="rtl"] .main-menu__right {
+    order: 2;
+  }
+}
+
+/* Fix dropdown menu positioning in RTL */
+[dir="rtl"] .main-menu .main-menu__list li ul,
+[dir="rtl"] .stricky-header .main-menu__list li ul {
+  left: auto;
+  right: -25px;
+}
+
+/* Fix language switcher icon alignment in RTL */
+[dir="rtl"] .language-switcher .fa-globe {
+  margin-left: 5px;
+  margin-right: 0;
+}
+
+/* Hero banner button alignment fixes for RTL - More specific and aggressive */
+[dir="rtl"] .hero-banner__btn {
+  justify-content: flex-start !important;
+  display: flex !important;
+}
+
+[dir="rtl"] .hero-banner__btn .eduact-btn + .eduact-btn {
+  margin-left: 0 !important;
+  margin-right: 20px !important;
+  background-color: transparent !important;
+  border: 1px solid var(--eduact-white) !important;
+}
+
+/* Keep original button order - Start Now first, Find Course second */
+
+/* Ensure proper button spacing and alignment */
+[dir="rtl"] .hero-banner__content {
+  text-align: right !important;
+}
+
+[dir="rtl"] .hero-banner__title,
+[dir="rtl"] .hero-banner__text {
+  text-align: right !important;
+}
+
+/* Fix service cards in RTL mode */
+[dir="rtl"] .service-one__item {
+  text-align: right !important;
+}
+
+[dir="rtl"] .service-one__item svg {
+  right: auto !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  transform: scaleX(-1) !important;
+}
+
+/* Speed up service card hover animations for smooth performance */
+.service-one__icon,
+.service-two__icon {
+  transition: 200ms ease !important;
+}
+
+.service-one__icon span,
+.service-two__icon span {
+  transition: all 200ms linear !important;
+}
+
+[dir="rtl"] .service-one__wrapper {
+  text-align: right !important;
+}
+
+[dir="rtl"] .service-one__title {
+  text-align: right !important;
+}
+
+[dir="rtl"] .service-one__text {
+  text-align: right !important;
+}
+
+[dir="rtl"] .service-one__rm {
+  justify-content: flex-start !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] .service-one__rm span {
+  padding-left: 0 !important;
+  padding-right: 10px !important;
+}
+
+/* Ensure primary colors work in RTL */
+[dir="rtl"] .service-one__item:hover .service-one__icon {
+  background-color: var(--eduact-base) !important;
+}
+
+[dir="rtl"] .service-one__item:hover svg path {
+  fill: var(--eduact-base) !important;
+}
+
+[dir="rtl"] .service-one__rm:hover {
+  color: var(--eduact-base) !important;
+}
+
+/* Change read more icon to left-pointing chevron in Arabic mode */
+[dir="rtl"] .service-one__rm .icon-caret-right:before {
+  content: "\e90e" !important; /* icon-caret-left */
+}
+
+[dir="rtl"] .service-two__rm .icon-caret-right:before {
+  content: "\e90e" !important; /* icon-caret-left */
+}
+
+[dir="rtl"] .blog-one__rm .icon-caret-right:before,
+[dir="rtl"] .blog-two__rm .icon-caret-right:before,
+[dir="rtl"] .blog-three__rm .icon-caret-right:before {
+  content: "\e90e" !important; /* icon-caret-left */
+}
+
+/* Fix other section hover effects and colors in RTL */
+[dir="rtl"] .category-one__item:hover .category-one__hover__icon,
+[dir="rtl"] .course-one__item:hover .course-one__like,
+[dir="rtl"] .team-one__item:hover .team-one__social a,
+[dir="rtl"] .testimonial-one__item:hover,
+[dir="rtl"] .cta-one__btn:hover {
+  color: var(--eduact-base) !important;
+}
+
+[dir="rtl"] .category-one__slider.owl-carousel .owl-nav button:hover,
+[dir="rtl"] .course-one__carousel.owl-carousel .owl-nav button:hover,
+[dir="rtl"] .testimonial-one__carousel.owl-carousel .owl-nav button:hover {
+  background-color: var(--eduact-base) !important;
+}
+
+/* Ensure buttons and links use primary color in RTL */
+[dir="rtl"] .eduact-btn,
+[dir="rtl"] .thm-btn {
+  background-color: var(--eduact-base) !important;
+}
+
+[dir="rtl"] .eduact-btn:hover,
+[dir="rtl"] .thm-btn:hover {
+  background-color: var(--eduact-secondary) !important;
+}
+
+/* Override any RTL-specific CSS that might interfere with primary colors */
+[dir="rtl"] {
+  --eduact-base: #6F6093 !important;
+  --eduact-base-rgb: 111, 96, 147 !important;
+  --eduact-secondary: #FF7200 !important;
+}
+
+/* Fix section titles and content alignment in RTL */
+[dir="rtl"] .service-one {
+  text-align: right;
+}
+
+[dir="rtl"] .section-title {
+  text-align: right !important;
+}
+
+[dir="rtl"] .section-title.text-center {
+  text-align: center !important;
+}
+
+[dir="rtl"] .service-one .section-title {
+  text-align: center !important;
+}
+
+/* Fix About Us section layout for RTL */
+[dir="rtl"] .about-one {
+  text-align: right;
+}
+
+[dir="rtl"] .about-one__content {
+  text-align: right !important;
+}
+
+[dir="rtl"] .about-one__content .section-title {
+  text-align: right !important;
+}
+
+[dir="rtl"] .about-one__content .section-title__tagline {
+  text-align: right !important;
+}
+
+[dir="rtl"] .about-one__content .section-title__title {
+  text-align: right !important;
+}
+
+[dir="rtl"] .about-one__content__text {
+  text-align: right !important;
+}
+
+/* Fix feature boxes alignment and icon positioning */
+[dir="rtl"] .about-one__box__wrapper {
+  padding: 18px 130px 23px 32px !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] .about-one__box__icon {
+  right: 24px !important;
+  left: auto !important;
+}
+
+[dir="rtl"] .about-one__box__title {
+  text-align: right !important;
+}
+
+[dir="rtl"] .about-one__box__text {
+  text-align: right !important;
+}
+
+/* Fix contact box positioning */
+[dir="rtl"] .about-one__thumb__box {
+  right: -24px !important;
+  left: auto !important;
+  padding: 28px 59px 33px 30px !important;
+}
+
+[dir="rtl"] .about-one__thumb__box__icon {
+  right: -38px !important;
+  left: auto !important;
+}
+
+[dir="rtl"] .about-one__thumb__box__title {
+  text-align: right !important;
+}
+
+[dir="rtl"] .about-one__thumb__box__text {
+  text-align: right !important;
+}
+
+/* Fix decorative shapes positioning */
+[dir="rtl"] .about-one__thumb__shape1 {
+  right: 0 !important;
+  left: auto !important;
+}
+
+[dir="rtl"] .about-one__thumb__shape2 {
+  left: 36px !important;
+  right: auto !important;
+}
+
+/* Fix image margins for RTL */
+[dir="rtl"] .about-one__thumb {
+  margin: 0 -33px 0 14px !important;
+}
+
+/* Responsive fixes for smaller screens */
+@media (max-width: 1300px) {
+  [dir="rtl"] .about-one__thumb__box {
+    right: 38px !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  [dir="rtl"] .about-one__thumb__box {
+    right: 34px !important;
+  }
+  
+  [dir="rtl"] .about-one__thumb {
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 575px) {
+  [dir="rtl"] .about-one__box__wrapper {
+    padding-right: 32px !important;
+  }
+  
+  [dir="rtl"] .about-one__box__icon {
+    position: relative !important;
+    right: 0 !important;
+    margin: 15px 0 25px !important;
+  }
+}
+
+/* ===================================
+   PROGRAMS CATALOG PAGE STYLES
+   ===================================*/
+
+.programs-catalog-section {
+  background: linear-gradient(135deg, #6f6093 0%, #482d64 100%);
+  padding: 0;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.programs-catalog__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+/* Navigation Bar Styles */
+.programs-catalog__nav {
+  position: relative;
+  z-index: 2;
+  padding: 20px 0;
+}
+
+.breadcrumb-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.breadcrumb {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  list-style: none;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.breadcrumb-item a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+  opacity: 1;
+}
+
+.breadcrumb-item.active {
+  color: white;
+  opacity: 1;
+  font-weight: 600;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "/";
+  margin: 0 15px;
+  opacity: 0.6;
+}
+
+/* Header Content Styles */
+.programs-catalog__header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 60px 0 80px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.programs-catalog__badge {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto 24px auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.programs-catalog__badge .badge-icon {
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.programs-catalog__title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.programs-catalog__subtitle {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
+}
+
+.programs-catalog__search {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-box {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.search-box i {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  z-index: 3;
+  font-size: 1.1rem;
+}
+
+.search-box input {
+  width: 100%;
+  border: none;
+  padding: 18px 20px 18px 50px;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: transparent;
+  color: #333;
+}
+
+.search-box input::placeholder {
+  color: #999;
+}
+
+.search-box input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(111, 96, 147, 0.2);
+}
+
+/* Programs Banner Breadcrumb */
+.banner-one__breadcrumb {
+  position: relative;
+  z-index: 3;
+  padding: 20px 0 0;
+  margin-top: -64px;
+  margin-bottom: 64px;
+}
+
+.banner-one__breadcrumb ul {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.banner-one__breadcrumb li {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.banner-one__breadcrumb li a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.banner-one__breadcrumb li a:hover {
+  color: white;
+}
+
+.banner-one__breadcrumb li:not(:last-child)::after {
+  content: "›";
+  margin-left: 8px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.banner-one__breadcrumb li:last-child {
+  color: white;
+  font-weight: 500;
+}
+
+/* Banner One - Programs Page */
+.banner-one {
+  position: relative;
+  background-color: #6f6093;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 180px 0 120px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.banner-one__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.banner-one .container {
+  position: relative;
+  z-index: 3;
+}
+
+.banner-one__content {
+  text-align: center;
+  color: white;
+}
+
+.banner-one__tag-line {
+  margin-bottom: 32px;
+}
+
+.banner-one__tag-line span {
+  display: inline-block;
+  background: white;
+  color: #6f6093;
+  padding: 8px ,0px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.banner-one__title {
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.banner-one__text {
+  font-size: 16px;
+  color: white;
+  margin: 0 0 40px;
+  opacity: 0.9;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+@media (max-width: 991px) {
+  .banner-one {
+    padding: 140px 0 80px;
+  }
+  
+  .banner-one__title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 767px) {
+  .banner-one {
+    padding: 120px 0 70px;
+  }
+  
+  .banner-one__title {
+    font-size: 28px;
+  }
+  
+  .banner-one__text {
+    font-size: 14px;
+  }
+}
+
+/* Programs Search Form */
+.banner-one__search {
+  margin-top: 40px;
+}
+
+.banner-search-form {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.banner-search-form__input-box {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.banner-search-form__input-box input {
+  flex: 1;
+  border: none;
+  padding: 18px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: transparent;
+  color: #333;
+}
+
+.banner-search-form__input-box input::placeholder {
+  background: linear-gradient(135deg, #6f6093 0%, #207cc0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Vendor prefixes for placeholder gradient */
+.banner-search-form__input-box input::-webkit-input-placeholder {
+  background: linear-gradient(135deg, #6f6093 0%, #207cc0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.banner-search-form__input-box input::-moz-placeholder {
+  background: linear-gradient(135deg, #6f6093 0%, #207cc0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  opacity: 1;
+}
+
+.banner-search-form__input-box input:-ms-input-placeholder {
+  background: linear-gradient(135deg, #6f6093 0%, #207cc0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.banner-search-form__input-box input:focus {
+  outline: none;
+}
+
+.banner-search-form__btn {
+  background: #6f6093;
+  border: none;
+  padding: 18px 20px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 8px;
+}
+/* RTL support for search button */
+html[dir="rtl"] .banner-search-form__btn,
+body.rtl-lang .banner-search-form__btn {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+.banner-search-form__btn:hover {
+  background: #482d64;
+}
+
+/* Programs Content Section */
+.programs-content-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.programs-content-section .programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 991px) {
+  .programs-content-section .programs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 767px) {
+  .programs-content-section .programs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .programs-content-section {
+    padding: 60px 0;
+  }
+}
+
+/* Filter Sidebar */
+.programs-filters {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.filters-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.filter-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #6f6093 0%, #482d64 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.filters-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: #2c2c2c;
+}
+
+.filter-group {
+  margin-bottom: 25px;
+}
+
+.filter-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #2c2c2c;
+  font-size: 0.95rem;
+}
+
+.filter-dropdown select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  font-size: 0.95rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.filter-dropdown select:focus {
+  outline: none;
+  border-color: #6f6093;
+  box-shadow: 0 0 0 3px rgba(111, 96, 147, 0.1);
+}
+
+.filter-results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  margin: 20px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.filter-results span:first-child {
+  font-weight: 600;
+  color: #2c2c2c;
+}
+
+.results-count {
+  background: #6f6093;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.clear-filters-btn {
+  width: 100%;
+  background: none;
+  border: 2px solid #6f6093;
+  color: #6f6093;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clear-filters-btn:hover {
+  background: #6f6093;
+  color: white;
+}
+
+/* Programs Grid */
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* Program Cards */
+
+.program-card__image {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+.program-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.program-status {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.program-status.open {
+  background: #27ae60;
+}
+
+.program-status.aws {
+  background: #ff9500;
+}
+
+.program-status.data-science {
+  background: #8e44ad;
+}
+
+.program-status.design {
+  background: #8e44ad;
+}
+
+.program-card__content {
+  padding: 25px;
+}
+
+.program-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.program-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.program-icon.python {
+  background: #3b82f6;
+}
+
+.program-icon.vue {
+  background: #3b82f6;
+}
+
+.program-icon.docker {
+  background: #3b82f6;
+}
+
+.program-icon.aws {
+  background: #f59e0b;
+}
+
+.program-icon.data-science {
+  background: #8b5cf6;
+}
+
+.program-icon.design {
+  background: #8b5cf6;
+}
+
+.program-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1f2937;
+  line-height: 1.3;
+}
+
+.program-description {
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 15px 0 20px 0;
+  font-size: 0.95rem;
+}
+
+.program-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.meta-item i {
+  color: #6f6093;
+  font-size: 0.85rem;
+}
+
+.program-details {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 25px;
+  padding: 15px 0;
+  border-top: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.detail-item i {
+  color: #6f6093;
+  font-size: 0.85rem;
+}
+
+
+
+/* Pagination */
+.programs-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-item {
+  margin: 0;
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 45px;
+  height: 45px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #6b7280;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0 15px;
+}
+
+.page-item.active .page-link {
+  background: #6f6093;
+  color: white;
+  border-color: #6f6093;
+}
+
+.page-link:hover {
+  background: #6f6093;
+  color: white;
+  border-color: #6f6093;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1199px) {
+  .programs-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .programs-catalog__title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .programs-filters {
+    margin-bottom: 40px;
+    position: static;
+  }
+  
+  .program-meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .program-details {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .programs-catalog__title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .programs-catalog__title {
+    font-size: 2.5rem;
+  }
+  
+  .programs-catalog__subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .programs-content-section {
+    padding: 60px 0;
+  }
+  
+  .program-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .filter-results {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .programs-catalog__header {
+    padding: 40px 0 60px 0;
+  }
+  
+  .search-box input {
+    padding: 16px 20px 16px 50px;
+  }
+}
+
+@media (max-width: 575px) {
+  .programs-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .program-meta,
+  .program-details {
+    gap: 8px;
+  }
+  
+  .meta-item,
+  .detail-item {
+    font-size: 0.85rem;
+  }
+}
+
+/* RTL Support for Programs Catalog */
+[dir="rtl"] .programs-search__icon {
+  margin-right: 0;
+  margin-left: 15px;
+}
+
+[dir="rtl"] .programs-catalog-section {
+  text-align: right;
+}
+
+[dir="rtl"] .programs-catalog__grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .program-card {
+  direction: ltr;
+}
+
+[dir="rtl"] .program-card__body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Programs content section styling - same as makeen-programs-section */
+.programs-content-section {
+  background: #f6f4fd url("../images/shapes/course-bg-1.png") no-repeat center top;
+  padding: 60px 0 40px 0;
+  position: relative;
+}
+
+.programs-content-section .programs-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 16px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.programs-content-section .program-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(44, 34, 94, 0.08);
+  overflow: hidden;
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.programs-content-section .program-card:hover {
+  box-shadow: 0 8px 32px 0 rgba(44, 34, 94, 0.16);
+  transform: translateY(-5px);
+}
+
+.programs-content-section .program-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.95rem;
+  color: #8b7bb7;
+  margin-bottom: 18px;
+  width: 100%;
+}
+
+.programs-content-section .program-meta .meta-group {
+  display: flex;
+  gap: 18px;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.programs-content-section .program-meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  flex: 1 1 45%;
+}
+
+.programs-content-section .program-details-btn {
+  width: calc(100% - 12px);
+  margin: 0 6px 0 6px;
+  background: #fff;
+  color: #6d4c97;
+  border: 2px solid #e6e2fa;
+  border-radius: 8px;
+  padding: 11px 0;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: none;
+  outline: none;
+  display: block;
+}
+
+.programs-content-section .program-details-btn:hover {
+  background: #f1edfa;
+  color: #6d4c97;
+  border: 2px solid #6d4c97;
+}
+
+/* Responsive styles for programs-content-section */
+@media (max-width: 991px) {
+  .programs-content-section .programs-grid {
+    gap: 16px 0;
+  }
+
+  .programs-content-section .program-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 767px) {
+  .programs-content-section {
+    padding: 40px 0 20px 0;
+  }
+
+  .programs-content-section .programs-grid {
+    flex-direction: column;
+    gap: 14px 0;
+    align-items: center;
+  }
+
+  .programs-content-section .program-card {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .programs-content-section .program-meta {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .programs-content-section .program-meta .meta-group {
+    justify-content: flex-start !important;
+  }
+}
+
+/* RTL Language specific styles for programs catalog */
+.rtl-lang .programs-catalog-section,
+.rtl-lang .programs-content-section {
+  text-align: right;
+}
+
+.rtl-lang .programs-search__input {
+  text-align: right;
+}
+
+.rtl-lang .programs-filter__select {
+  text-align: right;
+}
+
+.rtl-lang .no-results {
+  text-align: center;
+}
+
+.rtl-lang .no-results__title,
+.rtl-lang .no-results__text {
+  font-family: "Tajawal", "Arial", sans-serif;
+}
+
+/* Page Header Styles for Programs Page */
+.page-header {
+  position: relative;
+  background: #6d4c97;
+  padding: 120px 0 80px 0;
+  overflow: hidden;
+}
+
+.page-header__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+}
+
+.page-header__shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(109, 76, 151, 0.9) 0%, rgba(160, 139, 224, 0.8) 100%);
+}
+
+.page-header .container {
+  position: relative;
+  z-index: 1;
+}
+
+.page-header__title {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.eduact-breadcrumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.eduact-breadcrumb li {
+  color: #fff;
+  font-size: 16px;
+}
+
+.eduact-breadcrumb li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.eduact-breadcrumb li a:hover {
+  color: #a08be0;
+}
+
+.eduact-breadcrumb li:not(:last-child)::after {
+  content: ">";
+  margin-left: 15px;
+  color: #a08be0;
+}
+
+/* RTL Support for Page Header */
+[dir="rtl"] .page-header__title {
+  font-family: "Tajawal", "Arial", sans-serif;
+  text-align: center;
+}
+
+[dir="rtl"] .eduact-breadcrumb {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .eduact-breadcrumb li:not(:last-child)::after {
+  content: "<";
+  margin-left: 0;
+  margin-right: 15px;
+}
+
+.rtl-lang .page-header__title {
+  font-family: "Tajawal", "Arial", sans-serif;
+}
+
+/* Mobile responsiveness for page header */
+@media (max-width: 767px) {
+  .page-header {
+    padding: 100px 0 60px 0;
+  }
+
+  .page-header__title {
+    font-size: 2.2rem;
+  }
+
+  .eduact-breadcrumb {
+    font-size: 14px;
+    gap: 10px;
+  }
+
+  .eduact-breadcrumb li:not(:last-child)::after {
+    margin-left: 10px;
+  }
+
+  [dir="rtl"] .eduact-breadcrumb li:not(:last-child)::after {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+}
+
+/* Gradient Pill Badge Styles */
+.banner-one__tag-line .gradient-pill-badge {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box, 
+              linear-gradient(135deg, #6f6093 0%, #207cc0 100%) border-box;
+  border-radius: 25px;
+  display: inline-block;
+  padding: 8px 20px;
+  color: #6f6093;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.banner-one__tag-line .ai-icon {
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.banner-one__tag-line .gradient-text {
+  background: linear-gradient(135deg, #6f6093 0%, #207cc0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Program Card Title Styling - Final Version */
+.program-card .program-card__body .program-title {
+  display: flex !important;
+  align-items: center !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #2c2c2c;
+}
+
+/* Program Logo Styling - Final Clean Version */
+.program-title {
+  display: flex !important;
+  align-items: center !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #2c2c2c;
+}
+
+.program-title img {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  margin-right: 12px !important;
+  flex-shrink: 0 !important;
+  border: 2px solid transparent !important;
+  background: linear-gradient(white, white) padding-box, 
+              linear-gradient(135deg, #6f6093 0%, #207cc0 100%) border-box !important;
+  padding: 2px !important;
+  box-shadow: 0 2px 8px rgba(111, 96, 147, 0.2) !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+}
+
+/* Additional margin for RTL layout */
+[dir="rtl"] .program-title img {
+  margin-right: 0 !important;
+  margin-left: 12px !important;
+}
+
+.program-card:hover .program-title img {
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 12px rgba(111, 96, 147, 0.3) !important;
+}
+
+/* ===================================
+   PROGRAMS COUNTER STYLING
+   ===================================*/
+
+.programs-counter {
+  text-align: center !important;
+  margin-bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.programs-counter p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #6f6093;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .programs-counter p {
+    font-size: 14px;
+  }
+}
+
+/* ===================================
+   PAGINATION STYLING
+   ===================================*/
+
+.programs-pagination {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.programs-pagination .pagination {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  gap: 8px;
+}
+
+.programs-pagination .page-item {
+  margin: 0;
+}
+
+.programs-pagination .page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: #6f6093;
+  text-decoration: none;
+  background-color: #ffffff;
+  border: 2px solid #e8e6f0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.programs-pagination .page-link:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, #6f6093 0%, #207cc0 100%);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(111, 96, 147, 0.3);
+}
+
+/* Specific styling for navigation buttons (Previous/Next) */
+.programs-pagination .page-item:first-child .page-link,
+.programs-pagination .page-item:last-child .page-link {
+  border-radius: 8px !important;
+  margin: 0 4px;
+}
+
+.programs-pagination .page-item:first-child .page-link:hover,
+.programs-pagination .page-item:last-child .page-link:hover {
+  border-radius: 8px !important;
+}
+
+/* RTL pagination arrow direction fix */
+[dir="rtl"] .programs-pagination .page-item:first-child .page-link i,
+.rtl-lang .programs-pagination .page-item:first-child .page-link i {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .programs-pagination .page-item:last-child .page-link i,
+.rtl-lang .programs-pagination .page-item:last-child .page-link i {
+  transform: scaleX(-1);
+}
+
+.programs-pagination .page-item.active .page-link {
+  color: #ffffff;
+  background: linear-gradient(135deg, #6f6093 0%, #207cc0 100%);
+  border-color: transparent;
+  box-shadow: 0 3px 10px rgba(111, 96, 147, 0.4);
+}
+
+.programs-pagination .page-item.disabled .page-link {
+  color: #c4c4c4;
+  background-color: #f8f9fa;
+  border-color: #e8e6f0;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.programs-pagination .page-item.disabled .page-link:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Ellipsis styling */
+.programs-pagination .page-item span.page-link {
+  cursor: default;
+  background-color: transparent;
+  border-color: transparent;
+  color: #9ca3af;
+}
+
+/* Arrow icons */
+.programs-pagination .page-link i {
+  font-size: 12px;
+}
+
+/* Responsive pagination */
+@media (max-width: 768px) {
+  .programs-pagination .page-link {
+    min-width: 40px;
+    height: 40px;
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+  
+  .programs-pagination .pagination {
+    gap: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .programs-pagination .page-link {
+    min-width: 36px;
+    height: 36px;
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+}
+
+/* ===================================
+   RESPONSIVE PROGRAM GRID LAYOUT
+   ===================================*/
+
+/* Base program grid styling */
+.programs-grid {
+  display: grid !important;
+  gap: 30px !important;
+  grid-template-columns: repeat(3, 1fr) !important; /* Desktop: 3 cards per row */
+  justify-content: center !important;
+  align-items: start !important;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Tablet view: 2 cards per row */
+@media (max-width: 991px) {
+  .programs-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 25px !important;
+  }
+}
+
+/* Mobile view: 1 card per row */
+@media (max-width: 767px) {
+  .programs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 575px) {
+  .programs-grid {
+    gap: 15px !important;
+  }
+  
+  .program-card {
+    margin-bottom: 0 !important; /* Remove any bottom margin since grid handles spacing */
+  }
+}
+

@@ -1,0 +1,981 @@
+/* Program Details Page Styles */
+
+/* Hero Section */
+.program-details-hero {
+  position: relative;
+  padding: 120px 0 80px;
+  background: linear-gradient(
+    135deg, 
+    rgba(72, 45, 100, 1) 0%, 
+    rgba(72, 45, 100,1) 50%,
+    rgba(111, 96, 147, 1) 100%
+  );
+  overflow: hidden;
+}
+
+.program-details-hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/shapes/banner-bg-1.png');
+  background-size: cover;
+  background-position: right;
+  opacity: 0.3;
+  z-index: 1;
+  transform: scaleX(-1) scaleY(-1); /* Invert the background horizontally and vertically */
+}
+
+/* RTL support for hero section */
+html[dir="rtl"] .program-details-hero__bg,
+body.rtl-lang .program-details-hero__bg {
+  transform: scaleX(1) scaleY(-1);
+}
+
+
+/* Program Banner Image Overlay - Dynamic */
+.program-banner-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 100%;
+  background-size:  cover;
+  background-repeat: no-repeat;
+  background-position: right center;
+  opacity: 0.5;
+  z-index: 1;
+  background-blend-mode: soft-light;
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0) 100%);
+}
+
+/* RTL support for banner image */
+html[dir="rtl"] .program-banner-image,
+body.rtl-lang .program-banner-image {
+  right: auto;
+  left: 0;
+  background-position: left center;
+  mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0) 100%);
+}
+
+.program-details-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* RTL support for .container inside hero section */
+html[dir="rtl"] .program-details-hero .container,
+body.rtl-lang .program-details-hero .container {
+  padding-right: var(--bs-gutter-x, 1.5rem);
+  padding-left: 0 !important;
+}
+
+/* RTL support for main child elements of hero content */
+html[dir="rtl"] .program-details-hero__content .program-logo-section,
+html[dir="rtl"] .program-details-hero__content .program-badge-container,
+html[dir="rtl"] .program-details-hero__content .program-logo,
+html[dir="rtl"] .program-details-hero__content .program-badge--large,
+body.rtl-lang .program-details-hero__content .program-logo-section,
+body.rtl-lang .program-details-hero__content .program-badge-container,
+body.rtl-lang .program-details-hero__content .program-logo,
+body.rtl-lang .program-details-hero__content .program-badge--large {
+  margin-left: 0 !important;
+  margin-right: unset;
+}
+
+/* Breadcrumb */
+.program-details-breadcrumb {
+  margin-bottom: 20px;
+}
+
+.program-details-breadcrumb ul {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.program-details-breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.program-details-breadcrumb li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.program-details-breadcrumb li a:hover {
+  color: #f57005;
+}
+
+.program-details-breadcrumb li i {
+  font-size: 14px;
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+.program-details-breadcrumb li:last-child {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+/* Program Logo Section */
+.program-logo-section {
+  display: block;
+  width: auto;
+  margin-bottom: 32px;
+}
+
+/* Program Badge */
+.program-badge-container {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.program-badge--large {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(238, 227, 255, 0.95);
+  color: #6f6093;
+  border-radius: 16px;
+  display: inline-block;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+}
+
+/* Program Logo */
+.program-logo {
+  margin-bottom: 0;
+  display: block;
+}
+
+.program-logo__wrapper {
+  width: 100px;
+  height: 100px;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.program-logo__img {
+  width: 90px;
+  height: auto;
+}
+
+/* Hero Content */
+.program-details-hero__title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.program-details-hero__text {
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 1.67;
+  margin-bottom: 32px;
+  max-width: 100%;
+}
+
+/* Program Meta */
+.program-details-meta {
+  margin-bottom: 32px;
+}
+
+.program-details-meta__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.program-details-meta__row:last-child {
+  margin-bottom: 0;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.meta-item--full {
+  flex: 1 1 100%;
+}
+
+.meta-item i {
+  color: #ffffff;
+  font-size: 20px;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+/* Registration Dates */
+.registration-dates {
+  margin-bottom: 0;
+}
+
+.registration-dates__text {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Enrollment Card Container */
+.program-details-hero .col-xl-4,
+.program-details-hero .col-lg-5 {
+  position: relative;
+}
+
+/* Enrollment Card */
+.enrollment-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 32px 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 40px;
+  right: 15px;
+  left: 15px;
+}
+
+.enrollment-card__meta {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card-meta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: #1c1c1c;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.card-meta-item:last-child {
+  margin-bottom: 0;
+}
+
+.card-meta-item i {
+  color: #6f6093;
+  font-size: 20px;
+  width: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.card-meta-item [data-i18n="location-label"] {
+  font-weight: 700;
+}
+
+/* Enroll Button */
+.enroll-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #621dab 0%, #6f6093 100%);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.enroll-btn:hover {
+  background: linear-gradient(135deg, #521a94 0%, #5e537d 100%);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(98, 29, 171, 0.3);
+}
+
+.enroll-btn i {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.enroll-btn:hover i {
+  transform: translateX(4px);
+}
+
+/* Sticky Navigation */
+.program-sticky-nav {
+  background: #ffffff;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
+  transition: all 0.3s ease;
+  display: block; /* Show on desktop by default */
+}
+
+.program-sticky-nav.is-sticky {
+  position: fixed;
+  top: 100px; /* Increased clearance below main header */
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+  padding: 15px 0;
+  animation: slideDown 0.3s ease-out;
+  margin-top: 10px; /* Additional spacing */
+}
+
+/* Animation for smooth appearance */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Placeholder to prevent content jump when nav becomes sticky */
+.sticky-nav-placeholder {
+  height: 90px; /* Increased to match new positioning */
+  display: none;
+}
+
+.sticky-nav-placeholder.active {
+  display: block;
+}
+
+.program-nav__list {
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.program-nav__link {
+  color: #1c1c1c;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 8px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.program-nav__link.active {
+  color: #1c1c1c;
+  font-weight: 600;
+  border-bottom-color: #6f6093;
+}
+
+.program-nav__link:hover {
+  color: #6f6093;
+}
+
+/* Program Content */
+.program-content {
+  background: #ffffff;
+  position: relative;
+}
+
+/* Sticky Enrollment Card for Content Sections */
+.sticky-enrollment-card {
+  position: fixed;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #7c6cb5 0%, #6b5b95 100%);
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 12px 40px rgba(108, 91, 149, 0.3);
+  z-index: 90;
+  width: 320px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* RTL support for sticky enrollment card */
+html[dir="rtl"] .sticky-enrollment-card,
+body.rtl-lang .sticky-enrollment-card {
+  right: auto;
+  left: 40px;
+}
+
+.sticky-enrollment-card.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sticky-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.sticky-card-meta {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 24px;
+}
+
+.sticky-meta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.sticky-meta-item:last-child {
+  margin-bottom: 0;
+}
+
+.sticky-meta-item i {
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 3px;
+  flex-shrink: 0;
+  width: 20px;
+}
+
+.sticky-meta-item strong {
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.sticky-meta-item span:last-child {
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.sticky-enroll-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 24px;
+  background: #ffffff;
+  color: #6b5b95;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-enroll-btn:hover {
+  background: #f8f9fa;
+  color: #6b5b95;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.sticky-enroll-btn i {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.sticky-enroll-btn:hover i {
+  transform: translateX(4px);
+}
+
+/* Program Section */
+.program-section {
+  padding: 48px 0;
+}
+
+.program-section:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.program-section__content {
+  max-width: 75%;
+  margin: 0;
+  padding-left: 0;
+}
+
+.program-section__title {
+  font-size: 40px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.program-section__text {
+  font-size: 16px;
+  color: #1c1c1c;
+  line-height: 1.8;
+}
+
+.program-section__text p {
+  margin-bottom: 24px;
+}
+
+.program-section__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lists */
+.objectives-list,
+.requirements-list,
+.attachments-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.objectives-list li,
+.requirements-list li,
+.attachments-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 16px;
+  color: #1c1c1c;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.objectives-list li:before,
+.requirements-list li:before,
+.attachments-list li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #6f6093;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.objectives-list li:last-child,
+.requirements-list li:last-child,
+.attachments-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* RTL support for section titles and bullet lists */
+html[dir="rtl"] .program-section__title,
+body.rtl-lang .program-section__title {
+  text-align: right;
+}
+
+html[dir="rtl"] .objectives-list li,
+html[dir="rtl"] .requirements-list li,
+html[dir="rtl"] .attachments-list li,
+body.rtl-lang .objectives-list li,
+body.rtl-lang .requirements-list li,
+body.rtl-lang .attachments-list li {
+  text-align: right;
+  padding-left: 0;
+  padding-right: 24px;
+}
+
+html[dir="rtl"] .objectives-list li:before,
+html[dir="rtl"] .requirements-list li:before,
+html[dir="rtl"] .attachments-list li:before,
+body.rtl-lang .objectives-list li:before,
+body.rtl-lang .requirements-list li:before,
+body.rtl-lang .attachments-list li:before {
+  left: auto;
+  right: 0;
+}
+
+/* Partners Grid */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  align-items: center;
+  justify-items: center;
+}
+
+.partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  height: 120px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.partner-logo:hover {
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.partner-logo img {
+  max-width: 100%;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* FAQs */
+.faqs-wrapper {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border: 1px solid rgba(51, 71, 176, 0.3);
+  margin-bottom: 0;
+  background: #ffffff;
+}
+
+.faq-item:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.faq-item:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin-bottom: 0;
+}
+
+.faq-item + .faq-item {
+  border-top: none;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+  cursor: pointer;
+  background: rgba(51, 71, 176, 0.06);
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  background: rgba(51, 71, 176, 0.1);
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  line-height: 1.4;
+  flex: 1;
+  padding-right: 20px;
+}
+
+.faq-toggle {
+  background: #ffffff;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.faq-toggle i {
+  color: #3347b0;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+/* RTL: Swap FAQ arrow direction to left chevron */
+html[dir="rtl"] .faq-toggle i,
+body.rtl-lang .faq-toggle i {
+  display: none;
+}
+html[dir="rtl"] .faq-toggle::after,
+body.rtl-lang .faq-toggle::after {
+  content: "\f053"; /* FontAwesome chevron-left unicode */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #3347b0;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-toggle i {
+  transform: rotate(90deg);
+}
+
+html[dir="rtl"] .faq-item.active .faq-toggle::after,
+body.rtl-lang .faq-item.active .faq-toggle::after {
+  transform: rotate(-90deg);
+}
+
+.faq-answer {
+  padding: 0 24px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.faq-item.active .faq-answer {
+  padding: 22px 24px;
+  max-height: 200px;
+}
+
+.faq-answer p {
+  margin: 0;
+  color: #3347b0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 1199px) {
+  .enrollment-card {
+    position: static;
+    margin-top: 40px;
+    right: auto;
+    left: auto;
+    bottom: auto;
+  }
+  
+  .program-section__content {
+    max-width: 85%;
+  }
+  
+  .sticky-enrollment-card {
+    right: 20px;
+    width: 300px;
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .program-details-hero {
+    padding: 100px 0 60px;
+  }
+  
+  .program-details-hero__title {
+    font-size: 36px;
+  }
+  
+  .program-section__title {
+    font-size: 32px;
+    text-align: left;
+  }
+  
+  .program-details-meta__row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .program-nav__list {
+    gap: 24px;
+  }
+  
+  .partners-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 24px;
+  }
+  
+  /* Hide sticky navigation on tablet and below */
+  .program-sticky-nav {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .program-details-hero {
+    padding: 80px 0 40px;
+  }
+  
+  .program-details-hero__title {
+    font-size: 28px;
+  }
+  
+  .program-details-hero__text {
+    font-size: 16px;
+  }
+  
+  .meta-item {
+    font-size: 16px;
+  }
+  
+  .registration-dates__text {
+    font-size: 16px;
+  }
+  
+  .program-section {
+    padding: 32px 0;
+  }
+  
+  .program-section__title {
+    font-size: 28px;
+    margin-bottom: 24px;
+    text-align: left;
+  }
+  
+  .enrollment-card {
+    padding: 24px 20px;
+    position: static;
+    right: auto;
+    left: auto;
+    bottom: auto;
+  }
+  
+  .program-nav__list {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .program-nav__link {
+    font-size: 14px;
+  }
+  
+  .program-sticky-nav {
+    padding: 16px 0;
+  }
+  
+  .sticky-enrollment-card {
+    display: none;
+  }
+  
+  .sticky-meta-item {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  
+  .sticky-meta-item i {
+    font-size: 16px;
+  }
+  
+  .partners-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .faq-question {
+    padding: 16px 20px;
+  }
+  
+  .faq-question h3 {
+    font-size: 14px;
+  }
+  
+  .faq-item.active .faq-answer {
+    padding: 16px 20px;
+  }
+  
+  .faq-answer p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 575px) {
+  .program-details-breadcrumb li {
+    font-size: 14px;
+  }
+  
+  .program-details-hero__title {
+    font-size: 24px;
+  }
+  
+  .program-section__title {
+    font-size: 24px;
+    text-align: left;
+  }
+  
+  .enrollment-card {
+    padding: 20px 16px;
+    position: static;
+    right: auto;
+    left: auto;
+    bottom: auto;
+  }
+  
+  .card-meta-item {
+    font-size: 14px;
+  }
+  
+  .enroll-btn {
+    font-size: 16px;
+    padding: 14px 20px;
+  }
+  
+  .sticky-enrollment-card {
+    display: none !important;
+  }
+} /* Cache buster Wed Jan  8 16:42:15 +04 2025 - Sticky Card Update */
+
+/* Additional Badge Positioning - Higher Specificity */
+.program-details-hero .program-details-hero__content .program-logo-section {
+  position: relative;
+}
+
+.program-details-hero .program-details-hero__content .program-badge-container {
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin-bottom: 48px !important;
+}
+
+.program-details-hero .program-details-hero__content .program-badge--large {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+}
+
+.program-details-hero .program-details-hero__content .program-logo {
+  position: relative;
+  display: block;
+  width: fit-content;
+}
+
+/* RTL support for hero content */
+html[dir="rtl"] .program-details-hero__content,
+body.rtl-lang .program-details-hero__content {
+  text-align: right;
+}
+.sticky-enrollment-card.visible {
+  display: block;
+}
+
+.sticky-enrollment-card.hide {
+  display: none !important;
+}
