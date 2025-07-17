@@ -124,3 +124,89 @@ function initializeApplication() {
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initializeApplication); 
 
+// Multi-step wizard logic
+const steps = Array.from(document.querySelectorAll('.wizard-step'));
+let currentStep = 0;
+function showStep(idx) {
+  steps.forEach((step, i) => step.style.display = i === idx ? '' : 'none');
+  currentStep = idx;
+}
+// Consent logic
+const consentCheck = document.getElementById('consentCheck');
+const startBtn = document.getElementById('startBtn');
+if (consentCheck && startBtn) {
+  consentCheck.addEventListener('change', () => {
+    startBtn.disabled = !consentCheck.checked;
+  });
+  startBtn.addEventListener('click', () => showStep(1));
+}
+// Step 1 validation
+const form1 = document.getElementById('form-step-1');
+const next1 = document.getElementById('next1');
+if (form1 && next1) {
+  form1.addEventListener('change', () => {
+    next1.disabled = !form1.querySelector('input[type=radio]:checked');
+  });
+  next1.addEventListener('click', () => showStep(2));
+}
+// Step 2 validation
+const form2 = document.getElementById('form-step-2');
+const next2 = document.getElementById('next2');
+if (form2 && next2) {
+  form2.addEventListener('change', () => {
+    next2.disabled = !form2.querySelector('input[type=checkbox]:checked');
+  });
+  next2.addEventListener('click', () => showStep(3));
+}
+// Step 3 validation
+const form3 = document.getElementById('form-step-3');
+const next3 = document.getElementById('next3');
+if (form3 && next3) {
+  form3.addEventListener('input', () => {
+    next3.disabled = !form3.summary.value.trim();
+  });
+  next3.addEventListener('click', () => showStep(4));
+}
+// Step 4: Attachments
+const form4 = document.getElementById('form-step-4');
+const submitBtn = document.getElementById('submitApplication');
+const fileFields = ['national-id', 'cv', 'qualification', 'experience'];
+function checkUploads() {
+  let allFilled = true;
+  fileFields.forEach(id => {
+    const input = document.getElementById(id);
+    if (!input.files.length) allFilled = false;
+  });
+  submitBtn.disabled = !allFilled;
+}
+fileFields.forEach(id => {
+  const input = document.getElementById(id);
+  if (input) {
+    input.addEventListener('change', e => {
+      const status = document.getElementById('status-' + id);
+      if (input.files.length) {
+        status.textContent = 'Uploaded';
+        status.classList.add('success');
+      } else {
+        status.textContent = '';
+        status.classList.remove('success');
+      }
+      checkUploads();
+    });
+  }
+});
+if (form4) {
+  form4.addEventListener('submit', e => {
+    e.preventDefault();
+    showStep(5);
+  });
+}
+// Back/Exit buttons
+document.querySelectorAll('.back-btn').forEach(btn => {
+  btn.addEventListener('click', () => showStep(currentStep - 1));
+});
+document.querySelectorAll('.exit-btn').forEach(btn => {
+  btn.addEventListener('click', () => window.location.href = 'index.html');
+});
+// Show initial step
+showStep(0);

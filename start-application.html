@@ -179,54 +179,142 @@
             <div class="text-center">
               <div class="course-title-badge">Python Essentials</div>
             </div>
-
-            <div class="welcome-message">
-              <strong data-i18n="welcome-dear-name">Dear Abdul,</strong>
-              <span data-i18n="welcome-message-content"
-                >Welcome aboard! As we embark on this journey together, I'd like
-                to kick things off by delving into the questionnaire phase and
-                then attachments. This pivotal step serves as our foundation for
-                understanding your needs, preferences, and objectives, allowing
-                us to tailor our approach accordingly. <br /><br />
-                Your input in this phase is invaluable as it lays the groundwork
-                for our collaboration moving forward. By providing thorough and
-                honest responses, you enable us to align our strategies and
-                resources with your unique vision and aspirations.
-                <br /><br />
-                Rest assured, your privacy and confidentiality are of utmost
-                importance to us. Any information shared during this process
-                will be handled with the utmost care and discretion.
-                <br /><br />
-                Thank you in advance for your cooperation and participation.
-                Let's embark on this journey together and pave the way for
-                success!</span
-              >
+            <!-- Multi-step wizard container -->
+            <div id="application-wizard">
+              <!-- Step 0: Welcome/Consent (existing) -->
+              <div class="wizard-step" id="step-0">
+                <div class="welcome-message">
+                  <strong data-i18n="welcome-dear-name">Dear Abdul,</strong>
+                  <span data-i18n="welcome-message-content">
+                    Welcome aboard! As we embark on this journey together, I'd like to kick things off by delving into the questionnaire phase and then attachments. This pivotal step serves as our foundation for understanding your needs, preferences, and objectives, allowing us to tailor our approach accordingly.<br /><br />
+                    Your input in this phase is invaluable as it lays the groundwork for our collaboration moving forward. By providing thorough and honest responses, you enable us to align our strategies and resources with your unique vision and aspirations.<br /><br />
+                    Rest assured, your privacy and confidentiality are of utmost importance to us. Any information shared during this process will be handled with the utmost care and discretion.<br /><br />
+                    Thank you in advance for your cooperation and participation. Let's embark on this journey together and pave the way for success!
+                  </span>
+                </div>
+                <div class="consent-section">
+                  <label class="consent-checkbox-wrapper">
+                    <input type="checkbox" id="consentCheck" />
+                    <span class="custom-checkbox"></span>
+                  </label>
+                  <span class="consent-text" data-i18n="consent-text">
+                    I hereby confirm that the information I provide is to the best of my knowledge
+                  </span>
+                </div>
+                <button class="start-btn" id="startBtn" disabled data-i18n="start-btn">START</button>
+              </div>
+              <!-- Step 1: Single Choice -->
+              <div class="wizard-step" id="step-1" style="display:none;">
+                <div class="wizard-progress" data-i18n="wizard.q1.progress">Question 1/3</div>
+                <div class="wizard-question-title" data-i18n="wizard.q1.title">Why did you choose this Program?</div>
+                <form id="form-step-1">
+                  <div class="wizard-options radio-group">
+                    <label class="radio-option"><input type="radio" name="why_program" value="knowledge" /><span data-i18n="wizard.q1.option1">To get knowledge and improvement</span></label>
+                    <label class="radio-option"><input type="radio" name="why_program" value="fun" /><span data-i18n="wizard.q1.option2">For fun</span></label>
+                    <label class="radio-option"><input type="radio" name="why_program" value="skills" /><span data-i18n="wizard.q1.option3">Learn new skills</span></label>
+                    <label class="radio-option"><input type="radio" name="why_program" value="all" /><span data-i18n="wizard.q1.option4">All of the above</span></label>
+                  </div>
+                  <div class="wizard-nav">
+                    <div class="wizard-nav-left">
+                      <button type="button" class="wizard-btn exit-btn" data-i18n="wizard.exit">Exit</button>
+                    </div>
+                    <div class="wizard-nav-right">
+                      <button type="button" class="wizard-btn next-btn" id="next1" disabled data-i18n="wizard.next">Next</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- Step 2: Multiple Choice -->
+              <div class="wizard-step" id="step-2" style="display:none;">
+                <div class="wizard-progress" data-i18n="wizard.q2.progress">Question 2/3</div>
+                <div class="wizard-question-title" data-i18n="wizard.q2.title">What factors influenced your decision to select this program?</div>
+                <form id="form-step-2">
+                  <div class="wizard-options checkbox-group">
+                    <label class="checkbox-option"><input type="checkbox" name="factors" value="engaging" /><span data-i18n="wizard.q2.option1">Engaging</span></label>
+                    <label class="checkbox-option"><input type="checkbox" name="factors" value="self-learning" /><span data-i18n="wizard.q2.option2">Self Learning</span></label>
+                    <label class="checkbox-option"><input type="checkbox" name="factors" value="technology" /><span data-i18n="wizard.q2.option3">New Technology</span></label>
+                    <label class="checkbox-option"><input type="checkbox" name="factors" value="location" /><span data-i18n="wizard.q2.option4">Near your Location</span></label>
+                  </div>
+                  <div class="wizard-nav">
+                    <div class="wizard-nav-left">
+                      <button type="button" class="wizard-btn exit-btn" data-i18n="wizard.exit">Exit</button>
+                    </div>
+                    <div class="wizard-nav-right">
+                      <button type="button" class="wizard-btn back-btn" data-i18n="wizard.back">Back</button>
+                      <button type="button" class="wizard-btn next-btn" id="next2" disabled data-i18n="wizard.next">Next</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- Step 3: Free Text -->
+              <div class="wizard-step" id="step-3" style="display:none;">
+                <div class="wizard-progress" data-i18n="wizard.q3.progress">Question 3/3</div>
+                <div class="wizard-question-title" data-i18n="wizard.q3.title">Can you provide a brief summary of the reasons that led you to choose this program?</div>
+                <form id="form-step-3">
+                  <textarea name="summary" id="summary" rows="5" placeholder="Type your answer here..." required data-i18n="wizard.q3.placeholder"></textarea>
+                  <div class="wizard-nav">
+                    <div class="wizard-nav-left">
+                      <button type="button" class="wizard-btn exit-btn" data-i18n="wizard.exit">Exit</button>
+                    </div>
+                    <div class="wizard-nav-right">
+                      <button type="button" class="wizard-btn back-btn" data-i18n="wizard.back">Back</button>
+                      <button type="button" class="wizard-btn next-btn" id="next3" disabled data-i18n="wizard.next">Next</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- Step 4: Attachments Upload -->
+              <div class="wizard-step" id="step-4" style="display:none;">
+                <div class="wizard-question-title" data-i18n="wizard.attachments.title">Upload Required Documents</div>
+                <form id="form-step-4" enctype="multipart/form-data">
+                  <div class="upload-group">
+                    <label for="national-id" data-i18n="wizard.attachments.national_id">National ID <span class="required">*</span></label>
+                    <input type="file" id="national-id" name="national-id" accept="image/*,.pdf" required />
+                    <span class="upload-status" id="status-national-id"></span>
+                  </div>
+                  <div class="upload-group">
+                    <label for="cv" data-i18n="wizard.attachments.cv">CV <span class="required">*</span></label>
+                    <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required />
+                    <span class="upload-status" id="status-cv"></span>
+                  </div>
+                  <div class="upload-group">
+                    <label for="qualification" data-i18n="wizard.attachments.qualification">Qualification <span class="required">*</span></label>
+                    <input type="file" id="qualification" name="qualification" accept="image/*,.pdf" required />
+                    <span class="upload-status" id="status-qualification"></span>
+                  </div>
+                  <div class="upload-group">
+                    <label for="experience" data-i18n="wizard.attachments.experience">Experience <span class="required">*</span></label>
+                    <input type="file" id="experience" name="experience" accept="image/*,.pdf" required />
+                    <span class="upload-status" id="status-experience"></span>
+                  </div>
+                  <div class="wizard-nav">
+                    <div class="wizard-nav-left">
+                      <button type="button" class="wizard-btn exit-btn" data-i18n="wizard.exit">Exit</button>
+                    </div>
+                    <div class="wizard-nav-right">
+                      <button type="button" class="wizard-btn back-btn" data-i18n="wizard.back">Back</button>
+                      <button type="submit" class="wizard-btn submit-btn" id="submitApplication" disabled data-i18n="wizard.submit">Submit Application</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- Step 5: Thank You -->
+              <div class="wizard-step" id="step-5" style="display:none;">
+                <div class="wizard-question-title" style="font-size:40px;font-weight:700;line-height:1.2;margin-bottom:32px;text-align:center;" data-i18n="wizard.thankyou.title">Thank you for your time and your answers</div>
+                <div class="thankyou-animation" style="margin-bottom:32px;">
+                  <img src="assets/images/like.svg" alt="Like" style="width:80px;height:80px;">
+                </div>
+                <div class="thankyou-sub-message" style="font-size:18px;max-width:90%;margin:0 auto 32px auto;text-align:center;line-height:1.5;" data-i18n="wizard.thankyou.sub">
+                  <strong>Dear Abdul Rehman,</strong><br><br>
+                  Thank you for taking the time to provide us with your valuable insights and answers.<br>
+                  Your answers & attachments are saved and your request for enrollment is received, someone from our team will get back to you.
+                </div>
+                <div class="wizard-nav" style="justify-content:center;">
+                  <a href="index.html" class="wizard-btn" style="background:#fff;color:#6f6093;font-size:18px;padding:16px 48px;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.10);font-weight:700;" data-i18n="wizard.dashboard">Go to Dashboard</a>
+                </div>
+              </div>
             </div>
-
-            <div class="consent-section">
-              <label class="consent-checkbox-wrapper">
-                <input
-                  type="checkbox"
-                  id="consentCheck"
-                  onchange="toggleStartButton()"
-                />
-                <span class="custom-checkbox"></span>
-              </label>
-              <span class="consent-text" data-i18n="consent-text"
-                >I hereby confirm that the information I provide is to the best
-                of my knowledge</span
-              >
-            </div>
-
-            <button
-              class="start-btn"
-              id="startBtn"
-              disabled
-              onclick="startApplication()"
-              data-i18n="start-btn"
-            >
-              START
-            </button>
+            <!-- End wizard container -->
           </div>
         </div>
       </main>
