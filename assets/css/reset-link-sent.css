@@ -1,0 +1,63 @@
+/* Reset Link Sent Card Customization */
+.email-card {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.email-verify-icon {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 1.5rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.email-verify-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.email-title {
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.email-verify-message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  max-width: 420px;
+}
+
+.email-verify-message b.email-address {
+  font-weight: 700;
+  color: #000;
+}
+
+.change-email-link {
+  color: #6dc7b3;
+  text-decoration: underline;
+  font-weight: 500;
+  margin-left: 0.25rem;
+}
+.change-email-link:hover {
+  color: #6449b1;
+}
+
+@media (max-width: 480px) {
+  .email-verify-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+  .email-verify-message {
+    font-size: 1rem;
+    max-width: 95vw;
+  }
+} 
