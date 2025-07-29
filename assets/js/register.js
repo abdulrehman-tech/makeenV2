@@ -28,6 +28,8 @@ function switchLanguage(lang) {
 	".subtitle-en": ".subtitle-ar",
 	".register-btn-en": ".register-btn-ar",
 	".existing-user-en": ".existing-user-ar",
+	".success-msg-en": ".success-msg-ar",
+	".complete-profile-en": ".complete-profile-ar",
 	".copyright-en": ".copyright-ar",
   };
 
@@ -212,8 +214,28 @@ $(document).ready(function() {
 		return false;
 	  }
 
-	  // If validation passes, redirect to OTP verification page
-	  window.location.href = 'verify-otp.html';
+	  // If validation passes, show success message and profile completion link
+	  const form = document.getElementById("registerForm");
+	  const successDiv = document.querySelector(".register-success");
+	  
+	  // Hide the form
+	  form.style.display = "none";
+	  
+	  // Show success message
+	  successDiv.style.display = "block";
+	  
+	  // Update language for success message
+	  if (currentLang === "ar") {
+		document.querySelector(".success-msg-en").style.display = "none";
+		document.querySelector(".success-msg-ar").style.display = "inline";
+		document.querySelector(".complete-profile-en").style.display = "none";
+		document.querySelector(".complete-profile-ar").style.display = "inline";
+	  } else {
+		document.querySelector(".success-msg-en").style.display = "inline";
+		document.querySelector(".success-msg-ar").style.display = "none";
+		document.querySelector(".complete-profile-en").style.display = "inline";
+		document.querySelector(".complete-profile-ar").style.display = "none";
+	  }
   });
 
   // Civil ID validation (numbers only)

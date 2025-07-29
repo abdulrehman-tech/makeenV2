@@ -342,6 +342,23 @@ body[dir="rtl"] .language-switcher {
   background: #f8f9fa;
 }
 
+/* Success Message */
+.register-success {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.success-message {
+  font-size: 1.1rem;
+  color: #28a745;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.register-success .btn-primary {
+  margin-bottom: 1rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .login-container {
