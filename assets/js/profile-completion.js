@@ -1007,6 +1007,9 @@ function applyLanguageStyles(lang) {
     document.documentElement.style.setProperty('--eduact-font', '"Tajawal", Arial, sans-serif');
     document.documentElement.style.setProperty('--heading-font', '"Tajawal", Arial, sans-serif');
     
+    // Apply RTL styles to form controls
+    applyRTLFormStyles();
+    
     // Force refresh of font rendering
     setTimeout(function() {
       // Trigger reflow
@@ -1028,7 +1031,99 @@ function applyLanguageStyles(lang) {
     // Reset CSS variables to Urbanist font
     document.documentElement.style.setProperty('--eduact-font', '"Urbanist", sans-serif');
     document.documentElement.style.setProperty('--heading-font', '"Urbanist", sans-serif');
+    
+    // Reset RTL styles
+    resetRTLFormStyles();
   }
+}
+
+// Apply RTL styles to form controls
+function applyRTLFormStyles() {
+  // Apply RTL to all form controls
+  const formControls = document.querySelectorAll('.form-control');
+  formControls.forEach(control => {
+    control.style.textAlign = 'right';
+    control.style.direction = 'rtl';
+    
+    // Special handling for select dropdowns
+    if (control.tagName === 'SELECT') {
+      control.style.paddingRight = '1rem';
+      control.style.paddingLeft = '2.5rem';
+    }
+    
+    // Special handling for date inputs
+    if (control.type === 'date') {
+      control.style.paddingRight = '1rem';
+      control.style.paddingLeft = '2.5rem';
+    }
+  });
+  
+  // Apply RTL to all form labels
+  const formLabels = document.querySelectorAll('.form-label');
+  formLabels.forEach(label => {
+    label.style.textAlign = 'right';
+  });
+  
+  // Apply RTL to all form groups
+  const formGroups = document.querySelectorAll('.form-group');
+  formGroups.forEach(group => {
+    group.style.textAlign = 'right';
+  });
+  
+  // Force repositioning of select icons
+  const selectIcons = document.querySelectorAll('.select-icon');
+  selectIcons.forEach(icon => {
+    icon.style.right = 'auto';
+    icon.style.left = '1rem';
+  });
+  
+  // Force repositioning of date picker icons
+  const dateInputs = document.querySelectorAll('input[type="date"]');
+  dateInputs.forEach(input => {
+    // Add a small delay to ensure the browser has processed the RTL change
+    setTimeout(() => {
+      input.style.backgroundPosition = 'left 0.5rem center';
+      input.style.backgroundRepeat = 'no-repeat';
+    }, 100);
+  });
+}
+
+// Reset RTL styles from form controls
+function resetRTLFormStyles() {
+  // Reset all form controls
+  const formControls = document.querySelectorAll('.form-control');
+  formControls.forEach(control => {
+    control.style.textAlign = '';
+    control.style.direction = '';
+    control.style.paddingRight = '';
+    control.style.paddingLeft = '';
+  });
+  
+  // Reset all form labels
+  const formLabels = document.querySelectorAll('.form-label');
+  formLabels.forEach(label => {
+    label.style.textAlign = '';
+  });
+  
+  // Reset all form groups
+  const formGroups = document.querySelectorAll('.form-group');
+  formGroups.forEach(group => {
+    group.style.textAlign = '';
+  });
+  
+  // Reset select icon positions
+  const selectIcons = document.querySelectorAll('.select-icon');
+  selectIcons.forEach(icon => {
+    icon.style.right = '';
+    icon.style.left = '';
+  });
+  
+  // Reset date picker icon positions
+  const dateInputs = document.querySelectorAll('input[type="date"]');
+  dateInputs.forEach(input => {
+    input.style.backgroundPosition = '';
+    input.style.backgroundRepeat = '';
+  });
 }
 
 // Initialize page
