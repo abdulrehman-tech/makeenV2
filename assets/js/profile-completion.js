@@ -276,17 +276,16 @@ $(document).ready(function() {
       qualifications.push(newQualification);
     }
 
-    // Save to localStorage
-    localStorage.setItem('qualifications', JSON.stringify(qualifications));
-    
-    // Update display
-    renderQualifications();
-    
-    // Close modal
-    closeQualificationModal();
-    
-    // Show success message
-    showSuccessMessage(editingQualificationId ? 'Qualification updated successfully!' : 'Qualification added successfully!');
+      // Save to localStorage
+  localStorage.setItem('qualifications', JSON.stringify(qualifications));
+  
+  // Update display
+  renderQualifications();
+  
+  // Close modal
+  closeQualificationModal();
+  
+  // Don't show success message here - will be shown when proceeding to next step
   }
 
   // Validate qualification form
@@ -579,7 +578,7 @@ $(document).ready(function() {
     // Close modal
     closeProfessionalModal();
     
-    showSuccessMessage(editingProfessionalId ? 'Professional experience updated successfully!' : 'Professional experience added successfully!');
+    // Don't show success message here - will be shown when proceeding to next step
   }
 
   // Validate professional form
@@ -737,14 +736,14 @@ $(document).ready(function() {
   };
 
   // Delete professional
-  window.deleteProfessional = function(id) {
-    if (confirm('Are you sure you want to delete this professional experience?')) {
-      professionals = professionals.filter(p => p.id != id);
-      localStorage.setItem('professionals', JSON.stringify(professionals));
-      renderProfessionals();
-      showSuccessMessage('Professional experience deleted successfully!');
-    }
-  };
+window.deleteProfessional = function(id) {
+  if (confirm('Are you sure you want to delete this professional experience?')) {
+    professionals = professionals.filter(p => p.id != id);
+    localStorage.setItem('professionals', JSON.stringify(professionals));
+    renderProfessionals();
+    // Don't show success message here - will be shown when proceeding to next step
+  }
+};
 
   // Helper functions
   window.getEmploymentTypeText = function(type) {
@@ -910,7 +909,7 @@ window.deleteQualification = function(id) {
     qualifications = qualifications.filter(q => q.id != id);
     localStorage.setItem('qualifications', JSON.stringify(qualifications));
     renderQualifications();
-    showSuccessMessage('Qualification deleted successfully!');
+    // Don't show success message here - will be shown when proceeding to next step
   }
 }
 
@@ -2084,18 +2083,6 @@ $(document).on('keydown', function(e) {
   }
 });
 
-// Auto-save functionality
-let autoSaveTimer;
-$(document).on('input', '.form-control', function() {
-  // Skip readonly fields for auto-save
-  if ($(this).hasClass('readonly-field')) {
-    return;
-  }
-  
-  clearTimeout(autoSaveTimer);
-  autoSaveTimer = setTimeout(() => {
-    saveStepData(currentStep);
-  }, 2000); // Auto-save after 2 seconds of inactivity
-});
+
 
  

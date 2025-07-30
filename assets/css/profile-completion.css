@@ -142,7 +142,7 @@ body[dir="rtl"] .language-switcher {
 }
 
 .page-title {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #2c3e50;
   margin-bottom: 0.5rem;
@@ -248,8 +248,115 @@ body[dir="rtl"] .language-switcher {
 }
 
 .form-header {
-  text-align: center;
   margin-bottom: 2rem;
+}
+
+.header-content-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.title-description-group {
+  flex: 1;
+  text-align: left;
+}
+
+.header-action-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+
+
+/* RTL Support */
+body[dir="rtl"] .title-description-group,
+body.rtl-lang .title-description-group {
+  text-align: right !important;
+  order: 2;
+}
+
+body[dir="rtl"] .header-action-group,
+body.rtl-lang .header-action-group {
+  order: 1;
+}
+
+body[dir="rtl"] .header-content-group,
+body.rtl-lang .header-content-group {
+  flex-direction: row;
+}
+
+body[dir="rtl"] .form-title,
+body[dir="rtl"] .form-subtitle,
+body.rtl-lang .form-title,
+body.rtl-lang .form-subtitle {
+  text-align: right !important;
+}
+
+/* Additional RTL support for Arabic class */
+body.arabic-font .title-description-group {
+  text-align: right !important;
+  order: 1;
+}
+
+body.arabic-font .header-action-group {
+  order: 1;
+}
+
+body.arabic-font .header-content-group {
+  flex-direction: row;
+}
+
+body.arabic-font .form-title,
+body.arabic-font .form-subtitle {
+  text-align: right !important;
+}
+
+@media (max-width: 768px) {
+  .header-content-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .title-description-group {
+    text-align: center;
+    order: 1;
+  }
+  
+  .header-action-group {
+    justify-content: center;
+    order: 2;
+  }
+  
+  body[dir="rtl"] .header-content-group {
+    flex-direction: column;
+  }
+  
+  body[dir="rtl"] .title-description-group,
+  body.rtl-lang .title-description-group,
+  body.arabic-font .title-description-group {
+    text-align: center !important;
+    order: 1;
+  }
+  
+  body[dir="rtl"] .header-action-group,
+  body.rtl-lang .header-action-group,
+  body.arabic-font .header-action-group {
+    order: 2;
+  }
+  
+  body[dir="rtl"] .form-title,
+  body[dir="rtl"] .form-subtitle,
+  body.rtl-lang .form-title,
+  body.rtl-lang .form-subtitle,
+  body.arabic-font .form-title,
+  body.arabic-font .form-subtitle {
+    text-align: center !important;
+  }
 }
 
 .form-title {
@@ -833,7 +940,7 @@ body[dir="rtl"] .wizard-steps {
   }
   
   .page-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   
   .form-row {
@@ -914,7 +1021,7 @@ body[dir="rtl"] .wizard-steps {
   }
   
   .page-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
   
   .form-title {
