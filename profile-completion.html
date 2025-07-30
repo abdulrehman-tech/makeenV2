@@ -189,8 +189,8 @@
                         </label>
                         <div class="select-wrapper">
                           <select class="form-control" required>
-                            <option value="male" selected>Male</option>
-                            <option value="female">Female</option>
+                            <option value="male" selected data-text-en="Male" data-text-ar="ذكر">Male</option>
+                            <option value="female" data-text-en="Female" data-text-ar="أنثى">Female</option>
                           </select>
                           <i class="fas fa-chevron-down select-icon"></i>
                         </div>
@@ -209,9 +209,9 @@
                         </label>
                         <div class="select-wrapper">
                           <select class="form-control" required>
-                            <option value="omani" selected>Omani</option>
-                            <option value="emirati">Emirati</option>
-                            <option value="saudi">Saudi</option>
+                            <option value="omani" selected data-text-en="Omani" data-text-ar="عماني">Omani</option>
+                            <option value="emirati" data-text-en="Emirati" data-text-ar="إماراتي">Emirati</option>
+                            <option value="saudi" data-text-en="Saudi" data-text-ar="سعودي">Saudi</option>
                           </select>
                           <i class="fas fa-chevron-down select-icon"></i>
                         </div>
@@ -226,10 +226,10 @@
                         </label>
                         <div class="select-wrapper">
                           <select class="form-control" id="countryResidence" required>
-                            <option value="oman" selected>Oman</option>
-                            <option value="uae">UAE</option>
-                            <option value="saudi">Saudi Arabia</option>
-                            <option value="other">Other</option>
+                            <option value="oman" selected data-text-en="Oman" data-text-ar="عمان">Oman</option>
+                            <option value="uae" data-text-en="UAE" data-text-ar="الإمارات">UAE</option>
+                            <option value="saudi" data-text-en="Saudi Arabia" data-text-ar="المملكة العربية السعودية">Saudi Arabia</option>
+                            <option value="other" data-text-en="Other" data-text-ar="أخرى">Other</option>
                           </select>
                           <i class="fas fa-chevron-down select-icon"></i>
                         </div>
@@ -241,18 +241,16 @@
                         </label>
                         <div class="select-wrapper">
                           <select class="form-control" id="governorate" required>
-                            <option value="muscat" selected>Muscat</option>
-                            <option value="dhofar">Dhofar</option>
-                            <option value="musandam">Musandam</option>
-                            <option value="buraimi">Al Buraimi</option>
-                            <option value="dakhiliyah">Ad Dakhiliyah</option>
-                            <option value="north_batinah">North Al Batinah</option>
-                            <option value="south_batinah">South Al Batinah</option>
-                            <option value="north_sharqiyah">North Ash Sharqiyah</option>
-                            <option value="south_sharqiyah">South Ash Sharqiyah</option>
-                            <option value="dhofar">Dhofar</option>
-                            <option value="musandam">Musandam</option>
-                            <option value="wusta">Al Wusta</option>
+                            <option value="muscat" selected data-text-en="Muscat" data-text-ar="مسقط">Muscat</option>
+                            <option value="dhofar" data-text-en="Dhofar" data-text-ar="ظفار">Dhofar</option>
+                            <option value="musandam" data-text-en="Musandam" data-text-ar="مسندم">Musandam</option>
+                            <option value="buraimi" data-text-en="Al Buraimi" data-text-ar="البريمي">Al Buraimi</option>
+                            <option value="dakhiliyah" data-text-en="Ad Dakhiliyah" data-text-ar="الداخلية">Ad Dakhiliyah</option>
+                            <option value="north_batinah" data-text-en="North Al Batinah" data-text-ar="شمال الباطنة">North Al Batinah</option>
+                            <option value="south_batinah" data-text-en="South Al Batinah" data-text-ar="جنوب الباطنة">South Al Batinah</option>
+                            <option value="north_sharqiyah" data-text-en="North Ash Sharqiyah" data-text-ar="شمال الشرقية">North Ash Sharqiyah</option>
+                            <option value="south_sharqiyah" data-text-en="South Ash Sharqiyah" data-text-ar="جنوب الشرقية">South Ash Sharqiyah</option>
+                            <option value="wusta" data-text-en="Al Wusta" data-text-ar="الوسطى">Al Wusta</option>
                           </select>
                           <i class="fas fa-chevron-down select-icon"></i>
                         </div>
@@ -264,12 +262,12 @@
                         </label>
                         <div class="select-wrapper">
                           <select class="form-control" id="wilayat" required>
-                            <option value="muscat" selected>Muscat</option>
-                            <option value="muttrah">Muttrah</option>
-                            <option value="seeb">Seeb</option>
-                            <option value="bausher">Bausher</option>
-                            <option value="amerat">Al Amerat</option>
-                            <option value="quriyat">Quriyat</option>
+                            <option value="muscat" selected data-text-en="Muscat" data-text-ar="مسقط">Muscat</option>
+                            <option value="muttrah" data-text-en="Muttrah" data-text-ar="مطرح">Muttrah</option>
+                            <option value="seeb" data-text-en="Seeb" data-text-ar="السيب">Seeb</option>
+                            <option value="bausher" data-text-en="Bausher" data-text-ar="بوشر">Bausher</option>
+                            <option value="amerat" data-text-en="Al Amerat" data-text-ar="العامرات">Al Amerat</option>
+                            <option value="quriyat" data-text-en="Quriyat" data-text-ar="قريات">Quriyat</option>
                           </select>
                           <i class="fas fa-chevron-down select-icon"></i>
                         </div>
@@ -282,7 +280,7 @@
                           <span class="label-en">Address*</span>
                           <span class="label-ar" style="display: none">العنوان*</span>
                         </label>
-                        <input type="text" class="form-control" placeholder="Enter your address" />
+                        <input type="text" class="form-control" placeholder="Enter your address" data-placeholder-en="Enter your address" data-placeholder-ar="أدخل عنوانك" />
                       </div>
                       <div class="form-group">
                         <label class="form-label">
@@ -305,11 +303,11 @@
                         </label>
                         <div class="select-wrapper">
                           <select class="form-control" required>
-                            <option value="job-seeker" selected>Job Seeker</option>
-                            <option value="employed">Employed</option>
-                            <option value="student">Student</option>
-                            <option value="freelancer">Freelancer</option>
-                            <option value="retired">Retired</option>
+                            <option value="job-seeker" selected data-text-en="Job Seeker" data-text-ar="باحث عن عمل">Job Seeker</option>
+                            <option value="employed" data-text-en="Employed" data-text-ar="موظف">Employed</option>
+                            <option value="student" data-text-en="Student" data-text-ar="طالب">Student</option>
+                            <option value="freelancer" data-text-en="Freelancer" data-text-ar="مستقل">Freelancer</option>
+                            <option value="retired" data-text-en="Retired" data-text-ar="متقاعد">Retired</option>
                           </select>
                           <i class="fas fa-chevron-down select-icon"></i>
                         </div>
@@ -633,7 +631,7 @@
                         <span class="summary-label-en">CV/Resume:</span>
                         <span class="summary-label-ar" style="display: none">السيرة الذاتية:</span>
                       </span>
-                      <span class="summary-value" id="cvSummary">Not uploaded</span>
+                      <span class="summary-value" id="cvSummary" data-text-en="Not uploaded" data-text-ar="لم يتم التحميل">Not uploaded</span>
                     </div>
                   </div>
 
@@ -678,11 +676,11 @@
                 </label>
                 <div class="select-wrapper">
                   <select class="form-control" id="modalDegree" required>
-                    <option value="">Select Degree</option>
-                    <option value="diploma">Diploma</option>
-                    <option value="bachelor">Bachelor</option>
-                    <option value="master">Master</option>
-                    <option value="phd">PhD</option>
+                    <option value="" data-text-en="Select Degree" data-text-ar="اختر الدرجة العلمية">Select Degree</option>
+                    <option value="diploma" data-text-en="Diploma" data-text-ar="دبلوم">Diploma</option>
+                    <option value="bachelor" data-text-en="Bachelor" data-text-ar="بكالوريوس">Bachelor</option>
+                    <option value="master" data-text-en="Master" data-text-ar="ماجستير">Master</option>
+                    <option value="phd" data-text-en="PhD" data-text-ar="دكتوراه">PhD</option>
                   </select>
                   <i class="fas fa-chevron-down select-icon"></i>
                 </div>
@@ -692,7 +690,7 @@
                   <span class="label-en">Major*</span>
                   <span class="label-ar" style="display: none">التخصص*</span>
                 </label>
-                <input type="text" class="form-control" id="modalMajor" placeholder="Please enter your major/specialization" required />
+                <input type="text" class="form-control" id="modalMajor" placeholder="Please enter your major/specialization" data-placeholder-en="Please enter your major/specialization" data-placeholder-ar="يرجى إدخال تخصصك/مجالك" required />
               </div>
             </div>
 
@@ -704,14 +702,14 @@
                 </label>
                 <div class="select-wrapper">
                   <select class="form-control" id="modalCountry" required>
-                    <option value="">Select Country</option>
-                    <option value="oman">Oman</option>
-                    <option value="uae">UAE</option>
-                    <option value="saudi">Saudi Arabia</option>
-                    <option value="kuwait">Kuwait</option>
-                    <option value="qatar">Qatar</option>
-                    <option value="bahrain">Bahrain</option>
-                    <option value="other">Other</option>
+                    <option value="" data-text-en="Select Country" data-text-ar="اختر البلد">Select Country</option>
+                    <option value="oman" data-text-en="Oman" data-text-ar="عمان">Oman</option>
+                    <option value="uae" data-text-en="UAE" data-text-ar="الإمارات">UAE</option>
+                    <option value="saudi" data-text-en="Saudi Arabia" data-text-ar="المملكة العربية السعودية">Saudi Arabia</option>
+                    <option value="kuwait" data-text-en="Kuwait" data-text-ar="الكويت">Kuwait</option>
+                    <option value="qatar" data-text-en="Qatar" data-text-ar="قطر">Qatar</option>
+                    <option value="bahrain" data-text-en="Bahrain" data-text-ar="البحرين">Bahrain</option>
+                    <option value="other" data-text-en="Other" data-text-ar="أخرى">Other</option>
                   </select>
                   <i class="fas fa-chevron-down select-icon"></i>
                 </div>
@@ -723,12 +721,12 @@
                 </label>
                 <div class="select-wrapper">
                   <select class="form-control" id="modalInstitute" required>
-                    <option value="">Select Institute</option>
-                    <option value="squ">University of Sultan Qaboos</option>
-                    <option value="ut">University of Technology and Applied Sciences</option>
-                    <option value="muscat">Muscat University</option>
-                    <option value="gulf">Gulf College</option>
-                    <option value="other">Other</option>
+                    <option value="" data-text-en="Select Institute" data-text-ar="اختر المعهد">Select Institute</option>
+                    <option value="squ" data-text-en="University of Sultan Qaboos" data-text-ar="جامعة السلطان قابوس">University of Sultan Qaboos</option>
+                    <option value="ut" data-text-en="University of Technology and Applied Sciences" data-text-ar="جامعة التقنية والعلوم التطبيقية">University of Technology and Applied Sciences</option>
+                    <option value="muscat" data-text-en="Muscat University" data-text-ar="جامعة مسقط">Muscat University</option>
+                    <option value="gulf" data-text-en="Gulf College" data-text-ar="كلية الخليج">Gulf College</option>
+                    <option value="other" data-text-en="Other" data-text-ar="أخرى">Other</option>
                   </select>
                   <i class="fas fa-chevron-down select-icon"></i>
                 </div>
@@ -741,7 +739,7 @@
                   <span class="label-en">Grade*</span>
                   <span class="label-ar" style="display: none">الدرجة*</span>
                 </label>
-                <input type="text" class="form-control" id="modalGrade" placeholder="Please enter your grade (e.g., 3.99)" required />
+                <input type="text" class="form-control" id="modalGrade" placeholder="Please enter your grade (e.g., 3.99)" data-placeholder-en="Please enter your grade (e.g., 3.99)" data-placeholder-ar="يرجى إدخال درجتك (مثال: 3.99)" required />
               </div>
               <div class="form-group">
                 <label class="form-label">
@@ -821,7 +819,7 @@
                   <span class="label-en">Job Title*</span>
                   <span class="label-ar" style="display: none">المسمى الوظيفي*</span>
                 </label>
-                <input type="text" class="form-control" id="modalJobTitle" placeholder="Please enter your job title" required />
+                <input type="text" class="form-control" id="modalJobTitle" placeholder="Please enter your job title" data-placeholder-en="Please enter your job title" data-placeholder-ar="يرجى إدخال المسمى الوظيفي" required />
               </div>
               <div class="form-group">
                 <label class="form-label">
@@ -830,12 +828,12 @@
                 </label>
                 <div class="select-wrapper">
                   <select class="form-control" id="modalEmploymentType" required>
-                    <option value="">Select Type</option>
-                    <option value="full-time">Full-time</option>
-                    <option value="part-time">Part-time</option>
-                    <option value="contract">Contract</option>
-                    <option value="freelance">Freelance</option>
-                    <option value="internship">Internship</option>
+                    <option value="" data-text-en="Select Type" data-text-ar="اختر النوع">Select Type</option>
+                    <option value="full-time" data-text-en="Full-time" data-text-ar="دوام كامل">Full-time</option>
+                    <option value="part-time" data-text-en="Part-time" data-text-ar="دوام جزئي">Part-time</option>
+                    <option value="contract" data-text-en="Contract" data-text-ar="عقد">Contract</option>
+                    <option value="freelance" data-text-en="Freelance" data-text-ar="مستقل">Freelance</option>
+                    <option value="internship" data-text-en="Internship" data-text-ar="تدريب">Internship</option>
                   </select>
                   <i class="fas fa-chevron-down select-icon"></i>
                 </div>
@@ -848,7 +846,7 @@
                   <span class="label-en">Entity*</span>
                   <span class="label-ar" style="display: none">الجهة*</span>
                 </label>
-                <input type="text" class="form-control" id="modalEntity" placeholder="Please enter the entity/company name" required />
+                <input type="text" class="form-control" id="modalEntity" placeholder="Please enter the entity/company name" data-placeholder-en="Please enter the entity/company name" data-placeholder-ar="يرجى إدخال اسم الجهة/الشركة" required />
               </div>
             </div>
 
@@ -858,7 +856,7 @@
                   <span class="label-en">Years of Experience*</span>
                   <span class="label-ar" style="display: none">سنوات الخبرة*</span>
                 </label>
-                <input type="text" class="form-control" id="modalYearsOfExperience" placeholder="Please enter years of experience (e.g., 4 Years)" required />
+                <input type="text" class="form-control" id="modalYearsOfExperience" placeholder="Please enter years of experience (e.g., 4 Years)" data-placeholder-en="Please enter years of experience (e.g., 4 Years)" data-placeholder-ar="يرجى إدخال سنوات الخبرة (مثال: 4 سنوات)" required />
               </div>
               <div class="form-group">
                 <label class="form-label">
@@ -867,14 +865,14 @@
                 </label>
                 <div class="select-wrapper">
                   <select class="form-control" id="modalCountryOfEmployment" required>
-                    <option value="">Select Country</option>
-                    <option value="oman">Oman</option>
-                    <option value="uae">UAE</option>
-                    <option value="saudi">Saudi Arabia</option>
-                    <option value="kuwait">Kuwait</option>
-                    <option value="qatar">Qatar</option>
-                    <option value="bahrain">Bahrain</option>
-                    <option value="other">Other</option>
+                    <option value="" data-text-en="Select Country" data-text-ar="اختر البلد">Select Country</option>
+                    <option value="oman" data-text-en="Oman" data-text-ar="عمان">Oman</option>
+                    <option value="uae" data-text-en="UAE" data-text-ar="الإمارات">UAE</option>
+                    <option value="saudi" data-text-en="Saudi Arabia" data-text-ar="المملكة العربية السعودية">Saudi Arabia</option>
+                    <option value="kuwait" data-text-en="Kuwait" data-text-ar="الكويت">Kuwait</option>
+                    <option value="qatar" data-text-en="Qatar" data-text-ar="قطر">Qatar</option>
+                    <option value="bahrain" data-text-en="Bahrain" data-text-ar="البحرين">Bahrain</option>
+                    <option value="other" data-text-en="Other" data-text-ar="أخرى">Other</option>
                   </select>
                   <i class="fas fa-chevron-down select-icon"></i>
                 </div>
@@ -889,18 +887,18 @@
                 </label>
                 <div class="select-wrapper">
                   <select class="form-control" id="modalGovernorate" required>
-                    <option value="">Select Governorate</option>
-                    <option value="muscat">Muscat</option>
-                    <option value="dhofar">Dhofar</option>
-                    <option value="musandam">Musandam</option>
-                    <option value="buraimi">Al Buraimi</option>
-                    <option value="dakhiliyah">Ad Dakhiliyah</option>
-                    <option value="north_batinah">North Al Batinah</option>
-                    <option value="south_batinah">South Al Batinah</option>
-                    <option value="north_sharqiyah">North Ash Sharqiyah</option>
-                    <option value="south_sharqiyah">South Ash Sharqiyah</option>
-                    <option value="dhahirah">Adh Dhahirah</option>
-                    <option value="wusta">Al Wusta</option>
+                    <option value="" data-text-en="Select Governorate" data-text-ar="اختر المحافظة">Select Governorate</option>
+                    <option value="muscat" data-text-en="Muscat" data-text-ar="مسقط">Muscat</option>
+                    <option value="dhofar" data-text-en="Dhofar" data-text-ar="ظفار">Dhofar</option>
+                    <option value="musandam" data-text-en="Musandam" data-text-ar="مسندم">Musandam</option>
+                    <option value="buraimi" data-text-en="Al Buraimi" data-text-ar="البريمي">Al Buraimi</option>
+                    <option value="dakhiliyah" data-text-en="Ad Dakhiliyah" data-text-ar="الداخلية">Ad Dakhiliyah</option>
+                    <option value="north_batinah" data-text-en="North Al Batinah" data-text-ar="شمال الباطنة">North Al Batinah</option>
+                    <option value="south_batinah" data-text-en="South Al Batinah" data-text-ar="جنوب الباطنة">South Al Batinah</option>
+                    <option value="north_sharqiyah" data-text-en="North Ash Sharqiyah" data-text-ar="شمال الشرقية">North Ash Sharqiyah</option>
+                    <option value="south_sharqiyah" data-text-en="South Ash Sharqiyah" data-text-ar="جنوب الشرقية">South Ash Sharqiyah</option>
+                    <option value="dhahirah" data-text-en="Adh Dhahirah" data-text-ar="الظاهرة">Adh Dhahirah</option>
+                    <option value="wusta" data-text-en="Al Wusta" data-text-ar="الوسطى">Al Wusta</option>
                   </select>
                   <i class="fas fa-chevron-down select-icon"></i>
                 </div>
@@ -912,13 +910,13 @@
                 </label>
                 <div class="select-wrapper">
                   <select class="form-control" id="modalWilayah" required>
-                    <option value="">Select Wilayah</option>
-                    <option value="muscat">Muscat</option>
-                    <option value="muttrah">Muttrah</option>
-                    <option value="seeb">Seeb</option>
-                    <option value="bausher">Bausher</option>
-                    <option value="amerat">Al Amerat</option>
-                    <option value="quriyat">Quriyat</option>
+                    <option value="" data-text-en="Select Wilayah" data-text-ar="اختر الولاية">Select Wilayah</option>
+                    <option value="muscat" data-text-en="Muscat" data-text-ar="مسقط">Muscat</option>
+                    <option value="muttrah" data-text-en="Muttrah" data-text-ar="مطرح">Muttrah</option>
+                    <option value="seeb" data-text-en="Seeb" data-text-ar="السيب">Seeb</option>
+                    <option value="bausher" data-text-en="Bausher" data-text-ar="بوشر">Bausher</option>
+                    <option value="amerat" data-text-en="Al Amerat" data-text-ar="العامرات">Al Amerat</option>
+                    <option value="quriyat" data-text-en="Quriyat" data-text-ar="قريات">Quriyat</option>
                   </select>
                   <i class="fas fa-chevron-down select-icon"></i>
                 </div>
@@ -928,7 +926,7 @@
                   <span class="label-en">City*</span>
                   <span class="label-ar" style="display: none">المدينة*</span>
                 </label>
-                <input type="text" class="form-control" id="modalCity" placeholder="Please enter the city name" required />
+                <input type="text" class="form-control" id="modalCity" placeholder="Please enter the city name" data-placeholder-en="Please enter the city name" data-placeholder-ar="يرجى إدخال اسم المدينة" required />
               </div>
             </div>
           </div>

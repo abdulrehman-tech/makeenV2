@@ -290,33 +290,41 @@ $(document).ready(function() {
 
   // Validate qualification form
   function validateQualificationForm(data) {
+    const currentLang = localStorage.getItem('site-lang') || 'en';
+    
     if (!data.degree) {
-      showErrorMessage('Please select a degree');
+      const errorMessage = currentLang === 'ar' ? 'يرجى اختيار الدرجة العلمية' : 'Please select a degree';
+      showErrorMessage(errorMessage);
       return false;
     }
     
     if (!data.major.trim()) {
-      showErrorMessage('Please enter your major');
+      const errorMessage = currentLang === 'ar' ? 'يرجى إدخال تخصصك' : 'Please enter your major';
+      showErrorMessage(errorMessage);
       return false;
     }
     
     if (!data.country) {
-      showErrorMessage('Please select a country');
+      const errorMessage = currentLang === 'ar' ? 'يرجى اختيار البلد' : 'Please select a country';
+      showErrorMessage(errorMessage);
       return false;
     }
     
     if (!data.institute) {
-      showErrorMessage('Please select an academic institute');
+      const errorMessage = currentLang === 'ar' ? 'يرجى اختيار المعهد الأكاديمي' : 'Please select an academic institute';
+      showErrorMessage(errorMessage);
       return false;
     }
     
     if (!data.grade.trim()) {
-      showErrorMessage('Please enter your grade');
+      const errorMessage = currentLang === 'ar' ? 'يرجى إدخال درجتك' : 'Please enter your grade';
+      showErrorMessage(errorMessage);
       return false;
     }
     
     if (!data.graduationYear) {
-      showErrorMessage('Please select graduation year');
+      const errorMessage = currentLang === 'ar' ? 'يرجى اختيار سنة التخرج' : 'Please select graduation year';
+      showErrorMessage(errorMessage);
       return false;
     }
     
@@ -335,14 +343,22 @@ $(document).ready(function() {
       const allowedTypes = ['.docx', '.pdf', '.png', '.jpg'];
       const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
       
+      const currentLang = localStorage.getItem('site-lang') || 'en';
+      
       if (!allowedTypes.includes(fileExtension)) {
-        showErrorMessage(`File type ${fileExtension} is not allowed. Please upload .docx, .pdf, .png, or .jpg files.`);
+        const errorMessage = currentLang === 'ar' ? 
+          `نوع الملف ${fileExtension} غير مسموح به. يرجى تحميل ملفات .docx أو .pdf أو .png أو .jpg.` : 
+          `File type ${fileExtension} is not allowed. Please upload .docx, .pdf, .png, or .jpg files.`;
+        showErrorMessage(errorMessage);
         return;
       }
       
       // Validate file size (max 5MB)
       if (file.size > 5 * 1024 * 1024) {
-        showErrorMessage(`File ${file.name} is too large. Maximum size is 5MB.`);
+        const errorMessage = currentLang === 'ar' ? 
+          `الملف ${file.name} كبير جداً. الحد الأقصى للحجم هو 5 ميجابايت.` : 
+          `File ${file.name} is too large. Maximum size is 5MB.`;
+        showErrorMessage(errorMessage);
         return;
       }
       
@@ -353,7 +369,10 @@ $(document).ready(function() {
       });
       
       if (existingFiles.includes(file.name)) {
-        showErrorMessage(`File ${file.name} is already uploaded.`);
+        const errorMessage = currentLang === 'ar' ? 
+          `الملف ${file.name} تم تحميله مسبقاً.` : 
+          `File ${file.name} is already uploaded.`;
+        showErrorMessage(errorMessage);
         return;
       }
       
@@ -583,40 +602,50 @@ $(document).ready(function() {
 
   // Validate professional form
   function validateProfessionalForm(data) {
+    const currentLang = localStorage.getItem('site-lang') || 'en';
+    
     if (!data.jobTitle) {
-      showErrorMessage('Job Title is required');
+      const errorMessage = currentLang === 'ar' ? 'المسمى الوظيفي مطلوب' : 'Job Title is required';
+      showErrorMessage(errorMessage);
       return false;
     }
     if (!data.employmentType) {
-      showErrorMessage('Employment Type is required');
+      const errorMessage = currentLang === 'ar' ? 'نوع التوظيف مطلوب' : 'Employment Type is required';
+      showErrorMessage(errorMessage);
       return false;
     }
     if (!data.entity) {
-      showErrorMessage('Entity is required');
+      const errorMessage = currentLang === 'ar' ? 'الجهة مطلوبة' : 'Entity is required';
+      showErrorMessage(errorMessage);
       return false;
     }
     if (!data.countryOfEmployment) {
-      showErrorMessage('Country of Employment is required');
+      const errorMessage = currentLang === 'ar' ? 'بلد التوظيف مطلوب' : 'Country of Employment is required';
+      showErrorMessage(errorMessage);
       return false;
     }
     if (!data.yearsOfExperience) {
-      showErrorMessage('Years of Experience is required');
+      const errorMessage = currentLang === 'ar' ? 'سنوات الخبرة مطلوبة' : 'Years of Experience is required';
+      showErrorMessage(errorMessage);
       return false;
     }
     
     // Conditional validation based on country
     if (data.countryOfEmployment === 'oman') {
       if (!data.governorate) {
-        showErrorMessage('Governorate is required for Oman');
+        const errorMessage = currentLang === 'ar' ? 'المحافظة مطلوبة لعمان' : 'Governorate is required for Oman';
+        showErrorMessage(errorMessage);
         return false;
       }
       if (!data.wilayah) {
-        showErrorMessage('Wilayah is required for Oman');
+        const errorMessage = currentLang === 'ar' ? 'الولاية مطلوبة لعمان' : 'Wilayah is required for Oman';
+        showErrorMessage(errorMessage);
         return false;
       }
     } else {
       if (!data.city) {
-        showErrorMessage('City is required for non-Oman countries');
+        const errorMessage = currentLang === 'ar' ? 'المدينة مطلوبة للبلدان غير عمان' : 'City is required for non-Oman countries';
+        showErrorMessage(errorMessage);
         return false;
       }
     }
@@ -693,7 +722,7 @@ $(document).ready(function() {
       container.html(`
         <div class="empty-state">
           <i class="fas fa-briefcase" style="font-size: 3rem; color: #6c757d; margin-bottom: 1rem;"></i>
-          <p style="color: #6c757d; text-align: center;">No professional experience added yet. Click "Add New" to get started.</p>
+          <p style="color: #6c757d; text-align: center;" data-text-en="No professional experience added yet. Click \"Add New\" to get started." data-text-ar="لم يتم إضافة خبرة مهنية بعد. انقر على \"إضافة جديد\" للبدء.">No professional experience added yet. Click "Add New" to get started.</p>
         </div>
       `);
       return;
@@ -737,7 +766,12 @@ $(document).ready(function() {
 
   // Delete professional
 window.deleteProfessional = function(id) {
-  if (confirm('Are you sure you want to delete this professional experience?')) {
+  const currentLang = localStorage.getItem('site-lang') || 'en';
+  const confirmMessage = currentLang === 'ar' ? 
+    'هل أنت متأكد من أنك تريد حذف هذه الخبرة المهنية؟' : 
+    'Are you sure you want to delete this professional experience?';
+  
+  if (confirm(confirmMessage)) {
     professionals = professionals.filter(p => p.id != id);
     localStorage.setItem('professionals', JSON.stringify(professionals));
     renderProfessionals();
@@ -747,12 +781,13 @@ window.deleteProfessional = function(id) {
 
   // Helper functions
   window.getEmploymentTypeText = function(type) {
+    const currentLang = localStorage.getItem('site-lang') || 'en';
     const types = {
-      'full-time': 'Full-time',
-      'part-time': 'Part-time',
-      'contract': 'Contract',
-      'freelance': 'Freelance',
-      'internship': 'Internship'
+      'full-time': currentLang === 'ar' ? 'دوام كامل' : 'Full-time',
+      'part-time': currentLang === 'ar' ? 'دوام جزئي' : 'Part-time',
+      'contract': currentLang === 'ar' ? 'عقد' : 'Contract',
+      'freelance': currentLang === 'ar' ? 'مستقل' : 'Freelance',
+      'internship': currentLang === 'ar' ? 'تدريب' : 'Internship'
     };
     return types[type] || type;
   };
@@ -782,32 +817,34 @@ window.deleteProfessional = function(id) {
   };
 
   window.getGovernorateName = function(code) {
+    const currentLang = localStorage.getItem('site-lang') || 'en';
     const governorates = {
-      'muscat': 'Muscat',
-      'dhofar': 'Dhofar',
-      'musandam': 'Musandam',
-      'buraimi': 'Al Buraimi',
-      'dakhiliyah': 'Ad Dakhiliyah',
-      'north_batinah': 'North Al Batinah',
-      'south_batinah': 'South Al Batinah',
-      'north_sharqiyah': 'North Ash Sharqiyah',
-      'south_sharqiyah': 'South Ash Sharqiyah',
-      'dhahirah': 'Adh Dhahirah',
-      'wusta': 'Al Wusta'
+      'muscat': currentLang === 'ar' ? 'مسقط' : 'Muscat',
+      'dhofar': currentLang === 'ar' ? 'ظفار' : 'Dhofar',
+      'musandam': currentLang === 'ar' ? 'مسندم' : 'Musandam',
+      'buraimi': currentLang === 'ar' ? 'البريمي' : 'Al Buraimi',
+      'dakhiliyah': currentLang === 'ar' ? 'الداخلية' : 'Ad Dakhiliyah',
+      'north_batinah': currentLang === 'ar' ? 'شمال الباطنة' : 'North Al Batinah',
+      'south_batinah': currentLang === 'ar' ? 'جنوب الباطنة' : 'South Al Batinah',
+      'north_sharqiyah': currentLang === 'ar' ? 'شمال الشرقية' : 'North Ash Sharqiyah',
+      'south_sharqiyah': currentLang === 'ar' ? 'جنوب الشرقية' : 'South Ash Sharqiyah',
+      'dhahirah': currentLang === 'ar' ? 'الظاهرة' : 'Adh Dhahirah',
+      'wusta': currentLang === 'ar' ? 'الوسطى' : 'Al Wusta'
     };
     return governorates[code] || code;
   };
 
   window.getWilayahName = function(code) {
+    const currentLang = localStorage.getItem('site-lang') || 'en';
     const wilayahs = {
-      'muscat': 'Muscat',
-      'muttrah': 'Muttrah',
-      'seeb': 'Seeb',
-      'bausher': 'Bausher',
-      'amerat': 'Al Amerat',
-      'quriyat': 'Quriyat',
-      'suwaiq': 'Suwaiq',
-      'al_rustaq': 'Al Rustaq'
+      'muscat': currentLang === 'ar' ? 'مسقط' : 'Muscat',
+      'muttrah': currentLang === 'ar' ? 'مطرح' : 'Muttrah',
+      'seeb': currentLang === 'ar' ? 'السيب' : 'Seeb',
+      'bausher': currentLang === 'ar' ? 'بوشر' : 'Bausher',
+      'amerat': currentLang === 'ar' ? 'العامرات' : 'Al Amerat',
+      'quriyat': currentLang === 'ar' ? 'قريات' : 'Quriyat',
+      'suwaiq': currentLang === 'ar' ? 'صحار' : 'Suwaiq',
+      'al_rustaq': currentLang === 'ar' ? 'الرستاق' : 'Al Rustaq'
     };
     return wilayahs[code] || code;
   };
@@ -854,7 +891,7 @@ window.deleteProfessional = function(id) {
       container.html(`
         <div class="empty-state">
           <i class="fas fa-graduation-cap" style="font-size: 3rem; color: #6c757d; margin-bottom: 1rem;"></i>
-          <p style="color: #6c757d; text-align: center;">No qualifications added yet. Click "Add New" to get started.</p>
+          <p style="color: #6c757d; text-align: center;" data-text-en="No qualifications added yet. Click \"Add New\" to get started." data-text-ar="لم يتم إضافة مؤهلات بعد. انقر على \"إضافة جديد\" للبدء.">No qualifications added yet. Click "Add New" to get started.</p>
         </div>
       `);
       return;
@@ -886,9 +923,9 @@ window.deleteProfessional = function(id) {
             </div>
             <div class="qualification-details">
               <p class="degree-info">${degreeText} - ${qualification.major}</p>
-              <p class="graduation-info">Graduation Year: ${graduationYear} Grade: ${qualification.grade}</p>
-              <p class="country-info">Country: ${countryName}</p>
-              <p class="attachments-info">Attachments: [${qualification.attachments.join(', ')}]</p>
+              <p class="graduation-info" data-text-en="Graduation Year: ${graduationYear} Grade: ${qualification.grade}" data-text-ar="سنة التخرج: ${graduationYear} الدرجة: ${qualification.grade}">Graduation Year: ${graduationYear} Grade: ${qualification.grade}</p>
+              <p class="country-info" data-text-en="Country: ${countryName}" data-text-ar="البلد: ${countryName}">Country: ${countryName}</p>
+              <p class="attachments-info" data-text-en="Attachments: [${qualification.attachments.join(', ')}]" data-text-ar="المرفقات: [${qualification.attachments.join(', ')}]">Attachments: [${qualification.attachments.join(', ')}]</p>
             </div>
           </div>
         </div>
@@ -905,7 +942,12 @@ window.editQualification = function(id) {
 
 // Delete qualification
 window.deleteQualification = function(id) {
-  if (confirm('Are you sure you want to delete this qualification?')) {
+  const currentLang = localStorage.getItem('site-lang') || 'en';
+  const confirmMessage = currentLang === 'ar' ? 
+    'هل أنت متأكد من أنك تريد حذف هذا المؤهل؟' : 
+    'Are you sure you want to delete this qualification?';
+  
+  if (confirm(confirmMessage)) {
     qualifications = qualifications.filter(q => q.id != id);
     localStorage.setItem('qualifications', JSON.stringify(qualifications));
     renderQualifications();
@@ -915,35 +957,38 @@ window.deleteQualification = function(id) {
 
   // Helper functions
   function getInstituteName(code) {
+    const currentLang = localStorage.getItem('site-lang') || 'en';
     const institutes = {
-      'squ': 'University of Sultan Qaboos',
-      'ut': 'University of Technology and Applied Sciences',
-      'muscat': 'Muscat University',
-      'gulf': 'Gulf College',
-      'other': 'Other'
+      'squ': currentLang === 'ar' ? 'جامعة السلطان قابوس' : 'University of Sultan Qaboos',
+      'ut': currentLang === 'ar' ? 'جامعة التقنية والعلوم التطبيقية' : 'University of Technology and Applied Sciences',
+      'muscat': currentLang === 'ar' ? 'جامعة مسقط' : 'Muscat University',
+      'gulf': currentLang === 'ar' ? 'كلية الخليج' : 'Gulf College',
+      'other': currentLang === 'ar' ? 'أخرى' : 'Other'
     };
     return institutes[code] || code;
   }
 
   function getDegreeText(code) {
+    const currentLang = localStorage.getItem('site-lang') || 'en';
     const degrees = {
-      'diploma': 'Diploma',
-      'bachelor': 'Bachelor',
-      'master': 'Master',
-      'phd': 'PhD'
+      'diploma': currentLang === 'ar' ? 'دبلوم' : 'Diploma',
+      'bachelor': currentLang === 'ar' ? 'بكالوريوس' : 'Bachelor',
+      'master': currentLang === 'ar' ? 'ماجستير' : 'Master',
+      'phd': currentLang === 'ar' ? 'دكتوراه' : 'PhD'
     };
     return degrees[code] || code;
   }
 
   function getCountryName(code) {
+    const currentLang = localStorage.getItem('site-lang') || 'en';
     const countries = {
-      'oman': 'Oman',
-      'uae': 'UAE',
-      'saudi': 'Saudi Arabia',
-      'kuwait': 'Kuwait',
-      'qatar': 'Qatar',
-      'bahrain': 'Bahrain',
-      'other': 'Other'
+      'oman': currentLang === 'ar' ? 'عمان' : 'Oman',
+      'uae': currentLang === 'ar' ? 'الإمارات' : 'UAE',
+      'saudi': currentLang === 'ar' ? 'المملكة العربية السعودية' : 'Saudi Arabia',
+      'kuwait': currentLang === 'ar' ? 'الكويت' : 'Kuwait',
+      'qatar': currentLang === 'ar' ? 'قطر' : 'Qatar',
+      'bahrain': currentLang === 'ar' ? 'البحرين' : 'Bahrain',
+      'other': currentLang === 'ar' ? 'أخرى' : 'Other'
     };
     return countries[code] || code;
   }
@@ -974,6 +1019,23 @@ function switchLanguage(lang) {
     $('.title-ar, .form-title-ar, .form-subtitle-ar, .label-ar, .step-label-ar, .upload-btn-ar, .save-btn-ar, .prev-btn-ar, .complete-btn-ar, .note-ar, .copyright-ar, .add-new-ar, .btn-text-ar, .modal-title-ar, .summary-label-ar, .upload-text-ar, .file-types-ar, .progress-text-ar, .summary-label-ar').hide();
   }
 
+  // Handle placeholder translations
+  handlePlaceholderTranslations(lang);
+  
+  // Handle option text translations
+  handleOptionTextTranslations(lang);
+  
+  // Handle data-text translations
+  handleDataTextTranslations(lang);
+  
+  // Re-render qualification and professional cards to update translations
+  if (typeof renderQualifications === 'function') {
+    renderQualifications();
+  }
+  if (typeof renderProfessionals === 'function') {
+    renderProfessionals();
+  }
+  
   // Store language preference
   localStorage.setItem('site-lang', lang);
 }
@@ -1327,7 +1389,11 @@ function validateStep4() {
   // Check if CV is uploaded
   const cvFiles = uploadedFiles.cv || [];
   if (cvFiles.length === 0) {
-    showErrorMessage('CV/Resume is required. Please upload your CV before proceeding.');
+    const currentLang = localStorage.getItem('site-lang') || 'en';
+    const errorMessage = currentLang === 'ar' ? 
+      'السيرة الذاتية مطلوبة. يرجى تحميل سيرتك الذاتية قبل المتابعة.' : 
+      'CV/Resume is required. Please upload your CV before proceeding.';
+    showErrorMessage(errorMessage);
     console.log('CV not uploaded');
     console.log('=== End validateStep4 Debug ===');
     return false;
@@ -1438,16 +1504,24 @@ function handleFileUpload(files, type) {
   Array.from(files).forEach(file => {
     console.log('Processing file:', file.name, file.size, file.type);
     
+    const currentLang = localStorage.getItem('site-lang') || 'en';
+    
     // Validate file size
     if (file.size > maxFileSize) {
-      showErrorMessage(`File "${file.name}" is too large. Maximum size is 5MB.`);
+      const errorMessage = currentLang === 'ar' ? 
+        `الملف "${file.name}" كبير جداً. الحد الأقصى للحجم هو 5 ميجابايت.` : 
+        `File "${file.name}" is too large. Maximum size is 5MB.`;
+      showErrorMessage(errorMessage);
       return;
     }
     
     // Validate file type
     const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
     if (!allowedTypes.includes(fileExtension)) {
-      showErrorMessage(`File "${file.name}" is not a supported format. Please upload PDF, DOC, or DOCX files.`);
+      const errorMessage = currentLang === 'ar' ? 
+        `الملف "${file.name}" ليس بتنسيق مدعوم. يرجى تحميل ملفات PDF أو DOC أو DOCX.` : 
+        `File "${file.name}" is not a supported format. Please upload PDF, DOC, or DOCX files.`;
+      showErrorMessage(errorMessage);
       return;
     }
     
@@ -1470,7 +1544,10 @@ function handleFileUpload(files, type) {
     updateUploadSummary();
     
     // Show success message
-    showSuccessMessage(`CV "${file.name}" uploaded successfully.`);
+    const successMessage = currentLang === 'ar' ? 
+      `تم تحميل السيرة الذاتية "${file.name}" بنجاح.` : 
+      `CV "${file.name}" uploaded successfully.`;
+    showSuccessMessage(successMessage);
   });
 }
 
@@ -1593,7 +1670,11 @@ function validateQualifications() {
   console.log('Qualifications length:', qualifications.length);
   
   if (!qualifications || qualifications.length === 0) {
-    showErrorMessage('At least one qualification is required. Please add a qualification before proceeding.');
+    const currentLang = localStorage.getItem('site-lang') || 'en';
+    const errorMessage = currentLang === 'ar' ? 
+      'مؤهل واحد على الأقل مطلوب. يرجى إضافة مؤهل قبل المتابعة.' : 
+      'At least one qualification is required. Please add a qualification before proceeding.';
+    showErrorMessage(errorMessage);
     console.log('No qualifications found');
     console.log('=== End validateQualifications Debug ===');
     return false;
@@ -1621,7 +1702,11 @@ function validateProfessionalExperiences() {
   }
   
   if (!professionals || professionals.length === 0) {
-    showErrorMessage('At least one professional experience is required. Please add a professional experience before proceeding.');
+    const currentLang = localStorage.getItem('site-lang') || 'en';
+    const errorMessage = currentLang === 'ar' ? 
+      'خبرة مهنية واحدة على الأقل مطلوبة. يرجى إضافة خبرة مهنية قبل المتابعة.' : 
+      'At least one professional experience is required. Please add a professional experience before proceeding.';
+    showErrorMessage(errorMessage);
     console.log('No professional experiences found');
     console.log('=== End validateProfessionalExperiences Debug ===');
     return false;
@@ -1653,7 +1738,11 @@ function handleFreshGraduateChange(isFreshGraduate) {
     
     // Show fresh graduate message
     if (!$('#freshGraduateMessage').length) {
-      $('#professionalList').after('<div id="freshGraduateMessage" class="fresh-graduate-message"><p>You are marked as a fresh graduate. No professional experience is required.</p></div>');
+      const currentLang = localStorage.getItem('site-lang') || 'en';
+      const message = currentLang === 'ar' ? 
+        'أنت محدد كخريج جديد. لا توجد خبرة مهنية مطلوبة.' : 
+        'You are marked as a fresh graduate. No professional experience is required.';
+      $('#professionalList').after(`<div id="freshGraduateMessage" class="fresh-graduate-message"><p>${message}</p></div>`);
     }
     $('#freshGraduateMessage').show();
     
@@ -1722,22 +1811,23 @@ function saveStepData(stepNumber) {
   localStorage.setItem(`profileStep${stepNumber}`, JSON.stringify(formData));
   
   // Show success message based on step
+  const currentLang = localStorage.getItem('site-lang') || 'en';
   let successMessage = '';
   switch(stepNumber) {
     case 1:
-      successMessage = 'Personal information saved successfully!';
+      successMessage = currentLang === 'ar' ? 'تم حفظ المعلومات الشخصية بنجاح!' : 'Personal information saved successfully!';
       break;
     case 2:
-      successMessage = 'Qualification details saved successfully!';
+      successMessage = currentLang === 'ar' ? 'تم حفظ المؤهلات بنجاح!' : 'Qualifications saved successfully!';
       break;
     case 3:
-      successMessage = 'Professional details saved successfully!';
+      successMessage = currentLang === 'ar' ? 'تم حفظ الخبرة المهنية بنجاح!' : 'Professional experience saved successfully!';
       break;
     case 4:
-      successMessage = 'Attachments saved successfully!';
+      successMessage = currentLang === 'ar' ? 'تم حفظ المرفقات بنجاح!' : 'Attachments saved successfully!';
       break;
     default:
-      successMessage = `Step ${stepNumber} data saved successfully!`;
+      successMessage = currentLang === 'ar' ? `تم حفظ بيانات الخطوة ${stepNumber} بنجاح!` : `Step ${stepNumber} data saved successfully!`;
   }
   showSuccessMessage(successMessage);
 }
@@ -1910,15 +2000,19 @@ function getWilayatOptions(governorate) {
 
 // Handle photo upload
 function handlePhotoUpload(file) {
+  const currentLang = localStorage.getItem('site-lang') || 'en';
+  
   // Validate file type
   if (!file.type.startsWith('image/')) {
-    showErrorMessage('Please select an image file');
+    const errorMessage = currentLang === 'ar' ? 'يرجى اختيار ملف صورة' : 'Please select an image file';
+    showErrorMessage(errorMessage);
     return;
   }
 
   // Validate file size (max 5MB)
   if (file.size > 5 * 1024 * 1024) {
-    showErrorMessage('File size should be less than 5MB');
+    const errorMessage = currentLang === 'ar' ? 'حجم الملف يجب أن يكون أقل من 5 ميجابايت' : 'File size should be less than 5MB';
+    showErrorMessage(errorMessage);
     return;
   }
 
@@ -1931,7 +2025,8 @@ function handlePhotoUpload(file) {
     // Store the image data
     localStorage.setItem('profilePhoto', e.target.result);
     
-    showSuccessMessage('Photo uploaded successfully!');
+    const successMessage = currentLang === 'ar' ? 'تم تحميل الصورة بنجاح!' : 'Photo uploaded successfully!';
+    showSuccessMessage(successMessage);
   };
   reader.readAsDataURL(file);
 }
@@ -1952,7 +2047,9 @@ function completeProfile() {
     localStorage.removeItem('profilePhoto');
 
     // Show success message
-    showSuccessMessage('Profile completed successfully!');
+    const currentLang = localStorage.getItem('site-lang') || 'en';
+    const completionMessage = currentLang === 'ar' ? 'تم إكمال الملف الشخصي بنجاح!' : 'Profile completed successfully!';
+    showSuccessMessage(completionMessage);
 
     // Redirect to dashboard or next page
     setTimeout(() => {
@@ -2028,7 +2125,9 @@ $(document).on('blur', '.form-control', function() {
   // Validate if required
   if (field.prop('required') && !value) {
     field.addClass('error');
-    field.after('<div class="error-message">This field is required</div>');
+    const currentLang = localStorage.getItem('site-lang') || 'en';
+    const errorMessage = currentLang === 'ar' ? 'هذا الحقل مطلوب' : 'This field is required';
+    field.after(`<div class="error-message">${errorMessage}</div>`);
   }
   
   // Validate email
@@ -2036,7 +2135,9 @@ $(document).on('blur', '.form-control', function() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(value)) {
       field.addClass('error');
-      field.after('<div class="error-message">Please enter a valid email address</div>');
+      const currentLang = localStorage.getItem('site-lang') || 'en';
+      const errorMessage = currentLang === 'ar' ? 'يرجى إدخال عنوان بريد إلكتروني صحيح' : 'Please enter a valid email address';
+      field.after(`<div class="error-message">${errorMessage}</div>`);
     }
   }
   
@@ -2045,7 +2146,9 @@ $(document).on('blur', '.form-control', function() {
     const phoneRegex = /^\+?[\d\s\-\(\)]+$/;
     if (!phoneRegex.test(value)) {
       field.addClass('error');
-      field.after('<div class="error-message">Please enter a valid phone number</div>');
+      const currentLang = localStorage.getItem('site-lang') || 'en';
+      const errorMessage = currentLang === 'ar' ? 'يرجى إدخال رقم هاتف صحيح' : 'Please enter a valid phone number';
+      field.after(`<div class="error-message">${errorMessage}</div>`);
     }
   }
 });
@@ -2083,6 +2186,38 @@ $(document).on('keydown', function(e) {
   }
 });
 
+// Handle placeholder translations
+function handlePlaceholderTranslations(lang) {
+  const inputs = document.querySelectorAll('input[data-placeholder-en][data-placeholder-ar]');
+  inputs.forEach(input => {
+    if (lang === 'ar') {
+      input.placeholder = input.getAttribute('data-placeholder-ar');
+    } else {
+      input.placeholder = input.getAttribute('data-placeholder-en');
+    }
+  });
+}
 
+// Handle option text translations
+function handleOptionTextTranslations(lang) {
+  const options = document.querySelectorAll('option[data-text-en][data-text-ar]');
+  options.forEach(option => {
+    if (lang === 'ar') {
+      option.textContent = option.getAttribute('data-text-ar');
+    } else {
+      option.textContent = option.getAttribute('data-text-en');
+    }
+  });
+}
 
- 
+// Handle data-text translations
+function handleDataTextTranslations(lang) {
+  const elements = document.querySelectorAll('[data-text-en][data-text-ar]');
+  elements.forEach(element => {
+    if (lang === 'ar') {
+      element.textContent = element.getAttribute('data-text-ar');
+    } else {
+      element.textContent = element.getAttribute('data-text-en');
+    }
+  });
+}
