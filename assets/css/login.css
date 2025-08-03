@@ -13,8 +13,16 @@ body {
 }
 
 body[dir="rtl"] {
-  direction: rtl;
+  font-family: "Tajawal", "Urbanist", sans-serif;
   text-align: right;
+}
+
+/* RTL Button Font Family Support */
+body[dir="rtl"] .btn-primary,
+body[dir="rtl"] .btn-secondary,
+body[dir="rtl"] .back-button,
+body[dir="rtl"] .lang-btn {
+  font-family: 'Tajawal', sans-serif;
 }
 
 .login-container {

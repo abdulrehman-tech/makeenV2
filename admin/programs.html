@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Makeen Admin - Programs</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/programs.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-wrapper">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <img src="../assets/images/book.png" alt="Makeen Logo" />
+            <span class="brand-name">Makeen</span>
+          </div>
+          <button class="sidebar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link">
+                <img
+                  src="../assets/images/home3.svg"
+                  alt="Home"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="home">Home</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-dashboard.html" class="nav-link">
+                <img
+                  src="../assets/images/element3.svg"
+                  alt="Dashboard"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="dashboard">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a href="programs.html" class="nav-link">
+                <img
+                  src="../assets/images/monitor.svg"
+                  alt="Programs"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="programs">Programs</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/profile2user.svg"
+                  alt="Applicant Requests"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="applicant_requests">Applicant Requests</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/user.svg"
+                  alt="Vendors"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="vendors">Vendors</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/profile2user-1.svg"
+                  alt="Applicants"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="applicants">Applicants</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/hand_money.svg"
+                  alt="Reimbursement"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="reimbursement">Reimbursement</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+          <div class="header-left">
+            <button class="menu-toggle" id="menuToggle">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="page-title-dropdown">
+              <h1 class="page-title" data-translate="programs">Programs</h1>
+			</div>
+          </div>
+
+          <div class="header-right">
+            <div class="language-switcher">
+              <button class="lang-btn active" data-lang="en">EN</button>
+              <button class="lang-btn" data-lang="ar">عربي</button>
+            </div>
+
+            <div class="user-menu">
+              <button class="user-toggle" id="userToggle">
+                <div class="user-avatar">
+                  <i class="fas fa-user"></i>
+                </div>
+                <span class="user-name" data-translate="admin">Admin</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="user-dropdown" id="userDropdown">
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-user"></i>
+                  <span data-translate="profile">Profile</span>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-cog"></i>
+                  <span data-translate="settings">Settings</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-sign-out-alt"></i>
+                  <span data-translate="logout">Logout</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content">
+          <div class="content-header">
+            <div class="breadcrumb">
+              <span class="breadcrumb-item" data-translate="home">Home</span>
+              <i class="breadcrumb-separator fas fa-chevron-right"></i>
+              <span class="breadcrumb-item active" data-translate="programs">Programs</span>
+            </div>
+          </div>
+
+          <!-- Programs Content -->
+          <div class="programs-content">
+            <!-- Page Header -->
+            <div class="page-header">
+              <div class="page-title-section">
+                <h2 class="page-main-title" data-translate="programs">Programs</h2>
+              </div>
+              <div class="page-actions">
+                <div class="filter-buttons">
+                  <button class="filter-btn add-filter" data-filter="all">
+                    <img src="../assets/images/add_filter.png" alt="Add Filter" class="filter-icon">
+                    <span data-translate="add_filter">Add Filter</span>
+                  </button>
+                  <button class="filter-btn clear-filter" data-filter="status">
+                    <img src="../assets/images/clear_filter.png" alt="Clear Filter" class="filter-icon">
+                    <span data-translate="clear_filter">Clear Filter</span>
+                  </button>
+                </div>
+                <button class="add-program-btn">
+                  <i class="fas fa-plus"></i>
+                  <span data-translate="add_program">Add Program</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="programs-tabs">
+              <button class="tab-btn active" data-tab="all" data-translate="all">All</button>
+              <button class="tab-btn" data-tab="pending" data-translate="pending">Pending</button>
+              <button class="tab-btn" data-tab="published" data-translate="published">Published</button>
+              <button class="tab-btn" data-tab="rejected" data-translate="rejected">Rejected</button>
+              <button class="tab-btn" data-tab="closed" data-translate="closed">Closed</button>
+              <button class="tab-btn" data-tab="draft" data-translate="draft">Draft</button>
+            </div>
+
+            <!-- Table Controls -->
+            <div class="table-controls">
+              <div class="export-buttons">
+               
+                <button class="export-btn" data-action="csv">
+                  <i class="fas fa-file-csv"></i>
+                  <span data-translate="csv">CSV</span>
+                </button>
+                <button class="export-btn" data-action="pdf">
+                  <i class="fas fa-file-pdf"></i>
+                  <span data-translate="pdf">PDF</span>
+                </button>
+                <button class="export-btn" data-action="print">
+                  <i class="fas fa-print"></i>
+                  <span data-translate="print">Print</span>
+                </button>
+               
+              </div>
+              <div class="search-section">
+                <div class="search-input">
+                  <i class="fas fa-search"></i>
+                  <input type="text" placeholder="Search..." data-translate-placeholder="search_programs" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Programs Table -->
+            <div class="table-container">
+              <table class="programs-table">
+                <thead>
+                  <tr>
+                    <th data-translate="program_name">Program Name</th>
+                    <th data-translate="vendor">Vendor</th>
+                    <th data-translate="duration">Duration</th>
+                    <th data-translate="location">Location</th>
+                    <th data-translate="date_to">Date To</th>
+                    <th data-translate="date_from">Date From</th>
+                    <th data-translate="status">Status</th>
+                    <th data-translate="actions">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                                         <td class="program-name">
+                       <div class="program-info">
+                         <div class="program-logo">
+                           <img src="../assets/images/program-logos/sketch-logo.png" alt="Sketch Logo" onerror="this.src='../assets/images/Icon.png'">
+                         </div>
+                         <span>Learn Sketch with AI</span>
+                       </div>
+                     </td>
+                    <td>Tech Innovators</td>
+                    <td>4 months</td>
+                    <td>Muscat, Oman</td>
+                    <td>April 20, 2025</td>
+                    <td>April 20, 2025</td>
+                    <td>
+                      <span class="status-badge published" data-translate="published">Published</span>
+                    </td>
+                    <td>
+                      <div class="actions-dropdown">
+                        <button class="actions-btn">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <div class="dropdown-menu" data-status="published">
+                          <!-- Dynamic content will be populated by JavaScript -->
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                                         <td class="program-name">
+                       <div class="program-info">
+                         <div class="program-logo">
+                           <img src="../assets/images/program-logos/figma-logo.png" alt="Figma Logo" onerror="this.src='../assets/images/Icon-1.png'">
+                         </div>
+                         <span>Figma zero to Hero</span>
+                       </div>
+                     </td>
+                    <td>Skill Builders</td>
+                    <td>6 months</td>
+                    <td>Muscat, Oman</td>
+                    <td>April 20, 2025</td>
+                    <td>April 20, 2025</td>
+                    <td>
+                      <span class="status-badge pending" data-translate="pending">Pending</span>
+                    </td>
+                    <td>
+                      <div class="actions-dropdown">
+                        <button class="actions-btn">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <div class="dropdown-menu" data-status="pending">
+                          <!-- Dynamic content will be populated by JavaScript -->
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                                         <td class="program-name">
+                       <div class="program-info">
+                         <div class="program-logo">
+                           <img src="../assets/images/program-logos/swift-logo.png" alt="Swift Logo" onerror="this.src='../assets/images/Icon-2.png'">
+                         </div>
+                         <span>Learn Swift language</span>
+                       </div>
+                     </td>
+                    <td>Code Academy</td>
+                    <td>9 months</td>
+                    <td>Muscat, Oman</td>
+                    <td>April 20, 2025</td>
+                    <td>April 20, 2025</td>
+                    <td>
+                      <span class="status-badge draft" data-translate="draft">Draft</span>
+                    </td>
+                    <td>
+                      <div class="actions-dropdown">
+                        <button class="actions-btn">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <div class="dropdown-menu" data-status="draft">
+                          <!-- Dynamic content will be populated by JavaScript -->
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                                         <td class="program-name">
+                       <div class="program-info">
+                         <div class="program-logo">
+                           <img src="../assets/images/program-logos/framer-logo.png" alt="Framer Logo" onerror="this.src='../assets/images/Icon-3.png'">
+                         </div>
+                         <span>Framer.io Practical Implementation</span>
+                       </div>
+                     </td>
+                    <td>LearnSmart</td>
+                    <td>8 months</td>
+                    <td>Muscat, Oman</td>
+                    <td>April 20, 2025</td>
+                    <td>April 20, 2020</td>
+                    <td>
+                      <span class="status-badge closed" data-translate="closed">Closed</span>
+                    </td>
+                    <td>
+                      <div class="actions-dropdown">
+                        <button class="actions-btn">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <div class="dropdown-menu" data-status="closed">
+                          <!-- Dynamic content will be populated by JavaScript -->
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                                         <td class="program-name">
+                       <div class="program-info">
+                         <div class="program-logo">
+                           <img src="../assets/images/program-logos/react-logo.png" alt="React Logo" onerror="this.src='../assets/images/Icon-4.png'">
+                         </div>
+                         <span>Learn React with vite and tailwind css</span>
+                       </div>
+                     </td>
+                    <td>Dev Hub</td>
+                    <td>12 months</td>
+                    <td>Muscat, Oman</td>
+                    <td>April 20, 2025</td>
+                    <td>April 20, 2025</td>
+                    <td>
+                      <span class="status-badge published" data-translate="published">Published</span>
+                    </td>
+                    <td>
+                      <div class="actions-dropdown">
+                        <button class="actions-btn">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <div class="dropdown-menu" data-status="published">
+                          <!-- Dynamic content will be populated by JavaScript -->
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                                         <td class="program-name">
+                       <div class="program-info">
+                         <div class="program-logo">
+                           <img src="../assets/images/program-logos/data-science-logo.png" alt="Data Science Logo" onerror="this.src='../assets/images/Icon.png'">
+                         </div>
+                         <span>Data Science & Machine Learning</span>
+                       </div>
+                     </td>
+                    <td>Future Coders</td>
+                    <td>10 months</td>
+                    <td>Muscat, Oman</td>
+                    <td>April 20, 2025</td>
+                    <td>April 20, 2025</td>
+                    <td>
+                      <span class="status-badge rejected" data-translate="rejected">Rejected</span>
+                    </td>
+                    <td>
+                      <div class="actions-dropdown">
+                        <button class="actions-btn">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <div class="dropdown-menu" data-status="rejected">
+                          <!-- Dynamic content will be populated by JavaScript -->
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-section">
+              <div class="pagination-info">
+                <span data-translate="showing_entries">Showing 1 to 05 of 12 entries</span>
+                <div class="entries-per-page">
+                  <select>
+                    <option value="05">05</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                  </select>
+                </div>
+              </div>
+              <div class="pagination-controls">
+                <button class="pagination-btn" data-action="first">
+                  <i class="fas fa-angle-double-left"></i>
+                </button>
+                <button class="pagination-btn" data-action="prev">
+                  <i class="fas fa-angle-left"></i>
+                </button>
+                <button class="pagination-btn" data-page="1">1</button>
+                <button class="pagination-btn active" data-page="2">2</button>
+                <button class="pagination-btn" data-page="3">3</button>
+                <button class="pagination-btn" data-action="next">
+                  <i class="fas fa-angle-right"></i>
+                </button>
+                <button class="pagination-btn" data-action="last">
+                  <i class="fas fa-angle-double-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="footer-content">
+            <p>&copy; 2025 Makeen. <span data-translate="all_rights_reserved">All rights reserved.</span></p>
+            <div class="footer-links">
+              <a href="#" data-translate="privacy_policy">Privacy Policy</a>
+              <a href="#" data-translate="terms_of_service">Terms of Service</a>
+              <a href="#" data-translate="contact">Contact</a>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="../assets/js/admin-dashboard.js"></script>
+    <script src="../assets/js/programs.js"></script>
+  </body>
+</html> 

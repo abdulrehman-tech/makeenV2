@@ -1,0 +1,22 @@
+# Program Logo Placeholder
+
+This is a placeholder file for program logos. 
+
+## Instructions:
+1. Create a 40x40 pixel PNG image with a light gray background
+2. Add a simple icon or text like "LOGO" in the center
+3. Use a subtle border to make it visible
+4. Save it as `placeholder.png` in this directory
+
+## Alternative:
+You can use any existing image from your assets folder as a placeholder, such as:
+- `../assets/images/Icon.png`
+- `../assets/images/Icon-1.png`
+- Or create a simple SVG placeholder
+
+## CSS Fallback:
+The CSS already includes proper styling for the placeholder with:
+- Light gray background
+- Border
+- Proper sizing (40x40px desktop, 32x32px mobile)
+- Rounded corners 

@@ -665,7 +665,16 @@ body[dir="rtl"] .form-group {
 
 /* RTL support for buttons in forms */
 body[dir="rtl"] .btn-primary,
-body[dir="rtl"] .btn-secondary {
+body[dir="rtl"] .btn-secondary,
+body[dir="rtl"] .btn-add-new,
+body[dir="rtl"] .btn-edit,
+body[dir="rtl"] .btn-delete,
+body[dir="rtl"] .btn-remove-file,
+body[dir="rtl"] .upload-btn-ar,
+body[dir="rtl"] .save-btn-ar,
+body[dir="rtl"] .prev-btn-ar,
+body[dir="rtl"] .complete-btn-ar {
+  font-family: 'Tajawal', sans-serif;
   text-align: center;
   direction: ltr; /* Keep buttons LTR for consistency */
 }

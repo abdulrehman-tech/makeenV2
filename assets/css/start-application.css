@@ -867,3 +867,9 @@ body {
   border: 2px solid #f57005;
   box-shadow: 0 0 0 2px #f5700533;
 }
+
+/* RTL Button Font Family Support */
+[dir="rtl"] .wizard-btn,
+[dir="rtl"] .start-btn {
+  font-family: 'Tajawal', Arial, sans-serif;
+}

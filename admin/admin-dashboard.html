@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Makeen Admin Dashboard</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-wrapper">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <img src="../assets/images/book.png" alt="Makeen Logo" />
+            <span class="brand-name">Makeen</span>
+          </div>
+          <button class="sidebar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link">
+                <img
+                  src="../assets/images/home3.svg"
+                  alt="Home"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="home">Home</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/element3.svg"
+                  alt="Dashboard"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="dashboard"
+                  >Dashboard</span
+                >
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./programs.html" class="nav-link">
+                <img
+                  src="../assets/images/monitor.svg"
+                  alt="Programs"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="programs">Programs</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/profile2user.svg"
+                  alt="Applicant Requests"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="applicant_requests"
+                  >Applicant Requests</span
+                >
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/user.svg"
+                  alt="Vendors"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="vendors">Vendors</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/profile2user-1.svg"
+                  alt="Applicants"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="applicants"
+                  >Applicants</span
+                >
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/hand_money.svg"
+                  alt="Reimbursement"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="reimbursement"
+                  >Reimbursement</span
+                >
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+          <div class="header-left">
+            <button class="menu-toggle" id="menuToggle">
+              <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="page-title" data-translate="dashboard">Dashboard</h1>
+          </div>
+
+          <div class="header-right">
+            <div class="language-switcher">
+              <button class="lang-btn active" data-lang="en">EN</button>
+              <button class="lang-btn" data-lang="ar">عربي</button>
+            </div>
+
+            <div class="user-menu">
+              <button class="user-toggle" id="userToggle">
+                <div class="user-avatar">
+                  <i class="fas fa-user"></i>
+                </div>
+                <span class="user-name" data-translate="admin">Admin</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="user-dropdown" id="userDropdown">
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-user"></i>
+                  <span data-translate="profile">Profile</span>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-cog"></i>
+                  <span data-translate="settings">Settings</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-sign-out-alt"></i>
+                  <span data-translate="logout">Logout</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content">
+          <div class="content-header">
+            <div class="breadcrumb">
+              <span class="breadcrumb-item" data-translate="home">Home</span>
+              <i class="breadcrumb-separator fas fa-chevron-right"></i>
+              <span class="breadcrumb-item active" data-translate="dashboard"
+                >Dashboard</span
+              >
+            </div>
+          </div>
+
+          <!-- Dashboard Content -->
+          <div class="dashboard-content">
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-header">
+                  <div class="stat-info">
+                    <div class="stat-title" data-translate="vendors">
+                      Vendors
+                    </div>
+                    <div class="stat-number">100</div>
+                  </div>
+                  <img src="../assets/images/Icon.png" alt="Vendors" />
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-header">
+                  <div class="stat-info">
+                    <div class="stat-title" data-translate="total_programs">
+                      Total Programs
+                    </div>
+                    <div class="stat-number">129</div>
+                  </div>
+                  <img src="../assets/images/Icon-1.png" alt="Programs" />
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-header">
+                  <div class="stat-info">
+                    <div class="stat-title" data-translate="applicants">
+                      Applicants
+                    </div>
+                    <div class="stat-number">1200</div>
+                  </div>
+                  <img src="../assets/images/Icon-2.png" alt="Applicants" />
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-header">
+                  <div class="stat-info">
+                    <div class="stat-title" data-translate="program_requests">
+                      Program Requests
+                    </div>
+                    <div class="stat-number">2040</div>
+                  </div>
+                  <img src="../assets/images/Icon-3.png" alt="Requests" />
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-header">
+                  <div class="stat-info">
+                    <div class="stat-title" data-translate="reimbursements">
+                      Reimbursements
+                    </div>
+                    <div class="stat-number">120</div>
+                  </div>
+
+                  <img src="../assets/images/Icon-4.png" alt="Reimbursements" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+              <!-- Main Chart -->
+              <div class="chart-card">
+                <div class="chart-header">
+                  <div
+                    class="chart-title"
+                    data-translate="program_requests_over_time"
+                  >
+                    Program Requests Over Time
+                  </div>
+                  <div class="chart-subtitle">
+                    <span data-translate="total_program_requests"
+                      >Total Program Requests</span
+                    >
+                    74,137
+                  </div>
+                </div>
+                <div class="chart-body">
+                  <div class="chart-container">
+                    <canvas id="programRequestsChart"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Statistics Charts -->
+              <div class="stats-charts">
+                <div class="stat-chart-card">
+                  <div class="stat-chart-header">
+                    <div class="stat-chart-title" data-translate="statistics">
+                      Statistics
+                    </div>
+                    <div class="stat-chart-subtitle" data-translate="vendors">
+                      Vendors
+                    </div>
+                  </div>
+                  <div class="stat-chart-body">
+                    <div class="circular-chart">
+                      <svg class="progress-ring" width="120" height="120">
+                        <circle
+                          class="progress-ring-bg"
+                          cx="60"
+                          cy="60"
+                          r="54"
+                          stroke-width="8"
+                        ></circle>
+                        <circle
+                          class="progress-ring-fill"
+                          cx="60"
+                          cy="60"
+                          r="54"
+                          stroke-width="8"
+                          stroke-dasharray="339.292"
+                          stroke-dashoffset="203.575"
+                          data-progress="40"
+                        ></circle>
+                      </svg>
+                      <div class="chart-center">
+                        <h4 data-translate="active_vendors">Active Vendors</h4>
+                        <h2>16</h2>
+                      </div>
+                    </div>
+                    <div class="chart-legend">
+                      <div class="legend-item">
+                        <div class="legend-color active purple"></div>
+                        <span data-translate="active">Active</span>
+                      </div>
+                      <div class="legend-item">
+                        <div class="legend-color inactive"></div>
+                        <span data-translate="inactive">Inactive</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="stat-chart-card">
+                  <div class="stat-chart-header">
+                    <div class="stat-chart-title" data-translate="statistics">
+                      Statistics
+                    </div>
+                    <div
+                      class="stat-chart-subtitle"
+                      data-translate="applicants"
+                    >
+                      Applicants
+                    </div>
+                  </div>
+                  <div class="stat-chart-body">
+                    <div class="circular-chart">
+                      <svg class="progress-ring" width="120" height="120">
+                        <circle
+                          class="progress-ring-bg"
+                          cx="60"
+                          cy="60"
+                          r="54"
+                          stroke-width="8"
+                        ></circle>
+                        <circle
+                          class="progress-ring-fill"
+                          cx="60"
+                          cy="60"
+                          r="54"
+                          stroke-width="8"
+                          stroke-dasharray="339.292"
+                          stroke-dashoffset="67.858"
+                          data-progress="80"
+                        ></circle>
+                      </svg>
+                      <div class="chart-center">
+                        <h4 data-translate="active_applicants">
+                          Active Applicants
+                        </h4>
+                        <h2>1020</h2>
+                      </div>
+                    </div>
+                    <div class="chart-legend">
+                      <div class="legend-item">
+                        <div class="legend-color active green"></div>
+                        <span data-translate="active">Active</span>
+                      </div>
+                      <div class="legend-item">
+                        <div class="legend-color inactive"></div>
+                        <span data-translate="inactive">Inactive</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="stat-chart-card">
+                  <div class="stat-chart-header">
+                    <div class="stat-chart-title" data-translate="statistics">
+                      Statistics
+                    </div>
+                    <div class="stat-chart-subtitle" data-translate="programs">
+                      Programs
+                    </div>
+                  </div>
+                  <div class="stat-chart-body">
+                    <div class="circular-chart">
+                      <svg class="progress-ring" width="120" height="120">
+                        <circle
+                          class="progress-ring-bg"
+                          cx="60"
+                          cy="60"
+                          r="54"
+                          stroke-width="8"
+                        ></circle>
+                        <circle
+                          class="progress-ring-fill"
+                          cx="60"
+                          cy="60"
+                          r="54"
+                          stroke-width="8"
+                          stroke-dasharray="339.292"
+                          stroke-dashoffset="271.434"
+                          data-progress="20"
+                        ></circle>
+                      </svg>
+                      <div class="chart-center">
+                        <h4 data-translate="active_programs">
+                          Active Programs
+                        </h4>
+                        <h2>19</h2>
+                      </div>
+                    </div>
+                    <div class="chart-legend">
+                      <div class="legend-item">
+                        <div class="legend-color active blue"></div>
+                        <span data-translate="active">Active</span>
+                      </div>
+                      <div class="legend-item">
+                        <div class="legend-color inactive"></div>
+                        <span data-translate="inactive">Inactive</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="footer-content">
+            <p>
+              &copy; 2025 Makeen.
+              <span data-translate="all_rights_reserved"
+                >All rights reserved.</span
+              >
+            </p>
+            <div class="footer-links">
+              <a href="#" data-translate="privacy_policy">Privacy Policy</a>
+              <a href="#" data-translate="terms_of_service">Terms of Service</a>
+              <a href="#" data-translate="contact">Contact</a>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../assets/js/admin-dashboard.js"></script>
+  </body>
+</html>
