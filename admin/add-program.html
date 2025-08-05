@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Makeen Admin - Add Program</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/add-program.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-wrapper">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <img src="../assets/images/book.png" alt="Makeen Logo" />
+            <span class="brand-name">Makeen</span>
+          </div>
+          <button class="sidebar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link">
+                <img
+                  src="../assets/images/home3.svg"
+                  alt="Home"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="home">Home</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-dashboard.html" class="nav-link">
+                <img
+                  src="../assets/images/element3.svg"
+                  alt="Dashboard"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="dashboard">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a href="programs.html" class="nav-link">
+                <img
+                  src="../assets/images/monitor.svg"
+                  alt="Programs"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="programs">Programs</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/profile2user.svg"
+                  alt="Applicant Requests"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="applicant_requests">Applicant Requests</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/user.svg"
+                  alt="Vendors"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="vendors">Vendors</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/profile2user-1.svg"
+                  alt="Applicants"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="applicants">Applicants</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/hand_money.svg"
+                  alt="Reimbursement"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="reimbursement">Reimbursement</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+          <div class="header-left">
+            <button class="menu-toggle" id="menuToggle">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="page-title-dropdown">
+              <h1 class="page-title" data-translate="programs">Programs</h1>
+            </div>
+          </div>
+
+          <div class="header-right">
+            <div class="language-switcher">
+              <button class="lang-btn active" data-lang="en">EN</button>
+              <button class="lang-btn" data-lang="ar">عربي</button>
+            </div>
+
+			<div class="user-menu">
+				<button class="user-toggle" id="userToggle">
+				  <div class="user-avatar">
+					<i class="fas fa-user"></i>
+				  </div>
+				  <span class="user-name" data-translate="admin">Admin</span>
+				  <i class="fas fa-chevron-down"></i>
+				</button>
+				<div class="user-dropdown" id="userDropdown">
+				  <a href="#" class="dropdown-item">
+					<i class="fas fa-user"></i>
+					<span data-translate="profile">Profile</span>
+				  </a>
+				  <a href="#" class="dropdown-item">
+					<i class="fas fa-cog"></i>
+					<span data-translate="settings">Settings</span>
+				  </a>
+				  <div class="dropdown-divider"></div>
+				  <a href="#" class="dropdown-item">
+					<i class="fas fa-sign-out-alt"></i>
+					<span data-translate="logout">Logout</span>
+				  </a>
+				</div>
+			  </div>
+          </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content">
+          <div class="content-header">
+            <div class="breadcrumb">
+              <span class="breadcrumb-item" data-translate="home">Home</span>
+              <i class="breadcrumb-separator fas fa-chevron-right"></i>
+              <a href="programs.html" class="breadcrumb-item" data-translate="programs">Programs</a>
+              <i class="breadcrumb-separator fas fa-chevron-right"></i>
+              <span class="breadcrumb-item active" data-translate="add_program">Add Program</span>
+            </div>
+          </div>
+
+          <!-- Add Program Content -->
+          <div class="add-program-content">
+            <!-- Page Header -->
+            <div class="page-header">
+              <div class="page-title-section">
+                <h2 class="page-main-title" data-translate="add_program">Add Program</h2>
+                <p class="page-subtitle" data-translate="create_new_program_desc">Create a new training program with all necessary details</p>
+              </div>
+            </div>
+
+            <!-- Program Form -->
+            <div class="program-form-container">
+              <form class="program-form" id="programForm">
+                <!-- Basic Information Section -->
+                <div class="form-section">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="programTitleEn" class="form-label">
+                        Program Title <span class="required">*</span>
+                        <span class="label-lang">(English)</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="programTitleEn"
+                        name="programTitleEn"
+                        class="form-control"
+                        placeholder="Blockchain and Cyber Security Track"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="programTitleAr" class="form-label">
+                        Program Title <span class="required">*</span>
+                        <span class="label-lang">(Arabic)</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="programTitleAr"
+                        name="programTitleAr"
+                        class="form-control"
+                        placeholder="مسار البلوك تشين والأمن السيبراني"
+                        required
+                        dir="rtl"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="programDescEn" class="form-label">
+                        Program Short Description <span class="required">*</span>
+                        <span class="label-lang">(English)</span>
+                      </label>
+                      <textarea
+                        id="programDescEn"
+                        name="programDescEn"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Blockchain and Cyber Security Track is our latest program that offers variety of skill set"
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="programDescAr" class="form-label">
+                        Program Short Description <span class="required">*</span>
+                        <span class="label-lang">(Arabic)</span>
+                      </label>
+                      <textarea
+                        id="programDescAr"
+                        name="programDescAr"
+                        class="form-control"
+                        rows="3"
+                        placeholder="مسار البلوك تشين والأمن السيبراني هو أحدث برامجنا الذي يقدم مجموعة متنوعة من المهارات"
+                        required
+                        dir="rtl"
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label">Program Type <span class="required">*</span></label>
+                      <div class="radio-group">
+                        <label class="radio-option">
+                          <input type="radio" name="programType" value="internal" checked />
+                          <span class="radio-custom"></span>
+                          <span class="radio-label" data-translate="internal">Internal</span>
+                        </label>
+                        <label class="radio-option">
+                          <input type="radio" name="programType" value="external" />
+                          <span class="radio-custom"></span>
+                          <span class="radio-label" data-translate="external">External</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row" id="externalLinkRow" style="display: none;">
+                    <div class="form-group">
+                      <label for="externalLink" class="form-label">
+                        External Program Link <span class="required">*</span>
+                      </label>
+                      <input
+                        type="url"
+                        id="externalLink"
+                        name="externalLink"
+                        class="form-control"
+                        placeholder="https://example.com/program"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="vendor" class="form-label">Vendor</label>
+                      <select id="vendor" name="vendor" class="form-control">
+                        <option value="">Code Academy</option>
+                        <option value="code-academy">Code Academy</option>
+                        <option value="tech-institute">Tech Institute</option>
+                        <option value="digital-skills">Digital Skills Center</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-4">
+                      <label for="location" class="form-label">Location <span class="required">*</span></label>
+                      <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        class="form-control"
+                        placeholder="Muscat, Oman"
+                        required
+                      />
+                    </div>
+                    <div class="form-group col-4">
+                      <label for="locationType" class="form-label">Location Type <span class="required">*</span></label>
+                      <select id="locationType" name="locationType" class="form-control" required>
+                        <option value="">On-site</option>
+                        <option value="on-site">On-site</option>
+                        <option value="remote">Remote</option>
+                        <option value="hybrid">Hybrid</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-4">
+                      <label for="duration" class="form-label">Duration <span class="required">*</span></label>
+                      <input
+                        type="text"
+                        id="duration"
+                        name="duration"
+                        class="form-control"
+                        placeholder="6 months"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-6">
+                      <label for="language" class="form-label">Language <span class="required">*</span></label>
+                      <select id="language" name="language" class="form-control" required>
+                        <option value="">English/Arabic</option>
+                        <option value="english">English</option>
+                        <option value="arabic">Arabic</option>
+                        <option value="both">English/Arabic</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="addressEn" class="form-label">Address <span class="label-lang">(English)</span></label>
+                      <input
+                        type="text"
+                        id="addressEn"
+                        name="addressEn"
+                        class="form-control"
+                        placeholder="Please Sultan Qaboos Muscat"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-6">
+                      <label for="addressAr" class="form-label">Address <span class="label-lang">(Arabic)</span></label>
+                      <input
+                        type="text"
+                        id="addressAr"
+                        name="addressAr"
+                        class="form-control"
+                        placeholder="شارع السلطان قابوس مسقط"
+                        dir="rtl"
+                      />
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="registrationPeriod" class="form-label">Registration Period <span class="required">*</span></label>
+                      <input
+                        type="text"
+                        id="registrationPeriod"
+                        name="registrationPeriod"
+                        class="form-control"
+                        placeholder="April 28, 2025 - April 30, 2025"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-6">
+                      <label for="programIcon" class="form-label">Program Icon</label>
+                      <div class="file-upload">
+                        <input type="file" id="programIcon" name="programIcon" accept="image/*" />
+                        <div class="file-upload-display">
+                          <i class="fas fa-cloud-upload-alt"></i>
+                          <span>Choose_file_to_upload_image.png</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="bannerImage" class="form-label">Banner Image</label>
+                      <div class="file-upload">
+                        <input type="file" id="bannerImage" name="bannerImage" accept="image/*" />
+                        <div class="file-upload-display">
+                          <i class="fas fa-cloud-upload-alt"></i>
+                          <span>Choose_file_to_upload_image.png</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tabs Section -->
+                <div class="tabs-container">
+                  <div class="tabs-header">
+                    <button type="button" class="tab-btn active" data-tab="basic-info">
+                      Basic Information
+                    </button>
+                    <button type="button" class="tab-btn" data-tab="questionnaire">
+                      Questionnaire
+                    </button>
+                    <button type="button" class="tab-btn" data-tab="required-attachments">
+                      Required Attachments
+                    </button>
+                    <button type="button" class="tab-btn" data-tab="partner-logo">
+                      Partner Logos
+                    </button>
+                    <button type="button" class="tab-btn" data-tab="faqs">
+                      FAQs
+                    </button>
+                  </div>
+
+                  <div class="tabs-content">
+                    <!-- Basic Information Tab -->
+                    <div class="tab-pane active" id="basic-info">
+                      <div class="tab-sections">
+                        <div class="section-item active">
+                          <div class="section-header">
+                            <i class="fas fa-bars section-icon"></i>
+                            <span class="section-title">Section Title 1</span>
+                          </div>
+                          <div class="section-actions">
+                            <button type="button" class="action-btn edit-btn">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="action-btn delete-btn">
+                              <i class="fas fa-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                        
+                        <div class="section-item">
+                          <div class="section-header">
+                            <i class="fas fa-bars section-icon"></i>
+                            <span class="section-title">Section Title 2</span>
+                          </div>
+                          <div class="section-actions">
+                            <button type="button" class="action-btn edit-btn">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="action-btn delete-btn">
+                              <i class="fas fa-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                        
+                        <div class="section-item">
+                          <div class="section-header">
+                            <i class="fas fa-bars section-icon"></i>
+                            <span class="section-title">Section Title 3</span>
+                          </div>
+                          <div class="section-actions">
+                            <button type="button" class="action-btn edit-btn">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="action-btn delete-btn">
+                              <i class="fas fa-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <button type="button" class="add-section-btn">
+                        <i class="fas fa-plus"></i>
+                        Add Section
+                      </button>
+                    </div>
+
+                    <!-- Questionnaire Tab -->
+                    <div class="tab-pane" id="questionnaire">
+                      <div class="questionnaire-header">
+                        <button type="button" class="btn btn-primary" id="addQuestionBtn">
+                          <i class="fas fa-plus"></i>
+                          Add Question
+                        </button>
+                      </div>
+                      
+                      <div class="questionnaire-table-container">
+                        <table class="questionnaire-table">
+                          <thead>
+                            <tr>
+                              <th>Questions [En]</th>
+                              <th>Questions [Ar]</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody id="questionsTableBody">
+                            <tr class="question-row" data-question-id="1">
+                              <td class="question-en">Why you choose this program?</td>
+                              <td class="question-ar">لماذا اخترت هذا البرنامج؟</td>
+                              <td class="question-actions">
+                                <button type="button" class="action-btn edit-question-btn" title="Edit">
+                                  <i class="fas fa-edit"></i>
+                                </button>
+                                <button type="button" class="action-btn delete-question-btn" title="Delete">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            <tr class="question-row" data-question-id="2">
+                              <td class="question-en">If you do the change careers right into sections, what would you do?</td>
+                              <td class="question-ar">إذا كان بإمكانك تغيير المهن مباشرة إلى أقسام، فماذا ستفعل؟</td>
+                              <td class="question-actions">
+                                <button type="button" class="action-btn edit-question-btn" title="Edit">
+                                  <i class="fas fa-edit"></i>
+                                </button>
+                                <button type="button" class="action-btn delete-question-btn" title="Delete">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            <tr class="question-row" data-question-id="3">
+                              <td class="question-en">What do say as a kid when asked what do you want to be when you grow up?</td>
+                              <td class="question-ar">ماذا تقول عندما تسأل ماذا تريد أن تكون عندما تكبر؟</td>
+                              <td class="question-actions">
+                                <button type="button" class="action-btn edit-question-btn" title="Edit">
+                                  <i class="fas fa-edit"></i>
+                                </button>
+                                <button type="button" class="action-btn delete-question-btn" title="Delete">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            <tr class="question-row" data-question-id="4">
+                              <td class="question-en">What's your very first memory?</td>
+                              <td class="question-ar">ما هي ذكرتك الأولى؟</td>
+                              <td class="question-actions">
+                                <button type="button" class="action-btn edit-question-btn" title="Edit">
+                                  <i class="fas fa-edit"></i>
+                                </button>
+                                <button type="button" class="action-btn delete-question-btn" title="Delete">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            <tr class="question-row" data-question-id="5">
+                              <td class="question-en">When is the last time you can remember feeling totally at peace?</td>
+                              <td class="question-ar">متى كانت آخر مرة تتذكر فيها شعورك بالسلام التام؟</td>
+                              <td class="question-actions">
+                                <button type="button" class="action-btn edit-question-btn" title="Edit">
+                                  <i class="fas fa-edit"></i>
+                                </button>
+                                <button type="button" class="action-btn delete-question-btn" title="Delete">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="required-attachments">
+                      <div class="tab-content-placeholder">
+                        <i class="fas fa-paperclip"></i>
+                        <p>Required attachments content will be added here</p>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="partner-logo">
+                      <div class="tab-content-placeholder">
+                        <i class="fas fa-cogs"></i>
+                        <p>Partner logos content will be added here</p>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="faqs">
+                      <div class="tab-content-placeholder">
+                        <i class="fas fa-question"></i>
+                        <p>FAQs content will be added here</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                  <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+                    Cancel
+                  </button>
+                  <button type="button" class="btn btn-outline-primary" id="saveDraftBtn">
+                    Save as Draft
+                  </button>
+                  <button type="submit" class="btn btn-primary" id="publishBtn">
+                    Publish
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="footer-content">
+            <p>&copy; 2025 All rights reserved. <span data-translate="ministry_info">Ministry of Transport, Communications and Information Technology</span>, under the management of <span data-translate="global_computer_services">Global Computer Services LLC</span>.</p>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Section Modal -->
+    <div class="modal-overlay" id="sectionModal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modalTitle">Add Section</h3>
+          <button type="button" class="modal-close" id="closeModal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+          <form id="sectionForm">
+            <div class="form-group">
+              <label for="sectionTitle" class="form-label">
+                Section Title <span class="required">*</span>
+              </label>
+              <input
+                type="text"
+                id="sectionTitle"
+                name="sectionTitle"
+                class="form-control"
+                placeholder="Section title 1"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">
+                Section <span class="label-lang">[English]</span>
+              </label>
+              <div class="rich-text-toolbar">
+                <button type="button" class="toolbar-btn" data-command="bold" title="Bold">
+                  <i class="fas fa-bold"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="italic" title="Italic">
+                  <i class="fas fa-italic"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="underline" title="Underline">
+                  <i class="fas fa-underline"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="insertUnorderedList" title="Bullet List">
+                  <i class="fas fa-list-ul"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="insertOrderedList" title="Numbered List">
+                  <i class="fas fa-list-ol"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="createLink" title="Insert Link">
+                  <i class="fas fa-link"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="insertImage" title="Insert Image">
+                  <i class="fas fa-image"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="formatBlock" data-value="blockquote" title="Quote">
+                  <i class="fas fa-quote-right"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="insertHTML" data-value="<code></code>" title="Code">
+                  <i class="fas fa-code"></i>
+                </button>
+              </div>
+              <div
+                class="rich-text-editor"
+                id="sectionContentEn"
+                contenteditable="true"
+                data-placeholder="Write a description..."
+              ></div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">
+                Section <span class="label-lang">[Arabic]</span>
+              </label>
+              <div class="rich-text-toolbar">
+                <button type="button" class="toolbar-btn" data-command="bold" title="Bold">
+                  <i class="fas fa-bold"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="italic" title="Italic">
+                  <i class="fas fa-italic"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="underline" title="Underline">
+                  <i class="fas fa-underline"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="insertUnorderedList" title="Bullet List">
+                  <i class="fas fa-list-ul"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="insertOrderedList" title="Numbered List">
+                  <i class="fas fa-list-ol"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="createLink" title="Insert Link">
+                  <i class="fas fa-link"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="insertImage" title="Insert Image">
+                  <i class="fas fa-image"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="formatBlock" data-value="blockquote" title="Quote">
+                  <i class="fas fa-quote-right"></i>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="insertHTML" data-value="<code></code>" title="Code">
+                  <i class="fas fa-code"></i>
+                </button>
+              </div>
+              <div
+                class="rich-text-editor"
+                id="sectionContentAr"
+                contenteditable="true"
+                data-placeholder="اكتب وصفاً..."
+                dir="rtl"
+              ></div>
+            </div>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelSection">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-primary" id="saveSection">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Question Modal -->
+    <div class="modal-overlay" id="questionModal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 class="modal-title" id="questionModalTitle">Add Question</h3>
+          <button type="button" class="modal-close" id="closeQuestionModal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+          <form id="questionForm">
+            <div class="form-group">
+              <label for="questionType" class="form-label">
+                Question type
+              </label>
+              <select id="questionType" name="questionType" class="form-control">
+                <option value="multiple-choice">Multiple Choice</option>
+                <option value="free-text">Free Text</option>
+              </select>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="questionTextEn" class="form-label">
+                  Question <span class="label-lang">[English]</span>
+                </label>
+                <textarea
+                  id="questionTextEn"
+                  name="questionTextEn"
+                  class="form-control"
+                  rows="3"
+                  placeholder="Type your question here in english..."
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group col-6">
+                <label for="questionTextAr" class="form-label">
+                  Question <span class="label-lang">[Arabic]</span>
+                </label>
+                <textarea
+                  id="questionTextAr"
+                  name="questionTextAr"
+                  class="form-control"
+                  rows="3"
+                  placeholder="اكتب سؤالك هنا بالعربية..."
+                  required
+                  dir="rtl"
+                ></textarea>
+              </div>
+            </div>
+            
+            <!-- Options section for multiple choice questions -->
+            <div class="form-group" id="optionsSection" style="display: none;">
+              <div class="options-header">
+                <label class="form-label">Options</label>
+                <button type="button" class="btn btn-outline-primary btn-sm" id="addOptionBtn">
+                  <i class="fas fa-plus"></i>
+                  Add Option
+                </button>
+              </div>
+              
+              <div class="options-container" id="optionsContainer">
+                <div class="option-row">
+                  <div class="option-inputs">
+                    <input
+                      type="text"
+                      class="form-control option-en"
+                      placeholder="Answer 1"
+                    />
+                    <input
+                      type="text"
+                      class="form-control option-ar"
+                      placeholder="الجواب 1"
+                      dir="rtl"
+                    />
+                  </div>
+                  <button type="button" class="remove-option-btn" title="Remove option">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <div class="option-row">
+                  <div class="option-inputs">
+                    <input
+                      type="text"
+                      class="form-control option-en"
+                      placeholder="Answer 2"
+                    />
+                    <input
+                      type="text"
+                      class="form-control option-ar"
+                      placeholder="الجواب 2"
+                      dir="rtl"
+                    />
+                  </div>
+                  <button type="button" class="remove-option-btn" title="Remove option">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <div class="option-row">
+                  <div class="option-inputs">
+                    <input
+                      type="text"
+                      class="form-control option-en"
+                      placeholder="Answer 3"
+                    />
+                    <input
+                      type="text"
+                      class="form-control option-ar"
+                      placeholder="الجواب 3"
+                      dir="rtl"
+                    />
+                  </div>
+                  <button type="button" class="remove-option-btn" title="Remove option">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelQuestion">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-primary" id="saveQuestion">
+            Save Question
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="../assets/js/admin-dashboard.js"></script>
+    <script src="../assets/js/add-program.js"></script>
+  </body>
+</html>
