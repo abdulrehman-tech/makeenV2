@@ -435,58 +435,79 @@
   let isLanguageSwitching = false;
 
   function setLangText(lang) {
-    // Set flag to prevent other scroll events during switching
-    isLanguageSwitching = true;
+    console.log('setLangText called with lang:', lang);
     
-    // Store current scroll position before any DOM changes
-    currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-    
-    currentLang = lang;
-    localStorage.setItem('site-lang', lang);
-    
-    // Update all translatable elements
-    document.querySelectorAll('[data-i18n]').forEach(function(el) {
-      const key = el.getAttribute('data-i18n');
-      if (translations[lang] && translations[lang][key]) {
-        if (el.tagName === 'INPUT' && el.type === 'submit') {
-          el.value = translations[lang][key];
-        } else {
-          el.innerHTML = translations[lang][key];
+    try {
+      // Set flag to prevent other scroll events during switching
+      isLanguageSwitching = true;
+      
+      // Store current scroll position before any DOM changes
+      currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Update current language
+      currentLang = lang;
+      localStorage.setItem('site-lang', lang);
+      
+      // Update document language and direction
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      
+      // Apply translations using the global function if available, otherwise use direct method
+      if (typeof window.applyTranslations === 'function') {
+        console.log('Using global applyTranslations function');
+        window.applyTranslations(lang);
+      } else {
+        console.log('Using direct translation method');
+        // Fallback to direct translation update
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (translations[lang] && translations[lang][key]) {
+            const translation = translations[lang][key];
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.type === 'submit' || el.type === 'button') {
+              el.value = translation;
+            } else {
+              el.textContent = translation;
+            }
+          }
+        });
+        
+        // Update placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          const key = el.getAttribute('data-i18n-placeholder');
+          if (translations[lang] && translations[lang][key]) {
+            el.placeholder = translations[lang][key];
+          }
+        });
+      }
+      
+      // Update language switcher labels
+      const langLabels = document.querySelectorAll('#current-language, #lang-switch-label, #mobile-current-language, .sticky-header__content #current-language, .sticky-header__content #lang-switch-label');
+      langLabels.forEach(label => {
+        if (label) label.textContent = lang === 'en' ? 'عربي' : 'English';
+      });
+      
+      // Apply RTL/LTR styles
+      applyLanguageStyles(lang);
+      
+      // Trigger a custom event that other scripts can listen to
+      const event = new CustomEvent('languageChanged', { detail: { language: lang } });
+      document.dispatchEvent(event);
+      
+      console.log(`Language switched to ${lang}`);
+      
+    } catch (error) {
+      console.error('Error in setLangText:', error);
+      // If something goes wrong, reload the page as a fallback
+      window.location.reload();
+    } finally {
+      // Always reset the flag and restore scroll position
+      setTimeout(() => {
+        isLanguageSwitching = false;
+        if (currentScrollPosition !== undefined) {
+          window.scrollTo(0, currentScrollPosition);
         }
-      }
-    });
-
-    // Update all placeholder elements
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
-      const key = el.getAttribute('data-i18n-placeholder');
-      if (translations[lang] && translations[lang][key]) {
-        el.placeholder = translations[lang][key];
-      }
-    });
-
-    // Update language switcher label in main navbar, sticky header, and mobile navigation
-    const langLabels = document.querySelectorAll('#current-language, #lang-switch-label, #mobile-current-language, .sticky-header__content #current-language, .sticky-header__content #lang-switch-label');
-    langLabels.forEach(function(langLabel) {
-      if (langLabel) {
-        langLabel.textContent = lang === 'en' ? 'عربي' : 'English';
-      }
-    });
-
-    // Apply RTL/LTR styles
-    applyLanguageStyles(lang);
-    
-    // Restore scroll position with multiple fallbacks
-    setTimeout(function() {
-      window.scrollTo(0, currentScrollPosition);
-      isLanguageSwitching = false;
-    }, 10);
-    
-    // Additional fallback in case the first one doesn't work
-    setTimeout(function() {
-      if (Math.abs(window.pageYOffset - currentScrollPosition) > 50) {
-        window.scrollTo(0, currentScrollPosition);
-      }
-    }, 100);
+      }, 10);
+    }
   }
 
   function applyLanguageStyles(lang) {
@@ -563,7 +584,31 @@
       return false;
     }
     
-    const newLang = currentLang === 'en' ? 'ar' : 'en';
+    // Determine the new language
+    let newLang = currentLang === 'en' ? 'ar' : 'en';
+    
+    // If the event was triggered by a button with data-lang attribute, use that language
+    if (e && e.target && e.target.getAttribute('data-lang')) {
+      newLang = e.target.getAttribute('data-lang');
+    }
+    
+    // If we're already on this language, do nothing
+    if (newLang === currentLang) {
+      return false;
+    }
+    
+    console.log('Switching language to:', newLang);
+    
+    // Update the active state of language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      if (btn.getAttribute('data-lang') === newLang) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+    
+    // Update the language
     setLangText(newLang);
     
     // Return false to prevent any link navigation
@@ -580,6 +625,38 @@
     });
   }
 
+  // Make translation functions globally available
+  window.applyTranslations = function(lang) {
+    if (!translations[lang]) {
+      console.error(`No translations found for language: ${lang}`);
+      return;
+    }
+    
+    // Update all translatable elements
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.type === 'submit' || el.type === 'button') {
+          el.value = translations[lang][key];
+        } else {
+          el.textContent = translations[lang][key];
+        }
+      }
+    });
+    
+    // Update all placeholders
+    const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+    placeholders.forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (translations[lang][key]) {
+        el.placeholder = translations[lang][key];
+      }
+    });
+    
+    console.log(`Applied translations for ${lang}`);
+  };
+
   // Initialize on DOM ready
   document.addEventListener('DOMContentLoaded', function() {
     // Fix any problematic hrefs
@@ -595,8 +672,10 @@
     
     // Add language switcher event listener with proper event handling
     function attachLanguageSwitcherEvents() {
-      // Look for language switchers in main navbar, sticky header, and mobile navigation
-      const langSwitchers = document.querySelectorAll('#language-toggle, #lang-switch, #mobile-language-toggle, .sticky-header__content #language-toggle, .sticky-header__content #lang-switch');
+      // Look for language switchers in main navbar, sticky header, mobile navigation, and add-program page
+      const langSwitchers = document.querySelectorAll('#language-toggle, #language-toggle-en, #language-toggle-ar, #lang-switch, #mobile-language-toggle, .sticky-header__content #language-toggle, .sticky-header__content #lang-switch');
+      
+      console.log('Language switchers found:', langSwitchers.length, langSwitchers);
       
       langSwitchers.forEach(function(langSwitcher) {
         // Remove any existing event listeners to prevent conflicts

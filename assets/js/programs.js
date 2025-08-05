@@ -450,7 +450,7 @@ function handleEntriesChange(e) {
 
 // Handle add program button
 function handleAddProgram() {
-  showNotification('Add Program feature coming soon!', 'info');
+  // showNotification('Add Program feature coming soon!', 'info');
 }
 
 // ===== FILTER BUTTONS =====

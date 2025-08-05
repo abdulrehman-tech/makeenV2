@@ -15,6 +15,9 @@ function initializeAddProgramPage() {
     initializeRichTextEditor();
     initializeDragAndDrop();
     initializeQuestionnaire();
+    initializeAttachments();
+    initializePartnerLogos();
+    initializeFAQs();
 }
 
 // Program Type Toggle for External Link
@@ -398,7 +401,7 @@ function createSectionElement(title, contentEn = '', contentAr = '') {
     sectionDiv.dataset.contentAr = contentAr;
     sectionDiv.innerHTML = `
         <div class="section-header">
-            <i class="fas fa-bars section-icon"></i>
+            <i class="fas fa-grip-vertical section-icon"></i>
             <span class="section-title">${title}</span>
         </div>
         <div class="section-actions">
@@ -651,6 +654,616 @@ function initializeDragAndDrop() {
     });
     
     observer.observe(sectionsContainer, { childList: true });
+}
+
+// Required Attachments Management
+let currentEditingAttachment = null;
+let attachmentIdCounter = 2; // Start from 2 since we have 1 sample attachment
+
+// Initialize Partner Logos functionality
+function initializePartnerLogos() {
+  const uploadArea = document.getElementById('partnerLogosUploadArea');
+  const fileInput = document.getElementById('partnerLogosInput');
+  const browseBtn = document.getElementById('browseLogosBtn');
+  const logosGrid = document.getElementById('logosGrid');
+  const noLogosMessage = document.getElementById('noLogosMessage');
+  
+  // Array to store uploaded logos
+  let uploadedLogos = [];
+  
+  // Prevent default drag behaviors
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    uploadArea.addEventListener(eventName, preventDefaults, false);
+  });
+  
+  // Highlight drop area when item is dragged over it
+  ['dragenter', 'dragover'].forEach(eventName => {
+    uploadArea.addEventListener(eventName, highlight, false);
+  });
+  
+  ['dragleave', 'drop'].forEach(eventName => {
+    uploadArea.addEventListener(eventName, unhighlight, false);
+  });
+  
+  // Handle dropped files
+  uploadArea.addEventListener('drop', handleDrop, false);
+  
+  // Handle file selection via button
+  browseBtn.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', handleFiles);
+  
+  // Prevent default drag behaviors
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  
+  // Highlight drop zone
+  function highlight() {
+    uploadArea.classList.add('dragover');
+  }
+  
+  // Unhighlight drop zone
+  function unhighlight() {
+    uploadArea.classList.remove('dragover');
+  }
+  
+  // Handle dropped files
+  function handleDrop(e) {
+    const dt = e.dataTransfer;
+    const files = dt.files;
+    handleFiles({ target: { files } });
+  }
+  
+  // Handle selected files
+  function handleFiles(e) {
+    const files = [...e.target.files];
+    
+    // Filter for image files only
+    const imageFiles = files.filter(file => file.type.startsWith('image/'));
+    
+    if (imageFiles.length === 0) {
+      showNotification('Please select valid image files', 'error');
+      return;
+    }
+    
+    // Process each image file
+    imageFiles.forEach(file => {
+      // Check if file is already uploaded
+      if (uploadedLogos.some(logo => logo.name === file.name && logo.size === file.size)) {
+        showNotification(`"${file.name}" is already uploaded`, 'warning');
+        return;
+      }
+      
+      // Create preview
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const logoData = {
+          id: Date.now() + Math.random().toString(36).substr(2, 9),
+          name: file.name,
+          size: file.size,
+          type: file.type,
+          url: e.target.result
+        };
+        
+        uploadedLogos.push(logoData);
+        renderLogos();
+      };
+      reader.readAsDataURL(file);
+    });
+    
+    // Reset file input
+    fileInput.value = '';
+  }
+  
+  // Render logos in the grid
+  function renderLogos() {
+    // Clear existing logos first
+    while (logosGrid.firstChild) {
+      logosGrid.removeChild(logosGrid.firstChild);
+    }
+    
+    // Show no logos message if there are no logos
+    if (uploadedLogos.length === 0) {
+      noLogosMessage.style.display = 'flex';
+      logosGrid.appendChild(noLogosMessage);
+      return;
+    }
+    
+    noLogosMessage.style.display = 'none';
+    
+    // Add new logos
+    uploadedLogos.forEach(logo => {
+      const logoItem = document.createElement('div');
+      logoItem.className = 'logo-item';
+      logoItem.dataset.id = logo.id;
+      
+      logoItem.innerHTML = `
+        <div class="logo-preview">
+          <img src="${logo.url}" alt="${logo.name}">
+        </div>
+        <div class="logo-actions">
+          <button type="button" class="btn btn-sm btn-outline-danger delete-logo" title="Delete">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      `;
+      
+      // Add event listener for delete button
+      const deleteBtn = logoItem.querySelector('.delete-logo');
+      deleteBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        deleteLogo(logo.id);
+      });
+      
+      // Make the logo preview clickable to view
+      logoItem.querySelector('.logo-preview').addEventListener('click', () => {
+        // Optional: You can still view the logo by clicking the image if needed
+        window.open(logo.url, '_blank');
+      });
+      
+      logosGrid.appendChild(logoItem);
+    });
+  }
+  
+  // Delete a logo
+  function deleteLogo(logoId) {
+    if (confirm('Are you sure you want to delete this logo?')) {
+      uploadedLogos = uploadedLogos.filter(logo => logo.id !== logoId);
+      renderLogos();
+      
+      // Clear the file input value to prevent issues with re-uploading the same file
+      fileInput.value = '';
+      
+      // Show success message only if there are still logos left
+      if (uploadedLogos.length > 0) {
+        showNotification('Logo deleted successfully', 'success');
+      }
+    }
+  }
+  
+  // Initialize
+  renderLogos();
+}
+
+// FAQs data
+let faqs = [
+  {
+    id: '1',
+    questionEn: 'What is the program duration?',
+    questionAr: 'ما هي مدة البرنامج؟',
+    answerEn: 'The program duration varies depending on the course, typically ranging from 4 to 12 weeks.',
+    answerAr: 'تختلف مدة البرنامج حسب الدورة التدريبية، وعادةً ما تتراوح من 4 إلى 12 أسبوعًا.'
+  }
+];
+let editingFaqId = null;
+
+// Initialize FAQs
+function initializeFAQs() {
+  const addFaqBtn = document.getElementById('addFaqBtn');
+  const saveFaqBtn = document.getElementById('saveFaq');
+  const cancelFaqBtn = document.getElementById('cancelFaq');
+  const closeFaqModalBtn = document.getElementById('closeFaqModal');
+  const faqModal = document.getElementById('faqModal');
+  const faqForm = document.getElementById('faqForm');
+  const faqsTableBody = document.getElementById('faqsTableBody');
+
+  // FAQ data is now managed outside this function
+
+  // Event Listeners
+  if (addFaqBtn) {
+    addFaqBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openFaqModal();
+    });
+  }
+
+  if (saveFaqBtn) {
+    saveFaqBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      saveFaq();
+    });
+  }
+  
+  // Prevent form submission
+  if (faqForm) {
+    faqForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      saveFaq();
+    });
+  }
+
+  if (cancelFaqBtn) {
+    cancelFaqBtn.addEventListener('click', closeFaqModal);
+  }
+
+  if (closeFaqModalBtn) {
+    closeFaqModalBtn.addEventListener('click', closeFaqModal);
+  }
+
+  // Close modal when clicking on overlay
+  if (faqModal) {
+    faqModal.addEventListener('click', (e) => {
+      if (e.target === faqModal) {
+        closeFaqModal();
+      }
+    });
+  }
+
+  // Close modal with ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && faqModal && faqModal.classList.contains('active')) {
+      closeFaqModal();
+    }
+  });
+
+  // Initialize FAQ table
+  renderFaqsTable();
+  
+  // Initialize event delegation for dynamically added buttons
+  document.addEventListener('click', function(e) {
+    // Handle edit button clicks
+    if (e.target.closest('.edit-faq-btn')) {
+      e.preventDefault();
+      const row = e.target.closest('tr');
+      const faqId = row ? row.dataset.faqId : null;
+      if (faqId) {
+        openFaqModal(faqId);
+      }
+    }
+    
+    // Handle delete button clicks
+    if (e.target.closest('.delete-faq-btn')) {
+      e.preventDefault();
+      const row = e.target.closest('tr');
+      const faqId = row ? row.dataset.faqId : null;
+      if (faqId && confirm('Are you sure you want to delete this FAQ?')) {
+        deleteFaq(faqId);
+      }
+    }
+  });
+
+  // Functions
+  function openFaqModal(faqId = null) {
+    editingFaqId = faqId;
+    const modalTitle = document.getElementById('faqModalTitle');
+    
+    if (faqId) {
+      // Edit mode
+      modalTitle.textContent = 'Edit FAQ';
+      const faq = faqs.find(f => f.id === faqId);
+      if (faq) {
+        document.getElementById('faqQuestionEn').value = faq.questionEn;
+        document.getElementById('faqQuestionAr').value = faq.questionAr;
+        document.getElementById('faqAnswerEn').value = faq.answerEn;
+        document.getElementById('faqAnswerAr').value = faq.answerAr;
+        document.getElementById('editingFaqId').value = faqId;
+      }
+    } else {
+      // Add mode
+      modalTitle.textContent = 'Add FAQ';
+      faqForm.reset();
+      document.getElementById('editingFaqId').value = '';
+    }
+    
+    faqModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeFaqModal() {
+    faqModal.classList.remove('active');
+    document.body.style.overflow = '';
+    faqForm.reset();
+    editingFaqId = null;
+  }
+
+  function saveFaq() {
+    console.log('saveFaq called');
+    const questionEn = document.getElementById('faqQuestionEn').value.trim();
+    const questionAr = document.getElementById('faqQuestionAr').value.trim();
+    const answerEn = document.getElementById('faqAnswerEn').value.trim();
+    const answerAr = document.getElementById('faqAnswerAr').value.trim();
+    
+    console.log('Form values:', { questionEn, questionAr, answerEn, answerAr });
+    
+    if (!questionEn || !questionAr || !answerEn || !answerAr) {
+      const missingFields = [];
+      if (!questionEn) missingFields.push('English question');
+      if (!questionAr) missingFields.push('Arabic question');
+      if (!answerEn) missingFields.push('English answer');
+      if (!answerAr) missingFields.push('Arabic answer');
+      
+      console.log('Validation failed. Missing fields:', missingFields);
+      showNotification(`Please fill in all required fields: ${missingFields.join(', ')}`, 'error');
+      return;
+    }
+
+    if (editingFaqId) {
+      // Update existing FAQ
+      const index = faqs.findIndex(f => f.id === editingFaqId);
+      console.log('Updating FAQ. Index:', index, 'Current FAQs:', faqs);
+      
+      if (index !== -1) {
+        faqs[index] = {
+          ...faqs[index],
+          questionEn,
+          questionAr,
+          answerEn,
+          answerAr
+        };
+        console.log('Updated FAQs array:', faqs);
+        showNotification('FAQ updated successfully', 'success');
+      } else {
+        console.error('FAQ with ID not found:', editingFaqId);
+      }
+    } else {
+      // Add new FAQ
+      const newFaq = {
+        id: Date.now().toString(),
+        questionEn,
+        questionAr,
+        answerEn,
+        answerAr
+      };
+      console.log('Adding new FAQ:', newFaq);
+      faqs.unshift(newFaq); // Add to the beginning of the array
+      console.log('Updated FAQs array after adding:', faqs);
+      showNotification('FAQ added successfully', 'success');
+    }
+    
+    renderFaqsTable();
+    closeFaqModal();
+  }
+
+  function renderFaqsTable() {
+    console.log('renderFaqsTable called');
+    console.log('faqsTableBody element:', faqsTableBody);
+    
+    if (!faqsTableBody) {
+      console.error('faqsTableBody is not found in the DOM');
+      return;
+    }
+    
+    faqsTableBody.innerHTML = '';
+    console.log('faqs array:', faqs);
+    
+    if (faqs.length === 0) {
+      console.log('No FAQs to display, showing empty state');
+      const emptyRow = document.createElement('tr');
+      emptyRow.innerHTML = `
+        <td colspan="3" class="text-center py-4">
+          No FAQs added yet. Click "Add FAQ" to get started.
+        </td>
+      `;
+      faqsTableBody.appendChild(emptyRow);
+      return;
+    }
+    
+    faqs.forEach(faq => {
+      const row = document.createElement('tr');
+      row.className = 'faq-row';
+      row.dataset.faqId = faq.id;
+      
+      row.innerHTML = `
+        <td class="question-en">${faq.questionEn}</td>
+        <td class="question-ar">${faq.questionAr}</td>
+        <td class="faq-actions">
+          <button type="button" class="action-btn edit-faq-btn" title="Edit">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button type="button" class="action-btn delete-faq-btn" title="Delete">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
+      `;
+      
+      // Add event listeners to the buttons
+      const editBtn = row.querySelector('.edit-faq-btn');
+      const deleteBtn = row.querySelector('.delete-faq-btn');
+      
+      editBtn.addEventListener('click', () => openFaqModal(faq.id));
+      deleteBtn.addEventListener('click', () => deleteFaq(faq.id));
+      
+      faqsTableBody.appendChild(row);
+    });
+  }
+
+  function deleteFaq(faqId) {
+    if (confirm('Are you sure you want to delete this FAQ?')) {
+      faqs = faqs.filter(faq => faq.id !== faqId);
+      renderFaqsTable();
+      showNotification('FAQ deleted successfully', 'success');
+    }
+  }
+}
+
+// Initialize Attachments
+function initializeAttachments() {
+    const addAttachmentBtn = document.getElementById('addAttachmentBtn');
+    const saveBtn = document.getElementById('saveAttachment');
+    const cancelBtn = document.getElementById('cancelAttachment');
+    const closeBtn = document.getElementById('closeAttachmentModal');
+    const modal = document.getElementById('attachmentModal');
+    
+    // Add event listeners if elements exist
+    if (addAttachmentBtn) {
+        addAttachmentBtn.addEventListener('click', () => openAttachmentModal());
+    }
+    
+    if (saveBtn) {
+        saveBtn.addEventListener('click', saveAttachment);
+    }
+    
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', hideAttachmentModal);
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', hideAttachmentModal);
+    }
+    
+    // Close modal when clicking on overlay
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideAttachmentModal();
+            }
+        });
+    }
+    
+    // Close modal with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            hideAttachmentModal();
+        }
+    });
+    
+    // Initialize existing attachment actions
+    initializeAttachmentActions();
+}
+
+// Initialize attachment action buttons
+function initializeAttachmentActions() {
+    document.querySelectorAll('.edit-attachment-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const row = e.target.closest('.attachment-row');
+            editAttachment(row);
+        });
+    });
+    
+    document.querySelectorAll('.delete-attachment-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const row = e.target.closest('.attachment-row');
+            deleteAttachment(row);
+        });
+    });
+}
+
+// Open attachment modal for adding/editing
+function openAttachmentModal(attachmentRow = null) {
+    const modal = document.getElementById('attachmentModal');
+    const title = document.getElementById('attachmentModalTitle');
+    const form = document.getElementById('attachmentForm');
+    
+    if (attachmentRow) {
+        // Editing existing attachment
+        title.textContent = 'Edit Attachment';
+        currentEditingAttachment = attachmentRow;
+        
+        // Get data from the row
+        document.getElementById('attachmentNameEn').value = attachmentRow.querySelector('.attachment-name-en').textContent;
+        document.getElementById('attachmentNameAr').value = attachmentRow.querySelector('.attachment-name-ar').textContent;
+    } else {
+        // Adding new attachment
+        title.textContent = 'Add Required Attachment';
+        currentEditingAttachment = null;
+        form.reset();
+    }
+    
+    // Show the modal by adding the 'active' class
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Focus on the first input field
+    document.getElementById('attachmentNameEn').focus();
+}
+
+// Hide attachment modal
+function hideAttachmentModal() {
+    const modal = document.getElementById('attachmentModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    currentEditingAttachment = null;
+}
+
+// Save attachment data
+function saveAttachment() {
+    const attachmentData = {
+        nameEn: document.getElementById('attachmentNameEn').value.trim(),
+        nameAr: document.getElementById('attachmentNameAr').value.trim()
+    };
+    
+    // Basic validation
+    if (!attachmentData.nameEn || !attachmentData.nameAr) {
+        showNotification('Please fill in both English and Arabic attachment names', 'error');
+        return;
+    }
+    
+    if (currentEditingAttachment) {
+        // Update existing attachment
+        updateAttachmentRow(currentEditingAttachment, attachmentData);
+        showNotification('Attachment updated successfully', 'success');
+    } else {
+        // Add new attachment
+        attachmentIdCounter++;
+        const newRow = createAttachmentRow(attachmentIdCounter, attachmentData);
+        document.getElementById('attachmentsTableBody').appendChild(newRow);
+        initializeAttachmentActions(); // Re-initialize actions for the new row
+        showNotification('Attachment added successfully', 'success');
+    }
+    
+    hideAttachmentModal();
+}
+
+// Create a new attachment row
+function createAttachmentRow(id, data) {
+    const row = document.createElement('tr');
+    row.className = 'attachment-row';
+    row.setAttribute('data-attachment-id', id);
+    
+    row.innerHTML = `
+        <td class="attachment-name">
+            <i class="fas fa-file-alt me-2"></i>
+            <span class="attachment-name-en">${escapeHtml(data.nameEn)}</span>
+        </td>
+        <td class="attachment-name-ar" dir="rtl">
+            <span class="attachment-name-ar">${escapeHtml(data.nameAr)}</span>
+            <i class="fas fa-file-alt me-2 ms-2"></i>
+        </td>
+        <td class="attachment-actions">
+            <button type="button" class="action-btn edit-attachment-btn" title="Edit">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button type="button" class="action-btn delete-attachment-btn" title="Delete">
+                <i class="fas fa-trash"></i>
+            </button>
+        </td>
+    `;
+    
+    return row;
+}
+
+// Update an existing attachment row
+function updateAttachmentRow(row, data) {
+    // Create a new row with updated data and replace the old one
+    const newRow = createAttachmentRow(row.getAttribute('data-attachment-id'), data);
+    row.parentNode.replaceChild(newRow, row);
+    
+    // Re-initialize actions for the updated row
+    initializeAttachmentActions();
+}
+
+// Edit attachment
+function editAttachment(row) {
+    openAttachmentModal(row);
+}
+
+// Delete attachment
+function deleteAttachment(row) {
+    if (confirm('Are you sure you want to delete this attachment requirement?')) {
+        row.remove();
+        showNotification('Attachment requirement deleted', 'info');
+    }
+}
+
+// Helper function to escape HTML
+function escapeHtml(unsafe) {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 }
 
 // Questionnaire Management

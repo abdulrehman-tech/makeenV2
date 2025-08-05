@@ -128,9 +128,9 @@
           </div>
 
           <div class="header-right">
-            <div class="language-switcher">
-              <button class="lang-btn active" data-lang="en">EN</button>
-              <button class="lang-btn" data-lang="ar">عربي</button>
+            <div class="language-switcher" id="language-switcher">
+              <button id="language-toggle-en" class="lang-btn active" data-lang="en">EN</button>
+              <button id="language-toggle-ar" class="lang-btn" data-lang="ar">عربي</button>
             </div>
 
 			<div class="user-menu">
@@ -351,7 +351,7 @@
                         id="addressEn"
                         name="addressEn"
                         class="form-control"
-                        placeholder="Please Sultan Qaboos Muscat"
+                        placeholder="Sultan Qaboos Street, Muscat"
                       />
                     </div>
                   </div>
@@ -431,7 +431,7 @@
                       <div class="tab-sections">
                         <div class="section-item active">
                           <div class="section-header">
-                            <i class="fas fa-bars section-icon"></i>
+                            <i class="fas fa-grip-vertical section-icon"></i>
                             <span class="section-title">Section Title 1</span>
                           </div>
                           <div class="section-actions">
@@ -446,7 +446,7 @@
                         
                         <div class="section-item">
                           <div class="section-header">
-                            <i class="fas fa-bars section-icon"></i>
+                            <i class="fas fa-grip-vertical section-icon"></i>
                             <span class="section-title">Section Title 2</span>
                           </div>
                           <div class="section-actions">
@@ -461,7 +461,7 @@
                         
                         <div class="section-item">
                           <div class="section-header">
-                            <i class="fas fa-bars section-icon"></i>
+                            <i class="fas fa-grip-vertical section-icon"></i>
                             <span class="section-title">Section Title 3</span>
                           </div>
                           <div class="section-actions">
@@ -565,24 +565,107 @@
                       </div>
                     </div>
 
+                    <!-- Required Attachments Tab -->
                     <div class="tab-pane" id="required-attachments">
-                      <div class="tab-content-placeholder">
-                        <i class="fas fa-paperclip"></i>
-                        <p>Required attachments content will be added here</p>
+                      <div class="questionnaire-header">
+                        <button type="button" class="btn btn-primary" id="addAttachmentBtn">
+                          <i class="fas fa-plus"></i>
+                          Add Attachment Name
+                        </button>
+                      </div>
+                      
+                      <div class="questionnaire-table-container">
+                        <table class="questionnaire-table">
+                          <thead>
+                            <tr>
+                              <th>Attachment Name [En]</th>
+                              <th>Attachment Name [Ar]</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody id="attachmentsTableBody">
+                            <!-- Sample attachment row -->
+                            <tr class="attachment-row" data-attachment-id="1">
+                              <td class="attachment-name-en">CV/Resume</td>
+                              <td class="attachment-name-ar">السيرة الذاتية</td>
+                              <td class="attachment-actions">
+                                <button type="button" class="action-btn edit-attachment-btn" title="Edit">
+                                  <i class="fas fa-edit"></i>
+                                </button>
+                                <button type="button" class="action-btn delete-attachment-btn" title="Delete">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            <!-- Additional attachment rows will be added dynamically -->
+                          </tbody>
+                        </table>
                       </div>
                     </div>
 
+                    <!-- Partner Logos Tab -->
                     <div class="tab-pane" id="partner-logo">
-                      <div class="tab-content-placeholder">
-                        <i class="fas fa-cogs"></i>
-                        <p>Partner logos content will be added here</p>
+                      <div class="partner-logos-container">
+                        <div class="file-upload-container">
+                          <div class="file-upload-area" id="partnerLogosUploadArea">
+                            <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                            <h4>Upload Partner Logos</h4>
+                            <p>Drag & drop your files here or click to browse</p>
+                            <input type="file" id="partnerLogosInput" multiple accept="image/*" style="display: none;">
+                            <button type="button" class="btn btn-primary" id="browseLogosBtn">
+                              <i class="fas fa-folder-open"></i> Select Files
+                            </button>
+                          </div>
+                        </div>
+                        
+                        <div class="uploaded-logos" id="uploadedLogosContainer">
+                          <h5>Uploaded Logos</h5>
+                          <div class="logos-grid" id="logosGrid">
+                            <!-- Logos will be added here dynamically -->
+                            <div class="no-logos" id="noLogosMessage">
+                              <i class="fas fa-images"></i>
+                              <p>No logos uploaded yet</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
+                    <!-- FAQs Tab -->
                     <div class="tab-pane" id="faqs">
-                      <div class="tab-content-placeholder">
-                        <i class="fas fa-question"></i>
-                        <p>FAQs content will be added here</p>
+                      <div class="questionnaire-header">
+                        <button type="button" class="btn btn-primary" id="addFaqBtn">
+                          <i class="fas fa-plus"></i>
+                          Add FAQ
+                        </button>
+                      </div>
+                      
+                      <div class="questionnaire-table-container">
+                        <table class="questionnaire-table">
+                          <thead>
+                            <tr>
+                              <th>Question [En]</th>
+                              <th>Question [Ar]</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody id="faqsTableBody">
+                            <!-- Sample FAQ row -->
+                            <tr class="faq-row" data-faq-id="1">
+                              <td class="question-en">What is the program duration?</td>
+                              <td class="question-ar">ما هي مدة البرنامج؟</td>
+                              <td class="faq-actions">
+                                <button type="button" class="action-btn edit-faq-btn" title="Edit">
+                                  <i class="fas fa-edit"></i>
+                                </button>
+                                <button type="button" class="action-btn delete-faq-btn" title="Delete">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            <!-- Additional FAQ rows will be added dynamically -->
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   </div>
@@ -869,8 +952,257 @@
       </div>
     </div>
 
+    <!-- Attachment Modal -->
+    <div class="modal-overlay" id="attachmentModal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 class="modal-title" id="attachmentModalTitle">Add Required Attachment</h3>
+          <button type="button" class="modal-close" id="closeAttachmentModal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+          <form id="attachmentForm">
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="attachmentNameEn" class="form-label">
+                  Attachment Name <span class="label-lang">[English]</span> <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="attachmentNameEn"
+                  class="form-control"
+                  placeholder="Enter attachment name in English"
+                  required
+                />
+              </div>
+              
+              <div class="form-group col-6">
+                <label for="attachmentNameAr" class="form-label">
+                  Attachment Name <span class="label-lang">[Arabic]</span> <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="attachmentNameAr"
+                  class="form-control"
+                  placeholder="أدخل اسم المرفق بالعربية"
+                  dir="rtl"
+                  required
+                />
+              </div>
+            </div>
+            
+            <input type="hidden" id="editingAttachmentId" value="" />
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelAttachment">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-primary" id="saveAttachment">
+            Save Attachment
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Modal -->
+    <div class="modal-overlay" id="faqModal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 class="modal-title" id="faqModalTitle">Add FAQ</h3>
+          <button type="button" class="modal-close" id="closeFaqModal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+          <form id="faqForm">
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="faqQuestionEn" class="form-label">
+                  Question <span class="label-lang">[English]</span> <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="faqQuestionEn"
+                  class="form-control"
+                  placeholder="Enter question in English"
+                  required
+                />
+              </div>
+              
+              <div class="form-group col-6">
+                <label for="faqQuestionAr" class="form-label">
+                  Question <span class="label-lang">[Arabic]</span> <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="faqQuestionAr"
+                  class="form-control"
+                  placeholder="أدخل السؤال بالعربية"
+                  dir="rtl"
+                  required
+                />
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="faqAnswerEn" class="form-label">
+                Answer <span class="label-lang">[English]</span> <span class="required">*</span>
+              </label>
+              <textarea
+                id="faqAnswerEn"
+                class="form-control"
+                rows="3"
+                placeholder="Enter answer in English"
+                required
+              ></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="faqAnswerAr" class="form-label">
+                Answer <span class="label-lang">[Arabic]</span> <span class="required">*</span>
+              </label>
+              <textarea
+                id="faqAnswerAr"
+                class="form-control"
+                rows="3"
+                placeholder="أدخل الإجابة بالعربية"
+                dir="rtl"
+                required
+              ></textarea>
+            </div>
+            
+            <input type="hidden" id="editingFaqId" value="" />
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelFaq">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-primary" id="saveFaq">
+            Save FAQ
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Custom JS -->
+    <script src="../assets/js/makeen-translations.js"></script>
     <script src="../assets/js/admin-dashboard.js"></script>
     <script src="../assets/js/add-program.js"></script>
+    
+    <!-- Translation Initialization -->
+    <script>
+    // Global translation functions
+    window.translationDebug = true; // Enable debug mode
+    
+    // Function to log debug messages
+    function logDebug(message, data) {
+      if (window.translationDebug) {
+        console.log(`[Translation] ${message}`, data || '');
+      }
+    }
+    
+    // Function to force language change
+    function forceLanguageChange(lang) {
+      logDebug(`Force changing language to: ${lang}`);
+      
+      // Update localStorage
+      localStorage.setItem('site-lang', lang);
+      
+      // Update UI state
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        const btnLang = btn.getAttribute('data-lang');
+        if (btnLang === lang) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      
+      // Try to use the translation system if available
+      if (typeof window.setLangText === 'function') {
+        logDebug('Using setLangText function');
+        window.setLangText(lang);
+      } else {
+        logDebug('setLangText not available, reloading page');
+        window.location.reload();
+      }
+    }
+    
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      logDebug('DOM fully loaded, initializing translation system...');
+      
+      // Check if translation system is available
+      const translationAvailable = typeof window.setLangText === 'function' && 
+                                 typeof window.translations !== 'undefined';
+      
+      logDebug('Translation system available:', translationAvailable);
+      
+      if (translationAvailable) {
+        // Get current language
+        const currentLang = localStorage.getItem('site-lang') || 'en';
+        logDebug('Current language:', currentLang);
+        
+        // Apply current language
+        window.setLangText(currentLang);
+        
+        // Add click handlers to language buttons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const lang = this.getAttribute('data-lang');
+            if (lang && lang !== currentLang) {
+              logDebug('Language button clicked, switching to:', lang);
+              forceLanguageChange(lang);
+            }
+            return false;
+          });
+        });
+        
+        // If attachLanguageSwitcherEvents exists, use it
+        if (typeof window.attachLanguageSwitcherEvents === 'function') {
+          logDebug('Attaching language switcher events');
+          window.attachLanguageSwitcherEvents();
+        }
+        
+        // Add debug info to the page
+        const debugInfo = document.createElement('div');
+        debugInfo.style.position = 'fixed';
+        debugInfo.style.bottom = '10px';
+        debugInfo.style.right = '10px';
+        debugInfo.style.background = 'rgba(0,0,0,0.7)';
+        debugInfo.style.color = '#fff';
+        debugInfo.style.padding = '5px 10px';
+        debugInfo.style.borderRadius = '4px';
+        debugInfo.style.fontSize = '12px';
+        debugInfo.style.zIndex = '9999';
+        debugInfo.textContent = `Lang: ${currentLang} | Translations: ${Object.keys(window.translations || {}).join(', ')}`;
+        document.body.appendChild(debugInfo);
+        
+      } else {
+        logDebug('Translation system not fully loaded, will reload page on language change');
+        
+        // Fallback: reload page on language change
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const lang = this.getAttribute('data-lang');
+            if (lang) {
+              localStorage.setItem('site-lang', lang);
+              window.location.reload();
+            }
+            return false;
+          });
+        });
+      }
+    });
+    </script>
   </body>
 </html>
