@@ -194,7 +194,7 @@
       
       // Start Application Page
       "welcome-dear-name": "عبد الرحمن العزيز،",
-      "welcome-message-content": "أهلاً وسهلاً بك! بينما نبدأ هذه الرحلة معاً، أود أن نبدأ بمرحلة الاستبيان ثم المرفقات. هذه الخطوة المحورية تُمثل أساساً لفهم احتياجاتك وتفضيلاتك وأهدافك، مما يُمكننا من تخصيص منهجنا وفقاً لذلك.<br /><br />مساهمتك في هذه المرحلة لا تُقدر بثمن حيث تُرسي الأساس لتعاونِنا المستقبلي. من خلال تقديم ردود شاملة وصادقة، تُمكننا من مواءمة استراتيجياتنا ومواردنا مع رؤيتك وطموحاتك الفريدة.<br /><br />كن مطمئناً، أن خصوصيتك وسريتك هي من أهم أولوياتنا. أي معلومات تُتم مشاركتها خلال هذه العملية ستُعامل بأقصى درجات العناية والكتمان.<br /><br />شكراً لك مُسبقاً على تعاونك ومشاركتك. دعنا نُبحر معاً في هذه الرحلة ونُمهد الطريق للنجاح!",
+      "welcome-message-content": "أهلاً وسهلاً بك! بينما نبدأ هذه الرحلة معاً، أود أن نبدأ بمرحلة الاستبيان ثم المرفقات. هذه الخطوة المحورية تُمثل أساساً لفهم احتياجاتك وتفضيلاتك وأهدافك، مما يُمكننا من تخصيص منهجنا وفقاً لذلك.\n\n  مساهمتك في هذه المرحلة لا تُقدر بثمن حيث تُرسي الأساس لتعاونِنا المستقبلي. من خلال تقديم ردود شاملة وصادقة، تُمكننا من مواءمة استراتيجياتنا ومواردنا مع رؤيتك وطموحاتك الفريدة.\n\nكن مطمئناً، أن خصوصيتك وسريتك هي من أهم أولوياتنا. أي معلومات تُتم مشاركتها خلال هذه العملية ستُعامل بأقصى درجات العناية والكتمان.\n\nشكراً لك مُسبقاً على تعاونك ومشاركتك. دعنا نُبحر معاً في هذه الرحلة ونُمهد الطريق للنجاح!",
       "consent-text": "أؤكد بهذا أن المعلومات التي أقدمها صحيحة حسب علمي",
       "start-btn": "ابدأ",
 
@@ -424,7 +424,7 @@
       
       // Start Application Page
       "welcome-dear-name": "Dear Abdul,",
-      "welcome-message-content": "Welcome aboard! As we embark on this journey together, I'd like to kick things off by delving into the questionnaire phase and then attachments. This pivotal step serves as our foundation for understanding your needs, preferences, and objectives, allowing us to tailor our approach accordingly.<br /><br />Your input in this phase is invaluable as it lays the groundwork for our collaboration moving forward. By providing thorough and honest responses, you enable us to align our strategies and resources with your unique vision and aspirations.<br /><br />Rest assured, your privacy and confidentiality are of utmost importance to us. Any information shared during this process will be handled with the utmost care and discretion.<br /><br />Thank you in advance for your cooperation and participation. Let's embark on this journey together and pave the way for success!",
+      "welcome-message-content": "Welcome aboard! As we embark on this journey together, I'd like to kick things off by delving into the questionnaire phase and then attachments. This pivotal step serves as our foundation for understanding your needs, preferences, and objectives, allowing us to tailor our approach accordingly.\n\nYour input in this phase is invaluable as it lays the groundwork for our collaboration moving forward. By providing thorough and honest responses, you enable us to align our strategies and resources with your unique vision and aspirations.\n\nRest assured, your privacy and confidentiality are of utmost importance to us. Any information shared during this process will be handled with the utmost care and discretion.\n\nThank you in advance for your cooperation and participation. Let's embark on this journey together and pave the way for success!",
       "consent-text": "I hereby confirm that the information I provide is to the best of my knowledge",
       "start-btn": "START"
     }
@@ -640,7 +640,13 @@
         if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.type === 'submit' || el.type === 'button') {
           el.value = translations[lang][key];
         } else {
-          el.textContent = translations[lang][key];
+          // Check if the translation contains HTML tags
+          const translation = translations[lang][key];
+          if (/<[a-z][\s\S]*>/i.test(translation)) {
+            el.innerHTML = translation;
+          } else {
+            el.textContent = translation;
+          }
         }
       }
     });
@@ -657,6 +663,20 @@
     console.log(`Applied translations for ${lang}`);
   };
 
+  // Function to update dynamic year
+  function updateDynamicYear() {
+    const yearElements = document.querySelectorAll('.dynamic-year');
+    const currentYear = new Date().getFullYear();
+    if (yearElements.length > 0) {
+      yearElements.forEach(el => {
+        el.textContent = currentYear;
+      });
+      console.log('Dynamic year updated to:', currentYear);
+    } else {
+      console.warn('No elements with class "dynamic-year" found');
+    }
+  }
+
   // Initialize on DOM ready
   document.addEventListener('DOMContentLoaded', function() {
     // Fix any problematic hrefs
@@ -666,9 +686,15 @@
     setLangText(currentLang);
     
     // Update dynamic year
-    const yearElements = document.querySelectorAll('.dynamic-year');
-    const currentYear = new Date().getFullYear();
-    yearElements.forEach(el => el.textContent = currentYear);
+    updateDynamicYear();
+    
+    // Also update year after translations are applied
+    const originalApplyTranslations = applyTranslations;
+    applyTranslations = function(lang) {
+      const result = originalApplyTranslations(lang);
+      updateDynamicYear(); // Update year after translations
+      return result;
+    };
     
     // Add language switcher event listener with proper event handling
     function attachLanguageSwitcherEvents() {

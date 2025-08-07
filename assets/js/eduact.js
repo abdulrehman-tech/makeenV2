@@ -361,13 +361,6 @@
     });
   }
 
-  /*-- Dynamic year --*/
-  let dynamicyearElm = $('.dynamic-year');
-  if (dynamicyearElm.length) {
-    let currentYear = new Date().getFullYear();
-    dynamicyearElm.html(currentYear);
-  }
-
   /*-- Hover Tilt --*/
   let eduactTiltElm = $('.eduact-tilt');
   if (eduactTiltElm.length) {
