@@ -1,5 +1,54 @@
 /* Add Program Page Styles */
 
+/* default font family of english is poppins*/
+html[dir="ltr"] body,
+html[dir="ltr"] .form-control,
+html[dir="ltr"] .btn,
+html[dir="ltr"] .modal-title,
+html[dir="ltr"] .form-label,
+html[dir="ltr"] .section-title,
+html[dir="ltr"] .question-en,
+html[dir="ltr"] .question-ar,
+html[dir="ltr"] .attachment-name-en,
+html[dir="ltr"] .attachment-name-ar,
+html[dir="ltr"] .faq-question,
+html[dir="ltr"] .faq-answer {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* default font family of arabic is tajawal*/
+html[dir="rtl"] body,
+html[dir="rtl"] .form-control,
+html[dir="rtl"] .btn,
+html[dir="rtl"] .modal-title,
+html[dir="rtl"] .form-label,
+html[dir="rtl"] .section-title,
+html[dir="rtl"] .question-en,
+html[dir="rtl"] .question-ar,
+html[dir="rtl"] .attachment-name-en,
+html[dir="rtl"] .attachment-name-ar,
+html[dir="rtl"] .faq-question,
+html[dir="rtl"] .faq-answer {
+  font-family: 'Tajawal', sans-serif !important;
+}
+
+/* Ensure RTL text alignment for Arabic */
+[dir="rtl"] .form-control,
+[dir="rtl"] .rich-text-editor {
+  text-align: right;
+}
+
+/* Fix alignment for RTL form controls */
+[dir="rtl"] .form-check-input {
+  margin-right: -1.5em;
+  margin-left: 0.5em;
+}
+
+/* Fix alignment for RTL buttons */
+[dir="rtl"] .btn i {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
 /* Partner Logos Styles */
 .partner-logos-container {
   padding: 1.5rem;
@@ -384,6 +433,147 @@ textarea.form-control {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-family: 'Poppins', 'Tajawal', sans-serif;
+}
+
+/* RTL styles */
+.rtl, [dir="rtl"], [dir="rtl"] body {
+  direction: rtl !important;
+  text-align: right !important;
+  
+  /* Tab buttons */
+  .nav-tabs {
+    padding-right: 0;
+  }
+  
+  .tab-btn {
+    font-family: 'Tajawal', 'Poppins', sans-serif !important;
+    font-weight: 500;
+    margin-right: 0;
+    margin-left: 0.25rem;
+  }
+  
+  /* Form elements */
+  .form-group, .form-label, .form-check-label {
+    text-align: right !important;
+  }
+  
+  /* Icons and buttons */
+  .btn i, .action-btn i, .btn .fas, .btn .far, .btn .fab {
+    margin-right: 0 !important;
+    margin-left: 0.35rem !important;
+  }
+  
+  /* Modal close button */
+  .modal-close, .btn-close {
+    right: auto;
+    left: 1rem;
+    margin-right: 0;
+    margin-left: auto;
+  }
+  
+  /* Form labels and inputs */
+  .form-label {
+    float: right;
+    clear: both;
+  }
+  
+  /* Checkboxes and radios */
+  .form-check {
+    padding-right: 1.5rem !important;
+    padding-left: 0 !important;
+    text-align: right;
+  }
+  
+  .form-check-input {
+    margin-right: -1.5rem !important;
+    margin-left: 0.5rem !important;
+    float: right;
+  }
+  
+  /* Input groups */
+  .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    border-top-right-radius: 0.25rem !important;
+    border-bottom-right-radius: 0.25rem !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+  
+  .input-group > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+    border-top-left-radius: 0.25rem !important;
+    border-bottom-left-radius: 0.25rem !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+  
+  /* Form actions */
+  .form-actions {
+    text-align: left !important;
+    direction: inherit;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+  }
+  
+  /* Table headers */
+  .questionnaire-table th,
+  .attachments-table th,
+  .faq-table th {
+    text-align: right !important;
+  }
+  
+  /* Table actions */
+  .question-actions, .actions-cell {
+    text-align: left !important;
+    direction: inherit;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  /* Tabs container */
+  .tabs-container {
+    direction: rtl;
+  }
+  
+  .tabs-header {
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+  
+  /* Dropdown menus */
+  .dropdown-menu {
+    text-align: right;
+    right: 0;
+    left: auto;
+  }
+  
+  /* Breadcrumb */
+  .breadcrumb-item + .breadcrumb-item::before {
+    float: right;
+    padding-left: 0.5rem;
+    padding-right: 0;
+  }
+  
+  /* Custom form controls */
+  .form-select {
+    background-position: left 0.75rem center !important;
+    padding-right: 0.75rem;
+    padding-left: 2.25rem;
+  }
+  
+  /* Modal footer buttons */
+  .modal-footer {
+    flex-direction: row;
+  }
+  
+  /* Fix for Bootstrap's float utilities */
+  .float-end {
+    float: left !important;
+  }
+  
+  .float-start {
+    float: right !important;
+  }
 }
 
 .tab-btn:hover {
@@ -502,6 +692,20 @@ textarea.form-control {
   transition: all 0.2s ease;
   width: 100%;
   justify-content: center;
+  font-family: 'Poppins', 'Tajawal', sans-serif;
+}
+
+/* RTL styles for Add Section button */
+.rtl .add-section-btn,
+[dir="rtl"] .add-section-btn {
+  font-family: 'Tajawal', 'Poppins', sans-serif !important;
+  font-weight: 500;
+  
+  /* Ensure proper spacing for RTL */
+  i {
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
+  }
 }
 
 .add-section-btn:hover {
@@ -680,7 +884,6 @@ textarea.form-control {
 
 #faqModal .required {
   color: #dc3545;
-  margin-left: 2px;
 }
 
 /* Responsive adjustments */
@@ -1014,6 +1217,36 @@ textarea.form-control {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 1rem;
+}
+
+/* RTL adjustments for table headers */
+.rtl .questionnaire-table th,
+[dir="rtl"] .questionnaire-table th,
+.rtl .attachments-table th,
+[dir="rtl"] .attachments-table th,
+.rtl .faq-table th,
+[dir="rtl"] .faq-table th {
+  text-align: right !important;
+}
+
+/* Ensure action buttons in tables maintain their alignment in RTL */
+.rtl .question-actions,
+[dir="rtl"] .question-actions,
+.rtl .actions-cell,
+[dir="rtl"] .actions-cell {
+  direction: ltr;
+  justify-content: flex-start;
+  text-align: left !important;
+}
+
+/* Fix for table header alignment in RTL */
+.rtl .questionnaire-table thead,
+[dir="rtl"] .questionnaire-table thead,
+.rtl .attachments-table thead,
+[dir="rtl"] .attachments-table thead,
+.rtl .faq-table thead,
+[dir="rtl"] .faq-table thead {
+  direction: rtl;
 }
 
 .questionnaire-table-container {

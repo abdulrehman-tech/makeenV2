@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Makeen Admin - Add Program</title>
+    <title data-translate="add_program">Makeen Admin - Add Program</title>
+    <!-- Tajawal font for Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -71,7 +73,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="applicant-requests.html" class="nav-link">
                 <img
                   src="../assets/images/profile2user.svg"
                   alt="Applicant Requests"
@@ -178,7 +180,7 @@
             <div class="page-header">
               <div class="page-title-section">
                 <h2 class="page-main-title" data-translate="add_program">Add Program</h2>
-                <p class="page-subtitle" data-translate="create_new_program_desc">Create a new training program with all necessary details</p>
+                <!-- <p class="page-subtitle" data-translate="create_new_program_desc">Create a new training program with all necessary details</p> -->
               </div>
             </div>
 
@@ -189,9 +191,9 @@
                 <div class="form-section">
                   <div class="form-row">
                     <div class="form-group">
-                      <label for="programTitleEn" class="form-label">
-                        Program Title <span class="required">*</span>
-                        <span class="label-lang">(English)</span>
+                        <label for="programTitleEn" class="form-label">
+                        <span data-translate="program_title">Program Title</span> <span class="required">*</span>
+                        <span class="label-lang" data-translate="english">(English)</span>
                       </label>
                       <input
                         type="text"
@@ -206,9 +208,9 @@
 
                   <div class="form-row">
                     <div class="form-group">
-                      <label for="programTitleAr" class="form-label">
-                        Program Title <span class="required">*</span>
-                        <span class="label-lang">(Arabic)</span>
+                        <label for="programTitleAr" class="form-label">
+                        <span data-translate="program_title">Program Title</span> <span class="required">*</span>
+                        <span class="label-lang" data-translate="arabic">(Arabic)</span>
                       </label>
                       <input
                         type="text"
@@ -224,9 +226,9 @@
 
                   <div class="form-row">
                     <div class="form-group">
-                      <label for="programDescEn" class="form-label">
-                        Program Short Description <span class="required">*</span>
-                        <span class="label-lang">(English)</span>
+                        <label for="programDescEn" class="form-label">
+                        <span data-translate="program_short_desc">Program Short Description</span> <span class="required">*</span>
+                        <span class="label-lang" data-translate="english">(English)</span>
                       </label>
                       <textarea
                         id="programDescEn"
@@ -241,9 +243,9 @@
 
                   <div class="form-row">
                     <div class="form-group">
-                      <label for="programDescAr" class="form-label">
-                        Program Short Description <span class="required">*</span>
-                        <span class="label-lang">(Arabic)</span>
+                        <label for="programDescAr" class="form-label">
+                        <span data-translate="program_short_desc">Program Short Description</span> <span class="required">*</span>
+                        <span class="label-lang" data-translate="arabic">(Arabic)</span>
                       </label>
                       <textarea
                         id="programDescAr"
@@ -259,7 +261,7 @@
 
                   <div class="form-row">
                     <div class="form-group">
-                      <label class="form-label">Program Type <span class="required">*</span></label>
+                      <label class="form-label" data-translate="program_type">Program Type </label>
                       <div class="radio-group">
                         <label class="radio-option">
                           <input type="radio" name="programType" value="internal" checked />
@@ -276,9 +278,11 @@
                   </div>
                   <div class="form-row" id="externalLinkRow" style="display: none;">
                     <div class="form-group">
-                      <label for="externalLink" class="form-label">
-                        External Program Link <span class="required">*</span>
-                      </label>
+                      <div class="form-label"> 
+                        <label for="externalLink" class="form-label" data-translate="external_program_link">
+                        External Program Link
+                      </label> <span class="required">*</span>
+                      </div>
                       <input
                         type="url"
                         id="externalLink"
@@ -290,7 +294,7 @@
                   </div>
                   <div class="form-row">
                     <div class="form-group">
-                      <label for="vendor" class="form-label">Vendor</label>
+                      <label for="vendor" class="form-label" data-translate="vendor">Vendor</label>
                       <select id="vendor" name="vendor" class="form-control">
                         <option value="">Code Academy</option>
                         <option value="code-academy">Code Academy</option>
@@ -302,7 +306,9 @@
 
                   <div class="form-row">
                     <div class="form-group col-4">
-                      <label for="location" class="form-label">Location <span class="required">*</span></label>
+                      <div class="form-label">
+                        <label for="location" data-translate="location">Location</label> <span class="required">*</span>
+                      </div>
                       <input
                         type="text"
                         id="location"
@@ -313,16 +319,19 @@
                       />
                     </div>
                     <div class="form-group col-4">
-                      <label for="locationType" class="form-label">Location Type <span class="required">*</span></label>
+                      <div class="form-label">
+                        <label for="locationType" data-translate="location_type">Location Type</label> <span class="required">*</span>
+                      </div>
                       <select id="locationType" name="locationType" class="form-control" required>
-                        <option value="">On-site</option>
                         <option value="on-site">On-site</option>
                         <option value="remote">Remote</option>
                         <option value="hybrid">Hybrid</option>
                       </select>
                     </div>
                     <div class="form-group col-4">
-                      <label for="duration" class="form-label">Duration <span class="required">*</span></label>
+                      <div class="form-label">
+                        <label for="duration" data-translate="duration">Duration</label> <span class="required">*</span>
+                      </div>
                       <input
                         type="text"
                         id="duration"
@@ -336,7 +345,9 @@
 
                   <div class="form-row">
                     <div class="form-group col-6">
-                      <label for="language" class="form-label">Language <span class="required">*</span></label>
+                      <div class="form-label">
+                        <label for="language" data-translate="language">Language</label> <span class="required">*</span>
+                      </div>
                       <select id="language" name="language" class="form-control" required>
                         <option value="">English/Arabic</option>
                         <option value="english">English</option>
@@ -345,7 +356,9 @@
                       </select>
                     </div>
                     <div class="form-group col-6">
-                      <label for="addressEn" class="form-label">Address <span class="label-lang">(English)</span></label>
+                      <div class="form-label">
+                        <label for="addressEn" data-translate="address">Address</label> <span class="label-lang" data-translate="english">(English)</span>
+                      </div>
                       <input
                         type="text"
                         id="addressEn"
@@ -358,7 +371,9 @@
 
                   <div class="form-row">
                     <div class="form-group col-6">
-                      <label for="addressAr" class="form-label">Address <span class="label-lang">(Arabic)</span></label>
+                      <div class="form-label">
+                        <label for="addressAr" data-translate="address">Address</label> <span class="label-lang" data-translate="arabic">(Arabic)</span>
+                      </div>
                       <input
                         type="text"
                         id="addressAr"
@@ -369,7 +384,9 @@
                       />
                     </div>
                     <div class="form-group col-6">
-                      <label for="registrationPeriod" class="form-label">Registration Period <span class="required">*</span></label>
+                      <div class="form-label">
+                        <label for="registrationPeriod" data-translate="registration_period">Registration Period</label> <span class="required">*</span>
+                      </div>
                       <input
                         type="text"
                         id="registrationPeriod"
@@ -383,22 +400,26 @@
 
                   <div class="form-row">
                     <div class="form-group col-6">
-                      <label for="programIcon" class="form-label">Program Icon</label>
+                      <div class="form-label">
+                        <label for="programIcon" data-translate="program_icon">Program Icon</label>
+                      </div>
                       <div class="file-upload">
                         <input type="file" id="programIcon" name="programIcon" accept="image/*" />
                         <div class="file-upload-display">
                           <i class="fas fa-cloud-upload-alt"></i>
-                          <span>Choose_file_to_upload_image.png</span>
+                          <span data-translate="choose_file">Choose_file_to_upload_image.png</span>
                         </div>
                       </div>
                     </div>
                     <div class="form-group col-6">
-                      <label for="bannerImage" class="form-label">Banner Image</label>
+                      <div class="form-label">
+                        <label for="bannerImage" data-translate="banner_image">Banner Image</label>
+                      </div>
                       <div class="file-upload">
                         <input type="file" id="bannerImage" name="bannerImage" accept="image/*" />
                         <div class="file-upload-display">
                           <i class="fas fa-cloud-upload-alt"></i>
-                          <span>Choose_file_to_upload_image.png</span>
+                          <span data-translate="choose_file">Choose_file_to_upload_image.png</span>
                         </div>
                       </div>
                     </div>
@@ -408,19 +429,19 @@
                 <!-- Tabs Section -->
                 <div class="tabs-container">
                   <div class="tabs-header">
-                    <button type="button" class="tab-btn active" data-tab="basic-info">
+                      <button type="button" class="tab-btn active" data-tab="basic-info" data-translate="basic_info">
                       Basic Information
                     </button>
-                    <button type="button" class="tab-btn" data-tab="questionnaire">
+                      <button type="button" class="tab-btn" data-tab="questionnaire" data-translate="questionnaire">
                       Questionnaire
                     </button>
-                    <button type="button" class="tab-btn" data-tab="required-attachments">
+                      <button type="button" class="tab-btn" data-tab="required-attachments" data-translate="required_attachments">
                       Required Attachments
                     </button>
-                    <button type="button" class="tab-btn" data-tab="partner-logo">
+                      <button type="button" class="tab-btn" data-tab="partner-logo" data-translate="partner_logos">
                       Partner Logos
                     </button>
-                    <button type="button" class="tab-btn" data-tab="faqs">
+                      <button type="button" class="tab-btn" data-tab="faqs" data-translate="faqs">
                       FAQs
                     </button>
                   </div>
@@ -436,10 +457,12 @@
                           </div>
                           <div class="section-actions">
                             <button type="button" class="action-btn edit-btn">
-                              <i class="fas fa-edit"></i>
-                            </button>
-                            <button type="button" class="action-btn delete-btn">
-                              <i class="fas fa-trash"></i>
+                                  <i class="fas fa-edit"></i>
+                                  <span class="sr-only" data-translate="edit">Edit</span>
+                                </button>
+                                <button type="button" class="action-btn delete-btn">
+                                  <i class="fas fa-trash"></i>
+                                  <span class="sr-only" data-translate="delete">Delete</span>
                             </button>
                           </div>
                         </div>
@@ -451,10 +474,12 @@
                           </div>
                           <div class="section-actions">
                             <button type="button" class="action-btn edit-btn">
-                              <i class="fas fa-edit"></i>
-                            </button>
-                            <button type="button" class="action-btn delete-btn">
-                              <i class="fas fa-trash"></i>
+                                  <i class="fas fa-edit"></i>
+                                  <span class="sr-only" data-translate="edit">Edit</span>
+                                </button>
+                                <button type="button" class="action-btn delete-btn">
+                                  <i class="fas fa-trash"></i>
+                                  <span class="sr-only" data-translate="delete">Delete</span>
                             </button>
                           </div>
                         </div>
@@ -466,18 +491,20 @@
                           </div>
                           <div class="section-actions">
                             <button type="button" class="action-btn edit-btn">
-                              <i class="fas fa-edit"></i>
-                            </button>
-                            <button type="button" class="action-btn delete-btn">
-                              <i class="fas fa-trash"></i>
+                                  <i class="fas fa-edit"></i>
+                                  <span class="sr-only" data-translate="edit">Edit</span>
+                                </button>
+                                <button type="button" class="action-btn delete-btn">
+                                  <i class="fas fa-trash"></i>
+                                  <span class="sr-only" data-translate="delete">Delete</span>
                             </button>
                           </div>
                         </div>
                       </div>
                       
-                      <button type="button" class="add-section-btn">
+                      <button type="button" class="add-section-btn" data-translate="add_section">
                         <i class="fas fa-plus"></i>
-                        Add Section
+                        <!-- Add Section -->
                       </button>
                     </div>
 
@@ -486,7 +513,7 @@
                       <div class="questionnaire-header">
                         <button type="button" class="btn btn-primary" id="addQuestionBtn">
                           <i class="fas fa-plus"></i>
-                          Add Question
+                          <span data-translate="add_question">Add Question</span>
                         </button>
                       </div>
                       
@@ -494,9 +521,9 @@
                         <table class="questionnaire-table">
                           <thead>
                             <tr>
-                              <th>Questions [En]</th>
-                              <th>Questions [Ar]</th>
-                              <th>Actions</th>
+                              <th data-translate="questions_en">Questions [En]</th>
+                              <th data-translate="questions_ar">Questions [Ar]</th>
+                              <th data-translate="actions">Actions</th>
                             </tr>
                           </thead>
                           <tbody id="questionsTableBody">
@@ -570,7 +597,7 @@
                       <div class="questionnaire-header">
                         <button type="button" class="btn btn-primary" id="addAttachmentBtn">
                           <i class="fas fa-plus"></i>
-                          Add Attachment Name
+                          <span data-translate="add_attachment_name">Add Attachment Name</span>
                         </button>
                       </div>
                       
@@ -578,9 +605,9 @@
                         <table class="questionnaire-table">
                           <thead>
                             <tr>
-                              <th>Attachment Name [En]</th>
-                              <th>Attachment Name [Ar]</th>
-                              <th>Actions</th>
+                              <th data-translate="attachment_name_en">Attachment Name [En]</th>
+                              <th data-translate="attachment_name_ar">Attachment Name [Ar]</th>
+                              <th data-translate="actions">Actions</th>
                             </tr>
                           </thead>
                           <tbody id="attachmentsTableBody">
@@ -609,22 +636,22 @@
                         <div class="file-upload-container">
                           <div class="file-upload-area" id="partnerLogosUploadArea">
                             <i class="fas fa-cloud-upload-alt upload-icon"></i>
-                            <h4>Upload Partner Logos</h4>
-                            <p>Drag & drop your files here or click to browse</p>
+                            <h4 data-translate="upload_partner_logos">Upload Partner Logos</h4>
+                            <p data-translate="drag_drop_files">Drag & drop your files here or click to browse</p>
                             <input type="file" id="partnerLogosInput" multiple accept="image/*" style="display: none;">
                             <button type="button" class="btn btn-primary" id="browseLogosBtn">
-                              <i class="fas fa-folder-open"></i> Select Files
+                              <i class="fas fa-folder-open"></i> <span data-translate="select_files">Select Files</span>
                             </button>
                           </div>
                         </div>
                         
                         <div class="uploaded-logos" id="uploadedLogosContainer">
-                          <h5>Uploaded Logos</h5>
+                          <h5 data-translate="uploaded_logos">Uploaded Logos</h5>
                           <div class="logos-grid" id="logosGrid">
                             <!-- Logos will be added here dynamically -->
                             <div class="no-logos" id="noLogosMessage">
                               <i class="fas fa-images"></i>
-                              <p>No logos uploaded yet</p>
+                              <p data-translate="no_logos_uploaded">No logos uploaded yet</p>
                             </div>
                           </div>
                         </div>
@@ -636,7 +663,7 @@
                       <div class="questionnaire-header">
                         <button type="button" class="btn btn-primary" id="addFaqBtn">
                           <i class="fas fa-plus"></i>
-                          Add FAQ
+                          <span data-translate="add_faq">Add FAQ</span>
                         </button>
                       </div>
                       
@@ -644,9 +671,9 @@
                         <table class="questionnaire-table">
                           <thead>
                             <tr>
-                              <th>Question [En]</th>
-                              <th>Question [Ar]</th>
-                              <th>Actions</th>
+                              <th data-translate="question_en">Question [En]</th>
+                              <th data-translate="question_ar">Question [Ar]</th>
+                              <th data-translate="actions">Actions</th>
                             </tr>
                           </thead>
                           <tbody id="faqsTableBody">
@@ -673,13 +700,13 @@
 
                 <!-- Form Actions -->
                 <div class="form-actions">
-                  <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+                  <button type="button" class="btn btn-secondary" onclick="window.history.back()" data-translate="cancel">
                     Cancel
                   </button>
-                  <button type="button" class="btn btn-outline-primary" id="saveDraftBtn">
+                  <button type="button" class="btn btn-outline-primary" id="saveDraftBtn" data-translate="save_as_draft">
                     Save as Draft
                   </button>
-                  <button type="submit" class="btn btn-primary" id="publishBtn">
+                  <button type="submit" class="btn btn-primary" id="publishBtn" data-translate="publish">
                     Publish
                   </button>
                 </div>
@@ -701,7 +728,7 @@
     <div class="modal-overlay" id="sectionModal">
       <div class="modal-container">
         <div class="modal-header">
-          <h3 class="modal-title" id="modalTitle">Add Section</h3>
+          <h3 class="modal-title" id="modalTitle" data-translate="add_section">Add Section</h3>
           <button type="button" class="modal-close" id="closeModal">
             <i class="fas fa-times"></i>
           </button>
@@ -711,7 +738,7 @@
           <form id="sectionForm">
             <div class="form-group">
               <label for="sectionTitle" class="form-label">
-                Section Title <span class="required">*</span>
+                <span data-translate="section_title">Section Title</span> <span class="required">*</span>
               </label>
               <input
                 type="text"
@@ -725,7 +752,7 @@
             
             <div class="form-group">
               <label class="form-label">
-                Section <span class="label-lang">[English]</span>
+                <span data-translate="section">Section</span> <span class="label-lang" data-translate="english">[English]</span>
               </label>
               <div class="rich-text-toolbar">
                 <button type="button" class="toolbar-btn" data-command="bold" title="Bold">
@@ -766,7 +793,7 @@
             
             <div class="form-group">
               <label class="form-label">
-                Section <span class="label-lang">[Arabic]</span>
+                <span data-translate="section">Section</span> <span class="label-lang" data-translate="arabic">[Arabic]</span>
               </label>
               <div class="rich-text-toolbar">
                 <button type="button" class="toolbar-btn" data-command="bold" title="Bold">
@@ -809,10 +836,10 @@
         </div>
         
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" id="cancelSection">
+          <button type="button" class="btn btn-secondary" id="cancelSection" data-translate="cancel">
             Cancel
           </button>
-          <button type="button" class="btn btn-primary" id="saveSection">
+          <button type="button" class="btn btn-primary" id="saveSection" data-translate="save">
             Save
           </button>
         </div>
@@ -823,7 +850,7 @@
     <div class="modal-overlay" id="questionModal">
       <div class="modal-container">
         <div class="modal-header">
-          <h3 class="modal-title" id="questionModalTitle">Add Question</h3>
+          <h3 class="modal-title" id="questionModalTitle" data-translate="add_question">Add Question</h3>
           <button type="button" class="modal-close" id="closeQuestionModal">
             <i class="fas fa-times"></i>
           </button>
@@ -833,7 +860,7 @@
           <form id="questionForm">
             <div class="form-group">
               <label for="questionType" class="form-label">
-                Question type
+                <span data-translate="question_type">Question type</span>
               </label>
               <select id="questionType" name="questionType" class="form-control">
                 <option value="multiple-choice">Multiple Choice</option>
@@ -844,7 +871,7 @@
             <div class="form-row">
               <div class="form-group col-6">
                 <label for="questionTextEn" class="form-label">
-                  Question <span class="label-lang">[English]</span>
+                  <span data-translate="question">Question</span> <span class="label-lang" data-translate="english">[English]</span>
                 </label>
                 <textarea
                   id="questionTextEn"
@@ -857,7 +884,7 @@
               </div>
               <div class="form-group col-6">
                 <label for="questionTextAr" class="form-label">
-                  Question <span class="label-lang">[Arabic]</span>
+                  <span data-translate="question">Question</span> <span class="label-lang" data-translate="arabic">[Arabic]</span>
                 </label>
                 <textarea
                   id="questionTextAr"
@@ -867,6 +894,7 @@
                   placeholder="اكتب سؤالك هنا بالعربية..."
                   required
                   dir="rtl"
+                  style="font-family: 'Tajawal', sans-serif;"
                 ></textarea>
               </div>
             </div>
@@ -874,10 +902,10 @@
             <!-- Options section for multiple choice questions -->
             <div class="form-group" id="optionsSection" style="display: none;">
               <div class="options-header">
-                <label class="form-label">Options</label>
+                <label class="form-label" data-translate="options">Options</label>
                 <button type="button" class="btn btn-outline-primary btn-sm" id="addOptionBtn">
                   <i class="fas fa-plus"></i>
-                  Add Option
+                  <span data-translate="add_option">Add Option</span>
                 </button>
               </div>
               
@@ -894,6 +922,7 @@
                       class="form-control option-ar"
                       placeholder="الجواب 1"
                       dir="rtl"
+                      style="font-family: 'Tajawal', sans-serif;"
                     />
                   </div>
                   <button type="button" class="remove-option-btn" title="Remove option">
@@ -912,6 +941,7 @@
                       class="form-control option-ar"
                       placeholder="الجواب 2"
                       dir="rtl"
+                      style="font-family: 'Tajawal', sans-serif;"
                     />
                   </div>
                   <button type="button" class="remove-option-btn" title="Remove option">
@@ -930,6 +960,7 @@
                       class="form-control option-ar"
                       placeholder="الجواب 3"
                       dir="rtl"
+                      style="font-family: 'Tajawal', sans-serif;"
                     />
                   </div>
                   <button type="button" class="remove-option-btn" title="Remove option">
@@ -942,11 +973,11 @@
         </div>
         
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" id="cancelQuestion">
+          <button type="button" class="btn btn-secondary" id="cancelQuestion" data-translate="cancel">
             Cancel
           </button>
-          <button type="button" class="btn btn-primary" id="saveQuestion">
-            Save Question
+          <button type="button" class="btn btn-primary" id="saveQuestion" data-translate="save">
+            Save
           </button>
         </div>
       </div>
@@ -956,7 +987,7 @@
     <div class="modal-overlay" id="attachmentModal">
       <div class="modal-container">
         <div class="modal-header">
-          <h3 class="modal-title" id="attachmentModalTitle">Add Required Attachment</h3>
+          <h3 class="modal-title" id="attachmentModalTitle" data-translate="add_required_attachment">Add Required Attachment</h3>
           <button type="button" class="modal-close" id="closeAttachmentModal">
             <i class="fas fa-times"></i>
           </button>
@@ -967,26 +998,26 @@
             <div class="form-row">
               <div class="form-group col-6">
                 <label for="attachmentNameEn" class="form-label">
-                  Attachment Name <span class="label-lang">[English]</span> <span class="required">*</span>
+                  <span data-translate="attachment_name">Attachment Name</span> <span class="label-lang" data-translate="english">[English]</span> <span class="required">*</span>
                 </label>
                 <input
                   type="text"
                   id="attachmentNameEn"
                   class="form-control"
-                  placeholder="Enter attachment name in English"
+                  placeholder="Enter attachment name in English" data-translate-placeholder="enter_attachment_name_en"
                   required
                 />
               </div>
               
               <div class="form-group col-6">
                 <label for="attachmentNameAr" class="form-label">
-                  Attachment Name <span class="label-lang">[Arabic]</span> <span class="required">*</span>
+                  <span data-translate="attachment_name">Attachment Name</span> <span class="label-lang" data-translate="arabic">[Arabic]</span> <span class="required">*</span>
                 </label>
                 <input
                   type="text"
                   id="attachmentNameAr"
                   class="form-control"
-                  placeholder="أدخل اسم المرفق بالعربية"
+                  placeholder="أدخل اسم المرفق بالعربية" data-translate-placeholder="enter_attachment_name_ar"
                   dir="rtl"
                   required
                 />
@@ -998,10 +1029,10 @@
         </div>
         
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" id="cancelAttachment">
+          <button type="button" class="btn btn-secondary" id="cancelAttachment" data-translate="cancel">
             Cancel
           </button>
-          <button type="button" class="btn btn-primary" id="saveAttachment">
+          <button type="button" class="btn btn-primary" id="saveAttachment" data-translate="save_attachment">
             Save Attachment
           </button>
         </div>
@@ -1012,7 +1043,7 @@
     <div class="modal-overlay" id="faqModal">
       <div class="modal-container">
         <div class="modal-header">
-          <h3 class="modal-title" id="faqModalTitle">Add FAQ</h3>
+          <h3 class="modal-title" id="faqModalTitle" data-translate="add_faq">Add FAQ</h3>
           <button type="button" class="modal-close" id="closeFaqModal">
             <i class="fas fa-times"></i>
           </button>
@@ -1023,26 +1054,26 @@
             <div class="form-row">
               <div class="form-group col-6">
                 <label for="faqQuestionEn" class="form-label">
-                  Question <span class="label-lang">[English]</span> <span class="required">*</span>
+                  <span data-translate="question">Question</span> <span class="label-lang" data-translate="english">[English]</span> <span class="required">*</span>
                 </label>
                 <input
                   type="text"
                   id="faqQuestionEn"
                   class="form-control"
-                  placeholder="Enter question in English"
+                  placeholder="Enter question in English" data-translate-placeholder="enter_question_en"
                   required
                 />
               </div>
               
               <div class="form-group col-6">
                 <label for="faqQuestionAr" class="form-label">
-                  Question <span class="label-lang">[Arabic]</span> <span class="required">*</span>
+                  <span data-translate="question">Question</span> <span class="label-lang" data-translate="arabic">[Arabic]</span> <span class="required">*</span>
                 </label>
                 <input
                   type="text"
                   id="faqQuestionAr"
                   class="form-control"
-                  placeholder="أدخل السؤال بالعربية"
+                  placeholder="أدخل السؤال بالعربية" data-translate-placeholder="enter_question_ar"
                   dir="rtl"
                   required
                 />
@@ -1051,26 +1082,26 @@
             
             <div class="form-group">
               <label for="faqAnswerEn" class="form-label">
-                Answer <span class="label-lang">[English]</span> <span class="required">*</span>
+                  <span data-translate="answer">Answer</span> <span class="label-lang" data-translate="english">[English]</span> <span class="required">*</span>
               </label>
               <textarea
                 id="faqAnswerEn"
                 class="form-control"
                 rows="3"
-                placeholder="Enter answer in English"
+                  placeholder="Enter answer in English" data-translate-placeholder="enter_answer_en"
                 required
               ></textarea>
             </div>
             
             <div class="form-group">
               <label for="faqAnswerAr" class="form-label">
-                Answer <span class="label-lang">[Arabic]</span> <span class="required">*</span>
+                  <span data-translate="answer">Answer</span> <span class="label-lang" data-translate="arabic">[Arabic]</span> <span class="required">*</span>
               </label>
               <textarea
                 id="faqAnswerAr"
                 class="form-control"
                 rows="3"
-                placeholder="أدخل الإجابة بالعربية"
+                  placeholder="أدخل الإجابة بالعربية" data-translate-placeholder="enter_answer_ar"
                 dir="rtl"
                 required
               ></textarea>
@@ -1081,10 +1112,10 @@
         </div>
         
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" id="cancelFaq">
+          <button type="button" class="btn btn-secondary" id="cancelFaq" data-translate="cancel">
             Cancel
           </button>
-          <button type="button" class="btn btn-primary" id="saveFaq">
+          <button type="button" class="btn btn-primary" id="saveFaq" data-translate="save_faq">
             Save FAQ
           </button>
         </div>
@@ -1096,113 +1127,7 @@
     <script src="../assets/js/admin-dashboard.js"></script>
     <script src="../assets/js/add-program.js"></script>
     
-    <!-- Translation Initialization -->
-    <script>
-    // Global translation functions
-    window.translationDebug = true; // Enable debug mode
-    
-    // Function to log debug messages
-    function logDebug(message, data) {
-      if (window.translationDebug) {
-        console.log(`[Translation] ${message}`, data || '');
-      }
-    }
-    
-    // Function to force language change
-    function forceLanguageChange(lang) {
-      logDebug(`Force changing language to: ${lang}`);
-      
-      // Update localStorage
-      localStorage.setItem('site-lang', lang);
-      
-      // Update UI state
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        const btnLang = btn.getAttribute('data-lang');
-        if (btnLang === lang) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
-      });
-      
-      // Try to use the translation system if available
-      if (typeof window.setLangText === 'function') {
-        logDebug('Using setLangText function');
-        window.setLangText(lang);
-      } else {
-        logDebug('setLangText not available, reloading page');
-        window.location.reload();
-      }
-    }
-    
-    // Initialize when DOM is ready
-    document.addEventListener('DOMContentLoaded', function() {
-      logDebug('DOM fully loaded, initializing translation system...');
-      
-      // Check if translation system is available
-      const translationAvailable = typeof window.setLangText === 'function' && 
-                                 typeof window.translations !== 'undefined';
-      
-      logDebug('Translation system available:', translationAvailable);
-      
-      if (translationAvailable) {
-        // Get current language
-        const currentLang = localStorage.getItem('site-lang') || 'en';
-        logDebug('Current language:', currentLang);
-        
-        // Apply current language
-        window.setLangText(currentLang);
-        
-        // Add click handlers to language buttons
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const lang = this.getAttribute('data-lang');
-            if (lang && lang !== currentLang) {
-              logDebug('Language button clicked, switching to:', lang);
-              forceLanguageChange(lang);
-            }
-            return false;
-          });
-        });
-        
-        // If attachLanguageSwitcherEvents exists, use it
-        if (typeof window.attachLanguageSwitcherEvents === 'function') {
-          logDebug('Attaching language switcher events');
-          window.attachLanguageSwitcherEvents();
-        }
-        
-        // Add debug info to the page
-        const debugInfo = document.createElement('div');
-        debugInfo.style.position = 'fixed';
-        debugInfo.style.bottom = '10px';
-        debugInfo.style.right = '10px';
-        debugInfo.style.background = 'rgba(0,0,0,0.7)';
-        debugInfo.style.color = '#fff';
-        debugInfo.style.padding = '5px 10px';
-        debugInfo.style.borderRadius = '4px';
-        debugInfo.style.fontSize = '12px';
-        debugInfo.style.zIndex = '9999';
-        debugInfo.textContent = `Lang: ${currentLang} | Translations: ${Object.keys(window.translations || {}).join(', ')}`;
-        document.body.appendChild(debugInfo);
-        
-      } else {
-        logDebug('Translation system not fully loaded, will reload page on language change');
-        
-        // Fallback: reload page on language change
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const lang = this.getAttribute('data-lang');
-            if (lang) {
-              localStorage.setItem('site-lang', lang);
-              window.location.reload();
-            }
-            return false;
-          });
-        });
-      }
-    });
-    </script>
+    <!-- JavaScript Files -->
+    <script src="../assets/js/add-program.js"></script>
   </body>
 </html>

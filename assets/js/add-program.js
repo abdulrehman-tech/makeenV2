@@ -2,6 +2,21 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeAddProgramPage();
+    initializeLanguageState();
+    
+    // Listen for language changes
+    const langButtons = document.querySelectorAll('.lang-btn');
+    if (langButtons.length > 0) {
+        langButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                if (lang) {
+                    switchLanguage(lang);
+                }
+            });
+        });
+    }
 });
 
 function initializeAddProgramPage() {
@@ -18,6 +33,477 @@ function initializeAddProgramPage() {
     initializeAttachments();
     initializePartnerLogos();
     initializeFAQs();
+    
+    // Apply translations
+    const currentLang = localStorage.getItem('site-lang') || 'en';
+    applyTranslations(currentLang);
+}
+
+// Language Management
+function initializeLanguageState() {
+    const savedLang = localStorage.getItem('site-lang');
+    if (savedLang) {
+        applyLanguageState(savedLang);
+    } else {
+        applyLanguageState('en');
+    }
+}
+
+function applyLanguageState(lang) {
+    // Update language buttons
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.querySelector(`[data-lang="${lang}"]`);
+    if (activeBtn) {
+        activeBtn.classList.add('active');
+    }
+
+    // Apply language styles
+    applyLanguageStyles(lang);
+    
+    // Apply translations
+    applyTranslations(lang);
+    
+    console.log(`Language state applied: ${lang}`);
+}
+
+// Global translation functions
+const logDebug = (message, data) => {
+  // Debug logging is disabled in production
+  // Uncomment the line below to enable debug logging
+  // console.log(`[Translation] ${message}`, data || '');
+};
+
+// Function to apply RTL/LTR direction
+function applyDirection(lang) {
+  const html = document.documentElement;
+  const body = document.body;
+  
+  // Remove all direction classes first
+  html.classList.remove('rtl', 'ltr');
+  body.classList.remove('rtl', 'ltr');
+  
+  if (lang === 'ar') {
+    // For RTL languages (Arabic)
+    html.setAttribute('dir', 'rtl');
+    body.setAttribute('dir', 'rtl');
+    html.lang = 'ar';
+    html.classList.add('rtl');
+    body.classList.add('rtl');
+  } else {
+    // For LTR languages (English)
+    html.setAttribute('dir', 'ltr');
+    body.setAttribute('dir', 'ltr');
+    html.lang = 'en';
+    html.classList.add('ltr');
+    body.classList.add('ltr');
+  }
+  
+  // Force a reflow to ensure styles are recalculated
+  document.body.offsetHeight;
+  
+  // Dispatch a custom event for other components to react to language changes
+  document.dispatchEvent(new CustomEvent('languageChanged', { 
+    detail: { 
+      language: lang,
+      direction: lang === 'ar' ? 'rtl' : 'ltr'
+    } 
+  }));
+}
+
+// Function to force language change
+function forceLanguageChange(lang) {
+  logDebug(`Force changing language to: ${lang}`);
+  
+  // Update localStorage
+  localStorage.setItem('site-lang', lang);
+  
+  // Update UI state
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const btnLang = btn.getAttribute('data-lang');
+    if (btnLang === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+  
+  // Apply RTL/LTR direction
+  applyDirection(lang);
+  
+  // Try to use the translation system if available
+  if (typeof window.setLangText === 'function') {
+    logDebug('Using setLangText function');
+    window.setLangText(lang);
+  } else {
+    logDebug('setLangText not available, reloading page');
+    window.location.reload();
+  }
+  
+  // Force a re-render of Bootstrap components
+  if (typeof bootstrap !== 'undefined') {
+    const tabs = document.querySelectorAll('.tab-pane');
+    tabs.forEach(tab => {
+      if (tab.classList.contains('active')) {
+        const tabId = tab.getAttribute('id');
+        const tabTrigger = document.querySelector(`[data-bs-target="#${tabId}"]`);
+        if (tabTrigger) {
+          const tabInstance = bootstrap.Tab.getInstance(tabTrigger) || new bootstrap.Tab(tabTrigger);
+          tabInstance.show();
+        }
+      }
+    });
+  }
+}
+
+// Update language buttons and apply styles
+function switchLanguage(lang) {
+  logDebug(`Switching language to: ${lang}`);
+  
+  // Update UI state for language buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const btnLang = btn.getAttribute('data-lang');
+    if (btnLang === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+
+  // Apply language styles and direction
+  applyDirection(lang);
+  
+  // Apply translations
+  if (typeof applyTranslations === 'function') {
+    applyTranslations(lang);
+  } else if (typeof window.setLangText === 'function') {
+    window.setLangText(lang);
+  }
+  
+  // Store language preference in localStorage
+  localStorage.setItem('site-lang', lang);
+  
+  // Force a reflow to ensure styles are recalculated
+  document.body.offsetHeight;
+  
+  logDebug(`Language switched to: ${lang}`);
+  
+  // Dispatch a custom event in case other components need to react to language changes
+  document.dispatchEvent(new CustomEvent('languageChanged', { 
+    detail: { 
+      language: lang,
+      direction: lang === 'ar' ? 'rtl' : 'ltr'
+    } 
+  }));
+}
+
+// Initialize translation system when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  logDebug('DOM fully loaded, initializing translation system...');
+  
+  // Check if translation system is available
+  const translationAvailable = typeof window.setLangText === 'function' && 
+                             typeof window.translations !== 'undefined';
+  
+  logDebug('Translation system available:', translationAvailable);
+  
+  // Get current language
+  const currentLang = localStorage.getItem('site-lang') || 'en';
+  logDebug('Current language:', currentLang);
+  
+  // Apply current language
+  switchLanguage(currentLang);
+  
+  // Add click handlers to language buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const lang = this.getAttribute('data-lang');
+      if (lang && lang !== currentLang) {
+        logDebug('Language button clicked, switching to:', lang);
+        forceLanguageChange(lang);
+      }
+      return false;
+    });
+  });
+  
+  // If attachLanguageSwitcherEvents exists, use it
+  if (typeof window.attachLanguageSwitcherEvents === 'function') {
+    logDebug('Attaching language switcher events');
+    window.attachLanguageSwitcherEvents();
+  }
+  
+  // Debug information has been removed from production
+});
+
+function applyLanguageStyles(lang) {
+    const html = document.documentElement;
+    const body = document.body;
+    
+    // Remove all language-related classes first
+    html.classList.remove('rtl-lang', 'ltr-lang');
+    body.classList.remove('rtl-lang', 'ltr-lang');
+    
+    if (lang === 'ar') {
+        // For RTL languages (Arabic)
+        html.setAttribute('dir', 'rtl');
+        body.setAttribute('dir', 'rtl');
+        html.lang = 'ar';
+        html.classList.add('rtl-lang');
+        body.classList.add('rtl-lang');
+        
+        // Ensure the body has the RTL class for any global styles
+        document.body.classList.add('rtl');
+        document.body.classList.remove('ltr');
+    } else {
+        // For LTR languages (English)
+        html.setAttribute('dir', 'ltr');
+        body.setAttribute('dir', 'ltr');
+        html.lang = 'en';
+        html.classList.add('ltr-lang');
+        body.classList.add('ltr-lang');
+        
+        // Ensure the body has the LTR class for any global styles
+        document.body.classList.add('ltr');
+        document.body.classList.remove('rtl');
+    }
+}
+
+function applyTranslations(lang) {
+    const translations = {
+        en: {
+            // Navigation
+            home: 'Home',
+            dashboard: 'Dashboard',
+            programs: 'Programs',
+            applicant_requests: 'Applicant Requests',
+            vendors: 'Vendors',
+            applicants: 'Applicants',
+            reimbursement: 'Reimbursement',
+            
+            // User menu
+            admin: 'Admin',
+            profile: 'Profile',
+            settings: 'Settings',
+            logout: 'Logout',
+            
+            // Add Program Page
+            add_program: 'Add Program',
+            program_title: 'Program Title',
+            program_short_desc: 'Program Short Description',
+            english: 'English',
+            arabic: 'Arabic',
+            program_type: 'Program Type',
+            section_title: 'Section Title',
+            section: 'Section',
+            question_type: 'Question Type',
+            options: 'Options',
+            add_option: 'Add Option',
+            internal: 'Internal',
+            external: 'External',
+            external_program_link: 'External Program Link',
+            vendor: 'Vendor',
+            location: 'Location',
+            location_type: 'Location Type',
+            duration: 'Duration',
+            language: 'Language',
+            address: 'Address',
+            registration_period: 'Registration Period',
+            program_icon: 'Program Icon',
+            banner_image: 'Banner Image',
+            choose_file: 'Choose file to upload',
+            basic_info: 'Basic Information',
+            questionnaire: 'Questionnaire',
+            required_attachments: 'Required Attachments',
+            partner_logos: 'Partner Logos',
+            faqs: 'FAQs',
+            add_section: 'Add Section',
+            questions_en: 'Questions [En]',
+            questions_ar: 'Questions [Ar]',
+            question: 'Question',
+            answer: 'Answer',
+            add_question: 'Add Question',
+            edit_question: 'Edit Question',
+            delete_question: 'Delete Question',
+            attachment_name_en: 'Attachment Name [En]',
+            attachment_name_ar: 'Attachment Name [Ar]',
+            add_attachment_name: 'Add Attachment Name',
+            edit_attachment: 'Edit Attachment',
+            delete_attachment: 'Delete Attachment',
+            upload_partner_logos: 'Upload Partner Logos',
+            drag_drop_files: 'Drag & drop your files here or click to browse',
+            select_files: 'Select Files',
+            uploaded_logos: 'Uploaded Logos',
+            no_logos_uploaded: 'No logos uploaded yet',
+            add_faq: 'Add FAQ',
+            edit_faq: 'Edit FAQ',
+            delete_faq: 'Delete FAQ',
+            question_en: 'Question [En]',
+            question_ar: 'Question [Ar]',
+            faq_question: 'FAQ Question',
+            faq_answer: 'FAQ Answer',
+            save_as_draft: 'Save as Draft',
+            publish: 'Publish',
+            cancel: 'Cancel',
+            save: 'Save',
+            actions: 'Actions',
+            required_field: 'This field is required',
+            invalid_url: 'Please enter a valid URL',
+            invalid_email: 'Please enter a valid email address',
+            invalid_number: 'Please enter a valid number',
+            program_added_success: 'Program added successfully',
+            program_updated_success: 'Program updated successfully',
+            error_occurred: 'An error occurred. Please try again later',
+            add_required_attachment: 'Add Required Attachment',
+            add_attachment_name: 'Add Attachment Name',
+            attachment_name: 'Attachment Name',
+            save_attachment: 'Save Attachment',
+            save_faq: 'Save FAQ',
+            add_faq: 'Add FAQ',
+            answer: 'Answer',
+            question: 'Question',
+            edit: 'Edit',
+            delete: 'Delete',
+            enter_question_en: 'Enter question in English',
+            enter_question_ar: 'أدخل السؤال بالعربية',
+            enter_answer_en: 'Enter answer in English',
+            enter_answer_ar: 'أدخل الإجابة بالعربية',
+            enter_attachment_name_en: 'Enter attachment name in English',
+            enter_attachment_name_ar: 'أدخل اسم المرفق بالعربية'
+        },
+        ar: {
+            // Navigation
+            home: 'الرئيسية',
+            dashboard: 'لوحة التحكم',
+            programs: 'البرامج',
+            applicant_requests: 'طلبات المتقدمين',
+            vendors: 'الموردين',
+            applicants: 'المتقدمين',
+            reimbursement: 'الاسترداد',
+            
+            // User menu
+            admin: 'المدير',
+            profile: 'الملف الشخصي',
+            settings: 'الإعدادات',
+            logout: 'تسجيل الخروج',
+            
+            // Add Program Page
+            add_program: 'إضافة برنامج',
+            program_title: 'عنوان البرنامج',
+            program_short_desc: 'وصف قصير للبرنامج',
+            english: 'الإنجليزية',
+            arabic: 'العربية',
+            program_type: 'نوع البرنامج',
+            section_title: 'عنوان القسم',
+            section: 'القسم',
+            question_type: 'نوع السؤال',
+            options: 'الخيارات',
+            add_option: 'إضافة خيار',
+            internal: 'داخلي',
+            external: 'خارجي',
+            external_program_link: 'رابط البرنامج الخارجي',
+            vendor: 'المزود',
+            location: 'الموقع',
+            location_type: 'نوع الموقع',
+            duration: 'المدة',
+            language: 'اللغة',
+            address: 'العنوان',
+            registration_period: 'فترة التسجيل',
+            program_icon: 'أيقونة البرنامج',
+            banner_image: 'صورة البانر',
+            choose_file: 'اختر ملف للرفع',
+            basic_info: 'المعلومات الأساسية',
+            questionnaire: 'الاستبيان',
+            required_attachments: 'المرفقات المطلوبة',
+            partner_logos: 'شعارات الشركاء',
+            faqs: 'الأسئلة الشائعة',
+            add_section: 'إضافة قسم',
+            questions_en: 'الأسئلة [الإنجليزية]',
+            questions_ar: 'الأسئلة [العربية]',
+            question: 'سؤال',
+            answer: 'إجابة',
+            add_question: 'إضافة سؤال',
+            edit_question: 'تعديل السؤال',
+            delete_question: 'حذف السؤال',
+            attachment_name_en: 'اسم المرفق [الإنجليزية]',
+            attachment_name_ar: 'اسم المرفق [العربية]',
+            add_attachment_name: 'إضافة اسم مرفق',
+            edit_attachment: 'تعديل المرفق',
+            delete_attachment: 'حذف المرفق',
+            upload_partner_logos: 'تحميل شعارات الشركاء',
+            drag_drop_files: 'اسحب وأفلت الملفات هنا أو انقر للتصفح',
+            select_files: 'اختر الملفات',
+            uploaded_logos: 'الشعارات المرفوعة',
+            no_logos_uploaded: 'لا توجد شعارات مرفوعة بعد',
+            add_faq: 'إضافة سؤال متكرر',
+            edit_faq: 'تعديل السؤال المتكرر',
+            delete_faq: 'حذف السؤال المتكرر',
+            question_en: 'السؤال [الإنجليزية]',
+            question_ar: 'السؤال [العربية]',
+            add_required_attachment: 'إضافة مرفق مطلوب',
+            add_attachment_name: 'إضافة اسم المرفق',
+            attachment_name: 'اسم المرفق',
+            save_attachment: 'حفظ المرفق',
+            save_faq: 'حفظ السؤال المتكرر',
+            add_faq: 'إضافة سؤال متكرر',
+            answer: 'إجابة',
+            question: 'سؤال',
+            faq_question: 'سؤال متكرر',
+            faq_answer: 'إجابة السؤال المتكرر',
+            save_as_draft: 'حفظ كمسودة',
+            publish: 'نشر',
+            cancel: 'إلغاء',
+            save: 'حفظ',
+            actions: 'الإجراءات',
+            required_field: 'هذا الحقل مطلوب',
+            invalid_url: 'الرجاء إدخال عنوان URL صالح',
+            invalid_email: 'الرجاء إدخال بريد إلكتروني صالح',
+            invalid_number: 'الرجاء إدخال رقم صالح',
+            program_added_success: 'تمت إضافة البرنامج بنجاح',
+            program_updated_success: 'تم تحديث البرنامج بنجاح',
+            error_occurred: 'حدث خطأ. يرجى المحاولة مرة أخرى لاحقاً',
+            edit: 'تعديل',
+            delete: 'حذف',
+            enter_question_en: 'Enter question in English',
+            enter_question_ar: 'أدخل السؤال بالعربية',
+            enter_answer_en: 'Enter answer in English',
+            enter_answer_ar: 'أدخل الإجابة بالعربية',
+            enter_attachment_name_en: 'Enter attachment name in English',
+            enter_attachment_name_ar: 'أدخل اسم المرفق بالعربية'
+        }
+    };
+
+    // Apply translations to all elements with data-translate attribute
+    const elements = document.querySelectorAll('[data-translate]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+            // For input placeholders and buttons, use value instead of textContent
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                if (element.getAttribute('placeholder')) {
+                    element.setAttribute('placeholder', translations[lang][key]);
+                } else {
+                    element.value = translations[lang][key];
+                }
+            } else if (element.tagName === 'BUTTON' || element.tagName === 'A') {
+                // For buttons and links, check if they have a child icon
+                const icon = element.querySelector('i');
+                if (icon) {
+                    // If button has an icon, keep it and update only text
+                    const textNode = Array.from(element.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
+                    if (textNode) {
+                        textNode.nodeValue = ' ' + translations[lang][key];
+                    } else {
+                        element.appendChild(document.createTextNode(' ' + translations[lang][key]));
+                    }
+                } else {
+                    element.textContent = translations[lang][key];
+                }
+            } else {
+                element.textContent = translations[lang][key];
+            }
+        }
+    });
 }
 
 // Program Type Toggle for External Link

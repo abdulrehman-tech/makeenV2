@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Makeen Admin - Programs</title>
+  <title>Makeen Admin - Applicant Requests</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,7 +18,7 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/admin-dashboard.css" />
-  <link rel="stylesheet" href="../assets/css/programs.css" />
+  <link rel="stylesheet" href="../assets/css/applicant-requests.css" />
 </head>
 
 <body>
@@ -49,13 +49,13 @@
               <span class="nav-text" data-translate="dashboard">Dashboard</span>
             </a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a href="programs.html" class="nav-link">
               <img src="../assets/images/monitor.svg" alt="Programs" class="nav-icon" />
               <span class="nav-text" data-translate="programs">Programs</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a href="applicant-requests.html" class="nav-link">
               <img src="../assets/images/profile2user.svg" alt="Applicant Requests" class="nav-icon" />
               <span class="nav-text" data-translate="applicant_requests">Applicant Requests</span>
@@ -92,7 +92,7 @@
             <i class="fas fa-bars"></i>
           </button>
           <div class="page-title-dropdown">
-            <h1 class="page-title" data-translate="programs">Programs</h1>
+            <h1 class="page-title" data-translate="applicant_requests">Applicant Requests</h1>
           </div>
         </div>
 
@@ -135,16 +135,16 @@
           <div class="breadcrumb">
             <span class="breadcrumb-item" data-translate="home">Home</span>
             <i class="breadcrumb-separator fas fa-chevron-right"></i>
-            <span class="breadcrumb-item active" data-translate="programs">Programs</span>
+            <span class="breadcrumb-item active" data-translate="applicant_requests">Applicant Requests</span>
           </div>
         </div>
 
-        <!-- Programs Content -->
-        <div class="programs-content">
+        <!-- Applicant Requests Content -->
+        <div class="applicant-requests-content">
           <!-- Page Header -->
           <div class="page-header">
             <div class="page-title-section">
-              <h2 class="page-main-title" data-translate="programs">Programs</h2>
+              <h2 class="page-main-title" data-translate="applicant_requests">Applicant Requests</h2>
             </div>
             <div class="page-actions">
               <div class="filter-buttons">
@@ -157,21 +157,15 @@
                   <span data-translate="clear_filter">Clear Filter</span>
                 </button>
               </div>
-              <button class="add-program-btn" onclick="window.location.href='add-program.html'">
-                <i class="fas fa-plus"></i>
-                <span data-translate="add_program">Add Program</span>
-              </button>
             </div>
           </div>
 
           <!-- Tabs -->
-          <div class="programs-tabs">
+          <div class="applicant-requests-tabs">
             <button class="tab-btn active" data-tab="all" data-translate="all">All</button>
             <button class="tab-btn" data-tab="pending" data-translate="pending">Pending</button>
-            <button class="tab-btn" data-tab="published" data-translate="published">Published</button>
+            <button class="tab-btn" data-tab="approved" data-translate="approved">Approved</button>
             <button class="tab-btn" data-tab="rejected" data-translate="rejected">Rejected</button>
-            <button class="tab-btn" data-tab="closed" data-translate="closed">Closed</button>
-            <button class="tab-btn" data-tab="draft" data-translate="draft">Draft</button>
           </div>
 
           <!-- Table Controls -->   
@@ -190,75 +184,96 @@
                 <i class="fas fa-print"></i>
                 <span data-translate="print">Print</span>
               </button>
-
             </div>
+           
             <div class="search-section">
+               <!-- dropdopwn for programs-->
+             <div class="program-dropdown">
+              <select class="program-dropdown">
+                <option value="all" data-translate="all">All</option>
+                <option value="Get Started with 3D Modeling" data-translate="get_started_with_3d_modeling">Get Started with 3D Modeling</option>
+                <option value="Learn Figma from zero to hero" data-translate="learn_figma_from_zero_to_hero">Learn Figma from zero to hero</option>
+                <option value="Learn Swift Language" data-translate="learn_swift_language">Learn Swift Language</option>
+              </select>
+             </div>
+             <!-- search -->
               <div class="search-input">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search..." data-translate-placeholder="search_programs" />
+                <input type="text" placeholder="Search..." data-translate-placeholder="search_applicant_requests" />
               </div>
             </div>
           </div>
 
-          <!-- Programs Table -->
-          <div class="table-container">
-            <table class="programs-table">
+          <!-- Applicant Requests Table -->
+          <div class="applicant-requests-table-container">
+            <table class="applicant-requests-table">
               <thead>
                 <tr>
-                  <th data-translate="program_name">Program Name</th>
-                  <th data-translate="vendor">Vendor</th>
-                  <th data-translate="duration">Duration</th>
-                  <th data-translate="location">Location</th>
-                  <th data-translate="date_to">Date To</th>
-                  <th data-translate="date_from">Date From</th>
+                  <th data-translate="applicant_name">Applicant</th>
+                  <th data-translate="program">Program</th>
+                  <th data-translate="applied_on">Applied On</th>
                   <th data-translate="status">Status</th>
                   <th data-translate="actions">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td class="program-name">
-                    <div class="program-info">
-                      <div class="program-logo">
+                  <td class="applicant-name">
+                    <div class="applicant-info">
+                      <div class="applicant-logo">
                         <img src="../assets/images/Icon.png" alt="Sketch Logo"
                           onerror="this.src='../assets/images/Icon.png'">
                       </div>
-                      <span>Learn Sketch with AI</span>
+                      <div>
+                        <span>Abdul Rehman</span>
+                        <span class="sub-text" >abdul.r@example.com</span>
+                      </div>
                     </div>
                   </td>
-                  <td>Tech Innovators</td>
-                  <td>4 months</td>
-                  <td>Muscat, Oman</td>
-                  <td>April 20, 2025</td>
-                  <td>April 20, 2025</td>
+                  <td class="applicant-program">
+                    <div>
+                      <span>Get Started with 3D Modeling</span>
+                      <span class="sub-text">Tech Innovators</span>
+                    </div>
+                  </td>
                   <td>
-                    <span class="status-badge published" data-translate="published">Published</span>
+                    <div>
+                      <span>April 20, 2025</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge approved" data-translate="approved">Approved</span>
                   </td>
                   <td>
                     <div class="actions-dropdown">
                       <button class="actions-btn">
                         <i class="fas fa-ellipsis-v"></i>
                       </button>
-                      <div class="dropdown-menu" data-status="published">
+                      <div class="dropdown-menu" data-status="approved">
                         <!-- Dynamic content will be populated by JavaScript -->
                       </div>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td class="program-name">
-                    <div class="program-info">
-                      <div class="program-logo">
+                  <td class="applicant-name">
+                    <div class="applicant-info">
+                      <div class="applicant-logo">
                         <img src="../assets/images/Icon-1.png" alt="Figma Logo"
                           onerror="this.src='../assets/images/Icon-1.png'">
                       </div>
-                      <span>Figma zero to Hero</span>
+                      <div>
+                        <span>Sara Johnson</span>
+                        <span class="sub-text">sara.j@example.com</span>
+                      </div>
                     </div>
                   </td>
-                  <td>Skill Builders</td>
-                  <td>6 months</td>
-                  <td>Muscat, Oman</td>
-                  <td>April 20, 2025</td>
+                  <td class="applicant-program">
+                    <div>
+                      <span>Learn Figma from zero to Hero</span>
+                      <span class="sub-text">Skill Builders</span>
+                    </div>
+                  </td>
                   <td>April 20, 2025</td>
                   <td>
                     <span class="status-badge pending" data-translate="pending">Pending</span>
@@ -275,106 +290,126 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="program-name">
-                    <div class="program-info">
-                      <div class="program-logo">
+                  <td class="applicant-name">
+                    <div class="applicant-info">
+                      <div class="applicant-logo">
                         <img src="../assets/images/Icon-2.png" alt="Swift Logo"
                           onerror="this.src='../assets/images/Icon-2.png'">
                       </div>
-                      <span>Learn Swift language</span>
+                      <div>
+                        <span>Bahram Elmdoust</span>
+                        <span class="sub-text">bahram.m@example.com</span>
+                      </div>
                     </div>
                   </td>
-                  <td>Code Academy</td>
-                  <td>9 months</td>
-                  <td>Muscat, Oman</td>
-                  <td>April 20, 2025</td>
+                  <td class="applicant-program">
+                    <div>
+                      <span>Learn Swift language</span>
+                      <span class="sub-text">Code Academy</span>
+                    </div>
+                  </td>               
                   <td>April 20, 2025</td>
                   <td>
-                    <span class="status-badge draft" data-translate="draft">Draft</span>
+                    <span class="status-badge pending" data-translate="pending">Pending</span>
                   </td>
                   <td>
                     <div class="actions-dropdown">
                       <button class="actions-btn">
                         <i class="fas fa-ellipsis-v"></i>
                       </button>
-                      <div class="dropdown-menu" data-status="draft">
+                      <div class="dropdown-menu" data-status="pending">
                         <!-- Dynamic content will be populated by JavaScript -->
                       </div>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td class="program-name">
-                    <div class="program-info">
-                      <div class="program-logo">
+                  <td class="applicant-name">
+                    <div class="applicant-info">
+                      <div class="applicant-logo">
                         <img src="../assets/images/Icon-3.png" alt="Framer Logo"
                           onerror="this.src='../assets/images/Icon-3.png'">
                       </div>
-                      <span>Framer.io Practical Implementation</span>
+                      <div>
+                        <span>Ashjan Al Harthy</span>
+                        <span class="sub-text">ashjan.alharthy@example.com</span>
+                      </div>
                     </div>
                   </td>
-                  <td>LearnSmart</td>
-                  <td>8 months</td>
-                  <td>Muscat, Oman</td>
-                  <td>April 20, 2025</td>
+                  <td class="applicant-program">
+                    <div>
+                      <span>Learn Swift language</span>
+                      <span class="sub-text">Code Academy</span>
+                    </div>
+                  </td>
                   <td>April 20, 2020</td>
                   <td>
-                    <span class="status-badge closed" data-translate="closed">Closed</span>
+                    <span class="status-badge rejected" data-translate="rejected">Rejected</span>
                   </td>
                   <td>
                     <div class="actions-dropdown">
                       <button class="actions-btn">
                         <i class="fas fa-ellipsis-v"></i>
                       </button>
-                      <div class="dropdown-menu" data-status="closed">
+                      <div class="dropdown-menu" data-status="rejected">
                         <!-- Dynamic content will be populated by JavaScript -->
                       </div>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td class="program-name">
-                    <div class="program-info">
-                      <div class="program-logo">
+                  <td class="applicant-name">
+                    <div class="applicant-info">
+                      <div class="applicant-logo">
                         <img src="../assets/images/Icon-4.png" alt="React Logo"
                           onerror="this.src='../assets/images/Icon-4.png'">
                       </div>
-                      <span>Learn React with vite and tailwind css</span>
+                      <div>
+                        <span>Safa Aludthani</span>
+                        <span class="sub-text">safa.aludthani@example.com</span>
+                      </div>
                     </div>
                   </td>
-                  <td>Dev Hub</td>
-                  <td>12 months</td>
-                  <td>Muscat, Oman</td>
-                  <td>April 20, 2025</td>
+                  <td class="applicant-program">
+                    <div>
+                      <span>Learn Swift language</span>
+                      <span class="sub-text">Code Academy</span>
+                    </div>
+                  </td>
                   <td>April 20, 2025</td>
                   <td>
-                    <span class="status-badge published" data-translate="published">Published</span>
+                    <span class="status-badge approved" data-translate="approved">Approved</span>
                   </td>
                   <td>
                     <div class="actions-dropdown">
                       <button class="actions-btn">
                         <i class="fas fa-ellipsis-v"></i>
                       </button>
-                      <div class="dropdown-menu" data-status="published">
+                      <div class="dropdown-menu" data-status="approved">
                         <!-- Dynamic content will be populated by JavaScript -->
                       </div>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td class="program-name">
-                    <div class="program-info">
-                      <div class="program-logo">
+                  <td class="applicant-name">
+                    <div class="applicant-info">
+                      <div class="applicant-logo">
                         <img src="../assets/images/Icon.png" alt="Data Science Logo"
                           onerror="this.src='../assets/images/Icon.png'">
                       </div>
-                      <span>Data Science & Machine Learning</span>
+                      <div>
+                        <span>Maryam Al Hinayi</span>
+                        <span class="sub-text">maryam.alhinayi@example.com</span>
+                      </div>
                     </div>
                   </td>
-                  <td>Future Coders</td>
-                  <td>10 months</td>
-                  <td>Muscat, Oman</td>
-                  <td>April 20, 2025</td>
+                  <td class="applicant-program">
+                    <div>
+                      <span>Learn Swift language</span>
+                      <span class="sub-text">Code Academy</span>
+                    </div>
+                  </td>
                   <td>April 20, 2025</td>
                   <td>
                     <span class="status-badge rejected" data-translate="rejected">Rejected</span>
@@ -441,7 +476,7 @@
 
   <!-- Custom JS -->
   <script src="../assets/js/admin-dashboard.js"></script>
-  <script src="../assets/js/programs.js"></script>
+  <script src="../assets/js/applicant-requests.js"></script>
 </body>
 
 </html>
