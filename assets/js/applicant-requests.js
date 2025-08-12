@@ -278,29 +278,23 @@ function handleActionsClick(e) {
 // Handle action item clicks
 function handleActionItemClick(e) {
   e.preventDefault();
-  const action = e.target.getAttribute('data-action');
+  const action = e.target.getAttribute('data-translate');
   const row = e.target.closest('tr');
   const applicantName = row.querySelector('.applicant-name span').textContent;
-  const programName = row.querySelector('.program-name span').textContent;
   const status = e.target.closest('.dropdown-menu').getAttribute('data-status');
   
-  console.log(`Action "${action}" clicked for program: ${programName} (Status: ${status})`);
+  console.log(`Action "${action}" clicked for applicant: ${applicantName} (Status: ${status})`);
   
   // Handle different actions
   switch(action) {
-    case 'preview':
-      showNotification(`Previewing ${programName} for ${applicantName}`, 'info');
+    case 'view_details':
+      window.location.href = `applicant-request-details.html`;
       break;
-    case 'edit':
-      showNotification(`Editing ${programName} for ${applicantName}`, 'info');
+    case 'approve':
+      showNotification(`Approved ${applicantName}`, 'info');
       break;
-    case 'program_requests':
-      showNotification(`Viewing requests for ${programName} for ${applicantName}`, 'info');
-      break;
-    case 'publish':
-      showNotification(`Publishing ${programName}`, 'success');
-      // Update status to published
-      updateProgramStatus(row, 'published');
+    case 'reject':
+      showNotification(`Rejected ${applicantName}`, 'info');
       break;
   }
   
@@ -643,11 +637,6 @@ function initializeEventListeners() {
     entriesSelect.addEventListener('change', handleEntriesChange);
   }
   
-  // Add program button
-  if (addProgramBtn) {
-    addProgramBtn.addEventListener('click', handleAddProgram);
-  }
-  
   // Filter buttons
   filterButtons.forEach(btn => {
     btn.addEventListener('click', handleFilterClick);
@@ -677,7 +666,7 @@ function initializeProgramsPage() {
   updatePaginationInfo();
   populateDropdownMenus(); // Populate dropdowns after initialization
   
-  console.log('Programs page initialized successfully');
+  console.log('Applicant requests page initialized successfully');
 }
 
 // Initialize language state

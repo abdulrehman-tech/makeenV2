@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Makeen Admin - Applicant Request Details</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/admin-dashboard.css" />
+  <link rel="stylesheet" href="../assets/css/applicant-request-details.css" />
+</head>
+
+<body>
+  <div class="dashboard-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <img src="../assets/images/book.png" alt="Makeen Logo" />
+          <span class="brand-name">Makeen</span>
+        </div>
+        <button class="sidebar-toggle" id="sidebarToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link">
+              <img src="../assets/images/home3.svg" alt="Home" class="nav-icon" />
+              <span class="nav-text" data-translate="home">Home</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="admin-dashboard.html" class="nav-link">
+              <img src="../assets/images/element3.svg" alt="Dashboard" class="nav-icon" />
+              <span class="nav-text" data-translate="dashboard">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="programs.html" class="nav-link">
+              <img src="../assets/images/monitor.svg" alt="Programs" class="nav-icon" />
+              <span class="nav-text" data-translate="programs">Programs</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a href="applicant-requests.html" class="nav-link">
+              <img src="../assets/images/profile2user.svg" alt="Applicant Requests" class="nav-icon" />
+              <span class="nav-text" data-translate="applicant_requests">Applicant Requests</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <img src="../assets/images/user.svg" alt="Vendors" class="nav-icon" />
+              <span class="nav-text" data-translate="vendors">Vendors</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <img src="../assets/images/profile2user-1.svg" alt="Applicants" class="nav-icon" />
+              <span class="nav-text" data-translate="applicants">Applicants</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <img src="../assets/images/hand_money.svg" alt="Reimbursement" class="nav-icon" />
+              <span class="nav-text" data-translate="reimbursement">Reimbursement</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="page-title-dropdown">
+            <h1 class="page-title" data-translate="applicant_requests">Applicant Requests</h1>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="language-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ar">عربي</button>
+          </div>
+
+          <div class="user-menu">
+            <button class="user-toggle" id="userToggle">
+              <div class="user-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <span class="user-name" data-translate="admin">Admin</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="user-dropdown" id="userDropdown">
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-user"></i>
+                <span data-translate="profile">Profile</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-cog"></i>
+                <span data-translate="settings">Settings</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span data-translate="logout">Logout</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="content">
+        <div class="content-header">
+          <div class="breadcrumb">
+            <a href="applicant-requests.html" class="breadcrumb-item" data-translate="applicant_requests">Applicant
+              Requests</a>
+            <i class="breadcrumb-separator fas fa-chevron-right"></i>
+            <span class="breadcrumb-item active" data-translate="applicant_details">Applicant Details</span>
+          </div>
+        </div>
+
+        <div class="applicant-details-container">
+          <!-- Applicant Header -->
+          <div class="applicant-header">
+            <div class="applicant-info-section">
+              <img src="../assets/images/Icon.png" alt="Applicant" class="applicant-avatar">
+              <div>
+                <h2 class="applicant-name-title">Sara Johnson</h2>
+                <p class="applicant-email">sara.j@example.com</p>
+                <div class="applicant-meta">
+                  <div class="meta-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+968 9123 4567</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Muscat, Oman</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Applied on April 20, 2025</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="applicant-status">
+              <span class="status-badge pending" data-translate="pending">Pending</span>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="details-tabs">
+            <div class="tab-buttons">
+              <button class="tab-btn active" data-tab="general-info">General Information</button>
+              <button class="tab-btn" data-tab="questionnaire">Questionnaire</button>
+              <button class="tab-btn" data-tab="documents">Documents</button>
+              <button class="tab-btn" data-tab="timeline">Timeline</button>
+            </div>
+
+            <!-- Personal Information Tab -->
+            <div id="general-info" class="tab-content active">
+              <div class="info-grid">
+                <!-- Personal Details Card -->
+                <div class="info-card">
+                  <h3>Personal Details</h3>
+                  <div class="info-row">
+                    <div class="info-label">National ID:</div>
+                    <div class="info-value">12345678</div>
+                  </div>
+                  <div class="info-row">
+                    <div class="info-label">Full Name:</div>
+                    <div class="info-value">Sara Johnson</div>
+                  </div>
+                  <div class="info-row">
+                    <div class="info-label">Date of Birth:</div>
+                    <div class="info-value">May 15, 1992</div>
+                  </div>
+                  <div class="info-row">
+                    <div class="info-label">Gender:</div>
+                    <div class="info-value">Female</div>
+                  </div>
+                  <div class="info-row">
+                    <div class="info-label">Nationality:</div>
+                    <div class="info-value">Omani</div>
+                  </div>
+                  <div class="info-row">
+                    <div class="info-label">Email:</div>
+                    <div class="info-value">sara.j@example.com</div>
+                  </div>
+                  <div class="info-row">
+                    <div class="info-label">Phone:</div>
+                    <div class="info-value">+968 9123 4567</div>
+                  </div>
+                  <div class="info-row">
+                    <div class="info-label">Address:</div>
+                    <div class="info-value">1234 Al Khuwair, Muscat, Oman</div>
+                  </div>
+                </div>
+
+                <!-- Program Information Card -->
+                <div class="info-card">
+                  <h3>Program Information</h3>
+                  <div class="info-row">
+                    <div class="info-label">Program:</div>
+                    <div class="info-value">Learn Figma from zero to hero</div>
+                  </div>
+                  <div class="info-row">
+                    <div class="info-label">Provider:</div>
+                    <div class="info-value">Skill Builders</div>
+                  </div>
+                  <div class="info-row">
+                    <div class="info-label">Duration:</div>
+                    <div class="info-value">6 months</div>
+                  </div>
+                  <div class="info-row">
+                    <div class="info-label">Location:</div>
+                    <div class="info-value">Muscat, Oman</div>
+                  </div>
+                  <div class="info-row">
+                    <div class="info-label">Application Status:</div>
+                    <div class="info-value"><span class="status-badge pending">Pending</span></div>
+                  </div>
+                </div>
+
+                <!-- Education & Experience Accordion -->
+                <div class="info-card accordion-container">
+                  <!-- Education Accordion -->
+                  <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="true" aria-controls="education-accordion">
+                      <span>Education</span>
+                      <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div id="education-accordion" class="accordion-content" style="display: block;">
+                      <div class="qualification-item">
+                        <div class="qualification-header">
+                          <h4>Bachelor's Degree in Design</h4>
+                          <span class="qualification-period">2011 - 2015</span>
+                        </div>
+                        <div class="qualification-institution">Sultan Qaboos University</div>
+                      </div>
+                      <div class="qualification-item">
+                        <div class="qualification-header">
+                          <h4>Diploma in Digital Media</h4>
+                          <span class="qualification-period">2009 - 2011</span>
+                        </div>
+                        <div class="qualification-institution">Muscat Technical College</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Work Experience Accordion -->
+                  <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="experience-accordion">
+                      <span>Work Experience</span>
+                      <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div id="experience-accordion" class="accordion-content">
+                      <div class="experience-item">
+                        <div class="experience-header">
+                          <h4>Senior UI/UX Designer</h4>
+                          <span class="experience-period">2020 - Present</span>
+                        </div>
+                        <div class="experience-company">Tech Solutions LLC</div>
+                      </div>
+                      <div class="experience-item">
+                        <div class="experience-header">
+                          <h4>UI/UX Designer</h4>
+                          <span class="experience-period">2017 - 2020</span>
+                        </div>
+                        <div class="experience-company">Digital Creations</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- MOL Data Accordion -->
+                  <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="mol-accordion">
+                      <span>MOL Data</span>
+                      <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div id="mol-accordion" class="accordion-content">
+                      <div class="info-grid">
+                        <div class="info-row">
+                          <div class="info-label">Civil ID</div>
+                          <div class="info-value">1234567890</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Civil Expiry Date</div>
+                          <div class="info-value">31/12/2025</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Full name [Eng]</div>
+                          <div class="info-value">Sara Johnson</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Full name [Arabic]</div>
+                          <div class="info-value">سارة جونسون</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Gender [Eng]</div>
+                          <div class="info-value">Female</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Gender [Arabic]</div>
+                          <div class="info-value">أنثى</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Date of Birth</div>
+                          <div class="info-value">15/05/1992</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Marital Status</div>
+                          <div class="info-value">Single</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Email</div>
+                          <div class="info-value">sara.j@example.com</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Phone number</div>
+                          <div class="info-value">+968 9123 4567</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Nationality</div>
+                          <div class="info-value">Omani</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Current Address</div>
+                          <div class="info-value">1234 Al Khuwair, Muscat, Oman</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Permanent Address</div>
+                          <div class="info-value">1234 Al Khuwair, Muscat, Oman</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Latest Education</div>
+                          <div class="info-value">Bachelor's Degree in Design</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Job Status</div>
+                          <div class="info-value">Employed</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Organization Sector</div>
+                          <div class="info-value">Private</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Occupation</div>
+                          <div class="info-value">UI/UX Designer</div>
+                        </div>
+                        <div class="info-row">
+                          <div class="info-label">Company Name</div>
+                          <div class="info-value">Tech Solutions LLC</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Questionnaire Tab -->
+            <div id="questionnaire" class="tab-content">
+              <h3 class="mb-4">Program Application Questions</h3>
+              <br>
+              <div class="question-answer mb-4">
+                <h5 class="question-text mb-2">1. Why are you interested in this program?</h5>
+                <div class="answer-text p-3 bg-light rounded">
+                  I've been working as a UI/UX designer for 3 years and want to enhance my skills in Figma to create
+                  more professional designs. This program seems comprehensive and industry-relevant.
+                </div>
+              </div>
+              <div class="question-answer mb-4">
+                <h5 class="question-text mb-2">2. What do you hope to achieve after completing this program?</h5>
+                <div class="answer-text p-3 bg-light rounded">
+                  I aim to become a senior UI/UX designer and potentially lead design teams. I believe mastering Figma
+                  will help me create better prototypes and collaborate more effectively with developers.
+                </div>
+              </div>
+
+              <div class="question-answer mb-4">
+                <h5 class="question-text mb-2">3. Do you have any prior experience with Figma?</h5>
+                <div class="answer-text p-3 bg-light rounded">
+                  Yes, I've been using Figma for about 6 months for basic design tasks and wireframing, but I want to
+                  learn advanced features like auto-layout, components, and design systems.
+                </div>
+              </div>
+
+              <div class="question-answer mb-4">
+                <h5 class="question-text mb-2">4. How did you hear about this program?</h5>
+                <div class="answer-text p-3 bg-light rounded">
+                  I learned about it through a colleague who completed the program last year and highly recommended it
+                  for professional development in UI/UX design.
+                </div>
+              </div>
+
+              <div class="question-answer mb-4">
+                <h5 class="question-text mb-2">5. Can you commit to the full duration of the program?</h5>
+                <div class="answer-text p-3 bg-light rounded">
+                  Yes, I've reviewed the schedule and can commit to attending all sessions. I've already informed my
+                  employer about this program and they're supportive of my participation.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Documents Tab -->
+          <div id="documents" class="tab-content">
+            <div class="documents-grid">
+              <!-- Document 1 -->
+              <div class="document-card">
+                <div class="document-preview">
+                  <i class="far fa-file-pdf"></i>
+                </div>
+                <div class="document-info">
+                  <h4 class="document-name">Resume.pdf</h4>
+                  <div class="document-meta">
+                    <span>2.4 MB</span>
+                    <a href="#" class="text-primary">Download</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Document 2 -->
+              <div class="document-card">
+                <div class="document-preview">
+                  <i class="far fa-file-word"></i>
+                </div>
+                <div class="document-info">
+                  <h4 class="document-name">Portfolio.docx</h4>
+                  <div class="document-meta">
+                    <span>5.7 MB</span>
+                    <a href="#" class="text-primary">Download</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Document 3 -->
+              <div class="document-card">
+                <div class="document-preview">
+                  <i class="far fa-file-image"></i>
+                </div>
+                <div class="document-info">
+                  <h4 class="document-name">ID_Card.jpg</h4>
+                  <div class="document-meta">
+                    <span>1.2 MB</span>
+                    <a href="#" class="text-primary">Download</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Document 4 -->
+              <div class="document-card">
+                <div class="document-preview">
+                  <i class="far fa-file-pdf"></i>
+                </div>
+                <div class="document-info">
+                  <h4 class="document-name">Certificates.pdf</h4>
+                  <div class="document-meta">
+                    <span>3.5 MB</span>
+                    <a href="#" class="text-primary">Download</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Tab -->
+          <div id="timeline" class="tab-content">
+            <div class="timeline">
+              <!-- Timeline Item 1 -->
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">April 20, 2025 - 10:30 AM</div>
+                <div class="timeline-content">
+                  <h4 class="timeline-title">Application Submitted</h4>
+                  <p class="timeline-description">Sara Johnson has submitted the application for the program.</p>
+                </div>
+              </div>
+
+              <!-- Timeline Item 2 -->
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">April 20, 2025 - 11:15 AM</div>
+                <div class="timeline-content">
+                  <h4 class="timeline-title">Under Review</h4>
+                  <p class="timeline-description">Application is currently under review by the admissions team.</p>
+                </div>
+              </div>
+
+              <!-- Timeline Item 3 -->
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">April 21, 2025 - 09:00 AM</div>
+                <div class="timeline-content">
+                  <h4 class="timeline-title">Approved</h4>
+                  <p class="timeline-description">The application has been approved by the admin.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="btn btn-outline">
+            <i class="fas fa-arrow-left"></i>
+            <span data-translate="back">Back</span>
+          </button>
+          <div class="action-group">
+            <button class="btn btn-danger">
+              <i class="fas fa-times"></i>
+              <span data-translate="reject">Reject</span>
+            </button>
+          </div>
+          <div class="action-group">
+            <button class="btn btn-primary">
+              <i class="fas fa-check"></i>
+              <span data-translate="approve">Approve</span>
+            </button>
+          </div>
+        </div>
+      </div>
+  </div>
+  </main>
+  </div>
+
+  <!-- Custom JS -->
+  <script src="../assets/js/admin-dashboard.js"></script>
+  <script src="../assets/js/applicant-request-details.js"></script>
+</body>
+
+</html>
