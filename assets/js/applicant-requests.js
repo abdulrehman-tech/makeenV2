@@ -34,7 +34,8 @@ function filterTableByStatus(status) {
   
   tableRows.forEach(row => {
     const statusBadge = row.querySelector('.status-badge');
-    const rowStatus = statusBadge ? statusBadge.textContent.toLowerCase() : '';
+    //get the translation of the status
+    const rowStatus = statusBadge ? statusBadge.getAttribute('data-translate') : '';
     
     if (status === 'all' || rowStatus === status) {
       row.style.display = '';
@@ -802,6 +803,11 @@ function applyTranslations(lang) {
       program_requests: 'Program Requests',
       publish: 'Publish',
       showing_entries: 'Showing 1 to 05 of 12 entries',
+      applicant_name: 'Applicant Name',
+      program: 'Program',
+      applied_on: 'Applied On',
+      approved: 'Approved',
+      
       
       // Footer
       all_rights_reserved: 'All rights reserved.',
@@ -854,6 +860,10 @@ function applyTranslations(lang) {
       program_requests: 'طلبات البرنامج',
       publish: 'نشر',
       showing_entries: 'عرض 1 إلى 05 من 12 إدخال',
+      applicant_name: 'اسم المتقدم',
+      program: 'البرنامج',
+      applied_on: 'تاريخ التقديم',
+      approved: 'تم الموافقة عليه',
       
       // Footer
       all_rights_reserved: 'جميع الحقوق محفوظة.',

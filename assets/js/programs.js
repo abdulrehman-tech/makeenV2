@@ -35,7 +35,8 @@ function filterTableByStatus(status) {
   
   tableRows.forEach(row => {
     const statusBadge = row.querySelector('.status-badge');
-    const rowStatus = statusBadge ? statusBadge.textContent.toLowerCase() : '';
+    //get the translation of the status
+    const rowStatus = statusBadge ? statusBadge.getAttribute('data-translate') : '';
     
     if (status === 'all' || rowStatus === status) {
       row.style.display = '';
