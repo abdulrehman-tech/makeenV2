@@ -1,0 +1,366 @@
+/* ===== ADD VENDOR PAGE STYLES ===== */
+
+/* Font Family Support for both languages */
+.form-label,
+.form-control,
+.btn,
+.file-upload-display,
+.page-main-title {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* default font family of arabic is tajawal*/
+html[dir="rtl"] body,
+html[dir="rtl"] .form-control,
+html[dir="rtl"] .btn,
+html[dir="rtl"] .modal-title,
+html[dir="rtl"] .form-label,
+html[dir="rtl"] .section-title,
+html[dir="rtl"] .question-en,
+html[dir="rtl"] .question-ar,
+html[dir="rtl"] .attachment-name-en,
+html[dir="rtl"] .attachment-name-ar,
+html[dir="rtl"] .faq-question,
+html[dir="rtl"] .faq-answer {
+  font-family: 'Tajawal', sans-serif !important;
+}
+
+/* RTL Font Family Support */
+html[dir="rtl"] body .form-label,
+html[dir="rtl"] body .form-control,
+html[dir="rtl"] body .btn,
+html[dir="rtl"] body .file-upload-display,
+html[dir="rtl"] body .page-main-title,
+body[dir="rtl"] .form-label,
+body[dir="rtl"] .form-control,
+body[dir="rtl"] .btn,
+body[dir="rtl"] .file-upload-display,
+body[dir="rtl"] .page-main-title,
+.rtl-lang .form-label,
+.rtl-lang .form-control,
+.rtl-lang .btn,
+.rtl-lang .file-upload-display,
+.rtl-lang .page-main-title {
+  font-family: 'Tajawal', sans-serif;
+}
+
+/* Page Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0 !important;
+  padding: var(--spacing-md) 0;
+}
+
+.page-title-section {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.page-main-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Form Container */
+.vendor-form-container {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Form Styles */
+.vendor-form {
+  margin: 0 auto;
+
+}
+
+.form-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.form-row {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.col-6 {
+  flex: 0 0 calc(50% - var(--spacing-lg) / 2);
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.required {
+  color: var(--danger-color);
+  font-weight: 700;
+}
+
+.label-lang {
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.form-control {
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: var(--transition-fast);
+  font-family: inherit;
+  text-align: left;
+  direction: ltr;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(130, 128, 255, 0.1);
+}
+
+.form-control::placeholder {
+  color: var(--text-secondary);
+}
+
+/* File Upload */
+.file-upload {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.file-upload input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.file-upload-display {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  border: 2px dashed var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--gray-50);
+  color: var(--text-secondary);
+  transition: var(--transition-fast);
+  cursor: pointer;
+  min-height: 80px;
+}
+
+.file-upload-display:hover {
+  border-color: var(--primary-color);
+  background: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.file-upload-display i {
+  font-size: 24px;
+  color: var(--text-secondary);
+}
+
+.file-upload:hover .file-upload-display i {
+  color: var(--primary-color);
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--border-light);
+  margin-top: var(--spacing-xl);
+}
+
+/* RTL Form Actions */
+html[dir="rtl"] body .form-actions,
+body[dir="rtl"] .form-actions,
+.rtl-lang .form-actions {
+  justify-content: flex-start;
+}
+
+.btn {
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: var(--gray-100);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
+}
+
+.btn-secondary:hover {
+  background: var(--gray-200);
+  color: var(--text-primary);
+}
+
+/* RTL Support */
+html[dir="rtl"] body .form-row,
+body[dir="rtl"] .form-row,
+.rtl-lang .form-row {
+  flex-direction: row;
+}
+
+html[dir="rtl"] body .form-actions,
+body[dir="rtl"] .form-actions,
+.rtl-lang .form-actions {
+  flex-direction: row;
+}
+
+html[dir="rtl"] body .file-upload-display,
+body[dir="rtl"] .file-upload-display,
+.rtl-lang .file-upload-display {
+  flex-direction: row;
+}
+
+/* RTL Text Alignment and Direction */
+html[dir="rtl"] body .form-control,
+body[dir="rtl"] .form-control,
+.rtl-lang .form-control {
+  text-align: right;
+  direction: rtl;
+}
+
+html[dir="rtl"] body .form-label,
+body[dir="rtl"] .form-label,
+.rtl-lang .form-label {
+  text-align: right;
+}
+
+html[dir="rtl"] body .page-main-title,
+body[dir="rtl"] .page-main-title,
+.rtl-lang .page-main-title {
+  text-align: right;
+}
+
+html[dir="rtl"] body .file-upload-display,
+body[dir="rtl"] .file-upload-display,
+.rtl-lang .file-upload-display {
+  text-align: right;
+}
+
+/* LTR Text Alignment and Direction */
+html[dir="ltr"] body .form-control,
+body[dir="ltr"] .form-control,
+.ltr-lang .form-control {
+  text-align: left;
+  direction: ltr;
+}
+
+html[dir="ltr"] body .form-label,
+body[dir="ltr"] .form-label,
+.ltr-lang .form-label {
+  text-align: left;
+}
+
+html[dir="ltr"] body .page-main-title,
+body[dir="ltr"] .page-main-title,
+.ltr-lang .page-main-title {
+  text-align: left;
+}
+
+html[dir="ltr"] body .file-upload-display,
+body[dir="ltr"] .file-upload-display,
+.ltr-lang .file-upload-display {
+  text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vendor-form-container {
+    padding: var(--spacing-lg);
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .form-group.col-6 {
+    flex: 1;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .page-main-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vendor-form-container {
+    padding: var(--spacing-md);
+  }
+
+  .form-control {
+    padding: var(--spacing-sm);
+    font-size: 13px;
+  }
+
+  .file-upload-display {
+    padding: var(--spacing-md);
+    min-height: 60px;
+  }
+
+  .file-upload-display i {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-translate="add_vendor">Makeen Admin - Add Vendor</title>
+    <!-- Tajawal font for Arabic -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/add-vendor.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-wrapper">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <img src="../assets/images/book.png" alt="Makeen Logo" />
+            <span class="brand-name">Makeen</span>
+          </div>
+          <button class="sidebar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link">
+                <img
+                  src="../assets/images/home3.svg"
+                  alt="Home"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="home">Home</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-dashboard.html" class="nav-link">
+                <img
+                  src="../assets/images/element3.svg"
+                  alt="Dashboard"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="dashboard"
+                  >Dashboard</span
+                >
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="programs.html" class="nav-link">
+                <img
+                  src="../assets/images/monitor.svg"
+                  alt="Programs"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="programs">Programs</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="applicant-requests.html" class="nav-link">
+                <img
+                  src="../assets/images/profile2user.svg"
+                  alt="Applicant Requests"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="applicant_requests"
+                  >Applicant Requests</span
+                >
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a href="vendors.html" class="nav-link">
+                <img
+                  src="../assets/images/user.svg"
+                  alt="Vendors"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="vendors">Vendors</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/profile2user-1.svg"
+                  alt="Applicants"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="applicants"
+                  >Applicants</span
+                >
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <img
+                  src="../assets/images/hand_money.svg"
+                  alt="Reimbursement"
+                  class="nav-icon"
+                />
+                <span class="nav-text" data-translate="reimbursement"
+                  >Reimbursement</span
+                >
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+          <div class="header-left">
+            <button class="menu-toggle" id="menuToggle">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="page-title-dropdown">
+              <h1 class="page-title" data-translate="vendors">Vendors</h1>
+            </div>
+          </div>
+
+          <div class="header-right">
+            <div class="language-switcher" id="language-switcher">
+              <button
+                id="language-toggle-en"
+                class="lang-btn active"
+                data-lang="en"
+              >
+                EN
+              </button>
+              <button id="language-toggle-ar" class="lang-btn" data-lang="ar">
+                عربي
+              </button>
+            </div>
+
+            <div class="user-menu">
+              <button class="user-toggle" id="userToggle">
+                <div class="user-avatar">
+                  <i class="fas fa-user"></i>
+                </div>
+                <span class="user-name" data-translate="admin">Admin</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="user-dropdown" id="userDropdown">
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-user"></i>
+                  <span data-translate="profile">Profile</span>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-cog"></i>
+                  <span data-translate="settings">Settings</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-sign-out-alt"></i>
+                  <span data-translate="logout">Logout</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content">
+          <div class="content-header">
+            <div class="breadcrumb">
+              <span class="breadcrumb-item" data-translate="home">Home</span>
+              <i class="breadcrumb-separator fas fa-chevron-right"></i>
+              <a
+                href="vendors.html"
+                class="breadcrumb-item"
+                data-translate="vendors"
+                >Vendors</a
+              >
+              <i class="breadcrumb-separator fas fa-chevron-right"></i>
+              <span class="breadcrumb-item active" data-translate="add_vendor"
+                >Add Vendor</span
+              >
+            </div>
+          </div>
+
+          <!-- Add Vendor Content -->
+          <div class="add-vendor-content">
+            <!-- Page Header -->
+            <div class="page-header">
+              <div class="page-title-section">
+                <h2 class="page-main-title" data-translate="add_vendor">
+                  Add Vendor
+                </h2>
+              </div>
+            </div>
+
+            <!-- Vendor Form -->
+            <div class="vendor-form-container">
+              <form class="vendor-form" id="vendorForm">
+                <!-- Basic Information Section -->
+                <div class="form-section">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="vendorNameEn" class="form-label">
+                        <span data-translate="vendor_name">Vendor Name</span>
+                        <span class="required">*</span>
+                        <span class="label-lang" data-translate="english"
+                          >(English)</span
+                        >
+                      </label>
+                      <input
+                        type="text"
+                        id="vendorNameEn"
+                        name="vendorNameEn"
+                        class="form-control"
+                        placeholder="Tech Innovators"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="vendorNameAr" class="form-label">
+                        <span data-translate="vendor_name">Vendor Name</span>
+                        <span class="required">*</span>
+                        <span class="label-lang" data-translate="arabic"
+                          >(Arabic)</span
+                        >
+                      </label>
+                      <input
+                        type="text"
+                        id="vendorNameAr"
+                        name="vendorNameAr"
+                        class="form-control"
+                        placeholder="مبتكرو التكنولوجيا"
+                        required
+                        dir="rtl"
+                        style="
+                          font-family: 'Tajawal', sans-serif;
+                          text-align: right;
+                          direction: rtl;
+                        "
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-6">
+                      <label for="email" class="form-label">
+                        <span data-translate="email">Email</span>
+                        <span class="required">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="info@techinnovators.com"
+                        required
+                      />
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="phoneNumber" class="form-label">
+                        <span data-translate="phone_number">Phone Number</span>
+                        <span class="required">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        class="form-control"
+                        placeholder="+968 1234 5678"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-6">
+                      <label for="crNumber" class="form-label">
+                        <span data-translate="cr_number">CR Number</span>
+                        <span class="required">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="crNumber"
+                        name="crNumber"
+                        class="form-control"
+                        placeholder="123456789"
+                        required
+                      />
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="status" class="form-label">
+                        <span data-translate="status">Status</span>
+                        <span class="required">*</span>
+                      </label>
+                      <select
+                        id="status"
+                        name="status"
+                        class="form-control"
+                        required
+                      >
+                        <option value="active" data-translate="active">
+                          Active
+                        </option>
+                        <option value="inactive" data-translate="inactive">
+                          Inactive
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="vendorLogo" class="form-label">
+                        <span data-translate="vendor_logo">Vendor Logo</span>
+                      </label>
+                      <div class="file-upload">
+                        <input
+                          type="file"
+                          id="vendorLogo"
+                          name="vendorLogo"
+                          accept="image/*"
+                        />
+                        <div class="file-upload-display">
+                          <i class="fas fa-cloud-upload-alt"></i>
+                          <span data-translate="choose_file"
+                            >Choose file to upload logo</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    onclick="window.history.back()"
+                    data-translate="cancel"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="saveVendorBtn"
+                    data-translate="save_vendor"
+                  >
+                    Save Vendor
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="footer-content">
+            <p>
+              &copy; 2025 All rights reserved.
+              <span data-translate="ministry_info"
+                >Ministry of Transport, Communications and Information
+                Technology</span
+              >, under the management of
+              <span data-translate="global_computer_services"
+                >Global Computer Services LLC</span
+              >.
+            </p>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="../assets/js/makeen-translations.js"></script>
+    <script src="../assets/js/admin-dashboard.js"></script>
+    <script src="../assets/js/add-vendor.js"></script>
+  </body>
+</html>

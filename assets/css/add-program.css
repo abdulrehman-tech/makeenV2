@@ -1228,7 +1228,10 @@ textarea.form-control {
 [dir="rtl"] .faq-table th {
   text-align: right !important;
 }
-
+html[lang="ar"] .lang-btn,
+html[lang="ar"] .btn {
+	font-family: 'Tajawal', sans-serif;
+}
 /* Ensure action buttons in tables maintain their alignment in RTL */
 .rtl .question-actions,
 [dir="rtl"] .question-actions,
@@ -1237,6 +1240,10 @@ textarea.form-control {
   direction: ltr;
   justify-content: flex-start;
   text-align: left !important;
+}
+/* user-name */
+html[lang="ar"] .user-name {
+	font-family: 'Tajawal', sans-serif;
 }
 
 /* Fix for table header alignment in RTL */

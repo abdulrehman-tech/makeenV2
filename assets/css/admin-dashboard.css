@@ -135,7 +135,14 @@ body[dir="rtl"] .sidebar,
   left: auto !important;
   right: 0 !important;
 }
-
+/* user-name */
+html[lang="ar"] .user-name {
+	font-family: 'Tajawal', sans-serif;
+}
+html[lang="ar"] .lang-btn,
+html[lang="ar"] .btn {
+	font-family: 'Tajawal', sans-serif;
+}
 /* RTL sidebar content adjustments */
 body[dir="rtl"] .sidebar-header {
   flex-direction: row;
@@ -1205,12 +1212,12 @@ body[dir="rtl"] .chart-container canvas {
   background: rgba(255, 255, 255, 0.5);
 }
 
-body[dir="rtl"] .fas,
+/* body[dir="rtl"] .fas,
 body[dir="rtl"] .fa,
 body[dir="rtl"] .far,
 body[dir="rtl"] .fab {
   transform: scaleX(-1);
-}
+} */
 
 /* ===== FIXED HEADER ENFORCEMENT ===== */
 

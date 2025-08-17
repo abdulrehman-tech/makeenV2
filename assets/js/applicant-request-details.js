@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function () {
         profile: 'الملف الشخصي',
         settings: 'الإعدادات',
         logout: 'تسجيل الخروج',
-        
+
         // Applicant Request Details
         applicant_details: 'تفاصيل المتقدم',
         general_info: 'معلومات عامة',
@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', function () {
         approve: 'موافقة',
         applicant_name: 'سارة جونسون',
         applicant_email: 'sara.j@example.com',
-        applicant_phone: '٩١٢٣٤٥٦٧٩٦٨+',
+        applicant_phone: '+968 9123 4567',
         applicant_location: 'مسقط، عمان',
         applicant_applied_on: 'تم التقديم في 20 أبريل 2025',
         pending: 'قيد الانتظار',

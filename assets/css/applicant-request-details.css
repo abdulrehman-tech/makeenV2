@@ -60,6 +60,21 @@ html[lang="ar"] .accordion-header[aria-expanded="true"] .accordion-icon {
 	transform: rotate(0deg);
 }
 
+/* Action buttons font for Arabic */
+html[lang="ar"] .action-buttons .btn {
+	font-family: 'Tajawal', sans-serif;
+}
+
+/* Ensure proper alignment for RTL */
+html[lang="ar"] .action-buttons {
+	direction: rtl;
+}
+/* language buttons and the admin buttons font tajawal for arabic*/
+html[lang="ar"] .lang-btn,
+html[lang="ar"] .btn {
+	font-family: 'Tajawal', sans-serif;
+}
+
 .accordion-header:hover {
 	background: #f1f3f9;
 }

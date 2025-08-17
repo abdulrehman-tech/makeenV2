@@ -56,11 +56,7 @@ function applyLanguageState(lang) {
     const activeBtn = document.querySelector(`[data-lang="${lang}"]`);
     if (activeBtn) {
         activeBtn.classList.add('active');
-    }
-
-    // Apply language styles
-    applyLanguageStyles(lang);
-    
+    }    
     // Apply translations
     applyTranslations(lang);
     

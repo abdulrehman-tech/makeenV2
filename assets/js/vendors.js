@@ -1,183 +1,52 @@
-// ===== Applicant Requests PAGE JAVASCRIPT =====
+// ===== VENDORS PAGE JAVASCRIPT =====
 
 // DOM Elements
-const tabButtons = document.querySelectorAll('.tab-btn');
 const searchInput = document.querySelector('.search-input input');
 const exportButtons = document.querySelectorAll('.export-btn');
 const actionsButtons = document.querySelectorAll('.actions-btn');
 const paginationButtons = document.querySelectorAll('.pagination-btn');
 const entriesSelect = document.querySelector('.entries-per-page select');
+const addVendorBtn = document.querySelector('.add-vendor-btn');
 const filterButtons = document.querySelectorAll('.filter-btn');
-const searchInputApplicantRequest = document.querySelector('.search-input input');
-
-// ===== TAB FUNCTIONALITY =====
-
-// Handle tab switching
-function handleTabClick(e) {
-  const clickedTab = e.target;
-  const tabName = clickedTab.getAttribute('data-tab');
-
-  // Remove active class from all tabs
-  tabButtons.forEach(tab => tab.classList.remove('active'));
-
-  // Add active class to clicked tab
-  clickedTab.classList.add('active');
-
-  // Filter table based on tab
-  filterTableByStatus(tabName);
-
-  console.log(`Switched to ${tabName} tab`);
-}
-
-// Filter table by status
-function filterTableByStatus(status) {
-  const tableRows = document.querySelectorAll('.applicant-requests-table tbody tr');
-
-  tableRows.forEach(row => {
-    const statusBadge = row.querySelector('.status-badge');
-    //get the translation of the status
-    const rowStatus = statusBadge ? statusBadge.getAttribute('data-translate') : '';
-
-    if (status === 'all' || rowStatus === status) {
-      row.style.display = '';
-    } else {
-      row.style.display = 'none';
-    }
-  });
-
-  // Update pagination info
-  updatePaginationInfo();
-}
 
 // ===== SEARCH FUNCTIONALITY =====
 
 // Handle search input
-function handleSearchApplicantRequest(e) {
+function handleSearch(e) {
   const searchTerm = e.target.value.toLowerCase();
-  const tableRows = document.querySelectorAll('.applicant-requests-table tbody tr');
-
+  const tableRows = document.querySelectorAll('.vendors-table tbody tr');
+  
   tableRows.forEach(row => {
-    const applicantName = row.querySelector('.applicant-name span').textContent.toLowerCase();
-    if (applicantName.includes(searchTerm)) {
+    const vendorNameEn = row.querySelector('.vendor-name span').textContent.toLowerCase();
+    const vendorNameAr = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+    const email = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+    const phone = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
+    const crNumber = row.querySelector('td:nth-child(5)').textContent.toLowerCase();
+    const status = row.querySelector('td:nth-child(6)').textContent.toLowerCase();
+    
+    if (vendorNameEn.includes(searchTerm) || 
+        vendorNameAr.includes(searchTerm) || 
+        email.includes(searchTerm) || 
+        phone.includes(searchTerm) || 
+        crNumber.includes(searchTerm) ||
+        status.includes(searchTerm)) {
       row.style.display = '';
     } else {
       row.style.display = 'none';
     }
   });
+  
   // Update pagination info
   updatePaginationInfo();
 }
-// Update pagination info
-function updatePaginationInfo() {
-  const visibleRows = document.querySelectorAll('.applicant-requests-table tbody tr:not([style*="display: none"])');
-  const totalEntries = visibleRows.length;
-  const entriesPerPage = parseInt(entriesSelect.value);
-
-  const infoElement = document.querySelector('[data-translate="showing_entries"]');
-  if (infoElement) {
-    infoElement.textContent = `Showing 1 to ${Math.min(entriesPerPage, totalEntries)} of ${totalEntries} entries`;
-  }
-}
-
-// Clear all filters
-function clearAllFilters() {
-  // Reset all tab buttons to "All"
-  tabButtons.forEach(tab => tab.classList.remove('active'));
-  const allTab = document.querySelector('.tab-btn[data-tab="all"]');
-  if (allTab) {
-    allTab.classList.add('active');
-  }
-
-  // Clear search input
-  if (searchInputApplicantRequest) {
-    searchInputApplicantRequest.value = '';
-  }
-
-  // Show all rows
-  const tableRows = document.querySelectorAll('.applicant-requests-table tbody tr');
-  tableRows.forEach(row => {
-    row.style.display = '';
-  });
-
-  // Update pagination
-  updatePaginationInfo();
-
-  showNotification('All filters cleared successfully', 'success');
-}
-// ===== EVENT LISTENERS =====
-
-// Initialize event listeners
-function initializeEventListenersApplicantRequest() {
-  // Language switcher
-  const langButtons = document.querySelectorAll('.lang-btn');
-  langButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const lang = e.target.getAttribute('data-lang');
-      switchLanguage(lang);
-    });
-  });
-
-  // Search input
-  if (searchInputApplicantRequest) {
-    searchInputApplicantRequest.addEventListener('input', handleSearchApplicantRequest);
-  }
-
-  // Export buttons
-  exportButtons.forEach(btn => {
-    btn.addEventListener('click', handleExport);
-  });
-
-  // Actions buttons
-  actionsButtons.forEach(btn => {
-    btn.addEventListener('click', handleActionsClick);
-  });
-
-  // Action dropdown items
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('.dropdown-menu .dropdown-item')) {
-      handleActionItemClick(e);
-    }
-  });
-
-  // Pagination buttons
-  paginationButtons.forEach(btn => {
-    btn.addEventListener('click', handlePagination);
-  });
-
-  // Entries per page
-  if (entriesSelect) {
-    entriesSelect.addEventListener('change', handleEntriesChange);
-  }
-
-  // Filter buttons
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', handleFilterClick);
-  });
-
-  // Close dropdowns when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.actions-dropdown')) {
-      const allDropdowns = document.querySelectorAll('.dropdown-menu');
-      allDropdowns.forEach(dropdown => {
-        dropdown.style.opacity = '0';
-        dropdown.style.visibility = 'hidden';
-        dropdown.style.transform = 'translateY(-10px)';
-      });
-    }
-  });
-}
-
 
 // ===== EXPORT FUNCTIONALITY =====
 
 // Handle export buttons
 function handleExport(e) {
   const action = e.currentTarget.getAttribute('data-action');
-
-  switch (action) {
-    case 'copy':
-      copyTableToClipboard();
-      break;
+  
+  switch(action) {
     case 'csv':
       exportToCSV();
       break;
@@ -190,46 +59,28 @@ function handleExport(e) {
   }
 }
 
-// Copy table to clipboard
-function copyTableToClipboard() {
-  const table = document.querySelector('.applicant-requests-table');
-  const range = document.createRange();
-  range.selectNode(table);
-  window.getSelection().removeAllRanges();
-  window.getSelection().addRange(range);
-
-  try {
-    document.execCommand('copy');
-    showNotification('Table copied to clipboard!', 'success');
-  } catch (err) {
-    showNotification('Failed to copy table', 'error');
-  }
-
-  window.getSelection().removeAllRanges();
-}
-
 // Export to CSV
 function exportToCSV() {
-  const table = document.querySelector('.applicant-requests-table');
+  const table = document.querySelector('.vendors-table');
   const rows = table.querySelectorAll('tr');
   let csv = [];
-
+  
   rows.forEach(row => {
     const cols = row.querySelectorAll('td, th');
     const rowData = [];
-
+    
     cols.forEach(col => {
       // Get text content, excluding action buttons
       if (!col.classList.contains('actions-dropdown')) {
         rowData.push(`"${col.textContent.trim()}"`);
       }
     });
-
+    
     csv.push(rowData.join(','));
   });
-
+  
   const csvContent = csv.join('\n');
-  downloadFile(csvContent, 'applicant-requests.csv', 'text/csv');
+  downloadFile(csvContent, 'vendors.csv', 'text/csv');
   showNotification('CSV exported successfully!', 'success');
 }
 
@@ -241,36 +92,30 @@ function exportToPDF() {
 // Print table
 function printTable() {
   const printWindow = window.open('', '_blank');
-  const table = document.querySelector('.applicant-requests-table').cloneNode(true);
-
+  const table = document.querySelector('.vendors-table').cloneNode(true);
+  
   // Remove action buttons for printing
   const actionCells = table.querySelectorAll('.actions-dropdown');
   actionCells.forEach(cell => cell.remove());
-
+  
   printWindow.document.write(`
     <html>
       <head>
-        <title>Applicant Requests Report</title>
+        <title>Vendors Report</title>
         <style>
           body { font-family: Arial, sans-serif; }
           table { width: 100%; border-collapse: collapse; }
           th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
           th { background-color: #f2f2f2; }
-          .status-badge { padding: 2px 8px; border-radius: 12px; font-size: 10px; }
-          .published { background: #d1fae5; color: #065f46; }
-          .pending { background: #fef3c7; color: #92400e; }
-          .rejected { background: #fee2e2; color: #991b1b; }
-          .closed { background: #f3f4f6; color: #374151; }
-          .draft { background: #f9fafb; color: #6b7280; }
         </style>
       </head>
       <body>
-        <h1>Applicant Requests Report</h1>
+        <h1>Vendors Report</h1>
         ${table.outerHTML}
       </body>
     </html>
   `);
-
+  
   printWindow.document.close();
   printWindow.print();
   showNotification('Print dialog opened!', 'success');
@@ -291,61 +136,10 @@ function downloadFile(content, filename, contentType) {
 
 // ===== ACTIONS DROPDOWN =====
 
-// Define action options for each status
-const statusActions = {
-  pending: ['view_details', 'approve', 'reject'],
-  approved: ['view_details'],
-  rejected: ['view_details'],
-};
-
-// Generate dropdown content based on status
-function generateDropdownContent(status) {
-  const actions = statusActions[status] || [];
-  return actions.map(action =>
-    `<a href="#" class="dropdown-item" data-action="${action}" data-translate="${action}">${getTranslation(action)}</a>`
-  ).join('');
-}
-
-// Get translation for action
-function getTranslation(action) {
-  const currentLang = localStorage.getItem('site-lang') || 'en';
-  const translations = {
-    en: {
-      preview: 'Preview',
-      edit: 'Edit',
-      publish: 'Publish',
-      program_requests: 'Program Requests',
-      view_details: 'View Details',
-      approve: 'Approve',
-      reject: 'Reject'
-    },
-    ar: {
-      preview: 'معاينة',
-      edit: 'تعديل',
-      publish: 'نشر',
-      program_requests: 'طلبات البرنامج',
-      view_details: 'تفاصيل',
-      approve: 'تقبل',
-      reject: 'رفض'
-    }
-  };
-  return translations[currentLang]?.[action] || action;
-}
-
-// Populate all dropdown menus
-function populateDropdownMenus() {
-  const dropdownMenus = document.querySelectorAll('.dropdown-menu[data-status]');
-
-  dropdownMenus.forEach(dropdown => {
-    const status = dropdown.getAttribute('data-status');
-    dropdown.innerHTML = generateDropdownContent(status);
-  });
-}
-
 // Handle actions dropdown
 function handleActionsClick(e) {
   e.stopPropagation();
-
+  
   // Close all other dropdowns
   const allDropdowns = document.querySelectorAll('.dropdown-menu');
   allDropdowns.forEach(dropdown => {
@@ -355,10 +149,10 @@ function handleActionsClick(e) {
       dropdown.style.transform = 'translateY(-10px)';
     }
   });
-
+  
   const dropdown = e.currentTarget.nextElementSibling;
   const isVisible = dropdown.style.opacity === '1';
-
+  
   if (isVisible) {
     dropdown.style.opacity = '0';
     dropdown.style.visibility = 'hidden';
@@ -373,82 +167,37 @@ function handleActionsClick(e) {
 // Handle action item clicks
 function handleActionItemClick(e) {
   e.preventDefault();
-  const action = e.target.getAttribute('data-translate');
+  const action = e.target.closest('.dropdown-item').getAttribute('data-action');
   const row = e.target.closest('tr');
-  const applicantName = row.querySelector('.applicant-name span').textContent;
-  const status = e.target.closest('.dropdown-menu').getAttribute('data-status');
-
-  console.log(`Action "${action}" clicked for applicant: ${applicantName} (Status: ${status})`);
-
+  const vendorName = row.querySelector('.vendor-name span').textContent;
+  
+  console.log(`Action "${action}" clicked for vendor: ${vendorName}`);
+  
   // Handle different actions
-  switch (action) {
-    case 'view_details':
-      window.location.href = `applicant-request-details.html`;
+  switch(action) {
+    case 'view':
+      showNotification(`Viewing ${vendorName}`, 'info');
       break;
-    case 'approve':
-      showNotification(`Approved ${applicantName}`, 'info');
+    case 'edit':
+      showNotification(`Editing ${vendorName}`, 'info');
+      // Navigate to edit page with vendor ID
+      window.location.href = `add-vendor.html?mode=edit&id=${row.dataset.vendorId || '1'}`;
       break;
-    case 'reject':
-      showNotification(`Rejected ${applicantName}`, 'info');
+    case 'delete':
+      if (confirm(`Are you sure you want to delete ${vendorName}?`)) {
+        showNotification(`Deleting ${vendorName}`, 'success');
+        // Remove row from table
+        row.remove();
+        updatePaginationInfo();
+      }
       break;
   }
-
+  
   // Close dropdown
   const dropdown = e.target.closest('.dropdown-menu');
   dropdown.style.opacity = '0';
   dropdown.style.visibility = 'hidden';
   dropdown.style.transform = 'translateY(-10px)';
-}
-
-// Update program status and refresh dropdown
-function updateProgramStatus(row, newStatus) {
-  const statusBadge = row.querySelector('.status-badge');
-  const dropdown = row.querySelector('.dropdown-menu');
-
-  if (statusBadge && dropdown) {
-    // Update status badge
-    statusBadge.className = `status-badge ${newStatus}`;
-    statusBadge.textContent = getTranslation(newStatus);
-    statusBadge.setAttribute('data-translate', newStatus);
-
-    // Update dropdown status and content
-    dropdown.setAttribute('data-status', newStatus);
-    dropdown.innerHTML = generateDropdownContent(newStatus);
-
-    // Re-apply translations to new dropdown items
-    const currentLang = localStorage.getItem('site-lang') || 'en';
-    const dropdownItems = dropdown.querySelectorAll('[data-translate]');
-    dropdownItems.forEach(item => {
-      const key = item.getAttribute('data-translate');
-      const translation = getTranslation(key);
-      if (translation) {
-        item.textContent = translation;
-      }
-    });
-
-    showNotification(`Applicant request status updated to ${getTranslation(newStatus)}`, 'success');
-  }
-}
-
-// Refresh all dropdown content (useful after language changes)
-function refreshAllDropdowns() {
-  const dropdownMenus = document.querySelectorAll('.dropdown-menu[data-status]');
-
-  dropdownMenus.forEach(dropdown => {
-    const status = dropdown.getAttribute('data-status');
-    dropdown.innerHTML = generateDropdownContent(status);
-
-    // Apply translations to new content
-    const currentLang = localStorage.getItem('site-lang') || 'en';
-    const dropdownItems = dropdown.querySelectorAll('[data-translate]');
-    dropdownItems.forEach(item => {
-      const key = item.getAttribute('data-translate');
-      const translation = getTranslation(key);
-      if (translation) {
-        item.textContent = translation;
-      }
-    });
-  });
 }
 
 // ===== PAGINATION =====
@@ -458,7 +207,7 @@ function handlePagination(e) {
   const button = e.target;
   const action = button.getAttribute('data-action');
   const page = button.getAttribute('data-page');
-
+  
   if (action) {
     handlePaginationAction(action);
   } else if (page) {
@@ -470,8 +219,8 @@ function handlePagination(e) {
 function handlePaginationAction(action) {
   const currentPage = getCurrentPage();
   let newPage = currentPage;
-
-  switch (action) {
+  
+  switch(action) {
     case 'first':
       newPage = 1;
       break;
@@ -485,7 +234,7 @@ function handlePaginationAction(action) {
       newPage = getTotalPages();
       break;
   }
-
+  
   if (newPage !== currentPage) {
     goToPage(newPage);
   }
@@ -499,10 +248,10 @@ function goToPage(page) {
   if (pageButton) {
     pageButton.classList.add('active');
   }
-
+  
   // Update pagination info
   updatePaginationInfo();
-
+  
   console.log(`Navigated to page ${page}`);
 }
 
@@ -519,10 +268,10 @@ function getTotalPages() {
 
 // Update pagination info
 function updatePaginationInfo() {
-  const visibleRows = document.querySelectorAll('.programs-table tbody tr:not([style*="display: none"])');
+  const visibleRows = document.querySelectorAll('.vendors-table tbody tr:not([style*="display: none"])');
   const totalEntries = visibleRows.length;
   const entriesPerPage = parseInt(entriesSelect.value);
-
+  
   const infoElement = document.querySelector('[data-translate="showing_entries"]');
   if (infoElement) {
     infoElement.textContent = `Showing 1 to ${Math.min(entriesPerPage, totalEntries)} of ${totalEntries} entries`;
@@ -535,16 +284,16 @@ function updatePaginationInfo() {
 function handleEntriesChange(e) {
   const entriesPerPage = parseInt(e.target.value);
   console.log(`Changed entries per page to ${entriesPerPage}`);
-
+  
   // Update pagination info
   updatePaginationInfo();
 }
 
-// ===== ADD PROGRAM =====
+// ===== ADD VENDOR =====
 
-// Handle add program button
-function handleAddProgram() {
-  // showNotification('Add Program feature coming soon!', 'info');
+// Handle add vendor button
+function handleAddVendor() {
+  window.location.href = 'add-vendor.html';
 }
 
 // ===== FILTER BUTTONS =====
@@ -554,9 +303,9 @@ function handleFilterClick(e) {
   const filterType = e.currentTarget.getAttribute('data-filter');
   const isAddFilter = e.currentTarget.classList.contains('add-filter');
   const isClearFilter = e.currentTarget.classList.contains('clear-filter');
-
+  
   console.log(`Filter action: ${filterType}`);
-
+  
   if (isAddFilter) {
     // Handle add filter functionality
     showAddFilterModal();
@@ -573,33 +322,21 @@ function showAddFilterModal() {
 
 // Clear all filters
 function clearAllFilters() {
-  // Reset all tab buttons to "All"
-  tabButtons.forEach(tab => tab.classList.remove('active'));
-  const allTab = document.querySelector('.tab-btn[data-tab="all"]');
-  if (allTab) {
-    allTab.classList.add('active');
-  }
-
   // Clear search input
   if (searchInput) {
     searchInput.value = '';
   }
-
+  
   // Show all rows
-  const tableRows = document.querySelectorAll('.programs-table tbody tr');
+  const tableRows = document.querySelectorAll('.vendors-table tbody tr');
   tableRows.forEach(row => {
     row.style.display = '';
   });
-
+  
   // Update pagination
   updatePaginationInfo();
-
+  
   showNotification('All filters cleared successfully', 'success');
-}
-
-// Show status filter modal (placeholder)
-function showStatusFilterModal() {
-  showNotification('Status filter modal coming soon!', 'info');
 }
 
 // ===== NOTIFICATIONS =====
@@ -618,7 +355,7 @@ function showNotification(message, type = 'info') {
       <i class="fas fa-times"></i>
     </button>
   `;
-
+  
   // Add styles
   notification.style.cssText = `
     position: fixed;
@@ -636,10 +373,10 @@ function showNotification(message, type = 'info') {
     max-width: 300px;
     animation: slideIn 0.3s ease;
   `;
-
+  
   // Add to page
   document.body.appendChild(notification);
-
+  
   // Auto remove after 3 seconds
   setTimeout(() => {
     notification.style.animation = 'slideOut 0.3s ease';
@@ -649,7 +386,7 @@ function showNotification(message, type = 'info') {
       }
     }, 300);
   }, 3000);
-
+  
   // Close button
   const closeBtn = notification.querySelector('.notification-close');
   closeBtn.addEventListener('click', () => {
@@ -664,7 +401,7 @@ function showNotification(message, type = 'info') {
 
 // Get notification icon
 function getNotificationIcon(type) {
-  switch (type) {
+  switch(type) {
     case 'success': return 'check-circle';
     case 'error': return 'exclamation-circle';
     case 'warning': return 'exclamation-triangle';
@@ -674,7 +411,7 @@ function getNotificationIcon(type) {
 
 // Get notification color
 function getNotificationColor(type) {
-  switch (type) {
+  switch(type) {
     case 'success': return '#10b981';
     case 'error': return '#ef4444';
     case 'warning': return '#f59e0b';
@@ -694,49 +431,49 @@ function initializeEventListeners() {
       switchLanguage(lang);
     });
   });
-
-  // Tab buttons
-  tabButtons.forEach(tab => {
-    tab.addEventListener('click', handleTabClick);
-  });
-
+  
   // Search input
   if (searchInput) {
-    searchInput.addEventListener('input', handleSearchApplicantRequest);
+    searchInput.addEventListener('input', handleSearch);
   }
-
+  
   // Export buttons
   exportButtons.forEach(btn => {
     btn.addEventListener('click', handleExport);
   });
-
+  
   // Actions buttons
   actionsButtons.forEach(btn => {
     btn.addEventListener('click', handleActionsClick);
   });
-
+  
   // Action dropdown items
   document.addEventListener('click', (e) => {
     if (e.target.closest('.dropdown-menu .dropdown-item')) {
       handleActionItemClick(e);
     }
   });
-
+  
   // Pagination buttons
   paginationButtons.forEach(btn => {
     btn.addEventListener('click', handlePagination);
   });
-
+  
   // Entries per page
   if (entriesSelect) {
     entriesSelect.addEventListener('change', handleEntriesChange);
   }
-
+  
+  // Add vendor button
+  if (addVendorBtn) {
+    addVendorBtn.addEventListener('click', handleAddVendor);
+  }
+  
   // Filter buttons
   filterButtons.forEach(btn => {
     btn.addEventListener('click', handleFilterClick);
   });
-
+  
   // Close dropdowns when clicking outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.actions-dropdown')) {
@@ -752,14 +489,15 @@ function initializeEventListeners() {
 
 // ===== INITIALIZATION =====
 
-// Initialize Applicant Requests page
-function initializeApplicantRequestPage() {
+// Initialize vendors page
+function initializeVendorsPage() {
   // Initialize language state from localStorage
   initializeLanguageState();
+  
   initializeEventListeners();
   updatePaginationInfo();
-  populateDropdownMenus(); // Populate dropdowns after initialization
-  console.log('Applicant requests page initialized successfully');
+  
+  console.log('Vendors page initialized successfully');
 }
 
 // Initialize language state
@@ -786,13 +524,10 @@ function applyLanguageState(lang) {
 
   // Apply language styles
   applyLanguageStyles(lang);
-
+  
   // Apply translations
   applyTranslations(lang);
-
-  // Refresh dropdown content with new language
-  refreshAllDropdowns();
-
+  
   console.log(`Language state applied: ${lang}`);
 }
 
@@ -808,32 +543,21 @@ function switchLanguage(lang) {
 
   // Apply language styles
   applyLanguageStyles(lang);
-
+  
   // Apply translations
   applyTranslations(lang);
-
-  // Refresh dropdown content with new language
-  refreshAllDropdowns();
-
+  
   // Store language preference in localStorage
   localStorage.setItem('site-lang', lang);
-
+  
   console.log(`Language switched to: ${lang}`);
-
-  // Debug: Log current language state
-  console.log('Current language state:', {
-    localStorage: localStorage.getItem('site-lang'),
-    htmlDir: document.documentElement.getAttribute('dir'),
-    bodyDir: document.body.getAttribute('dir'),
-    activeButton: document.querySelector('.lang-btn.active')?.getAttribute('data-lang')
-  });
 }
 
 // Apply language-specific styles
 function applyLanguageStyles(lang) {
   const html = document.documentElement;
   const body = document.body;
-
+  
   if (lang === 'ar') {
     html.setAttribute('dir', 'rtl');
     body.setAttribute('dir', 'rtl');
@@ -847,7 +571,7 @@ function applyLanguageStyles(lang) {
   }
 }
 
-// Apply translations (reuse from admin-dashboard.js)
+// Apply translations
 function applyTranslations(lang) {
   const translations = {
     en: {
@@ -859,48 +583,36 @@ function applyTranslations(lang) {
       vendors: 'Vendors',
       applicants: 'Applicants',
       reimbursement: 'Reimbursement',
-
+      
       // User menu
       admin: 'Admin',
       profile: 'Profile',
       settings: 'Settings',
       logout: 'Logout',
-
-      // Programs page
-      add_program: 'Add Program',
+      
+      // Vendors page
+      add_vendor: 'Add Vendor',
       add_filter: 'Add Filter',
       clear_filter: 'Clear Filter',
-      all: 'All',
-      pending: 'Pending',
-      published: 'Published',
-      rejected: 'Rejected',
-      closed: 'Closed',
-      draft: 'Draft',
       copy: 'Copy',
       csv: 'CSV',
       pdf: 'PDF',
       print: 'Print',
-      column_visibility: 'Column visibility',
-      search_programs: 'Search programs...',
-      program_name: 'Program Name',
-      vendor: 'Vendor',
-      duration: 'Duration',
-      location: 'Location',
-      date_to: 'Date To',
-      date_from: 'Date From',
+      search_vendors: 'Search vendors...',
+      vendor_name_en: 'Vendor Name (EN)',
+      vendor_name_ar: 'Vendor Name (AR)',
+      email: 'Email',
+      phone_number: 'Phone Number',
+      cr_number: 'CR Number',
       status: 'Status',
+      active: 'Active',
+      inactive: 'Inactive',
       actions: 'Actions',
-      preview: 'Preview',
+      view: 'View',
       edit: 'Edit',
-      program_requests: 'Program Requests',
-      publish: 'Publish',
+      delete: 'Delete',
       showing_entries: 'Showing 1 to 05 of 12 entries',
-      applicant_name: 'Applicant Name',
-      program: 'Program',
-      applied_on: 'Applied On',
-      approved: 'Approved',
-
-
+      
       // Footer
       all_rights_reserved: 'All rights reserved.',
       privacy_policy: 'Privacy Policy',
@@ -916,47 +628,36 @@ function applyTranslations(lang) {
       vendors: 'الموردين',
       applicants: 'المتقدمين',
       reimbursement: 'الاسترداد',
-
+      
       // User menu
       admin: 'المدير',
       profile: 'الملف الشخصي',
       settings: 'الإعدادات',
       logout: 'تسجيل الخروج',
-
-      // Programs page
-      add_program: 'إضافة برنامج',
+      
+      // Vendors page
+      add_vendor: 'إضافة مورد',
       add_filter: 'إضافة فلتر',
       clear_filter: 'مسح الفلتر',
-      all: 'الكل',
-      pending: 'قيد الانتظار',
-      published: 'منشور',
-      rejected: 'مرفوض',
-      closed: 'مغلق',
-      draft: 'مسودة',
       copy: 'نسخ',
       csv: 'CSV',
       pdf: 'PDF',
       print: 'طباعة',
-      column_visibility: 'رؤية الأعمدة',
-      search_programs: 'البحث في البرامج...',
-      program_name: 'اسم البرنامج',
-      vendor: 'المورد',
-      duration: 'المدة',
-      location: 'الموقع',
-      date_to: 'التاريخ إلى',
-      date_from: 'التاريخ من',
+      search_vendors: 'البحث في الموردين...',
+      vendor_name_en: 'اسم المورد (إنجليزي)',
+      vendor_name_ar: 'اسم المورد (عربي)',
+      email: 'البريد الإلكتروني',
+      phone_number: 'رقم الهاتف',
+      cr_number: 'رقم السجل التجاري',
       status: 'الحالة',
+      active: 'نشط',
+      inactive: 'غير نشط',
       actions: 'الإجراءات',
-      preview: 'معاينة',
+      view: 'عرض',
       edit: 'تعديل',
-      program_requests: 'طلبات البرنامج',
-      publish: 'نشر',
+      delete: 'حذف',
       showing_entries: 'عرض 1 إلى 05 من 12 إدخال',
-      applicant_name: 'اسم المتقدم',
-      program: 'البرنامج',
-      applied_on: 'تاريخ التقديم',
-      approved: 'تم الموافقة عليه',
-
+      
       // Footer
       all_rights_reserved: 'جميع الحقوق محفوظة.',
       privacy_policy: 'سياسة الخصوصية',
@@ -975,8 +676,7 @@ function applyTranslations(lang) {
 }
 
 // Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', initializeApplicantRequestPage,)
-initializeEventListenersApplicantRequest();
+document.addEventListener('DOMContentLoaded', initializeVendorsPage);
 
 // Listen for storage changes (language changes from other tabs/windows)
 window.addEventListener('storage', (e) => {
@@ -1030,4 +730,4 @@ style.textContent = `
     opacity: 0.8;
   }
 `;
-document.head.appendChild(style); 
+document.head.appendChild(style);
