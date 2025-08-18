@@ -5,14 +5,14 @@
 }
 
 body {
-  font-family: "Tajawal", "Urbanist", sans-serif;
+  font-family: "Poppins", "Tajawal", sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
   transition: all 0.3s ease;
 }
 
 body[dir="rtl"] {
-  font-family: "Tajawal", "Urbanist", sans-serif;
+  font-family: "Tajawal", sans-serif;
   text-align: right;
 }
 

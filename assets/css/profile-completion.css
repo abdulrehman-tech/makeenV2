@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Tajawal", "Urbanist", sans-serif;
+  font-family: "Poppins", "Tajawal", sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
   transition: all 0.3s ease;
@@ -15,12 +15,12 @@ body {
 body[dir="rtl"] {
   direction: rtl;
   text-align: right;
-  font-family: "Tajawal", "Urbanist", sans-serif !important;
+  font-family: "Tajawal", sans-serif !important;
 }
 
 /* Arabic font support */
 body[dir="rtl"] * {
-  font-family: "Tajawal", "Urbanist", sans-serif !important;
+  font-family: "Tajawal", sans-serif !important;
 }
 
 /* Ensure Arabic text uses Tajawal */
@@ -37,7 +37,7 @@ body[dir="rtl"] * {
 .copyright-ar,
 .success-msg-ar,
 .complete-profile-ar {
-  font-family: "Tajawal", "Urbanist", sans-serif !important;
+  font-family: "Tajawal", sans-serif !important;
 }
 
 .profile-container {

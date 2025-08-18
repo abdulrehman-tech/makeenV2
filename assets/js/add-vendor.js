@@ -301,14 +301,6 @@ function initializeEventListeners() {
     vendorLogoInput.addEventListener('change', handleFileUpload);
   }
   
-  // Language switcher
-  const langButtons = document.querySelectorAll('.lang-btn');
-  langButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const lang = e.target.getAttribute('data-lang');
-      switchLanguage(lang);
-    });
-  });
 }
 
 // ===== INITIALIZATION =====
@@ -367,105 +359,11 @@ function applyLanguageState(lang) {
   if (activeBtn) {
     activeBtn.classList.add('active');
   }
-
-  // Apply language styles
-  applyLanguageStyles(lang);
-  
   // Apply translations
   applyTranslations(lang);
   
   console.log(`Language state applied: ${lang}`);
 }
-
-// // Switch language function
-// function switchLanguage(lang) {
-//   // Update language buttons
-//   const langButtons = document.querySelectorAll('.lang-btn');
-//   langButtons.forEach(btn => btn.classList.remove('active'));
-//   const activeBtn = document.querySelector(`[data-lang="${lang}"]`);
-//   if (activeBtn) {
-//     activeBtn.classList.add('active');
-//   }
-
-//   // Apply language styles
-//   applyLanguageStyles(lang);
-  
-//   // Apply translations
-//   applyTranslations(lang);
-  
-//   // Store language preference in localStorage
-//   localStorage.setItem('site-lang', lang);
-  
-//   console.log(`Language switched to: ${lang}`);
-// }
-
-// // Apply language-specific styles
-// function applyLanguageStyles(lang) {
-//   const html = document.documentElement;
-//   const body = document.body;
-  
-//   if (lang === 'ar') {
-//     html.setAttribute('dir', 'rtl');
-//     body.setAttribute('dir', 'rtl');
-//     html.classList.add('rtl-lang');
-//     body.classList.add('rtl-lang');
-//     html.classList.remove('ltr-lang');
-//     body.classList.remove('ltr-lang');
-    
-//     // Apply Arabic font family to form elements
-//     const formElements = document.querySelectorAll('.form-control, .form-label, .btn, .file-upload-display, .page-main-title');
-//     formElements.forEach(element => {
-//       element.style.fontFamily = "'Tajawal', sans-serif";
-//     });
-    
-//     // Ensure Arabic input field always has correct font family
-//     const arabicInput = document.getElementById('vendorNameAr');
-//     if (arabicInput) {
-//       arabicInput.style.fontFamily = "'Tajawal', sans-serif";
-//       arabicInput.style.textAlign = 'right';
-//       arabicInput.style.direction = 'rtl';
-//     }
-    
-//     // Apply RTL text alignment
-//     const textElements = document.querySelectorAll('.form-control, .form-label, .page-main-title, .file-upload-display');
-//     textElements.forEach(element => {
-//       element.style.textAlign = 'right';
-//       if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-//         element.style.direction = 'rtl';
-//       }
-//     });
-//   } else {
-//     html.setAttribute('dir', 'ltr');
-//     body.setAttribute('dir', 'ltr');
-//     html.classList.remove('rtl-lang');
-//     body.classList.remove('rtl-lang');
-//     html.classList.add('ltr-lang');
-//     body.classList.add('ltr-lang');
-    
-//     // Apply English font family to form elements
-//     const formElements = document.querySelectorAll('.form-control, .form-label, .btn, .file-upload-display, .page-main-title');
-//     formElements.forEach(element => {
-//       element.style.fontFamily = "'Poppins', sans-serif";
-//     });
-    
-//     // Ensure English input field always has correct font family
-//     const englishInput = document.getElementById('vendorNameEn');
-//     if (englishInput) {
-//       englishInput.style.fontFamily = "'Poppins', sans-serif";
-//       englishInput.style.textAlign = 'left';
-//       englishInput.style.direction = 'ltr';
-//     }
-    
-//     // Apply LTR text alignment
-//     const textElements = document.querySelectorAll('.form-control, .form-label, .page-main-title, .file-upload-display');
-//     textElements.forEach(element => {
-//       element.style.textAlign = 'left';
-//       if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-//         element.style.direction = 'ltr';
-//       }
-//     });
-//   }
-// }
 
 // Apply translations
 function applyTranslations(lang) {

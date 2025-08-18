@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Makeen Admin - Applicant Requests</title>
+  <title>Makeen Admin - Applicants</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,7 +18,7 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/admin-dashboard.css" />
-  <link rel="stylesheet" href="../assets/css/applicant-requests.css" />
+  <link rel="stylesheet" href="../assets/css/applicants.css" />
 </head>
 
 <body>
@@ -55,7 +55,7 @@
               <span class="nav-text" data-translate="programs">Programs</span>
             </a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a href="applicant-requests.html" class="nav-link">
               <img src="../assets/images/profile2user.svg" alt="Applicant Requests" class="nav-icon" />
               <span class="nav-text" data-translate="applicant_requests">Applicant Requests</span>
@@ -67,7 +67,7 @@
               <span class="nav-text" data-translate="vendors">Vendors</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a href="applicants.html" class="nav-link">
               <img src="../assets/images/profile2user-1.svg" alt="Applicants" class="nav-icon" />
               <span class="nav-text" data-translate="applicants">Applicants</span>
@@ -92,7 +92,7 @@
             <i class="fas fa-bars"></i>
           </button>
           <div class="page-title-dropdown">
-            <h1 class="page-title" data-translate="applicant_requests">Applicant Requests</h1>
+            <h1 class="page-title" data-translate="applicants">Applicants</h1>
           </div>
         </div>
 
@@ -135,43 +135,28 @@
           <div class="breadcrumb">
             <span class="breadcrumb-item" data-translate="home">Home</span>
             <i class="breadcrumb-separator fas fa-chevron-right"></i>
-            <span class="breadcrumb-item active" data-translate="applicant_requests">Applicant Requests</span>
+            <span class="breadcrumb-item active" data-translate="applicants">Applicants</span>
           </div>
         </div>
 
-        <!-- Applicant Requests Content -->
-        <div class="applicant-requests-content">
+        <!-- Applicants Content -->
+        <div class="applicants-content">
           <!-- Page Header -->
           <div class="page-header">
             <div class="page-title-section">
-              <h2 class="page-main-title" data-translate="applicant_requests">Applicant Requests</h2>
+              <h2 class="page-main-title" data-translate="applicants">Applicants</h2>
             </div>
-            <div class="page-actions">
-              <div class="filter-buttons">
-                <button class="filter-btn add-filter" data-filter="all">
-                  <img src="../assets/images/add_filter.png" alt="Add Filter" class="filter-icon">
-                  <span data-translate="add_filter">Add Filter</span>
-                </button>
-                <button class="filter-btn clear-filter" data-filter="status">
-                  <img src="../assets/images/clear_filter.png" alt="Clear Filter" class="filter-icon">
-                  <span data-translate="clear_filter">Clear Filter</span>
-                </button>
-              </div>
-            </div>
+            <!-- <div class="page-actions">
+              <button class="add-applicant-btn" onclick="window.location.href='add-applicant.html'">
+                <i class="fas fa-plus"></i>
+                <span data-translate="add_applicant">Add Applicant</span>
+              </button>
+            </div> -->
           </div>
 
-          <!-- Tabs -->
-          <div class="applicant-requests-tabs">
-            <button class="tab-btn active" data-tab="all" data-translate="all">All</button>
-            <button class="tab-btn" data-tab="pending" data-translate="pending">Pending</button>
-            <button class="tab-btn" data-tab="approved" data-translate="approved">Approved</button>
-            <button class="tab-btn" data-tab="rejected" data-translate="rejected">Rejected</button>
-          </div>
-
-          <!-- Table Controls -->
+          <!-- Table Controls -->   
           <div class="table-controls">
             <div class="export-buttons">
-
               <button class="export-btn" data-action="csv">
                 <i class="fas fa-file-csv"></i>
                 <span data-translate="csv">CSV</span>
@@ -185,36 +170,24 @@
                 <span data-translate="print">Print</span>
               </button>
             </div>
-
             <div class="search-section">
-              <!-- dropdopwn for programs-->
-              <div class="program-dropdown">
-                <select class="program-dropdown">
-                  <option value="all" data-translate="all">All</option>
-                  <option value="Get Started with 3D Modeling" data-translate="get_started_with_3d_modeling">Get Started
-                    with 3D Modeling</option>
-                  <option value="Learn Figma from zero to hero" data-translate="learn_figma_from_zero_to_hero">Learn
-                    Figma from zero to hero</option>
-                  <option value="Learn Swift Language" data-translate="learn_swift_language">Learn Swift Language
-                  </option>
-                </select>
-              </div>
-              <!-- search -->
               <div class="search-input">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search..." data-translate-placeholder="search_applicant_requests" />
+                <input type="text" placeholder="Search..." data-translate-placeholder="search_applicants" />
               </div>
             </div>
           </div>
 
-          <!-- Applicant Requests Table -->
-          <div class="applicant-requests-table-container">
-            <table class="applicant-requests-table">
+          <!-- Applicants Table -->
+          <div class="table-container">
+            <table class="applicants-table">
               <thead>
                 <tr>
-                  <th data-translate="applicant_name">Applicant</th>
-                  <th data-translate="program">Program</th>
-                  <th data-translate="applied_on">Applied On</th>
+                  <th data-translate="applicant_name_en">Applicant Name (EN)</th>
+                  <th data-translate="applicant_name_ar">Applicant Name (AR)</th>
+                  <th data-translate="email">Email</th>
+                  <th data-translate="phone_number">Phone Number</th>
+                  <th data-translate="civil_id">Civil ID</th>
                   <th data-translate="status">Status</th>
                   <th data-translate="actions">Actions</th>
                 </tr>
@@ -223,37 +196,38 @@
                 <tr>
                   <td class="applicant-name">
                     <div class="applicant-info">
-                      <div class="applicant-logo">
-                        <img src="../assets/images/Icon.png" alt="Sketch Logo"
+                      <div class="applicant-avatar">
+                        <img src="../assets/images/Icon.png" alt="Ahmed Al-Rashid Avatar"
                           onerror="this.src='../assets/images/Icon.png'">
                       </div>
-                      <div>
-                        <span>Abdul Rehman</span>
-                        <span class="sub-text">abdul.r@example.com</span>
-                      </div>
+                      <span>Ahmed Al-Rashid</span>
                     </div>
                   </td>
-                  <td class="applicant-program">
-                    <div>
-                      <span>Get Started with 3D Modeling</span>
-                      <span class="sub-text">Tech Innovators</span>
-                    </div>
-                  </td>
+                  <td>أحمد الراشد</td>
+                  <td>ahmed.rashid@email.com</td>
+                  <td>+968 9123 4567</td>
+                  <td>12345678</td>
                   <td>
-                    <div>
-                      <span>April 20, 2025</span>
-                    </div>
-                  </td>
-                  <td>
-                    <span class="status-badge approved" data-translate="approved">Approved</span>
+                    <span class="status-badge active" data-translate="active">Active</span>
                   </td>
                   <td>
                     <div class="actions-dropdown">
                       <button class="actions-btn">
                         <i class="fas fa-ellipsis-v"></i>
                       </button>
-                      <div class="dropdown-menu" data-status="approved">
-                        <!-- Dynamic content will be populated by JavaScript -->
+                      <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" data-action="view" data-translate="view">
+                          <i class="fas fa-eye"></i>
+                          <span>View</span>
+                        </a>
+                        <a href="#" class="dropdown-item" data-action="activate" data-translate="activate">
+                          <i class="fas fa-check-circle"></i>
+                          <span>Activate</span>
+                        </a>
+                        <a href="#" class="dropdown-item" data-action="deactivate" data-translate="deactivate">
+                          <i class="fas fa-times-circle"></i>
+                          <span>Deactivate</span>
+                        </a>
                       </div>
                     </div>
                   </td>
@@ -261,33 +235,38 @@
                 <tr>
                   <td class="applicant-name">
                     <div class="applicant-info">
-                      <div class="applicant-logo">
-                        <img src="../assets/images/Icon-1.png" alt="Figma Logo"
+                      <div class="applicant-avatar">
+                        <img src="../assets/images/Icon-1.png" alt="Sara Al-Zahra Avatar"
                           onerror="this.src='../assets/images/Icon-1.png'">
                       </div>
-                      <div>
-                        <span>Sara Johnson</span>
-                        <span class="sub-text">sara.j@example.com</span>
-                      </div>
+                      <span>Sara Al-Zahra</span>
                     </div>
                   </td>
-                  <td class="applicant-program">
-                    <div>
-                      <span>Learn Figma from zero to Hero</span>
-                      <span class="sub-text">Skill Builders</span>
-                    </div>
-                  </td>
-                  <td>April 20, 2025</td>
+                  <td>سارة الزهراء</td>
+                  <td>sara.zahra@email.com</td>
+                  <td>+968 9876 5432</td>
+                  <td>87654321</td>
                   <td>
-                    <span class="status-badge pending" data-translate="pending">Pending</span>
+                    <span class="status-badge active" data-translate="active">Active</span>
                   </td>
                   <td>
                     <div class="actions-dropdown">
                       <button class="actions-btn">
                         <i class="fas fa-ellipsis-v"></i>
                       </button>
-                      <div class="dropdown-menu" data-status="pending">
-                        <!-- Dynamic content will be populated by JavaScript -->
+                      <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" data-action="view" data-translate="view">
+                          <i class="fas fa-eye"></i>
+                          <span>View</span>
+                        </a>
+                        <a href="#" class="dropdown-item" data-action="activate" data-translate="activate">
+                          <i class="fas fa-check-circle"></i>
+                          <span>Activate</span>
+                        </a>
+                        <a href="#" class="dropdown-item" data-action="deactivate" data-translate="deactivate">
+                          <i class="fas fa-times-circle"></i>
+                          <span>Deactivate</span>
+                        </a>
                       </div>
                     </div>
                   </td>
@@ -295,33 +274,38 @@
                 <tr>
                   <td class="applicant-name">
                     <div class="applicant-info">
-                      <div class="applicant-logo">
-                        <img src="../assets/images/Icon-2.png" alt="Swift Logo"
+                      <div class="applicant-avatar">
+                        <img src="../assets/images/Icon-2.png" alt="Mohammed Al-Balushi Avatar"
                           onerror="this.src='../assets/images/Icon-2.png'">
                       </div>
-                      <div>
-                        <span>Bahram Elmdoust</span>
-                        <span class="sub-text">bahram.m@example.com</span>
-                      </div>
+                      <span>Mohammed Al-Balushi</span>
                     </div>
                   </td>
-                  <td class="applicant-program">
-                    <div>
-                      <span>Learn Swift language</span>
-                      <span class="sub-text">Code Academy</span>
-                    </div>
-                  </td>
-                  <td>April 20, 2025</td>
+                  <td>محمد البلوشي</td>
+                  <td>mohammed.balushi@email.com</td>
+                  <td>+968 5555 1234</td>
+                  <td>55512345</td>
                   <td>
-                    <span class="status-badge pending" data-translate="pending">Pending</span>
+                    <span class="status-badge inactive" data-translate="inactive">Inactive</span>
                   </td>
                   <td>
                     <div class="actions-dropdown">
                       <button class="actions-btn">
                         <i class="fas fa-ellipsis-v"></i>
                       </button>
-                      <div class="dropdown-menu" data-status="pending">
-                        <!-- Dynamic content will be populated by JavaScript -->
+                      <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" data-action="view" data-translate="view">
+                          <i class="fas fa-eye"></i>
+                          <span>View</span>
+                        </a>
+                        <a href="#" class="dropdown-item" data-action="activate" data-translate="activate">
+                          <i class="fas fa-check-circle"></i>
+                          <span>Activate</span>
+                        </a>
+                        <a href="#" class="dropdown-item" data-action="deactivate" data-translate="deactivate">
+                          <i class="fas fa-times-circle"></i>
+                          <span>Deactivate</span>
+                        </a>
                       </div>
                     </div>
                   </td>
@@ -329,33 +313,38 @@
                 <tr>
                   <td class="applicant-name">
                     <div class="applicant-info">
-                      <div class="applicant-logo">
-                        <img src="../assets/images/Icon-3.png" alt="Framer Logo"
+                      <div class="applicant-avatar">
+                        <img src="../assets/images/Icon-3.png" alt="Fatima Al-Kindi Avatar"
                           onerror="this.src='../assets/images/Icon-3.png'">
                       </div>
-                      <div>
-                        <span>Ashjan Al Harthy</span>
-                        <span class="sub-text">ashjan.alharthy@example.com</span>
-                      </div>
+                      <span>Fatima Al-Kindi</span>
                     </div>
                   </td>
-                  <td class="applicant-program">
-                    <div>
-                      <span>Learn Swift language</span>
-                      <span class="sub-text">Code Academy</span>
-                    </div>
-                  </td>
-                  <td>April 20, 2020</td>
+                  <td>فاطمة الكندي</td>
+                  <td>fatima.kindi@email.com</td>
+                  <td>+968 7777 8888</td>
+                  <td>77788899</td>
                   <td>
-                    <span class="status-badge rejected" data-translate="rejected">Rejected</span>
+                    <span class="status-badge active" data-translate="active">Active</span>
                   </td>
                   <td>
                     <div class="actions-dropdown">
                       <button class="actions-btn">
                         <i class="fas fa-ellipsis-v"></i>
                       </button>
-                      <div class="dropdown-menu" data-status="rejected">
-                        <!-- Dynamic content will be populated by JavaScript -->
+                      <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" data-action="view" data-translate="view">
+                          <i class="fas fa-eye"></i>
+                          <span>View</span>
+                        </a>
+                        <a href="#" class="dropdown-item" data-action="activate" data-translate="activate">
+                          <i class="fas fa-check-circle"></i>
+                          <span>Activate</span>
+                        </a>
+                        <a href="#" class="dropdown-item" data-action="deactivate" data-translate="deactivate">
+                          <i class="fas fa-times-circle"></i>
+                          <span>Deactivate</span>
+                        </a>
                       </div>
                     </div>
                   </td>
@@ -363,67 +352,38 @@
                 <tr>
                   <td class="applicant-name">
                     <div class="applicant-info">
-                      <div class="applicant-logo">
-                        <img src="../assets/images/Icon-4.png" alt="React Logo"
+                      <div class="applicant-avatar">
+                        <img src="../assets/images/Icon-4.png" alt="Omar Al-Hinai Avatar"
                           onerror="this.src='../assets/images/Icon-4.png'">
                       </div>
-                      <div>
-                        <span>Safa Aludthani</span>
-                        <span class="sub-text">safa.aludthani@example.com</span>
-                      </div>
+                      <span>Omar Al-Hinai</span>
                     </div>
                   </td>
-                  <td class="applicant-program">
-                    <div>
-                      <span>Learn Swift language</span>
-                      <span class="sub-text">Code Academy</span>
-                    </div>
-                  </td>
-                  <td>April 20, 2025</td>
+                  <td>عمر الهنائي</td>
+                  <td>omar.hinai@email.com</td>
+                  <td>+968 9999 0000</td>
+                  <td>99900011</td>
                   <td>
-                    <span class="status-badge approved" data-translate="approved">Approved</span>
+                    <span class="status-badge inactive" data-translate="inactive">Inactive</span>
                   </td>
                   <td>
                     <div class="actions-dropdown">
                       <button class="actions-btn">
                         <i class="fas fa-ellipsis-v"></i>
                       </button>
-                      <div class="dropdown-menu" data-status="approved">
-                        <!-- Dynamic content will be populated by JavaScript -->
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="applicant-name">
-                    <div class="applicant-info">
-                      <div class="applicant-logo">
-                        <img src="../assets/images/Icon.png" alt="Data Science Logo"
-                          onerror="this.src='../assets/images/Icon.png'">
-                      </div>
-                      <div>
-                        <span>Maryam Al Hinayi</span>
-                        <span class="sub-text">maryam.alhinayi@example.com</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="applicant-program">
-                    <div>
-                      <span>Learn Swift language</span>
-                      <span class="sub-text">Code Academy</span>
-                    </div>
-                  </td>
-                  <td>April 20, 2025</td>
-                  <td>
-                    <span class="status-badge rejected" data-translate="rejected">Rejected</span>
-                  </td>
-                  <td>
-                    <div class="actions-dropdown">
-                      <button class="actions-btn">
-                        <i class="fas fa-ellipsis-v"></i>
-                      </button>
-                      <div class="dropdown-menu" data-status="rejected">
-                        <!-- Dynamic content will be populated by JavaScript -->
+                      <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" data-action="view" data-translate="view">
+                          <i class="fas fa-eye"></i>
+                          <span>View</span>
+                        </a>
+                        <a href="#" class="dropdown-item" data-action="activate" data-translate="activate">
+                          <i class="fas fa-check-circle"></i>
+                          <span>Activate</span>
+                        </a>
+                        <a href="#" class="dropdown-item" data-action="deactivate" data-translate="deactivate">
+                          <i class="fas fa-times-circle"></i>
+                          <span>Deactivate</span>
+                        </a>
                       </div>
                     </div>
                   </td>
@@ -466,20 +426,20 @@
         </div>
       </div>
 
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="footer-content">
-          <p>&copy; 2025 All rights reserved. <span data-translate="ministry_info">Ministry of Transport,
-              Communications and Information Technology</span>, under the management of <span
-              data-translate="global_computer_services">Global Computer Services LLC</span>.</p>
-        </div>
-      </footer>
+     <!-- Footer -->
+			<footer class="footer">
+				<div class="footer-content">
+					<p>&copy; 2025 All rights reserved. <span data-translate="ministry_info">Ministry of Transport,
+							Communications and Information Technology</span>, under the management of <span
+							data-translate="global_computer_services">Global Computer Services LLC</span>.</p>
+				</div>
+			</footer>
     </main>
   </div>
 
   <!-- Custom JS -->
   <script src="../assets/js/admin-dashboard.js"></script>
-  <script src="../assets/js/applicant-requests.js"></script>
+  <script src="../assets/js/applicants.js"></script>
 </body>
 
 </html>

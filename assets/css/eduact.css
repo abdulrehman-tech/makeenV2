@@ -3404,8 +3404,8 @@
 # Common
 --------------------------------------------------------------*/
 :root {
-  --eduact-font: 'Urbanist', sans-serif;
-  --heading-font: 'Urbanist', sans-serif;
+  --eduact-font: 'Poppins', sans-serif;
+  --heading-font: 'Poppins', sans-serif;
   --eduact-text: #697585;
   --eduact-text-rgb: 105, 117, 133;
   --eduact-text2: #B3ADE1;

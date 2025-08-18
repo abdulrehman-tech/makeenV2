@@ -107,13 +107,13 @@ function applyLanguageStyles(lang) {
     body.classList.remove('rtl-lang');
     body.classList.remove('arabic-font');
     
-    // Reset to Urbanist font
-    body.style.fontFamily = '"Urbanist", sans-serif';
-    html.style.fontFamily = '"Urbanist", sans-serif';
+    // Reset to Poppins font
+    body.style.fontFamily = '"Poppins", sans-serif';
+    html.style.fontFamily = '"Poppins", sans-serif';
     
-    // Reset CSS variables to Urbanist font
-    document.documentElement.style.setProperty('--eduact-font', '"Urbanist", sans-serif');
-    document.documentElement.style.setProperty('--heading-font', '"Urbanist", sans-serif');
+    // Reset CSS variables to Poppins font
+    document.documentElement.style.setProperty('--eduact-font', '"Poppins", sans-serif');
+    document.documentElement.style.setProperty('--heading-font', '"Poppins", sans-serif');
   }
 }
 

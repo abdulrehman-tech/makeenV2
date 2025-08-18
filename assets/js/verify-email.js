@@ -81,10 +81,10 @@ function applyLanguageStyles(lang) {
     html.setAttribute('lang', 'en');
     body.classList.remove('rtl-lang');
     body.classList.remove('arabic-font');
-    body.style.fontFamily = '"Urbanist", sans-serif';
-    html.style.fontFamily = '"Urbanist", sans-serif';
-    document.documentElement.style.setProperty('--eduact-font', '"Urbanist", sans-serif');
-    document.documentElement.style.setProperty('--heading-font', '"Urbanist", sans-serif');
+    body.style.fontFamily = '"Poppins", sans-serif';
+    html.style.fontFamily = '"Poppins", sans-serif';
+    document.documentElement.style.setProperty('--eduact-font', '"Poppins", sans-serif');
+    document.documentElement.style.setProperty('--heading-font', '"Poppins", sans-serif');
   }
 }
 
