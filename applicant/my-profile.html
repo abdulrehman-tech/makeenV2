@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Makeen - My Profile</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/admin-dashboard.css" />
+  <link rel="stylesheet" href="../assets/css/my-profile.css" />
+</head>
+
+<body>
+  <div class="dashboard-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <img src="../assets/images/book.png" alt="Makeen Logo" />
+          <span class="brand-name">Makeen</span>
+        </div>
+        <button class="sidebar-toggle" id="sidebarToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link">
+              <img src="../assets/images/home3.svg" alt="Home" class="nav-icon" />
+              <span class="nav-text" data-translate="home">Home</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="./my-program-requests.html" class="nav-link">
+              <img src="../assets/images/element3.svg" alt="Dashboard" class="nav-icon" />
+              <span class="nav-text" data-translate="my_program_requests">My Program Requests</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a href="./my-profile.html" class="nav-link">
+              <img src="../assets/images/user.svg" alt="Programs" class="nav-icon" />
+              <span class="nav-text" data-translate="my_profile">My Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <img src="../assets/images/hand_money.svg" alt="Reimbursement" class="nav-icon" />
+              <span class="nav-text" data-translate="reimbursement">Reimbursement</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <h1 class="page-title" data-translate="my_profile">My Profile</h1>
+        </div>
+
+        <div class="header-right">
+          <div class="language-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ar">عربي</button>
+          </div>
+          <div class="user-menu">
+            <button class="user-toggle" id="userToggle">
+              <div class="user-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <span class="user-name" data-translate="applicant_name">Applicant Name</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="user-dropdown" id="userDropdown">
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-user"></i>
+                <span data-translate="profile">Profile</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-cog"></i>
+                <span data-translate="settings">Settings</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span data-translate="logout">Logout</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Area -->
+      <div class="content">
+        <div class="content-header">
+          <div class="breadcrumb">
+            <span class="breadcrumb-item" data-translate="home">Home</span>
+            <i class="breadcrumb-separator fas fa-chevron-right"></i>
+            <span class="breadcrumb-item active" data-translate="my_profile">My Profile</span>
+          </div>
+        </div>
+        <div class="content-wrapper">
+
+
+          <!-- Tab Navigation -->
+          <div class="tab-navigation">
+            <div class="tab-list">
+              <div class="tab-button active" data-tab="tab-1">
+                <span class="btn-text-en">Personal Information</span>
+                <span class="btn-text-ar" style="display: none">المعلومات الشخصية</span>
+              </div>
+              <div class="tab-button" data-tab="tab-2">
+                <span class="btn-text-en">Qualification Details</span>
+                <span class="btn-text-ar" style="display: none">تفاصيل المؤهلات</span>
+              </div>
+              <div class="tab-button" data-tab="tab-3">
+                <span class="btn-text-en">Professional Details</span>
+                <span class="btn-text-ar" style="display: none">التفاصيل المهنية</span>
+              </div>
+              <div class="tab-button" data-tab="tab-4">
+                <span class="btn-text-en">Attachments</span>
+                <span class="btn-text-ar" style="display: none">المرفقات</span>
+              </div>
+              <div class="tab-button" data-tab="tab-5">
+                <span class="btn-text-en">MOL Data</span>
+                <span class="btn-text-ar" style="display: none">بيانات وزارة العمل</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Container -->
+          <div class="form-container">
+            <!-- Tab 1: Personal Information -->
+            <div class="tab-content active" id="tab-1">
+              <div class="form-card">
+                <div class="form-header">
+                  <div class="header-content-group">
+                    <div class="title-description-group">
+                      <h2 class="form-title">
+                        <span class="form-title-en">Personal Information</span>
+                        <span class="form-title-ar" style="display: none">المعلومات الشخصية</span>
+                      </h2>
+                      <p class="form-subtitle">
+                        <span class="form-subtitle-en">Please fill your personal information in below form</span>
+                        <span class="form-subtitle-ar" style="display: none">يرجى ملء معلوماتك الشخصية في النموذج أدناه</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <form id="personalInfoForm">
+                  <!-- Photo Upload Section -->
+                  <div class="photo-upload-section">
+                    <div class="photo-placeholder">
+                      <i class="fas fa-user"></i>
+                    </div>
+                    <button type="button" class="upload-photo-btn">
+                      <span class="upload-btn-en">Upload photo</span>
+                      <span class="upload-btn-ar" style="display: none">تحميل صورة</span>
+                    </button>
+                  </div>
+
+                  <!-- Form Fields -->
+                  <div class="form-fields">
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label class="form-label">
+                          <span class="label-en">Civil ID*</span>
+                          <span class="label-ar" style="display: none">الهوية المدنية*</span>
+                        </label>
+                        <input type="text" class="form-control readonly-field" value="76543234" readonly />
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">
+                          <span class="label-en">Full Name [En]*</span>
+                          <span class="label-ar" style="display: none">الاسم الكامل [إنجليزي]*</span>
+                        </label>
+                        <input type="text" class="form-control" value="Ali Saeed Zahir Al Abri" required />
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">
+                          <span class="label-en">Full Name [Ar]*</span>
+                          <span class="label-ar" style="display: none">الاسم الكامل [عربي]*</span>
+                        </label>
+                        <input type="text" class="form-control" value="علي سعيد العبري" required />
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label class="form-label">
+                          <span class="label-en">Gender*</span>
+                          <span class="label-ar" style="display: none">الجنس*</span>
+                        </label>
+                        <div class="select-wrapper">
+                          <select class="form-control" required>
+                            <option value="male" selected data-text-en="Male" data-text-ar="ذكر">Male</option>
+                            <option value="female" data-text-en="Female" data-text-ar="أنثى">Female</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">
+                          <span class="label-en">D.O.B*</span>
+                          <span class="label-ar" style="display: none">تاريخ الميلاد*</span>
+                        </label>
+                        <input type="date" class="form-control" value="1990-03-22" required />
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">
+                          <span class="label-en">Nationality*</span>
+                          <span class="label-ar" style="display: none">الجنسية*</span>
+                        </label>
+                        <div class="select-wrapper">
+                          <select class="form-control" id="nationality" required>
+                            <option value="omani" selected data-text-en="Omani" data-text-ar="عماني">Omani</option>
+                            <option value="emirati" data-text-en="Emirati" data-text-ar="إماراتي">Emirati</option>
+                            <option value="saudi" data-text-en="Saudi" data-text-ar="سعودي">Saudi</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label class="form-label">
+                          <span class="label-en">Country of Residence*</span>
+                          <span class="label-ar" style="display: none">بلد الإقامة*</span>
+                        </label>
+                        <div class="select-wrapper">
+                          <select class="form-control" id="countryResidence" required>
+                            <option value="oman" selected data-text-en="Oman" data-text-ar="عمان">Oman</option>
+                            <option value="uae" data-text-en="UAE" data-text-ar="الإمارات">UAE</option>
+                            <option value="saudi" data-text-en="Saudi Arabia" data-text-ar="المملكة العربية السعودية">Saudi Arabia</option>
+                            <option value="other" data-text-en="Other" data-text-ar="أخرى">Other</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group oman-address-field">
+                        <label class="form-label">
+                          <span class="label-en">Governorate*</span>
+                          <span class="label-ar" style="display: none">المحافظة*</span>
+                        </label>
+                        <div class="select-wrapper">
+                          <select class="form-control" id="governorate" required>
+                            <option value="muscat" selected data-text-en="Muscat" data-text-ar="مسقط">Muscat</option>
+                            <option value="dhofar" data-text-en="Dhofar" data-text-ar="ظفار">Dhofar</option>
+                            <option value="musandam" data-text-en="Musandam" data-text-ar="مسندم">Musandam</option>
+                            <option value="buraimi" data-text-en="Al Buraimi" data-text-ar="البريمي">Al Buraimi</option>
+                            <option value="dakhiliyah" data-text-en="Ad Dakhiliyah" data-text-ar="الداخلية">Ad Dakhiliyah</option>
+                            <option value="north_batinah" data-text-en="North Al Batinah" data-text-ar="شمال الباطنة">North Al Batinah</option>
+                            <option value="south_batinah" data-text-en="South Al Batinah" data-text-ar="جنوب الباطنة">South Al Batinah</option>
+                            <option value="north_sharqiyah" data-text-en="North Ash Sharqiyah" data-text-ar="شمال الشرقية">North Ash Sharqiyah</option>
+                            <option value="south_sharqiyah" data-text-en="South Ash Sharqiyah" data-text-ar="جنوب الشرقية">South Ash Sharqiyah</option>
+                            <option value="wusta" data-text-en="Al Wusta" data-text-ar="الوسطى">Al Wusta</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group oman-address-field">
+                        <label class="form-label">
+                          <span class="label-en">Wilayat*</span>
+                          <span class="label-ar" style="display: none">الولاية*</span>
+                        </label>
+                        <div class="select-wrapper">
+                          <select class="form-control" id="wilayat" required>
+                            <option value="muscat" selected data-text-en="Muscat" data-text-ar="مسقط">Muscat</option>
+                            <option value="muttrah" data-text-en="Muttrah" data-text-ar="مطرح">Muttrah</option>
+                            <option value="seeb" data-text-en="Seeb" data-text-ar="السيب">Seeb</option>
+                            <option value="bausher" data-text-en="Bausher" data-text-ar="بوشر">Bausher</option>
+                            <option value="amerat" data-text-en="Al Amerat" data-text-ar="العامرات">Al Amerat</option>
+                            <option value="quriyat" data-text-en="Quriyat" data-text-ar="قريات">Quriyat</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-row address-row">
+                      <div class="form-group non-oman-address-field" style="display: none;">
+                        <label class="form-label">
+                          <span class="label-en">Address*</span>
+                          <span class="label-ar" style="display: none">العنوان*</span>
+                        </label>
+                        <input type="text" class="form-control" placeholder="Enter your address" data-placeholder-en="Enter your address" data-placeholder-ar="أدخل عنوانك" />
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">
+                          <span class="label-en">Phone No.*</span>
+                          <span class="label-ar" style="display: none">رقم الهاتف*</span>
+                        </label>
+                        <input type="tel" class="form-control readonly-field" value="+968 7823087" readonly />
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">
+                          <span class="label-en">Email*</span>
+                          <span class="label-ar" style="display: none">البريد الإلكتروني*</span>
+                        </label>
+                        <input type="email" class="form-control readonly-field" value="abc@gmail.com" readonly />
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">
+                          <span class="label-en">Employment Status*</span>
+                          <span class="label-ar" style="display: none">حالة التوظيف*</span>
+                        </label>
+                        <div class="select-wrapper">
+                          <select class="form-control" required>
+                            <option value="job-seeker" selected data-text-en="Job Seeker" data-text-ar="باحث عن عمل">Job Seeker</option>
+                            <option value="employed" data-text-en="Employed" data-text-ar="موظف">Employed</option>
+                            <option value="student" data-text-en="Student" data-text-ar="طالب">Student</option>
+                            <option value="freelancer" data-text-en="Freelancer" data-text-ar="مستقل">Freelancer</option>
+                            <option value="retired" data-text-en="Retired" data-text-ar="متقاعد">Retired</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mandatory-note">
+                    <span class="note-en">[*] Indicates mandatory fields</span>
+                    <span class="note-ar" style="display: none">[*] يشير إلى الحقول الإلزامية</span>
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="button" class="btn-primary" onclick="saveAndSwitchTab('tab-2');">
+                      <span class="save-btn-en">Save</span>
+                      <span class="save-btn-ar" style="display: none">حفظ</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Tab 2: Qualification Details -->
+            <div class="tab-content" id="tab-2">
+              <div class="form-card">
+                <div class="form-header">
+                  <div class="header-content-group">
+                    <div class="title-description-group">
+                      <h2 class="form-title">
+                        <span class="form-title-en">Qualification Details</span>
+                        <span class="form-title-ar" style="display: none">تفاصيل المؤهلات</span>
+                      </h2>
+                      <p class="form-subtitle">
+                        <span class="form-subtitle-en">Please fill your qualification information</span>
+                        <span class="form-subtitle-ar" style="display: none">يرجى ملء معلومات مؤهلاتك</span>
+                      </p>
+                    </div>
+                    <div class="header-action-group">
+                      <button type="button" class="btn-add-new" id="addQualificationBtn">
+                        <i class="fas fa-plus"></i>
+                        <span class="add-new-en">Add New</span>
+                        <span class="add-new-ar" style="display: none">إضافة جديد</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <form id="qualificationForm">
+
+                  <!-- Qualifications List -->
+                  <div class="qualifications-list" id="qualificationsList">
+                    <!-- Sample qualifications (will be replaced with dynamic content) -->
+                    <div class="qualification-item" data-id="1">
+                      <div class="qualification-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                      </div>
+                      <div class="qualification-content">
+                        <div class="qualification-header">
+                          <h4 class="institute-name">University of Technology and Applied Sciences</h4>
+                          <div class="qualification-actions">
+                            <button type="button" class="btn-edit" onclick="editQualification(1)">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn-delete" onclick="deleteQualification(1)">
+                              <i class="fas fa-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="qualification-details">
+                          <p class="degree-info">Master - Computer Science</p>
+                          <p class="graduation-info">Graduation Year: 2022 Grade: 3.99</p>
+                          <p class="country-info">Country: Oman</p>
+                          <p class="attachments-info">Attachments: [234567_result.pdf, 23456_23456_certificate.png]</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="qualification-item" data-id="2">
+                      <div class="qualification-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                      </div>
+                      <div class="qualification-content">
+                        <div class="qualification-header">
+                          <h4 class="institute-name">University of Technology and Applied Sciences</h4>
+                          <div class="qualification-actions">
+                            <button type="button" class="btn-edit" onclick="editQualification(2)">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn-delete" onclick="deleteQualification(2)">
+                              <i class="fas fa-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="qualification-details">
+                          <p class="degree-info">Bachelor - Computer Science</p>
+                          <p class="graduation-info">Graduation Year: 2018 Grade: 3.99</p>
+                          <p class="country-info">Country: Oman</p>
+                          <p class="attachments-info">Attachments: [234567_result.pdf, 23456_23456_certificate.png]</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="qualification-item" data-id="3">
+                      <div class="qualification-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                      </div>
+                      <div class="qualification-content">
+                        <div class="qualification-header">
+                          <h4 class="institute-name">University of Technology and Applied Sciences</h4>
+                          <div class="qualification-actions">
+                            <button type="button" class="btn-edit" onclick="editQualification(3)">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn-delete" onclick="deleteQualification(3)">
+                              <i class="fas fa-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="qualification-details">
+                          <p class="degree-info">Diploma - Computer Science</p>
+                          <p class="graduation-info">Graduation Year: 2016 Grade: 3.99</p>
+                          <p class="country-info">Country: Oman</p>
+                          <p class="attachments-info">Attachments: [234567_result.pdf, 23456_23456_certificate.png]</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Form Actions -->
+                  <div class="form-actions">
+                    <button type="button" class="btn-primary">
+                      <span class="btn-text-en">Save</span>
+                      <span class="btn-text-ar" style="display: none">حفظ</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Tab 3: Professional Details -->
+            <div class="tab-content" id="tab-3">
+              <div class="form-card">
+                <div class="form-header">
+                  <div class="header-content-group">
+                    <div class="title-description-group">
+                      <h2 class="form-title">
+                        <span class="form-title-en">Professional Details</span>
+                        <span class="form-title-ar" style="display: none">التفاصيل المهنية</span>
+                      </h2>
+                      <p class="form-subtitle">
+                        <span class="form-subtitle-en">Please fill your Professional information</span>
+                        <span class="form-subtitle-ar" style="display: none">يرجى ملء معلوماتك المهنية</span>
+                      </p>
+                    </div>
+                    <div class="header-action-group">
+                      <button type="button" class="btn-add-new" id="addProfessionalBtn">
+                        <i class="fas fa-plus"></i>
+                        <span class="btn-text-en">Add New</span>
+                        <span class="btn-text-ar" style="display: none">إضافة جديد</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <form id="professionalForm">
+                  <!-- Fresh Graduate Checkbox -->
+                  <div class="form-group">
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="freshGraduate" class="form-checkbox">
+                      <label for="freshGraduate" class="checkbox-label">
+                        <span class="label-en">Fresh Graduate</span>
+                        <span class="label-ar" style="display: none">خريج جديد</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Professional Experience List -->
+                  <div class="professional-list" id="professionalList">
+                    <!-- Sample professional experience items -->
+                    <div class="professional-item" data-id="1">
+                      <div class="professional-icon">
+                        <i class="fas fa-briefcase"></i>
+                      </div>
+                      <div class="professional-content">
+                        <div class="professional-header">
+                          <h4 class="job-title">Mobile Application Developer</h4>
+                          <div class="professional-actions">
+                            <button type="button" class="btn-edit" onclick="editProfessional(1)">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn-delete" onclick="deleteProfessional(1)">
+                              <i class="fas fa-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="professional-details">
+                          <p class="employment-type">Full-time</p>
+                          <p class="company-name">Global Computer Services</p>
+                          <p class="duration">5 years</p>
+                          <p class="location">Al Batinah North, Suwaiq Oman</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="professional-item" data-id="2">
+                      <div class="professional-icon">
+                        <i class="fas fa-briefcase"></i>
+                      </div>
+                      <div class="professional-content">
+                        <div class="professional-header">
+                          <h4 class="job-title">Python Developer</h4>
+                          <div class="professional-actions">
+                            <button type="button" class="btn-edit" onclick="editProfessional(2)">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn-delete" onclick="deleteProfessional(2)">
+                              <i class="fas fa-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="professional-details">
+                          <p class="employment-type">Part-time</p>
+                          <p class="company-name">Global Computer Services</p>
+                          <p class="duration">8 months</p>
+                          <p class="location">Al Batinah South, Al Rustaq Oman</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="professional-item" data-id="3">
+                      <div class="professional-icon">
+                        <i class="fas fa-briefcase"></i>
+                      </div>
+                      <div class="professional-content">
+                        <div class="professional-header">
+                          <h4 class="job-title">UI/UX Designer</h4>
+                          <div class="professional-actions">
+                            <button type="button" class="btn-edit" onclick="editProfessional(3)">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn-delete" onclick="deleteProfessional(3)">
+                              <i class="fas fa-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="professional-details">
+                          <p class="employment-type">Part-time</p>
+                          <p class="company-name">Global Computer Services</p>
+                          <p class="duration">8 months</p>
+                          <p class="location">Al Batinah South, Al Rustaq Oman</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Form Actions -->
+                  <div class="form-actions">
+                    <button type="button" class="btn-primary">
+                      <span class="btn-text-en">Save</span>
+                      <span class="btn-text-ar" style="display: none">حفظ</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Tab 4: Attachments -->
+            <div class="tab-content" id="tab-4">
+              <div class="form-card">
+                <div class="form-header">
+                  <div class="header-content-group">
+                    <div class="title-description-group">
+                      <h2 class="form-title">
+                        <span class="form-title-en">Attachments</span>
+                        <span class="form-title-ar" style="display: none">المرفقات</span>
+                      </h2>
+                      <p class="form-subtitle">
+                        <span class="form-subtitle-en">Please upload required documents</span>
+                        <span class="form-subtitle-ar" style="display: none">يرجى تحميل المستندات المطلوبة</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <form id="attachmentsForm">
+                  <!-- CV Upload Section -->
+                  <div class="form-group">
+                    <label class="form-label">
+                      <span class="label-en">CV/Resume*</span>
+                      <span class="label-ar" style="display: none">السيرة الذاتية*</span>
+                    </label>
+                    <div class="file-upload-area" id="cvUploadArea">
+                      <div class="upload-icon">
+                        <i class="fas fa-file-upload"></i>
+                      </div>
+                      <div class="upload-text">
+                        <span class="upload-text-en">Drag and drop your CV here or click to browse</span>
+                        <span class="upload-text-ar" style="display: none">اسحب وأفلت سيرتك الذاتية هنا أو انقر للتصفح</span>
+                      </div>
+                      <div class="file-types">
+                        <span class="file-types-en">Supported formats: PDF, DOC, DOCX (Max 5MB)</span>
+                        <span class="file-types-ar" style="display: none">الصيغ المدعومة: PDF, DOC, DOCX (الحد الأقصى 5 ميجابايت)</span>
+                      </div>
+                      <input type="file" id="cvFileInput" accept=".pdf,.doc,.docx" style="display: none;">
+                    </div>
+                    <div class="uploaded-files" id="cvUploadedFiles"></div>
+                  </div>
+
+                  <!-- Upload Summary -->
+                  <div class="upload-summary" id="uploadSummary">
+                    <div class="summary-item">
+                      <span class="summary-label">
+                        <span class="summary-label-en">CV/Resume:</span>
+                        <span class="summary-label-ar" style="display: none">السيرة الذاتية:</span>
+                      </span>
+                      <span class="summary-value" id="cvSummary" data-text-en="Not uploaded" data-text-ar="لم يتم التحميل">Not uploaded</span>
+                    </div>
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="submit" class="btn-primary">
+                      <span class="complete-btn-en">Save</span>
+                      <span class="complete-btn-ar" style="display: none">إكمال الملف الشخصي</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Tab 5: MOL Data -->
+            <div class="tab-content" id="tab-5">
+              <div class="form-card">
+                <div class="form-header">
+                  <div class="header-content-group">
+                    <div class="title-description-group">
+                      <h2 class="form-title">
+                        <span class="form-title-en">MOL Data</span>
+                        <span class="form-title-ar" style="display: none">بيانات وزارة العمل</span>
+                      </h2>
+                      <p class="form-subtitle">
+                        <span class="form-subtitle-en">Ministry of Labour verified information (Read-only)</span>
+                        <span class="form-subtitle-ar" style="display: none">معلومات وزارة العمل المعتمدة (للقراءة فقط)</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mol-data-container">
+                  <div class="mol-data-table">
+                    <div class="mol-data-row">
+                      <div class="mol-label">
+                        <span class="label-en">Civil ID</span>
+                        <span class="label-ar" style="display: none">الرقم المدني</span>
+                      </div>
+                      <div class="mol-value">67238756</div>
+                      <div class="mol-label">
+                        <span class="label-en">Civil Expiry Date</span>
+                        <span class="label-ar" style="display: none">تاريخ انتهاء الرقم المدني</span>
+                      </div>
+                      <div class="mol-value">2025-09-14</div>
+                    </div>
+                    
+                    <div class="mol-data-row">
+                      <div class="mol-label">
+                        <span class="label-en">Full name [Eng]</span>
+                        <span class="label-ar" style="display: none">الاسم الكامل [إنجليزي]</span>
+                      </div>
+                      <div class="mol-value">Ali Saeed Zahr Al Abri</div>
+                      <div class="mol-label">
+                        <span class="label-en">Full name [Arabic]</span>
+                        <span class="label-ar" style="display: none">الاسم الكامل [عربي]</span>
+                      </div>
+                      <div class="mol-value">علي سعيد ظاهر العبري</div>
+                    </div>
+                    
+                    <div class="mol-data-row">
+                      <div class="mol-label">
+                        <span class="label-en">Gender[Eng]</span>
+                        <span class="label-ar" style="display: none">الجنس [إنجليزي]</span>
+                      </div>
+                      <div class="mol-value">Male</div>
+                      <div class="mol-label">
+                        <span class="label-en">Gender[Arabic]</span>
+                        <span class="label-ar" style="display: none">الجنس [عربي]</span>
+                      </div>
+                      <div class="mol-value">ذكر</div>
+                    </div>
+                    
+                    <div class="mol-data-row">
+                      <div class="mol-label">
+                        <span class="label-en">Date of Birth</span>
+                        <span class="label-ar" style="display: none">تاريخ الميلاد</span>
+                      </div>
+                      <div class="mol-value">1997-04-17</div>
+                      <div class="mol-label">
+                        <span class="label-en">Marital Status</span>
+                        <span class="label-ar" style="display: none">الحالة الاجتماعية</span>
+                      </div>
+                      <div class="mol-value">Married</div>
+                    </div>
+                    
+                    <div class="mol-data-row">
+                      <div class="mol-label">
+                        <span class="label-en">Email</span>
+                        <span class="label-ar" style="display: none">البريد الإلكتروني</span>
+                      </div>
+                      <div class="mol-value">Tester@VF.COM</div>
+                      <div class="mol-label">
+                        <span class="label-en">Phone number</span>
+                        <span class="label-ar" style="display: none">رقم الهاتف</span>
+                      </div>
+                      <div class="mol-value">+968 78248674</div>
+                    </div>
+                    
+                    <div class="mol-data-row">
+                      <div class="mol-label">
+                        <span class="label-en">Nationality</span>
+                        <span class="label-ar" style="display: none">الجنسية</span>
+                      </div>
+                      <div class="mol-value">Omani</div>
+                      <div class="mol-label">
+                        <span class="label-en">Current Address</span>
+                        <span class="label-ar" style="display: none">العنوان الحالي</span>
+                      </div>
+                      <div class="mol-value">Muscat, Oman</div>
+                    </div>
+                    
+                    <div class="mol-data-row">
+                      <div class="mol-label">
+                        <span class="label-en">Permanent Address</span>
+                        <span class="label-ar" style="display: none">العنوان الدائم</span>
+                      </div>
+                      <div class="mol-value">Muscat, Oman</div>
+                      <div class="mol-label">
+                        <span class="label-en">Latest Education</span>
+                        <span class="label-ar" style="display: none">آخر مؤهل تعليمي</span>
+                      </div>
+                      <div class="mol-value">Bachelor's Degree</div>
+                    </div>
+                    
+                    <div class="mol-data-row">
+                      <div class="mol-label">
+                        <span class="label-en">Job Status</span>
+                        <span class="label-ar" style="display: none">حالة العمل</span>
+                      </div>
+                      <div class="mol-value">Employed</div>
+                      <div class="mol-label">
+                        <span class="label-en">Organization Sector</span>
+                        <span class="label-ar" style="display: none">قطاع المنظمة</span>
+                      </div>
+                      <div class="mol-value">IT Service</div>
+                    </div>
+                    
+                    <div class="mol-data-row">
+                      <div class="mol-label">
+                        <span class="label-en">Occupation</span>
+                        <span class="label-ar" style="display: none">المهنة</span>
+                      </div>
+                      <div class="mol-value">Software Developer</div>
+                      <div class="mol-label">
+                        <span class="label-en">Company Name</span>
+                        <span class="label-ar" style="display: none">اسم الشركة</span>
+                      </div>
+                      <div class="mol-value">Globcom</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <!-- Qualification Modal -->
+  <div class="modal-overlay" id="qualificationModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">
+          <span class="modal-title-en">Qualification Details</span>
+          <span class="modal-title-ar" style="display: none">تفاصيل المؤهلات</span>
+        </h3>
+        <button type="button" class="modal-close" id="closeQualificationModal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <form id="qualificationModalForm">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-en">Degree*</span>
+                <span class="label-ar" style="display: none">الدرجة العلمية*</span>
+              </label>
+              <div class="select-wrapper">
+                <select class="form-control" id="modalDegree" required>
+                  <option value="" data-text-en="Select Degree" data-text-ar="اختر الدرجة العلمية">Select Degree</option>
+                  <option value="diploma" data-text-en="Diploma" data-text-ar="دبلوم">Diploma</option>
+                  <option value="bachelor" data-text-en="Bachelor" data-text-ar="بكالوريوس">Bachelor</option>
+                  <option value="master" data-text-en="Master" data-text-ar="ماجستير">Master</option>
+                  <option value="phd" data-text-en="PhD" data-text-ar="دكتوراه">PhD</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-en">Major*</span>
+                <span class="label-ar" style="display: none">التخصص*</span>
+              </label>
+              <input type="text" class="form-control" id="modalMajor" placeholder="Please enter your major/specialization" data-placeholder-en="Please enter your major/specialization" data-placeholder-ar="يرجى إدخال تخصصك/مجالك" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-en">Country of Qualification*</span>
+                <span class="label-ar" style="display: none">بلد المؤهل*</span>
+              </label>
+              <div class="select-wrapper">
+                <select class="form-control" id="modalCountry" required>
+                  <option value="" data-text-en="Select Country" data-text-ar="اختر البلد">Select Country</option>
+                  <option value="oman" data-text-en="Oman" data-text-ar="عمان">Oman</option>
+                  <option value="uae" data-text-en="UAE" data-text-ar="الإمارات">UAE</option>
+                  <option value="saudi" data-text-en="Saudi Arabia" data-text-ar="المملكة العربية السعودية">Saudi Arabia</option>
+                  <option value="kuwait" data-text-en="Kuwait" data-text-ar="الكويت">Kuwait</option>
+                  <option value="qatar" data-text-en="Qatar" data-text-ar="قطر">Qatar</option>
+                  <option value="bahrain" data-text-en="Bahrain" data-text-ar="البحرين">Bahrain</option>
+                  <option value="other" data-text-en="Other" data-text-ar="أخرى">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-en">Academic Institute*</span>
+                <span class="label-ar" style="display: none">المعهد الأكاديمي*</span>
+              </label>
+              <div class="select-wrapper">
+                <select class="form-control" id="modalInstitute" required>
+                  <option value="" data-text-en="Select Institute" data-text-ar="اختر المعهد">Select Institute</option>
+                  <option value="squ" data-text-en="University of Sultan Qaboos" data-text-ar="جامعة السلطان قابوس">University of Sultan Qaboos</option>
+                  <option value="ut" data-text-en="University of Technology and Applied Sciences" data-text-ar="جامعة التقنية والعلوم التطبيقية">University of Technology and Applied Sciences</option>
+                  <option value="muscat" data-text-en="Muscat University" data-text-ar="جامعة مسقط">Muscat University</option>
+                  <option value="gulf" data-text-en="Gulf College" data-text-ar="كلية الخليج">Gulf College</option>
+                  <option value="other" data-text-en="Other" data-text-ar="أخرى">Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-en">Grade*</span>
+                <span class="label-ar" style="display: none">الدرجة*</span>
+              </label>
+              <input type="text" class="form-control" id="modalGrade" placeholder="Please enter your grade (e.g., 3.99)" data-placeholder-en="Please enter your grade (e.g., 3.99)" data-placeholder-ar="يرجى إدخال درجتك (مثال: 3.99)" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-en">Graduation Year*</span>
+                <span class="label-ar" style="display: none">سنة التخرج*</span>
+              </label>
+              <input type="date" class="form-control" id="modalGraduationYear" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              <span class="label-en">Academic certificates*</span>
+              <span class="label-ar" style="display: none">الشهادات الأكاديمية*</span>
+            </label>
+            <div class="file-upload-area" id="certificateUploadArea">
+              <div class="upload-icon">
+                <i class="fas fa-arrow-up"></i>
+              </div>
+              <p class="upload-text">
+                <span class="upload-text-en">Upload Certificates</span>
+                <span class="upload-text-ar" style="display: none">تحميل الشهادات</span>
+              </p>
+              <p class="file-types">[.docx, .pdf, .png, .jpg]</p>
+            </div>
+            <input type="file" id="certificateFiles" multiple accept=".docx,.pdf,.png,.jpg" style="display: none;" />
+            
+            <div class="uploaded-files" id="uploadedCertificates">
+              <div class="uploaded-file">
+                <span class="file-name">234567_result.pdf</span>
+                <button type="button" class="btn-remove-file">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+              <div class="uploaded-file">
+                <span class="file-name">23456_23456_certificate.png</span>
+                <button type="button" class="btn-remove-file">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="closeModalBtn">
+            <span class="btn-text-en">Close</span>
+            <span class="btn-text-ar" style="display: none">إغلاق</span>
+          </button>
+          <button type="submit" class="btn-primary">
+            <span class="btn-text-en">Save</span>
+            <span class="btn-text-ar" style="display: none">حفظ</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Professional Details Modal -->
+  <div class="modal-overlay" id="professionalModal">
+    <div class="modal-content professional-modal">
+      <div class="modal-header">
+        <h3 class="modal-title">
+          <span class="modal-title-en">Professional Details</span>
+          <span class="modal-title-ar" style="display: none">التفاصيل المهنية</span>
+        </h3>
+        <button type="button" class="modal-close" id="closeProfessionalModal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <form id="professionalModalForm">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-en">Job Title*</span>
+                <span class="label-ar" style="display: none">المسمى الوظيفي*</span>
+              </label>
+              <input type="text" class="form-control" id="modalJobTitle" placeholder="Please enter your job title" data-placeholder-en="Please enter your job title" data-placeholder-ar="يرجى إدخال المسمى الوظيفي" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-en">Employment Type*</span>
+                <span class="label-ar" style="display: none">نوع التوظيف*</span>
+              </label>
+              <div class="select-wrapper">
+                <select class="form-control" id="modalEmploymentType" required>
+                  <option value="" data-text-en="Select Type" data-text-ar="اختر النوع">Select Type</option>
+                  <option value="full-time" data-text-en="Full-time" data-text-ar="دوام كامل">Full-time</option>
+                  <option value="part-time" data-text-en="Part-time" data-text-ar="دوام جزئي">Part-time</option>
+                  <option value="contract" data-text-en="Contract" data-text-ar="عقد">Contract</option>
+                  <option value="freelance" data-text-en="Freelance" data-text-ar="مستقل">Freelance</option>
+                  <option value="internship" data-text-en="Internship" data-text-ar="تدريب">Internship</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row entity-full-width">
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-en">Entity*</span>
+                <span class="label-ar" style="display: none">الجهة*</span>
+              </label>
+              <input type="text" class="form-control" id="modalEntity" placeholder="Please enter the entity/company name" data-placeholder-en="Please enter the entity/company name" data-placeholder-ar="يرجى إدخال اسم الجهة/الشركة" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-en">Years of Experience*</span>
+                <span class="label-ar" style="display: none">سنوات الخبرة*</span>
+              </label>
+              <input type="text" class="form-control" id="modalYearsOfExperience" placeholder="Please enter years of experience (e.g., 4 Years)" data-placeholder-en="Please enter years of experience (e.g., 4 Years)" data-placeholder-ar="يرجى إدخال سنوات الخبرة (مثال: 4 سنوات)" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-en">Country of Employment*</span>
+                <span class="label-ar" style="display: none">بلد التوظيف*</span>
+              </label>
+              <div class="select-wrapper">
+                <select class="form-control" id="modalCountryOfEmployment" required>
+                  <option value="" data-text-en="Select Country" data-text-ar="اختر البلد">Select Country</option>
+                  <option value="oman" data-text-en="Oman" data-text-ar="عمان">Oman</option>
+                  <option value="uae" data-text-en="UAE" data-text-ar="الإمارات">UAE</option>
+                  <option value="saudi" data-text-en="Saudi Arabia" data-text-ar="المملكة العربية السعودية">Saudi Arabia</option>
+                  <option value="kuwait" data-text-en="Kuwait" data-text-ar="الكويت">Kuwait</option>
+                  <option value="qatar" data-text-en="Qatar" data-text-ar="قطر">Qatar</option>
+                  <option value="bahrain" data-text-en="Bahrain" data-text-ar="البحرين">Bahrain</option>
+                  <option value="other" data-text-en="Other" data-text-ar="أخرى">Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group oman-location-fields">
+              <label class="form-label">
+                <span class="label-en">Governorate*</span>
+                <span class="label-ar" style="display: none">المحافظة*</span>
+              </label>
+              <div class="select-wrapper">
+                <select class="form-control" id="modalGovernorate" required>
+                  <option value="" data-text-en="Select Governorate" data-text-ar="اختر المحافظة">Select Governorate</option>
+                  <option value="muscat" data-text-en="Muscat" data-text-ar="مسقط">Muscat</option>
+                  <option value="dhofar" data-text-en="Dhofar" data-text-ar="ظفار">Dhofar</option>
+                  <option value="musandam" data-text-en="Musandam" data-text-ar="مسندم">Musandam</option>
+                  <option value="buraimi" data-text-en="Al Buraimi" data-text-ar="البريمي">Al Buraimi</option>
+                  <option value="dakhiliyah" data-text-en="Ad Dakhiliyah" data-text-ar="الداخلية">Ad Dakhiliyah</option>
+                  <option value="north_batinah" data-text-en="North Al Batinah" data-text-ar="شمال الباطنة">North Al Batinah</option>
+                  <option value="south_batinah" data-text-en="South Al Batinah" data-text-ar="جنوب الباطنة">South Al Batinah</option>
+                  <option value="north_sharqiyah" data-text-en="North Ash Sharqiyah" data-text-ar="شمال الشرقية">North Ash Sharqiyah</option>
+                  <option value="south_sharqiyah" data-text-en="South Ash Sharqiyah" data-text-ar="جنوب الشرقية">South Ash Sharqiyah</option>
+                  <option value="dhahirah" data-text-en="Adh Dhahirah" data-text-ar="الظاهرة">Adh Dhahirah</option>
+                  <option value="wusta" data-text-en="Al Wusta" data-text-ar="الوسطى">Al Wusta</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group oman-location-fields">
+              <label class="form-label">
+                <span class="label-en">Wilayah*</span>
+                <span class="label-ar" style="display: none">الولاية*</span>
+              </label>
+              <div class="select-wrapper">
+                <select class="form-control" id="modalWilayah" required>
+                  <option value="" data-text-en="Select Wilayah" data-text-ar="اختر الولاية">Select Wilayah</option>
+                  <option value="muscat" data-text-en="Muscat" data-text-ar="مسقط">Muscat</option>
+                  <option value="muttrah" data-text-en="Muttrah" data-text-ar="مطرح">Muttrah</option>
+                  <option value="seeb" data-text-en="Seeb" data-text-ar="السيب">Seeb</option>
+                  <option value="bausher" data-text-en="Bausher" data-text-ar="بوشر">Bausher</option>
+                  <option value="amerat" data-text-en="Al Amerat" data-text-ar="العامرات">Al Amerat</option>
+                  <option value="quriyat" data-text-en="Quriyat" data-text-ar="قريات">Quriyat</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group non-oman-location-fields city-full-width">
+              <label class="form-label">
+                <span class="label-en">City*</span>
+                <span class="label-ar" style="display: none">المدينة*</span>
+              </label>
+              <input type="text" class="form-control" id="modalCity" placeholder="Please enter the city name" data-placeholder-en="Please enter the city name" data-placeholder-ar="يرجى إدخال اسم المدينة" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="closeProfessionalModalBtn">
+            <span class="btn-text-en">Close</span>
+            <span class="btn-text-ar" style="display: none">إغلاق</span>
+          </button>
+          <button type="submit" class="btn-primary">
+            <span class="btn-text-en">Save</span>
+            <span class="btn-text-ar" style="display: none">حفظ</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2025 All rights reserved. <span data-translate="ministry_info">Ministry of Transport,
+              Communications and Information Technology</span>, under the management of <span
+              data-translate="global_computer_services">Global Computer Services LLC</span>.</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- jQuery -->
+  <script src="../assets/vendors/jquery/jquery-3.5.1.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="../assets/js/my-profile.js"></script>
+  <script src="../assets/js/my-profile-tabs.js"></script>
+</body>
+
+</html>
