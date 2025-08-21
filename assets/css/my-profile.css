@@ -46,6 +46,125 @@ body[dir="rtl"] * {
   flex-direction: column;
 }
 
+/* User Dropdown Styles */
+.user-menu {
+  position: relative;
+  margin-left: 1rem;
+}
+
+.user-toggle {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #2c3e50;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.user-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #6d4c97;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  font-size: 1rem;
+}
+
+.user-name {
+  font-weight: 500;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  font-size: 0.95rem;
+  color: #2c3e50;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.user-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: #2c3e50;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  font-size: 0.9rem;
+}
+
+.dropdown-item i {
+  margin-left: 0.75rem;
+  width: 20px;
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #6d4c97;
+}
+
+.dropdown-item:hover i {
+  color: #6d4c97;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: #e9ecef;
+  margin: 0.25rem 0;
+}
+
+/* RTL Support for User Dropdown */
+[dir="rtl"] .user-avatar {
+  margin-right: 0;
+  margin-left: 0.75rem;
+}
+
+[dir="rtl"] .user-name {
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .user-dropdown {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .dropdown-item i {
+  margin-left: 0;
+  margin-right: 0.75rem;
+}
+
 /* Header Section */
 .header-section {
   background: white;

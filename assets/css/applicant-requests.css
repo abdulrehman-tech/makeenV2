@@ -114,6 +114,7 @@ body[dir="rtl"] .pagination-btn {
   transition: var(--transition-fast);
   font-weight: 500;
   position: relative;
+  font-family: 'Poppins', 'Tajawal', sans-serif;
 }
 
 .tab-btn:hover {

@@ -520,7 +520,6 @@ html[lang="ar"] .btn {
 	padding: 12px 24px;
 	border: none;
 	background: none;
-	font-family: 'Poppins', sans-serif;
 	font-weight: 500;
 	font-size: 0.95rem;
 	color: #6c757d;
@@ -529,6 +528,7 @@ html[lang="ar"] .btn {
 	transition: all 0.2s ease;
 	position: relative;
 	outline: none;
+	font-family: 'Poppins', 'Tajawal', sans-serif;
 }
 
 /* Arabic font for RTL languages */

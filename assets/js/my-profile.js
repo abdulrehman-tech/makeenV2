@@ -8,9 +8,45 @@ let professionals = [];
 let editingQualificationId = null;
 let editingProfessionalId = null;
 
+// ===== USER DROPDOWN FUNCTIONALITY =====
+function toggleUserDropdown() {
+  const dropdown = document.getElementById('userDropdown');
+  dropdown.classList.toggle('show');
+}
+
+// Close user dropdown when clicking outside
+function closeUserDropdown() {
+  const dropdowns = document.getElementsByClassName('user-dropdown');
+  for (let i = 0; i < dropdowns.length; i++) {
+    const openDropdown = dropdowns[i];
+    if (openDropdown.classList.contains('show')) {
+      openDropdown.classList.remove('show');
+    }
+  }
+}
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', function(event) {
+  if (!event.target.matches('.user-toggle, .user-toggle *')) {
+    closeUserDropdown();
+  }
+});
+
+// Initialize user dropdown
+document.addEventListener('DOMContentLoaded', function() {
+  const userToggle = document.getElementById('userToggle');
+  if (userToggle) {
+    userToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleUserDropdown();
+    });
+  }
+});
+
 $(document).ready(function() {
   // Language switching functionality
-  $('.lang-btn').on('click', function() {
+  $('.lang-btn').on('click', function(e) {
+    e.stopPropagation();
     const lang = $(this).data('lang');
     switchLanguage(lang);
   });
